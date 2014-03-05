@@ -8,7 +8,7 @@ $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-c
 $tile-border-radius: 3px;
 
 $text-color: #776E65;
-$gold-text-color: #f9f6f2;
+$bright-text-color: #f9f6f2;
 
 $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
@@ -109,6 +109,7 @@ h1 {
   @include transition(200ms ease);
   @include transition-property(top, left);
 
+  // Build position classes
   @for $x from 1 through $grid-row-cells {
     @for $y from 1 through $grid-row-cells {
       &.tile-position-#{$x}-#{$y} {
@@ -123,25 +124,50 @@ h1 {
   $exponent: 1;
   $limit: 11;
 
+  // Colors for all 11 states, false = no special color
+  $special-colors: false false, // 2
+                   false false, // 4
+                   #f78e48 true, // 8
+                   #fc5e2e true, // 16
+                   #ff3333 true, // 32
+                   #ff0000 true, // 64
+                   false true, // 128
+                   false true, // 256
+                   false true, // 512
+                   false true, // 1024
+                   false true; // 2048
+
+  // Build tile colors
   @while $exponent <= $limit {
     $power: pow($base, $exponent);
 
-    $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-
-    $gold-text-percent: min($exponent + 2, $limit) / ($limit) * 100;
-
-    $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-
     &.tile-#{$power} {
-      background: mix($tile-gold-color, $tile-color, $gold-percent);
+      // Calculate base background color
+      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
 
+      $nth-color: nth($special-colors, $exponent);
+
+      $special-background: nth($nth-color, 1);
+      $bright-color: nth($nth-color, 2);
+
+      @if $special-background {
+        $mixed-background: mix($special-background, $mixed-background, 55%);
+      }
+
+      @if $bright-color {
+        color: $bright-text-color;
+      }
+
+      // Set background
+      background: $mixed-background;
+
+      // Add glow
+      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
       box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
                   inset 0 0 0 1px rgba(white, $glow-opacity / 3);
 
-      @if $exponent >= 8 {
-        color: mix($gold-text-color, $text-color, $gold-text-percent);
-      }
-
+      // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
         font-size: 45px;
       } @else if $power >= 1000 {

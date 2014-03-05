@@ -1,0 +1,20 @@
+@import "fonts/clear-sans.css";
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  background: #faf8ef;
+  color: #776E65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+}

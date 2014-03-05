@@ -135,7 +135,7 @@ h1 {
     &.tile-#{$power} {
       background: mix($tile-gold-color, $tile-color, $gold-percent);
 
-      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.5),
+      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
                   inset 0 0 0 1px rgba(white, $glow-opacity / 3);
 
       @if $exponent >= 8 {

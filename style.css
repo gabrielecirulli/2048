@@ -6,10 +6,126 @@ html, body {
   color: #776E65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif; }
 
+body {
+  margin: 80px 0; }
+
 h1 {
   font-size: 80px;
-  font-weight: bold; }
+  font-weight: bold;
+  margin: 0; }
 
 .container {
-  width: 600px;
+  width: 500px;
   margin: 0 auto; }
+
+.game-container {
+  margin-top: 50px;
+  position: relative;
+  padding: 15px;
+  background: #bbada0;
+  border-radius: 6px;
+  width: 500px;
+  height: 500px;
+  box-sizing: border-box; }
+
+.grid-container {
+  position: absolute;
+  z-index: 1; }
+
+.grid-row {
+  margin-bottom: 15px; }
+  .grid-row:last-child {
+    margin-bottom: 0; }
+  .grid-row:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.grid-cell {
+  width: 106.25px;
+  height: 106.25px;
+  margin-right: 15px;
+  float: left;
+  border-radius: 3px;
+  background: rgba(238, 228, 218, 0.35); }
+  .grid-cell:last-child {
+    margin-right: 0; }
+
+.tile-container {
+  position: absolute;
+  z-index: 2; }
+
+.tile {
+  background: red;
+  width: 106.25px;
+  height: 106.25px;
+  border-radius: 3px;
+  background: #eee4da;
+  text-align: center;
+  line-height: 116.25px;
+  font-size: 60px;
+  font-weight: bold; }
+  .tile.tile-position-1-1 {
+    position: absolute;
+    left: 0px;
+    top: 0px; }
+  .tile.tile-position-1-2 {
+    position: absolute;
+    left: 0px;
+    top: 121.25px; }
+  .tile.tile-position-1-3 {
+    position: absolute;
+    left: 0px;
+    top: 242.5px; }
+  .tile.tile-position-1-4 {
+    position: absolute;
+    left: 0px;
+    top: 363.75px; }
+  .tile.tile-position-2-1 {
+    position: absolute;
+    left: 121.25px;
+    top: 0px; }
+  .tile.tile-position-2-2 {
+    position: absolute;
+    left: 121.25px;
+    top: 121.25px; }
+  .tile.tile-position-2-3 {
+    position: absolute;
+    left: 121.25px;
+    top: 242.5px; }
+  .tile.tile-position-2-4 {
+    position: absolute;
+    left: 121.25px;
+    top: 363.75px; }
+  .tile.tile-position-3-1 {
+    position: absolute;
+    left: 242.5px;
+    top: 0px; }
+  .tile.tile-position-3-2 {
+    position: absolute;
+    left: 242.5px;
+    top: 121.25px; }
+  .tile.tile-position-3-3 {
+    position: absolute;
+    left: 242.5px;
+    top: 242.5px; }
+  .tile.tile-position-3-4 {
+    position: absolute;
+    left: 242.5px;
+    top: 363.75px; }
+  .tile.tile-position-4-1 {
+    position: absolute;
+    left: 363.75px;
+    top: 0px; }
+  .tile.tile-position-4-2 {
+    position: absolute;
+    left: 363.75px;
+    top: 121.25px; }
+  .tile.tile-position-4-3 {
+    position: absolute;
+    left: 363.75px;
+    top: 242.5px; }
+  .tile.tile-position-4-4 {
+    position: absolute;
+    left: 363.75px;
+    top: 363.75px; }

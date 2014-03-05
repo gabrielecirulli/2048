@@ -4,7 +4,7 @@
     src: url("ClearSans-Light-webfont.eot?#iefix") format("embedded-opentype"),
          url("ClearSans-Light-webfont.svg#clear_sans_lightregular") format("svg"),
          url("ClearSans-Light-webfont.woff") format("woff");
-    font-weight: normal;
+    font-weight: 200;
     font-style: normal;
 }
 
@@ -14,7 +14,7 @@
     src: url("ClearSans-Regular-webfont.eot?#iefix") format("embedded-opentype"),
          url("ClearSans-Regular-webfont.svg#clear_sansregular") format("svg"),
          url("ClearSans-Regular-webfont.woff") format("woff");
-    font-weight: 300;
+    font-weight: normal;
     font-style: normal;
 }
 

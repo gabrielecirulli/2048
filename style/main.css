@@ -4,7 +4,8 @@ html, body {
   padding: 0;
   background: #faf8ef;
   color: #776e65;
-  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif; }
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px; }
 
 body {
   margin: 80px 0; }
@@ -14,12 +15,31 @@ h1 {
   font-weight: bold;
   margin: 0; }
 
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.65; }
+
+a {
+  color: #776e65;
+  font-weight: bold;
+  text-decoration: underline; }
+
+strong.important {
+  text-transform: uppercase; }
+
+hr {
+  border: none;
+  border-bottom: 1px solid #d8d4d0;
+  margin-top: 20px;
+  margin-bottom: 30px; }
+
 .container {
   width: 500px;
   margin: 0 auto; }
 
 .game-container {
-  margin-top: 50px;
+  margin-top: 40px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -184,3 +204,9 @@ h1 {
     background: #edc22e;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 35px; }
+
+.game-intro {
+  margin-bottom: 0; }
+
+.game-explanation {
+  margin-top: 50px; }

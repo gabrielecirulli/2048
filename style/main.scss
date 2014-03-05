@@ -21,6 +21,7 @@ html, body {
   background: #faf8ef;
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
 }
 
 body {
@@ -33,13 +34,38 @@ h1 {
   margin: 0;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+
+a {
+  color: $text-color;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+strong {
+  &.important {
+    text-transform: uppercase;
+  }
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid lighten($text-color, 40%);
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
 .container {
   width: $field-width;
   margin: 0 auto;
 }
 
 .game-container {
-  margin-top: 50px;
+  margin-top: 40px;
   position: relative;
   padding: $grid-spacing;
 
@@ -179,4 +205,10 @@ h1 {
   }
 }
 
+.game-intro {
+  margin-bottom: 0;
+}
 
+.game-explanation {
+  margin-top: 50px;
+}

@@ -129,3 +129,30 @@ h1 {
     position: absolute;
     left: 363.75px;
     top: 363.75px; }
+  .tile.tile-2 {
+    background: #eee4da; }
+  .tile.tile-4 {
+    background: #ede0ca; }
+  .tile.tile-8 {
+    background: #edddba; }
+  .tile.tile-16 {
+    background: #eddaab; }
+  .tile.tile-32 {
+    background: #edd79b; }
+  .tile.tile-64 {
+    background: #edd48b; }
+  .tile.tile-128 {
+    background: #edd17c;
+    font-size: 45px; }
+  .tile.tile-256 {
+    background: #edce6c;
+    font-size: 45px; }
+  .tile.tile-512 {
+    background: #edcb5c;
+    font-size: 45px; }
+  .tile.tile-1024 {
+    background: #edc84d;
+    font-size: 35px; }
+  .tile.tile-2048 {
+    background: #edc53d;
+    font-size: 35px; }

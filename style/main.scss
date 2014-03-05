@@ -1,3 +1,4 @@
+@import "helpers";
 @import "fonts/clear-sans.css";
 
 $field-width: 500px;
@@ -7,6 +8,7 @@ $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-c
 $tile-border-radius: 3px;
 
 $tile-color: #eee4da;
+$tile-gold-color: #edc22e;
 
 html, body {
   margin: 0;
@@ -103,6 +105,27 @@ h1 {
         top: ($tile-size + $grid-spacing) * ($y - 1);
       }
     }
+  }
+
+  $base: 2;
+  $exponent: 1;
+  $limit: 11;
+
+  @while $exponent <= $limit {
+    $power: pow($base, $exponent);
+    $percent: (($exponent - 1) / $limit) * 100;
+
+    &.tile-#{$power} {
+      background: mix($tile-gold-color, $tile-color, $percent);
+
+      @if $power >= 100 and $power < 1000 {
+        font-size: 45px;
+      } @else if $power >= 1000 {
+        font-size: 35px;
+      }
+    }
+
+    $exponent: $exponent + 1;
   }
 }
 

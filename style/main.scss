@@ -39,6 +39,11 @@ h1 {
   position: relative;
   padding: $grid-spacing;
 
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
   background: #bbada0;
   border-radius: $tile-border-radius * 2;
   width: $field-width;
@@ -94,8 +99,11 @@ h1 {
   background: $tile-color;
   text-align: center;
   line-height: $tile-size + 10px;
-  font-size: 60px;
+  font-size: 55px;
   font-weight: bold;
+
+  @include transition(200ms ease);
+  @include transition-property(top, left);
 
   @for $x from 1 through $grid-row-cells {
     @for $y from 1 through $grid-row-cells {

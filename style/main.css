@@ -22,6 +22,10 @@ h1 {
   margin-top: 50px;
   position: relative;
   padding: 15px;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   background: #bbada0;
   border-radius: 6px;
   width: 500px;
@@ -63,8 +67,12 @@ h1 {
   background: #eee4da;
   text-align: center;
   line-height: 116.25px;
-  font-size: 60px;
-  font-weight: bold; }
+  font-size: 55px;
+  font-weight: bold;
+  -webkit-transition: 200ms ease;
+  -moz-transition: 200ms ease;
+  -webkit-transition-property: top, left;
+  -moz-transition-property: top, left; }
   .tile.tile-position-1-1 {
     position: absolute;
     left: 0px;

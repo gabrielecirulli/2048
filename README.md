@@ -3,4 +3,4 @@ A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.
 
 Made just for fun.
 
-[!(Screenshot)[http://pictures.gabrielecirulli.com/2048-20140305-170629.png]](http://pictures.gabrielecirulli.com/2048-20140305-170629.png)
+[![Screenshot](http://pictures.gabrielecirulli.com/2048-20140305-170629.png)](http://pictures.gabrielecirulli.com/2048-20140305-170629.png)

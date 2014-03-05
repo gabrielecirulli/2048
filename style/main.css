@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   background: #faf8ef;
-  color: #776E65;
+  color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif; }
 
 body {
@@ -138,29 +138,44 @@ h1 {
     left: 363.75px;
     top: 363.75px; }
   .tile.tile-2 {
-    background: #eee4da; }
+    background: #eee4da;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 {
-    background: #ede0ca; }
+    background: #ede0c8;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-8 {
-    background: #edddba; }
+    background: #edddb7;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-16 {
-    background: #eddaab; }
+    background: #edd9a6;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-32 {
-    background: #edd79b; }
+    background: #edd695;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.09524), inset 0 0 0 1px rgba(255, 255, 255, 0.04762); }
   .tile.tile-64 {
-    background: #edd48b; }
+    background: #edd384;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.19048), inset 0 0 0 1px rgba(255, 255, 255, 0.09524); }
   .tile.tile-128 {
-    background: #edd17c;
+    background: #edcf72;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.28571), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
   .tile.tile-256 {
-    background: #edce6c;
+    background: #edcc61;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.38095), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+    color: #ede9e5;
     font-size: 45px; }
   .tile.tile-512 {
-    background: #edcb5c;
+    background: #edc850;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+    color: #f9f6f2;
     font-size: 45px; }
   .tile.tile-1024 {
-    background: #edc84d;
+    background: #edc53f;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.57143), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+    color: #f9f6f2;
     font-size: 35px; }
   .tile.tile-2048 {
-    background: #edc53d;
+    background: #edc22e;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.66667), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+    color: #f9f6f2;
     font-size: 35px; }

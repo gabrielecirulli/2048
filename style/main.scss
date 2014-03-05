@@ -7,15 +7,19 @@ $grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
 
+$text-color: #776E65;
+$gold-text-color: #f9f6f2;
+
 $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
+$tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 html, body {
   margin: 0;
   padding: 0;
 
   background: #faf8ef;
-  color: #776E65;
+  color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -121,10 +125,22 @@ h1 {
 
   @while $exponent <= $limit {
     $power: pow($base, $exponent);
-    $percent: (($exponent - 1) / $limit) * 100;
+
+    $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+
+    $gold-text-percent: min($exponent + 2, $limit) / ($limit) * 100;
+
+    $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
 
     &.tile-#{$power} {
-      background: mix($tile-gold-color, $tile-color, $percent);
+      background: mix($tile-gold-color, $tile-color, $gold-percent);
+
+      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.5),
+                  inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+
+      @if $exponent >= 8 {
+        color: mix($gold-text-color, $text-color, $gold-text-percent);
+      }
 
       @if $power >= 100 and $power < 1000 {
         font-size: 45px;

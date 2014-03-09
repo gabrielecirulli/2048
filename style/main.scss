@@ -133,6 +133,7 @@ hr {
   line-height: $tile-size + 10px;
   font-size: 55px;
   font-weight: bold;
+  z-index: 10;
 
   @include transition($transition-speed ease-in-out);
   @include transition-property(top, left);
@@ -142,8 +143,8 @@ hr {
     @for $y from 1 through $grid-row-cells {
       &.tile-position-#{$x}-#{$y} {
         position: absolute;
-        left: ($tile-size + $grid-spacing) * ($x - 1);
-        top: ($tile-size + $grid-spacing) * ($y - 1);
+        left: round(($tile-size + $grid-spacing) * ($x - 1));
+        top: round(($tile-size + $grid-spacing) * ($y - 1));
       }
     }
   }
@@ -192,8 +193,8 @@ hr {
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                  inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8); //,
+                  // inset 0 0 0 1px rgba(white, $glow-opacity / 3);
 
       // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
@@ -221,6 +222,24 @@ hr {
 
 .tile-new {
   @include animation(appear 200ms ease $transition-speed);
+  @include animation-fill-mode(both);
+}
+
+@include keyframes(pop) {
+  0% {
+    -webkit-transform: scale(.5);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.tile-merged {
+  z-index: 20;
+  @include animation(pop 200ms ease $transition-speed);
   @include animation-fill-mode(both);
 }
 

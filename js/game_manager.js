@@ -41,10 +41,11 @@ GameManager.prototype.actuate = function () {
   this.actuator.actuate(this.grid);
 };
 
-// Saves all the current tile positions
-GameManager.prototype.saveTilePositions = function () {
+// Save all tile positions and remove merger info
+GameManager.prototype.prepareTiles = function () {
   this.grid.eachCell(function (x, y, tile) {
     if (tile) {
+      tile.mergedFrom = null;
       tile.savePosition();
     }
   });
@@ -54,8 +55,7 @@ GameManager.prototype.saveTilePositions = function () {
 GameManager.prototype.moveTile = function (tile, cell) {
   this.grid.cells[tile.x][tile.y] = null;
   this.grid.cells[cell.x][cell.y] = tile;
-  tile.x = cell.x;
-  tile.y = cell.y;
+  tile.updatePosition(cell);
 };
 
 // Move tiles on the grid in the specified direction
@@ -67,9 +67,10 @@ GameManager.prototype.move = function (direction) {
 
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
+  var moved      = false;
 
-  // Save the current tile positions (for actuator awareness)
-  this.saveTilePositions();
+  // Save the current tile positions and remove merger information
+  this.prepareTiles();
 
   // Traverse the grid in the right direction and move tiles
   traversals.x.forEach(function (x) {
@@ -78,14 +79,32 @@ GameManager.prototype.move = function (direction) {
       tile = self.grid.cellContent(cell);
 
       if (tile) {
-        var pos = self.findFarthestPosition(cell, vector);
-        self.moveTile(tile, pos);
+        var positions = self.findFarthestPosition(cell, vector);
+        var next      = self.grid.cellContent(positions.next);
+
+        // Only one merger per row traversal?
+        if (next && next.value === tile.value && !next.mergedFrom) {
+          var merged = new Tile(positions.next, tile.value * 2);
+          merged.mergedFrom = [tile, next];
+
+          self.grid.insertTile(merged);
+          self.grid.removeTile(tile);
+
+          // Converge the two tiles' positions
+          tile.updatePosition(positions.next);
+        } else {
+          self.moveTile(tile, positions.farthest);
+        }
+
+        moved = true;
       }
     });
   });
 
-  this.addRandomTile();
-  this.actuate();
+  if (moved) {
+    this.addRandomTile();
+    this.actuate();
+  }
 };
 
 // Get the vector representing the chosen direction
@@ -124,9 +143,11 @@ GameManager.prototype.findFarthestPosition = function (cell, vector) {
   do {
     previous = cell;
     cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
-  } while (cell.x >= 0 && cell.x < this.size &&
-           cell.y >= 0 && cell.y < this.size &&
+  } while (this.grid.withinBounds(cell) &&
            this.grid.cellAvailable(cell));
 
-  return previous;
+  return {
+    farthest: previous,
+    next: cell // Used to check if a merge is required
+  };
 };

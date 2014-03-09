@@ -36,16 +36,19 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   this.tileContainer.appendChild(element);
 
-
   if (tile.previousPosition) {
     window.requestAnimationFrame(function () {
       element.classList.remove(element.classList[2]);
       element.classList.add(self.positionClass({ x: tile.x, y: tile.y }));
     });
+  } else if (tile.mergedFrom) {
+    element.classList.add("tile-merged");
+    tile.mergedFrom.forEach(function (merged) {
+      self.addTile(merged);
+    });
   } else {
     element.classList.add("tile-new");
   }
-
 };
 
 HTMLActuator.prototype.normalizePosition = function (position) {

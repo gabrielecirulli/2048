@@ -79,14 +79,12 @@ GameManager.prototype.move = function (direction) {
 
       if (tile) {
         var pos = self.findFarthestPosition(cell, vector);
-        console.log(pos);
         self.moveTile(tile, pos);
       }
     });
   });
 
   this.addRandomTile();
-  console.log(16 - this.grid.availableCells().length);
   this.actuate();
 };
 

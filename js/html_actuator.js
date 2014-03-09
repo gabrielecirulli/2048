@@ -39,7 +39,6 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   if (tile.previousPosition) {
     window.requestAnimationFrame(function () {
-      // console.log( + " === " + positionClass);
       element.classList.remove(element.classList[2]);
       element.classList.add(self.positionClass({ x: tile.x, y: tile.y }));
     });

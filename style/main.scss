@@ -14,6 +14,8 @@ $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
+$game-container-background: #bbada0;
+
 $transition-speed: 100ms;
 
 html, body {
@@ -30,10 +32,47 @@ body {
   margin: 80px 0;
 }
 
-h1 {
+.heading:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+h1.title {
   font-size: 80px;
   font-weight: bold;
   margin: 0;
+  display: block;
+  float: left;
+}
+
+.score-container {
+  $height: 25px;
+
+  position: relative;
+  float: right;
+  background: $game-container-background;
+  padding: 15px 30px;
+  font-size: $height;
+  height: $height;
+  line-height: $height + 22px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: 8px;
+
+  &:after {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    left: 0;
+    content: "Score";
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 13px;
+    text-align: center;
+    color: $tile-color;
+  }
 }
 
 p {
@@ -66,6 +105,16 @@ hr {
   margin: 0 auto;
 }
 
+@include keyframes(fade-in) {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .game-container {
   margin-top: 40px;
   position: relative;
@@ -76,11 +125,31 @@ hr {
   -webkit-user-select: none;
   -moz-user-select: none;
 
-  background: #bbada0;
+  background: $game-container-background;
   border-radius: $tile-border-radius * 2;
   width: $field-width;
   height: $field-width;
   box-sizing: border-box;
+
+  &.game-over:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "Game over!";
+    display: block;
+    background: rgba($tile-color, .5);
+    text-align: center;
+    height: $field-width;
+    line-height: $field-width;
+    z-index: 100;
+    font-size: 60px;
+    font-weight: bold;
+
+    @include animation(fade-in 800ms ease $transition-speed * 12);
+    @include animation-fill-mode(both);
+  }
 }
 
 .grid-container {
@@ -193,8 +262,11 @@ hr {
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8); //,
-                  // inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+
+      @if not $special-background {
+        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
+                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+      }
 
       // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
@@ -210,13 +282,15 @@ hr {
 
 @include keyframes(appear) {
   0% {
-    -webkit-transform: scale(1.5);
+    // -webkit-transform: scale(1.5);
     opacity: 0;
+    -webkit-transform: scale(0);
   }
 
   100% {
-    -webkit-transform: scale(1);
+    // -webkit-transform: scale(1);
     opacity: 1;
+    -webkit-transform: scale(1);
   }
 }
 
@@ -227,13 +301,17 @@ hr {
 
 @include keyframes(pop) {
   0% {
-    -webkit-transform: scale(.5);
-    opacity: 0;
+    -webkit-transform: scale(0);
+    // opacity: 0;
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
   }
 
   100% {
     -webkit-transform: scale(1);
-    opacity: 1;
+    // opacity: 1;
   }
 }
 

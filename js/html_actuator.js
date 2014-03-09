@@ -1,8 +1,10 @@
 function HTMLActuator() {
-  this.tileContainer = document.getElementsByClassName("tile-container")[0];
+  this.tileContainer  = document.getElementsByClassName("tile-container")[0];
+  this.gameContainer  = document.getElementsByClassName("game-container")[0];
+  this.scoreContainer = document.getElementsByClassName("score-container")[0];
 }
 
-HTMLActuator.prototype.actuate = function (grid) {
+HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
   window.requestAnimationFrame(function () {
@@ -15,6 +17,12 @@ HTMLActuator.prototype.actuate = function (grid) {
         }
       });
     });
+
+    self.updateScore(metadata.score);
+
+    if (metadata.over) {
+      self.gameOver();
+    }
   });
 };
 
@@ -58,4 +66,12 @@ HTMLActuator.prototype.normalizePosition = function (position) {
 HTMLActuator.prototype.positionClass = function (position) {
   position = this.normalizePosition(position);
   return "tile-position-" + position.x + "-" + position.y;
+};
+
+HTMLActuator.prototype.updateScore = function (score) {
+  this.scoreContainer.textContent = score;
+};
+
+HTMLActuator.prototype.gameOver = function () {
+  this.gameContainer.classList.add("game-over");
 };

@@ -29,17 +29,27 @@ Grid.prototype.randomAvailableCell = function () {
 Grid.prototype.availableCells = function () {
   var cells = [];
 
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
-      var cell = { x: x, y: y };
-
-      if (this.cellAvailable(cell)) {
-        cells.push(cell);
-      }
+  this.eachCell(function (x, y, tile) {
+    if (!tile) {
+      cells.push({ x: x, y: y });
     }
-  }
+  });
 
   return cells;
+};
+
+// Call callback for every cell
+Grid.prototype.eachCell = function (callback) {
+  for (var x = 0; x < this.size; x++) {
+    for (var y = 0; y < this.size; y++) {
+      callback(x, y, this.cells[x][y]);
+    }
+  }
+};
+
+// Check if there are any cells available
+Grid.prototype.cellsAvailable = function () {
+  return !!this.availableCells().length;
 };
 
 // Check if the specified cell is taken
@@ -48,7 +58,11 @@ Grid.prototype.cellAvailable = function (cell) {
 };
 
 Grid.prototype.cellOccupied = function (cell) {
-  return !!this.cells[cell.x][cell.y];
+  return !!this.cellContent(cell);
+};
+
+Grid.prototype.cellContent = function (cell) {
+  return this.cells[cell.x][cell.y];
 };
 
 // Inserts a tile at its position

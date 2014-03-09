@@ -30,3 +30,26 @@
   -webkit-transition-property: $args;
   -moz-transition-property: $args;
 }
+
+// Keyframe animations
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+}
+
+@mixin animation-fill-mode($str) {
+  -webkit-animation-fill-mode: #{$str};
+  -moz-animation-fill-mode: #{$str};
+}

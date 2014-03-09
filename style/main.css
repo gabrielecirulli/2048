@@ -89,8 +89,8 @@ hr {
   line-height: 116.25px;
   font-size: 55px;
   font-weight: bold;
-  -webkit-transition: 200ms ease;
-  -moz-transition: 200ms ease;
+  -webkit-transition: 100ms ease-in-out;
+  -moz-transition: 100ms ease-in-out;
   -webkit-transition-property: top, left;
   -moz-transition-property: top, left; }
   .tile.tile-position-1-1 {
@@ -204,6 +204,39 @@ hr {
     background: #edc22e;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 35px; }
+
+@-webkit-keyframes appear {
+  0% {
+    -webkit-transform: scale(1.5);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1; } }
+
+@-moz-keyframes appear {
+  0% {
+    -webkit-transform: scale(1.5);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1; } }
+
+@keyframes appear {
+  0% {
+    -webkit-transform: scale(1.5);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1; } }
+
+.tile-new {
+  -webkit-animation: appear 200ms ease 100ms;
+  -moz-animation: appear 200ms ease 100ms;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both; }
 
 .game-intro {
   margin-bottom: 0; }

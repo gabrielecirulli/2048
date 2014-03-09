@@ -89,4 +89,5 @@ HTMLActuator.prototype.updateScore = function (score) {
 HTMLActuator.prototype.message = function (won) {
   var type = won ? "game-won" : "game-over";
   this.gameContainer.classList.add(type);
+  if (ga) ga("send", "event", "game", "end", type, this.score);
 };

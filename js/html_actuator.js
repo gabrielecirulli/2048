@@ -22,9 +22,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     self.updateScore(metadata.score);
 
-    if (metadata.over) {
-      self.gameOver();
-    }
+    if (metadata.over) self.message(false); // You lose
+    if (metadata.won) self.message(true); // You win!
   });
 };
 
@@ -87,6 +86,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 };
 
-HTMLActuator.prototype.gameOver = function () {
-  this.gameContainer.classList.add("game-over");
+HTMLActuator.prototype.message = function (won) {
+  var type = won ? "game-won" : "game-over";
+  this.gameContainer.classList.add(type);
 };

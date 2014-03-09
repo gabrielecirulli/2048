@@ -53,7 +53,7 @@ h1.title {
   position: relative;
   float: right;
   background: #bbada0;
-  padding: 15px 30px;
+  padding: 15px 20px;
   font-size: 25px;
   height: 25px;
   line-height: 47px;
@@ -143,13 +143,12 @@ hr {
   width: 500px;
   height: 500px;
   box-sizing: border-box; }
-  .game-container.game-over:after {
+  .game-container.game-over:after, .game-container.game-won:after {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    content: "Game over!";
     display: block;
     background: rgba(238, 228, 218, 0.5);
     text-align: center;
@@ -162,6 +161,12 @@ hr {
     -moz-animation: fade-in 800ms ease 1200ms;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both; }
+  .game-container.game-over:after {
+    content: "Game over!"; }
+  .game-container.game-won:after {
+    content: "You win!";
+    background: rgba(237, 194, 46, 0.5);
+    color: #f9f6f2; }
 
 .grid-container {
   position: absolute;

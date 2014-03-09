@@ -64,7 +64,7 @@ h1.title {
   position: relative;
   float: right;
   background: $game-container-background;
-  padding: 15px 30px;
+  padding: 15px 20px;
   font-size: $height;
   height: $height;
   line-height: $height + 22px;
@@ -156,24 +156,35 @@ hr {
   height: $field-width;
   box-sizing: border-box;
 
-  &.game-over:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: "Game over!";
-    display: block;
-    background: rgba($tile-color, .5);
-    text-align: center;
-    height: $field-width;
-    line-height: $field-width;
-    z-index: 100;
-    font-size: 60px;
-    font-weight: bold;
+  &.game-over, &.game-won {
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      background: rgba($tile-color, .5);
+      text-align: center;
+      height: $field-width;
+      line-height: $field-width;
+      z-index: 100;
+      font-size: 60px;
+      font-weight: bold;
 
-    @include animation(fade-in 800ms ease $transition-speed * 12);
-    @include animation-fill-mode(both);
+      @include animation(fade-in 800ms ease $transition-speed * 12);
+      @include animation-fill-mode(both);
+    }
+  }
+
+  &.game-over:after {
+    content: "Game over!";
+  }
+
+  &.game-won:after {
+    content: "You win!";
+    background: rgba($tile-gold-color, .5);
+    color: $bright-text-color;
   }
 }
 

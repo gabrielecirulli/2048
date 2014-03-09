@@ -2,13 +2,15 @@ function HTMLActuator() {
   this.tileContainer  = document.getElementsByClassName("tile-container")[0];
   this.gameContainer  = document.getElementsByClassName("game-container")[0];
   this.scoreContainer = document.getElementsByClassName("score-container")[0];
+
+  this.score = 0;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
   window.requestAnimationFrame(function () {
-    self.clearContainer();
+    self.clearContainer(self.tileContainer);
 
     grid.cells.forEach(function (column) {
       column.forEach(function (cell) {
@@ -26,9 +28,9 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
   });
 };
 
-HTMLActuator.prototype.clearContainer = function () {
-  while (this.tileContainer.firstChild) {
-    this.tileContainer.removeChild(this.tileContainer.firstChild);
+HTMLActuator.prototype.clearContainer = function (container) {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
   }
 };
 
@@ -69,7 +71,20 @@ HTMLActuator.prototype.positionClass = function (position) {
 };
 
 HTMLActuator.prototype.updateScore = function (score) {
-  this.scoreContainer.textContent = score;
+  this.clearContainer(this.scoreContainer);
+
+  var difference = score - this.score;
+  this.score = score;
+
+  this.scoreContainer.textContent = this.score;
+
+  if (difference) {
+    var addition = document.createElement("div");
+    addition.classList.add("score-addition");
+    addition.textContent = "+" + difference;
+
+    this.scoreContainer.appendChild(addition);
+  }
 };
 
 HTMLActuator.prototype.gameOver = function () {

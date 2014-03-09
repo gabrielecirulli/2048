@@ -103,11 +103,15 @@ GameManager.prototype.move = function (direction) {
 
           // Update the score
           self.score += merged.value;
+
+          // Something's moved for sure
         } else {
           self.moveTile(tile, positions.farthest);
         }
 
-        moved = true;
+        if (!self.positionsEqual(cell, tile)) {
+          moved = true; // The tile moved from its original cell!
+        }
       }
     });
   });
@@ -200,4 +204,8 @@ GameManager.prototype.tileMatchesAvailable = function () {
   }
 
   return false;
+};
+
+GameManager.prototype.positionsEqual = function (first, second) {
+  return first.x === second.x && first.y === second.y;
 };

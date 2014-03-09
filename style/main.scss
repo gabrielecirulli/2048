@@ -46,6 +46,18 @@ h1.title {
   float: left;
 }
 
+@include keyframes(move-up) {
+  0% {
+    top: 25px;
+    opacity: 1;
+  }
+
+  100% {
+    top: -50px;
+    opacity: 0;
+  }
+}
+
 .score-container {
   $height: 25px;
 
@@ -72,6 +84,19 @@ h1.title {
     line-height: 13px;
     text-align: center;
     color: $tile-color;
+  }
+
+  .score-addition {
+    position: absolute;
+    right: 30px;
+    color: red;
+    font-size: $height;
+    line-height: $height;
+    font-weight: bold;
+    color: rgba($text-color, .9);
+    z-index: 100;
+    @include animation(move-up 600ms ease-in);
+    @include animation-fill-mode(both);
   }
 }
 

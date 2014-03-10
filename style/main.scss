@@ -180,16 +180,22 @@ hr {
       // line-height: $field-width;
     }
 
+    .lower {
+      display: block;
+      margin-top: 59px;
+    }
+
     a {
       display: inline-block;
-      background: darken($game-container-background, 10%);
+      background: darken($game-container-background, 20%);
       border-radius: 3px;
       padding: 0 20px;
       text-decoration: none;
       color: $bright-text-color;
       height: 40px;
       line-height: 42px;
-      margin-top: 59px;
+      margin-left: 9px;
+      // margin-top: 59px;
     }
 
     @include animation(fade-in 800ms ease $transition-speed * 12);

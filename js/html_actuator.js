@@ -91,8 +91,6 @@ HTMLActuator.prototype.updateScore = function (score) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  if (ga) ga("send", "event", "game", "end", type, this.score);
-
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!"
 

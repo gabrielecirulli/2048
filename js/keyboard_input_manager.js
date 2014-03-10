@@ -40,4 +40,10 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", mapped);
     }
   });
+
+  var retry = document.getElementsByClassName("retry-button")[0];
+  retry.addEventListener("click", function (event) {
+    event.preventDefault();
+    self.emit("restart");
+  });
 };

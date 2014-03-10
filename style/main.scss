@@ -110,6 +110,7 @@ a {
   color: $text-color;
   font-weight: bold;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 strong {
@@ -156,35 +157,52 @@ hr {
   height: $field-width;
   box-sizing: border-box;
 
-  &.game-over, &.game-won {
-    &:after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: block;
-      background: rgba($tile-color, .5);
-      text-align: center;
-      height: $field-width;
-      line-height: $field-width;
-      z-index: 100;
+  .game-message {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($tile-color, .5);
+    z-index: 100;
+
+    text-align: center;
+
+    p {
       font-size: 60px;
       font-weight: bold;
-
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
+      height: 60px;
+      line-height: 60px;
+      margin-top: 222px;
+      // height: $field-width;
+      // line-height: $field-width;
     }
-  }
 
-  &.game-over:after {
-    content: "Game over!";
-  }
+    a {
+      display: inline-block;
+      background: darken($game-container-background, 10%);
+      border-radius: 3px;
+      padding: 0 20px;
+      text-decoration: none;
+      color: $bright-text-color;
+      height: 40px;
+      line-height: 42px;
+      margin-top: 59px;
+    }
 
-  &.game-won:after {
-    content: "You win!";
-    background: rgba($tile-gold-color, .5);
-    color: $bright-text-color;
+    @include animation(fade-in 800ms ease $transition-speed * 12);
+    @include animation-fill-mode(both);
+
+    &.game-won {
+      background: rgba($tile-gold-color, .5);
+      color: $bright-text-color;
+    }
+
+    &.game-won, &.game-over {
+      display: block;
+    }
   }
 }
 

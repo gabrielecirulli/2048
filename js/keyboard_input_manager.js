@@ -35,15 +35,21 @@ KeyboardInputManager.prototype.listen = function () {
                     event.shiftKey;
     var mapped    = map[event.which];
 
-    if (!modifiers && mapped !== undefined) {
-      event.preventDefault();
-      self.emit("move", mapped);
+    if (!modifiers) {
+      if (mapped !== undefined) {
+        event.preventDefault();
+        self.emit("move", mapped);
+      }
+
+      if (event.which === 32) self.restart.bind(self)(event);
     }
   });
 
   var retry = document.getElementsByClassName("retry-button")[0];
-  retry.addEventListener("click", function (event) {
-    event.preventDefault();
-    self.emit("restart");
-  });
+  retry.addEventListener("click", this.restart.bind(this));
+};
+
+KeyboardInputManager.prototype.restart = function (event) {
+  event.preventDefault();
+  this.emit("restart");
 };

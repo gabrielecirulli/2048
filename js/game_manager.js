@@ -1,7 +1,8 @@
-function GameManager(size, InputManager, Actuator) {
+function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.size         = size; // Size of the grid
   this.inputManager = new InputManager;
-  this.actuator     = new Actuator;
+  this.scoreManager = new ScoreManager;
+  this.actuator     = new Actuator(this.scoreManager.isSupported());
 
   this.startTiles   = 2;
 
@@ -51,11 +52,17 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
+  if (this.scoreManager.get() < this.score) {
+    this.scoreManager.set(this.score);
+  }
+
   this.actuator.actuate(this.grid, {
-    score: this.score,
-    over:  this.over,
-    won:   this.won
+    score:     this.score,
+    over:      this.over,
+    won:       this.won,
+    bestScore: this.scoreManager.get()
   });
+
 };
 
 // Save all tile positions and remove merger info

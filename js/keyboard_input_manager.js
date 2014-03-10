@@ -35,10 +35,11 @@ KeyboardInputManager.prototype.listen = function () {
   };
 
   document.addEventListener("keydown", function (event) {
-    var modifiers = event.altKey && event.ctrlKey && event.metaKey &&
+    var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];
 
+    console.log(event);
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();

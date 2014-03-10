@@ -39,7 +39,6 @@ KeyboardInputManager.prototype.listen = function () {
                     event.shiftKey;
     var mapped    = map[event.which];
 
-    console.log(event);
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();

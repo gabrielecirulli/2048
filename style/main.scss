@@ -155,6 +155,8 @@ hr {
   border-radius: $tile-border-radius * 2;
   width: $field-width;
   height: $field-width;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 
   .game-message {
@@ -342,15 +344,15 @@ hr {
 
 @include keyframes(appear) {
   0% {
-    // -webkit-transform: scale(1.5);
     opacity: 0;
     -webkit-transform: scale(0);
+    -moz-transform: scale(0);
   }
 
   100% {
-    // -webkit-transform: scale(1);
     opacity: 1;
     -webkit-transform: scale(1);
+    -moz-transform: scale(1);
   }
 }
 
@@ -362,16 +364,17 @@ hr {
 @include keyframes(pop) {
   0% {
     -webkit-transform: scale(0);
-    // opacity: 0;
+    -moz-transform: scale(0);
   }
 
   50% {
     -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
   }
 
   100% {
     -webkit-transform: scale(1);
-    // opacity: 1;
+    -moz-transform: scale(1);
   }
 }
 

@@ -143,6 +143,8 @@ hr {
   border-radius: 6px;
   width: 500px;
   height: 500px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
   .game-container .game-message {
     display: none;
@@ -336,29 +338,35 @@ hr {
 @-webkit-keyframes appear {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0); }
 
   100% {
     opacity: 1;
-    -webkit-transform: scale(1); } }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1); } }
 
 @-moz-keyframes appear {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0); }
 
   100% {
     opacity: 1;
-    -webkit-transform: scale(1); } }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1); } }
 
 @keyframes appear {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0); }
 
   100% {
     opacity: 1;
-    -webkit-transform: scale(1); } }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1); } }
 
 .tile-new {
   -webkit-animation: appear 200ms ease 100ms;
@@ -368,33 +376,42 @@ hr {
 
 @-webkit-keyframes pop {
   0% {
-    -webkit-transform: scale(0); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0); }
 
   50% {
-    -webkit-transform: scale(1.2); }
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2); }
 
   100% {
-    -webkit-transform: scale(1); } }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1); } }
 
 @-moz-keyframes pop {
   0% {
-    -webkit-transform: scale(0); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0); }
 
   50% {
-    -webkit-transform: scale(1.2); }
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2); }
 
   100% {
-    -webkit-transform: scale(1); } }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1); } }
 
 @keyframes pop {
   0% {
-    -webkit-transform: scale(0); }
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0); }
 
   50% {
-    -webkit-transform: scale(1.2); }
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2); }
 
   100% {
-    -webkit-transform: scale(1); } }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1); } }
 
 .tile-merged {
   z-index: 20;

@@ -4,19 +4,28 @@ function GameManager(size, InputManager, Actuator) {
   this.actuator     = new Actuator;
 
   this.startTiles   = 2;
+
+  this.inputManager.on("move", this.move.bind(this));
+  this.inputManager.on("restart", this.restart.bind(this));
+
+  this.setup();
+}
+
+// Restart the game
+GameManager.prototype.restart = function () {
+  this.actuator.restart();
+  this.setup();
+};
+
+// Set up the game
+GameManager.prototype.setup = function () {
   this.grid         = new Grid(this.size);
 
   this.score        = 0;
   this.over         = false;
   this.won          = false;
 
-  this.inputManager.on("move", this.move.bind(this));
-
-  this.setup();
-}
-
-// Set up the game
-GameManager.prototype.setup = function () {
+  // Add the initial tiles
   this.addStartTiles();
 
   // Update the actuator

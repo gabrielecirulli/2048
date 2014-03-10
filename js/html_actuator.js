@@ -1,7 +1,7 @@
 function HTMLActuator() {
-  this.tileContainer  = document.getElementsByClassName("tile-container")[0];
-  this.gameContainer  = document.getElementsByClassName("game-container")[0];
-  this.scoreContainer = document.getElementsByClassName("score-container")[0];
+  this.tileContainer    = document.getElementsByClassName("tile-container")[0];
+  this.scoreContainer   = document.getElementsByClassName("score-container")[0];
+  this.messageContainer = document.getElementsByClassName("game-message")[0];
 
   this.score = 0;
 }
@@ -25,6 +25,10 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     if (metadata.over) self.message(false); // You lose
     if (metadata.won) self.message(true); // You win!
   });
+};
+
+HTMLActuator.prototype.restart = function () {
+  this.clearMessage();
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -77,7 +81,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 
   this.scoreContainer.textContent = this.score;
 
-  if (difference) {
+  if (difference > 0) {
     var addition = document.createElement("div");
     addition.classList.add("score-addition");
     addition.textContent = "+" + difference;
@@ -87,6 +91,15 @@ HTMLActuator.prototype.updateScore = function (score) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var type = won ? "game-won" : "game-over";
-  this.gameContainer.classList.add(type);
+  if (ga) ga("send", "event", "game", "end", type, this.score);
+
+  var type    = won ? "game-won" : "game-over";
+  var message = won ? "You win!" : "Game over!"
+
+  this.messageContainer.classList.add(type);
+  this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+};
+
+HTMLActuator.prototype.clearMessage = function () {
+  this.messageContainer.classList.remove("game-won", "game-over");
 };

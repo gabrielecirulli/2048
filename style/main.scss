@@ -521,9 +521,10 @@ hr {
     
     padding-bottom: 7px;
 
-    top: 40px;
+    top: -30px;
     opacity: 0;
-    @include transition(200ms ease);
+    pointer-events: none;
+    @include transition(400ms ease);
     @include transition-property(top, opacity);
 
     &:after {
@@ -555,6 +556,7 @@ hr {
     .address {
       opacity: 1;
       top: -45px;
+      pointer-events: auto;
     }
   }
 }

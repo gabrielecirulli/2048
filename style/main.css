@@ -667,10 +667,11 @@ hr {
     right: 50%;
     margin-right: -170px;
     padding-bottom: 7px;
-    top: 40px;
+    top: -30px;
     opacity: 0;
-    -webkit-transition: 200ms ease;
-    -moz-transition: 200ms ease;
+    pointer-events: none;
+    -webkit-transition: 400ms ease;
+    -moz-transition: 400ms ease;
     -webkit-transition-property: top, opacity;
     -moz-transition-property: top, opacity; }
     .btc-donate .address:after {
@@ -694,4 +695,5 @@ hr {
       text-align: center; }
   .btc-donate:hover .address, .btc-donate .address:hover .address {
     opacity: 1;
-    top: -45px; }
+    top: -45px;
+    pointer-events: auto; }

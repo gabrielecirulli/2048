@@ -114,3 +114,11 @@ HTMLActuator.prototype.message = function (won) {
 HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won", "game-over");
 };
+
+HTMLActuator.prototype.showHint = function(hint) {
+  document.getElementById('feedback-container').innerHTML = ['↑','→','↓','←'][hint];
+}
+
+HTMLActuator.prototype.setRunButton = function(message) {
+  document.getElementById('run-button').innerHTML = message;
+}

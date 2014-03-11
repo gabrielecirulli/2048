@@ -407,11 +407,11 @@ Grid.prototype.monotonicity = function() {
       }
     }
   }
-  /*
 
 
 }
 
+  */
 // check for win
 Grid.prototype.isWin = function() {
   var self = this;

@@ -559,4 +559,22 @@ hr {
       pointer-events: auto;
     }
   }
+
+  // Styles for small screens
+  @include smaller(480px) {
+    .address{
+      margin-right: -85px;
+      // background: red;
+      width: 300px;
+
+      code {
+        font-size: 13px;
+      }
+
+      &:after {
+        left: 73%;
+        bottom: 2px;
+      }
+    }
+  }
 }

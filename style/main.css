@@ -697,3 +697,12 @@ hr {
     opacity: 1;
     top: -45px;
     pointer-events: auto; }
+  @media screen and (max-width: 480px) {
+    .btc-donate .address {
+      margin-right: -85px;
+      width: 300px; }
+      .btc-donate .address code {
+        font-size: 13px; }
+      .btc-donate .address:after {
+        left: 73%;
+        bottom: 2px; } }

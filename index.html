@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -14,12 +14,27 @@
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
 
+  <script>
+        function showHideAbout(anchor) {
+            if (document.getElementById('gamePage').style.display == 'none')
+            {
+                document.getElementById('aboutPage').style.display == 'none'
+                document.getElementById('gamePage').style.display = 'block';
+            }
+            else
+            {
+                document.getElementById('aboutPage').style.display == 'block'
+                document.getElementById('gamePage').style.display = 'none';
+            }
+        }
+  </script>
+
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-  <div class="container">
+  <div id="gamePage" class="container">
     <div class="heading">
       <h1 class="title">2048</h1>
       <div class="score-container">0</div>
@@ -65,14 +80,26 @@
 
       </div>
     </div>
-
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-    </p>
-    <hr>
-    <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
-    </p>
+      <p class="game-explanation" onclick="showHideAbout(this)">
+          <strong class="important">About/Help</strong>
+      </p>
   </div>
+    <div id="aboutPage">
+        <p class="game-explanation">
+        <strong class="important">How to play:</strong> Swipe <strong>left</strong>, <strong>right</strong>, <strong>up</strong> or <strong>down</strong> on the board to make the tiles move in the respective direction. When two tiles with the same number touch, they <strong>merge into one!</strong>
+</p>
+        <hr>
+        <p>
+            Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+        </p>
+        <hr>
+        <p>
+            Windows Phone 8 port by <a href="http://www.tomuta.ro" target="_blank">Lucian Tomuta</a>.
+        </p>
+
+        <p class="game-explanation" onclick="showHideAbout(this)">
+            <strong class="important">Back</strong>
+        </p>
+    </div>
 </body>
 </html>

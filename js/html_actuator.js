@@ -109,7 +109,7 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!"
 
-  if (ga) ga("send", "event", "game", "end", type, this.score);
+  // if (ga) ga("send", "event", "game", "end", type, this.score);
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
@@ -136,3 +136,12 @@ HTMLActuator.prototype.scoreTweetButton = function () {
 
   return tweet;
 };
+
+
+HTMLActuator.prototype.showHint = function(hint) {
+  document.getElementById('feedback-container').innerHTML = ['↑','→','↓','←'][hint];
+}
+
+HTMLActuator.prototype.setRunButton = function(message) {
+  document.getElementById('run-button').innerHTML = message;
+}

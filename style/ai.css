@@ -1,0 +1,22 @@
+.controls {
+  margin-top: 1em;
+  padding: 0.5em;
+  overflow: auto;
+}
+
+.ai-button, #feedback-container {
+  font-size: xx-large;
+}
+
+#run-button-container {
+  float: right;
+}
+
+#hint-button-container, #feedback-container {
+  float: left;
+}
+
+#feedback-container {
+  margin-left: 1em;
+  font-weight: bold;
+}

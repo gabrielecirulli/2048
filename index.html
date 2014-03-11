@@ -24,6 +24,16 @@
     </div>
     <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
 
+    <div class='controls'>
+      <div id='hint-button-container'>
+        <button id='hint-button' class='ai-button'>Get Hint</button>
+      </div>
+      <div id='feedback-container'> </div>
+      <div id='run-button-container'>
+        <button id='run-button' class='ai-button'>Auto-run</button>
+      </div>
+    </div>
+
     <div class="game-container">
       <div class="game-message">
         <p></p>
@@ -71,6 +81,7 @@
     <hr>
     <p>
     Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+    AI by Matt Overlan
     </p>
     <div class="sharing">
       <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out 2048, a game where you join numbers to score high! #2048game" data-via="gabrielecirulli">Tweet</a>
@@ -90,6 +101,7 @@
   <script src="js/html_actuator.js"></script>
   <script src="js/grid.js"></script>
   <script src="js/tile.js"></script>
+  <script src="js/ai.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
 

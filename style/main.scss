@@ -419,6 +419,11 @@ hr {
 .sharing {
   margin-top: 20px;
   text-align: center;
+
+  > iframe, span {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 @include smaller(480px) {

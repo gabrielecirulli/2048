@@ -449,6 +449,9 @@ hr {
 .sharing {
   margin-top: 20px;
   text-align: center; }
+  .sharing > iframe, .sharing span {
+    display: inline-block;
+    vertical-align: middle; }
 
 @media screen and (max-width: 480px) {
   html, body {

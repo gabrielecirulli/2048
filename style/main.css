@@ -213,20 +213,9 @@ hr {
   z-index: 2; }
 
 .tile {
-  background: red;
   width: 106.25px;
   height: 106.25px;
-  border-radius: 3px;
-  background: #eee4da;
-  text-align: center;
-  line-height: 116.25px;
-  font-size: 55px;
-  font-weight: bold;
-  z-index: 10;
-  -webkit-transition: 100ms ease-in-out;
-  -moz-transition: 100ms ease-in-out;
-  -webkit-transition-property: top, left;
-  -moz-transition-property: top, left; }
+  line-height: 116.25px; }
   .tile.tile-position-1-1 {
     position: absolute;
     left: 0px;
@@ -291,6 +280,18 @@ hr {
     position: absolute;
     left: 364px;
     top: 364px; }
+
+.tile {
+  border-radius: 3px;
+  background: #eee4da;
+  text-align: center;
+  font-weight: bold;
+  z-index: 10;
+  font-size: 55px;
+  -webkit-transition: 100ms ease-in-out;
+  -moz-transition: 100ms ease-in-out;
+  -webkit-transition-property: top, left;
+  -moz-transition-property: top, left; }
   .tile.tile-2 {
     background: #eee4da;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
@@ -314,26 +315,41 @@ hr {
     background: #edcf72;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
+    @media screen and (max-width: 480px) {
+      .tile.tile-128 {
+        font-size: 25px; } }
   .tile.tile-256 {
     color: #f9f6f2;
     background: #edcc61;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 45px; }
+    @media screen and (max-width: 480px) {
+      .tile.tile-256 {
+        font-size: 25px; } }
   .tile.tile-512 {
     color: #f9f6f2;
     background: #edc850;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 45px; }
+    @media screen and (max-width: 480px) {
+      .tile.tile-512 {
+        font-size: 25px; } }
   .tile.tile-1024 {
     color: #f9f6f2;
     background: #edc53f;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 35px; }
+    @media screen and (max-width: 480px) {
+      .tile.tile-1024 {
+        font-size: 15px; } }
   .tile.tile-2048 {
     color: #f9f6f2;
     background: #edc22e;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 35px; }
+    @media screen and (max-width: 480px) {
+      .tile.tile-2048 {
+        font-size: 15px; } }
 
 @-webkit-keyframes appear {
   0% {
@@ -425,3 +441,188 @@ hr {
 
 .game-explanation {
   margin-top: 50px; }
+
+@media screen and (max-width: 480px) {
+  html, body {
+    font-size: 15px; }
+
+  body {
+    margin: 20px 0;
+    padding: 0 20px; }
+
+  h1.title {
+    font-size: 50px; }
+
+  .container {
+    width: 280px;
+    margin: 0 auto; }
+
+  .score-container {
+    margin-top: 0; }
+
+  .heading {
+    margin-bottom: 10px; }
+
+  .game-container {
+    margin-top: 40px;
+    position: relative;
+    padding: 10px;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    background: #bbada0;
+    border-radius: 6px;
+    width: 280px;
+    height: 280px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .game-container .game-message {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(238, 228, 218, 0.5);
+      z-index: 100;
+      text-align: center;
+      -webkit-animation: fade-in 800ms ease 1200ms;
+      -moz-animation: fade-in 800ms ease 1200ms;
+      -webkit-animation-fill-mode: both;
+      -moz-animation-fill-mode: both; }
+      .game-container .game-message p {
+        font-size: 60px;
+        font-weight: bold;
+        height: 60px;
+        line-height: 60px;
+        margin-top: 222px; }
+      .game-container .game-message .lower {
+        display: block;
+        margin-top: 59px; }
+      .game-container .game-message a {
+        display: inline-block;
+        background: #8f7a66;
+        border-radius: 3px;
+        padding: 0 20px;
+        text-decoration: none;
+        color: #f9f6f2;
+        height: 40px;
+        line-height: 42px;
+        margin-left: 9px; }
+      .game-container .game-message.game-won {
+        background: rgba(237, 194, 46, 0.5);
+        color: #f9f6f2; }
+      .game-container .game-message.game-won, .game-container .game-message.game-over {
+        display: block; }
+
+  .grid-container {
+    position: absolute;
+    z-index: 1; }
+
+  .grid-row {
+    margin-bottom: 10px; }
+    .grid-row:last-child {
+      margin-bottom: 0; }
+    .grid-row:after {
+      content: "";
+      display: block;
+      clear: both; }
+
+  .grid-cell {
+    width: 57.5px;
+    height: 57.5px;
+    margin-right: 10px;
+    float: left;
+    border-radius: 3px;
+    background: rgba(238, 228, 218, 0.35); }
+    .grid-cell:last-child {
+      margin-right: 0; }
+
+  .tile-container {
+    position: absolute;
+    z-index: 2; }
+
+  .tile {
+    width: 57.5px;
+    height: 57.5px;
+    line-height: 67.5px; }
+    .tile.tile-position-1-1 {
+      position: absolute;
+      left: 0px;
+      top: 0px; }
+    .tile.tile-position-1-2 {
+      position: absolute;
+      left: 0px;
+      top: 68px; }
+    .tile.tile-position-1-3 {
+      position: absolute;
+      left: 0px;
+      top: 135px; }
+    .tile.tile-position-1-4 {
+      position: absolute;
+      left: 0px;
+      top: 203px; }
+    .tile.tile-position-2-1 {
+      position: absolute;
+      left: 68px;
+      top: 0px; }
+    .tile.tile-position-2-2 {
+      position: absolute;
+      left: 68px;
+      top: 68px; }
+    .tile.tile-position-2-3 {
+      position: absolute;
+      left: 68px;
+      top: 135px; }
+    .tile.tile-position-2-4 {
+      position: absolute;
+      left: 68px;
+      top: 203px; }
+    .tile.tile-position-3-1 {
+      position: absolute;
+      left: 135px;
+      top: 0px; }
+    .tile.tile-position-3-2 {
+      position: absolute;
+      left: 135px;
+      top: 68px; }
+    .tile.tile-position-3-3 {
+      position: absolute;
+      left: 135px;
+      top: 135px; }
+    .tile.tile-position-3-4 {
+      position: absolute;
+      left: 135px;
+      top: 203px; }
+    .tile.tile-position-4-1 {
+      position: absolute;
+      left: 203px;
+      top: 0px; }
+    .tile.tile-position-4-2 {
+      position: absolute;
+      left: 203px;
+      top: 68px; }
+    .tile.tile-position-4-3 {
+      position: absolute;
+      left: 203px;
+      top: 135px; }
+    .tile.tile-position-4-4 {
+      position: absolute;
+      left: 203px;
+      top: 203px; }
+
+  .game-container {
+    margin-top: 20px; }
+
+  .tile {
+    font-size: 35px; }
+
+  .game-message p {
+    font-size: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    margin-top: 90px !important; }
+  .game-message .lower {
+    margin-top: 30px !important; } }

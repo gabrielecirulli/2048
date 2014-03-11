@@ -141,144 +141,153 @@ hr {
   }
 }
 
-.game-container {
-  margin-top: 40px;
-  position: relative;
-  padding: $grid-spacing;
+// Game field mixin used to render CSS at different width
+@mixin game-field {
+  .game-container {
+    margin-top: 40px;
+    position: relative;
+    padding: $grid-spacing;
 
-  cursor: default;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
 
-  background: $game-container-background;
-  border-radius: $tile-border-radius * 2;
-  width: $field-width;
-  height: $field-width;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    background: $game-container-background;
+    border-radius: $tile-border-radius * 2;
+    width: $field-width;
+    height: $field-width;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
-  .game-message {
-    display: none;
+    .game-message {
+      display: none;
 
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba($tile-color, .5);
+      z-index: 100;
+
+      text-align: center;
+
+      p {
+        font-size: 60px;
+        font-weight: bold;
+        height: 60px;
+        line-height: 60px;
+        margin-top: 222px;
+        // height: $field-width;
+        // line-height: $field-width;
+      }
+
+      .lower {
+        display: block;
+        margin-top: 59px;
+      }
+
+      a {
+        display: inline-block;
+        background: darken($game-container-background, 20%);
+        border-radius: 3px;
+        padding: 0 20px;
+        text-decoration: none;
+        color: $bright-text-color;
+        height: 40px;
+        line-height: 42px;
+        margin-left: 9px;
+        // margin-top: 59px;
+      }
+
+      @include animation(fade-in 800ms ease $transition-speed * 12);
+      @include animation-fill-mode(both);
+
+      &.game-won {
+        background: rgba($tile-gold-color, .5);
+        color: $bright-text-color;
+      }
+
+      &.game-won, &.game-over {
+        display: block;
+      }
+    }
+  }
+
+  .grid-container {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba($tile-color, .5);
-    z-index: 100;
+    z-index: 1;
+  }
 
-    text-align: center;
+  .grid-row {
+    margin-bottom: $grid-spacing;
 
-    p {
-      font-size: 60px;
-      font-weight: bold;
-      height: 60px;
-      line-height: 60px;
-      margin-top: 222px;
-      // height: $field-width;
-      // line-height: $field-width;
+    &:last-child {
+      margin-bottom: 0;
     }
 
-    .lower {
+    &:after {
+      content: "";
       display: block;
-      margin-top: 59px;
+      clear: both;
     }
+  }
 
-    a {
-      display: inline-block;
-      background: darken($game-container-background, 20%);
-      border-radius: 3px;
-      padding: 0 20px;
-      text-decoration: none;
-      color: $bright-text-color;
-      height: 40px;
-      line-height: 42px;
-      margin-left: 9px;
-      // margin-top: 59px;
+  .grid-cell {
+    width: $tile-size;
+    height: $tile-size;
+    margin-right: $grid-spacing;
+    float: left;
+
+    border-radius: $tile-border-radius;
+
+    background: rgba($tile-color, .35);
+
+    &:last-child {
+      margin-right: 0;
     }
+  }
 
-    @include animation(fade-in 800ms ease $transition-speed * 12);
-    @include animation-fill-mode(both);
+  .tile-container {
+    position: absolute;
+    z-index: 2;
+  }
 
-    &.game-won {
-      background: rgba($tile-gold-color, .5);
-      color: $bright-text-color;
-    }
+  .tile {
+    width: $tile-size;
+    height: $tile-size;
+    line-height: $tile-size + 10px;
 
-    &.game-won, &.game-over {
-      display: block;
+    // Build position classes
+    @for $x from 1 through $grid-row-cells {
+      @for $y from 1 through $grid-row-cells {
+        &.tile-position-#{$x}-#{$y} {
+          position: absolute;
+          left: round(($tile-size + $grid-spacing) * ($x - 1));
+          top: round(($tile-size + $grid-spacing) * ($y - 1));
+        }
+      }
     }
   }
 }
 
-.grid-container {
-  position: absolute;
-  z-index: 1;
-}
-
-.grid-row {
-  margin-bottom: $grid-spacing;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-}
-
-.grid-cell {
-  width: $tile-size;
-  height: $tile-size;
-  margin-right: $grid-spacing;
-  float: left;
-
-  border-radius: $tile-border-radius;
-
-  background: rgba($tile-color, .35);
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
-.tile-container {
-  position: absolute;
-  z-index: 2;
-}
+// End of game-field mixin
+@include game-field;
 
 .tile {
-  background: red;
-  width: $tile-size;
-  height: $tile-size;
   border-radius: $tile-border-radius;
 
   background: $tile-color;
   text-align: center;
-  line-height: $tile-size + 10px;
-  font-size: 55px;
   font-weight: bold;
   z-index: 10;
 
+  font-size: 55px;
+
   @include transition($transition-speed ease-in-out);
   @include transition-property(top, left);
-
-  // Build position classes
-  @for $x from 1 through $grid-row-cells {
-    @for $y from 1 through $grid-row-cells {
-      &.tile-position-#{$x}-#{$y} {
-        position: absolute;
-        left: round(($tile-size + $grid-spacing) * ($x - 1));
-        top: round(($tile-size + $grid-spacing) * ($y - 1));
-      }
-    }
-  }
 
   $base: 2;
   $exponent: 1;
@@ -333,8 +342,17 @@ hr {
       // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
         font-size: 45px;
+
+        // Media queries placed here to avoid carrying over the rest of the logic
+        @include smaller(480px) {
+          font-size: 25px;
+        }
       } @else if $power >= 1000 {
         font-size: 35px;
+
+        @include smaller(480px) {
+          font-size: 15px;
+        }
       }
     }
 
@@ -390,4 +408,64 @@ hr {
 
 .game-explanation {
   margin-top: 50px;
+}
+
+@include smaller(480px) {
+  // Redefine variables for smaller screens
+  $field-width: 280px;
+  $grid-spacing: 10px;
+  $grid-row-cells: 4;
+  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+  $tile-border-radius: 3px;
+
+  html, body {
+    font-size: 15px;
+  }
+
+  body {
+    margin: 20px 0;
+    padding: 0 20px;
+  }
+
+  h1.title {
+    font-size: 50px;
+  }
+
+  .container {
+    width: $field-width;
+    margin: 0 auto;
+  }
+
+  .score-container {
+    margin-top: 0;
+  }
+
+  .heading {
+    margin-bottom: 10px;
+  }
+
+  // Render the game field at the right width
+  @include game-field;
+
+  .game-container {
+    margin-top: 20px;
+  }
+
+  // Rest of the font-size adjustments in the tile class
+  .tile {
+    font-size: 35px;
+  }
+
+  .game-message {
+    p {
+      font-size: 30px !important;
+      height: 30px !important;
+      line-height: 30px !important;
+      margin-top: 90px !important;
+    }
+
+    .lower {
+      margin-top: 30px !important;
+    }
+  }
 }

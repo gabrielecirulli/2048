@@ -53,3 +53,10 @@
   -webkit-animation-fill-mode: #{$str};
   -moz-animation-fill-mode: #{$str};
 }
+
+// Media queries
+@mixin smaller($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

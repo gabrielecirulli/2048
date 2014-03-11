@@ -1,15 +1,10 @@
-function HTMLActuator(bestScoreSupported) {
+function HTMLActuator() {
   this.tileContainer    = document.getElementsByClassName("tile-container")[0];
   this.scoreContainer   = document.getElementsByClassName("score-container")[0];
   this.bestContainer    = document.getElementsByClassName("best-container")[0];
   this.messageContainer = document.getElementsByClassName("game-message")[0];
 
   this.score = 0;
-  this.bestScoreSupported = bestScoreSupported;
-
-  if (!this.bestScoreSupported) {
-    this.bestContainer.style.display = "none";
-  }
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -111,9 +106,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
-  if (this.bestScoreSupported) {
-    this.bestContainer.textContent = bestScore;
-  }
+  this.bestContainer.textContent = bestScore;
 };
 
 HTMLActuator.prototype.message = function (won) {

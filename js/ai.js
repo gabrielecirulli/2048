@@ -4,8 +4,7 @@ function AI(grid) {
 
 // static evaluation function
 AI.prototype.eval = function() {
-  //var empty = this.grid.availableCells().length;
-  //return -this.grid.islands()/(16.0-empty)/100.0 + this.grid.smoothness()/240.0 + empty;
+  var empty = this.grid.availableCells().length;
   return this.grid.smoothness();
 };
 

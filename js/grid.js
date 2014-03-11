@@ -393,6 +393,25 @@ Grid.prototype.smoothness = function() {
   return score;
 }
 
+/*
+Grid.prototype.monotonicity = function() {
+  var highestValue = 0;
+  var highestCell = {x:0, y:0};
+  for (var x=0; x<4; x++) {
+    for (var y=0; y<4; y++) {
+      if (this.cells[x][y] &&
+          this.cells[x][y].value > highestValue) {
+        highestValue = this.cells[x][y].value;
+        highestCell.x = x;
+        highestCell.y = y;
+      }
+    }
+  }
+  /*
+
+
+}
+
 // check for win
 Grid.prototype.isWin = function() {
   var self = this;

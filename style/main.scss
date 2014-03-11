@@ -500,7 +500,7 @@ hr {
   cursor: pointer;
 
   img {
-    vertical-align: -2px;
+    vertical-align: -4px;
     margin-right: 8px;
   }
 
@@ -518,7 +518,7 @@ hr {
     width: 340px;
     right: 50%;
     margin-right: -170px;
-    
+
     padding-bottom: 7px;
 
     top: -30px;
@@ -537,7 +537,7 @@ hr {
       left: 50%;
       margin-left: -7px;
     }
-    
+
     code {
       background-color: $game-container-background;
       padding: 10px 15px;
@@ -548,7 +548,7 @@ hr {
       font-size: 15px;
       font-family: Consolas, "Liberation Mono", Courier, monospace;
       text-align: center;
-      
+
     }
   }
 

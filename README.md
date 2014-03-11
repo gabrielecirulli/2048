@@ -16,4 +16,4 @@ You can find the same information in the [contributing guide.](https://github.co
 2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
 
 ## Donations
-I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like you'd like to buy me a coffee, you can me donate at the `1JoG1ctMSx9PgXdm8bc2XZ5o9BrWiq4vEZ` BTC address. Thank you very much!
+I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like you'd like to buy me a coffee, you can me donate at the `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i` BTC address. Thank you very much!

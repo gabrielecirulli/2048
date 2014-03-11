@@ -60,11 +60,10 @@ KeyboardInputManager.prototype.listen = function () {
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
   gameContainer.addEventListener("touchstart", function(event) {
-    if (event.touches.length > 1) {
-      return;
-    }
+    if (event.touches.length > 1) return;
+
     touchStartClientX = event.touches[0].clientX;
-    touchStartClientY = event.touches[0].clientY
+    touchStartClientY = event.touches[0].clientY;
     event.preventDefault();
   });
   gameContainer.addEventListener("touchmove", function(event) {
@@ -76,11 +75,13 @@ KeyboardInputManager.prototype.listen = function () {
     }
     var dx = event.changedTouches[0].clientX - touchStartClientX;
     var absDx = Math.abs(dx);
+
     var dy = event.changedTouches[0].clientY - touchStartClientY;
     var absDy = Math.abs(dy);
+
     if (Math.max(absDx, absDy) > 10) {
-      self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : 
-        (dy > 0 ? 2 : 0)); // (right : left) : (down : up)
+      // (right : left) : (down : up)
+      self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
 };

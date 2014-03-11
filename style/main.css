@@ -642,4 +642,56 @@ hr {
   .game-message .lower {
     margin-top: 30px !important; } }
 .btc-donate {
-  font-size: 14px; }
+  position: relative;
+  margin-left: 20px;
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  cursor: pointer; }
+  .btc-donate img {
+    vertical-align: -2px;
+    margin-right: 8px; }
+  .btc-donate a {
+    color: #f9f6f2;
+    text-decoration: none;
+    font-weight: normal; }
+  .btc-donate .address {
+    cursor: auto;
+    position: absolute;
+    width: 340px;
+    right: 50%;
+    margin-right: -170px;
+    padding-bottom: 7px;
+    top: 40px;
+    opacity: 0;
+    -webkit-transition: 200ms ease;
+    -moz-transition: 200ms ease;
+    -webkit-transition-property: top, opacity;
+    -moz-transition-property: top, opacity; }
+    .btc-donate .address:after {
+      position: absolute;
+      border-top: 10px solid #bbada0;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      content: "";
+      bottom: 0px;
+      left: 50%;
+      margin-left: -7px; }
+    .btc-donate .address code {
+      background-color: #bbada0;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 3px;
+      line-height: 1;
+      font-weight: normal;
+      font-size: 15px;
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+      text-align: center; }
+  .btc-donate:hover .address, .btc-donate .address:hover .address {
+    opacity: 1;
+    top: -45px; }

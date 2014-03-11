@@ -493,5 +493,68 @@ hr {
 
 // Bitcoin donate button
 .btc-donate {
-  font-size: 14px;
+  // font-size: 14px;
+  position: relative;
+  margin-left: 20px;
+  @include button;
+  cursor: pointer;
+
+  img {
+    vertical-align: -2px;
+    margin-right: 8px;
+  }
+
+  a {
+    color: $bright-text-color;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .address {
+    // display: none;
+    cursor: auto;
+    position: absolute;
+    // background: red;
+    width: 340px;
+    right: 50%;
+    margin-right: -170px;
+    
+    padding-bottom: 7px;
+
+    top: 40px;
+    opacity: 0;
+    @include transition(200ms ease);
+    @include transition-property(top, opacity);
+
+    &:after {
+      position: absolute;
+      border-top: 10px solid $game-container-background;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      content: "";
+      bottom: 0px;
+      left: 50%;
+      margin-left: -7px;
+    }
+    
+    code {
+      background-color: $game-container-background;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 3px;
+      line-height: 1;
+      font-weight: normal;
+      font-size: 15px;
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+      text-align: center;
+      
+    }
+  }
+
+  &:hover, .address:hover {
+    .address {
+      opacity: 1;
+      top: -45px;
+    }
+  }
 }

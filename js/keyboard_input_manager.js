@@ -31,7 +31,11 @@ KeyboardInputManager.prototype.listen = function () {
     75: 0, // vim keybindings
     76: 1,
     74: 2,
-    72: 3
+    72: 3,
+    87: 0, // W
+    68: 1, // D
+    83: 2, // S
+    65: 3  // A
   };
 
   document.addEventListener("keydown", function (event) {

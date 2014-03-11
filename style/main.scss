@@ -141,6 +141,18 @@ hr {
   }
 }
 
+// Styles for buttons
+@mixin button {
+  display: inline-block;
+  background: darken($game-container-background, 20%);
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: $bright-text-color;
+  height: 40px;
+  line-height: 42px;
+}
+
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
@@ -190,14 +202,7 @@ hr {
       }
 
       a {
-        display: inline-block;
-        background: darken($game-container-background, 20%);
-        border-radius: 3px;
-        padding: 0 20px;
-        text-decoration: none;
-        color: $bright-text-color;
-        height: 40px;
-        line-height: 42px;
+        @include button;
         margin-left: 9px;
         // margin-top: 59px;
       }

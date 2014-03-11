@@ -58,11 +58,15 @@ h1.title {
   }
 }
 
-.score-container {
+.scores-container {
+  float: right;
+}
+
+.score-container, .best-container {
   $height: 25px;
 
   position: relative;
-  float: right;
+  display: inline-block;
   background: $game-container-background;
   padding: 15px 25px;
   font-size: $height;
@@ -72,13 +76,13 @@ h1.title {
   border-radius: 3px;
   color: white;
   margin-top: 8px;
+  text-align: center;
 
   &:after {
     position: absolute;
     width: 100%;
     top: 10px;
     left: 0;
-    content: "Score";
     text-transform: uppercase;
     font-size: 13px;
     line-height: 13px;
@@ -98,6 +102,14 @@ h1.title {
     @include animation(move-up 600ms ease-in);
     @include animation-fill-mode(both);
   }
+}
+
+.score-container:after {
+  content: "Score";
+}
+
+.best-container:after {
+  content: "Best"
 }
 
 p {

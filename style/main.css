@@ -131,16 +131,6 @@ hr {
   100% {
     opacity: 1; } }
 
-.game-container .game-message a {
-  display: inline-block;
-  background: #8f7a66;
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: #f9f6f2;
-  height: 40px;
-  line-height: 42px; }
-
 .game-container {
   margin-top: 40px;
   position: relative;
@@ -180,6 +170,14 @@ hr {
       display: block;
       margin-top: 59px; }
     .game-container .game-message a {
+      display: inline-block;
+      background: #8f7a66;
+      border-radius: 3px;
+      padding: 0 20px;
+      text-decoration: none;
+      color: #f9f6f2;
+      height: 40px;
+      line-height: 42px;
       margin-left: 9px; }
     .game-container .game-message.game-won {
       background: rgba(237, 194, 46, 0.5);
@@ -504,6 +502,14 @@ hr {
         display: block;
         margin-top: 59px; }
       .game-container .game-message a {
+        display: inline-block;
+        background: #8f7a66;
+        border-radius: 3px;
+        padding: 0 20px;
+        text-decoration: none;
+        color: #f9f6f2;
+        height: 40px;
+        line-height: 42px;
         margin-left: 9px; }
       .game-container .game-message.game-won {
         background: rgba(237, 194, 46, 0.5);

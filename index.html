@@ -76,7 +76,7 @@
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
   </div>
-  
+
   <script src="js/hammer.min.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
   <script src="js/html_actuator.js"></script>
@@ -84,6 +84,26 @@
   <script src="js/tile.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
+
+  <script src="http://coinwidget.com/widget/coin.js"></script>
+  <script>
+    CoinWidgetCom.go({
+      wallet_address: "1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i"
+      , currency: "bitcoin"
+      , counter: "count"
+      , alignment: "ac"
+      , qrcode: true
+      , auto_show: false
+      , lbl_button: "Donate"
+      , lbl_address: "My Bitcoin Address:"
+      , lbl_count: "donations"
+      , lbl_amount: "BTC"
+    });
+    setTimeout(function () {
+      var cw = document.getElementsByClassName("COINWIDGETCOM_CONTAINER")[0];
+      document.getElementsByClassName("sharing")[0].appendChild(cw);
+    }, 100);
+  </script>
 
   <script>
     (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){

@@ -10,6 +10,8 @@ Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 
 Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://github.com/Mechazawa), [grant](https://github.com/grant), [remram44](https://github.com/remram44) and [ghoullier](https://github.com/ghoullier) for the many other good contributions.
 
+### Screenshot
+
 [![Screenshot](http://pictures.gabrielecirulli.com/2048-20140309-234100.png)](http://pictures.gabrielecirulli.com/2048-20140309-234100.png)
 
 That screenshot is fake, by the way. I never reached 2048 :smile:

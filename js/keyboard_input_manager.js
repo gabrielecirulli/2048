@@ -59,31 +59,58 @@ KeyboardInputManager.prototype.listen = function () {
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
-  gameContainer.addEventListener("touchstart", function(event) {
-    if (event.touches.length > 1) return;
-
-    touchStartClientX = event.touches[0].clientX;
-    touchStartClientY = event.touches[0].clientY;
-    event.preventDefault();
-  });
-  gameContainer.addEventListener("touchmove", function(event) {
-    event.preventDefault();
-  });
-  gameContainer.addEventListener("touchend", function(event) {
-    if (event.touches.length > 0) {
-      return;
-    }
-    var dx = event.changedTouches[0].clientX - touchStartClientX;
+  var touchFinish = function (x, y) {
+    var dx = x - touchStartClientX;
     var absDx = Math.abs(dx);
 
-    var dy = event.changedTouches[0].clientY - touchStartClientY;
+    var dy = y - touchStartClientY;
     var absDy = Math.abs(dy);
 
     if (Math.max(absDx, absDy) > 10) {
       // (right : left) : (down : up)
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
-  });
+  }
+
+  if (window.PointerEvent) {
+    gameContainer.addEventListener("pointerdown", function (event) {
+      if (event.isPrimary) {
+        touchStartClientX = event.clientX;
+        touchStartClientY = event.clientY;
+        event.preventDefault();
+      }
+    });
+    gameContainer.addEventListener("pointermove", function (event) {
+      if (event.isPrimary) {
+        event.preventDefault();
+      }
+    });
+    gameContainer.addEventListener("pointerup", function (event) {
+      if (event.isPrimary) {
+        touchFinish(event.clientX, event.clientY);
+      }
+    });
+  }
+  else {
+    gameContainer.addEventListener("touchstart", function (event) {
+      if (event.touches.length > 1) {
+        return;
+      }
+
+      touchStartClientX = event.touches[0].clientX;
+      touchStartClientY = event.touches[0].clientY;
+      event.preventDefault();
+    });
+    gameContainer.addEventListener("touchmove", function (event) {
+      event.preventDefault();
+    });
+    gameContainer.addEventListener("touchend", function (event) {
+      if (event.touches.length > 0) {
+        return;
+      }
+      touchFinish(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+    });
+  }
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

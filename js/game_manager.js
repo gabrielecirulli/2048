@@ -8,6 +8,7 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.setup();
 }
@@ -18,6 +19,22 @@ GameManager.prototype.restart = function () {
   this.setup();
 };
 
+// Keep playing after winning
+GameManager.prototype.keepPlaying = function () {
+  this.keepPlaying = true;
+  this.actuator.keepPlaying();
+};
+
+GameManager.prototype.isGameOver = function() {
+  if (this.over || (this.won && !this.keepPlaying) ) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+
 // Set up the game
 GameManager.prototype.setup = function () {
   this.grid         = new Grid(this.size);
@@ -25,6 +42,7 @@ GameManager.prototype.setup = function () {
   this.score        = 0;
   this.over         = false;
   this.won          = false;
+  this.keepPlaying  = false;
 
   // Add the initial tiles
   this.addStartTiles();
@@ -60,7 +78,8 @@ GameManager.prototype.actuate = function () {
     score:     this.score,
     over:      this.over,
     won:       this.won,
-    bestScore: this.scoreManager.get()
+    bestScore: this.scoreManager.get(),
+    gameOver:  this.isGameOver()
   });
 
 };
@@ -87,7 +106,7 @@ GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
-  if (this.over || this.won) return; // Don't do anything if the game's over
+  if (this.isGameOver()) return; // Don't do anything if the game's over
 
   var cell, tile;
 

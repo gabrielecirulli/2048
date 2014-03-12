@@ -18,6 +18,6 @@ The better heuristics now give it a success rate of about 90% in my testing (on 
 
 2. Put the search in a webworker. Parallelizing minimax is really hard, but just running it like normal in another thread would let the animations run more smoothly.
 
-~~3. Evaluation tweaks. There are currently four heuristics. Change the weights between them, run a lot of test games and track statistics to find an optimal eval function.~~
+3. ~~Evaluation tweaks. There are currently four heuristics. Change the weights between them, run a lot of test games and track statistics to find an optimal eval function.~~
 
 4. Comments and cleanup. It's pretty hacky right now but I've spent too much time already. There are probably lots of low-hanging fruit optimizations.

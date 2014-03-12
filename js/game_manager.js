@@ -221,3 +221,24 @@ GameManager.prototype.tileMatchesAvailable = function () {
 GameManager.prototype.positionsEqual = function (first, second) {
   return first.x === second.x && first.y === second.y;
 };
+
+GameManager.prototype.serialize = function () {
+  return {
+    grid: this.grid.serialize(),
+    size: this.size,
+    score: this.score,
+    over: this.over,
+    won: this.won
+  };
+}
+
+GameManager.deserialize = function (serializedGameManagerState, InputManager, Actuator) {
+  var gameManager = new GameManager(serializedGameManagerState.size, InputManager, Actuator);
+  gameManager.grid = Grid.deserialize(serializedGameManagerState.grid);
+  gameManager.score = serializedGameManagerState.score;
+  gameManager.over = serializedGameManagerState.over;
+  gameManager.won = serializedGameManagerState.won;
+  gameManager.actuate();
+
+  return gameManager;
+}

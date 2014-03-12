@@ -58,11 +58,16 @@ h1.title {
   }
 }
 
-.score-container {
+.scores-container {
+  float: right;
+  text-align: right;
+}
+
+.score-container, .best-container {
   $height: 25px;
 
   position: relative;
-  float: right;
+  display: inline-block;
   background: $game-container-background;
   padding: 15px 25px;
   font-size: $height;
@@ -72,13 +77,13 @@ h1.title {
   border-radius: 3px;
   color: white;
   margin-top: 8px;
+  text-align: center;
 
   &:after {
     position: absolute;
     width: 100%;
     top: 10px;
     left: 0;
-    content: "Score";
     text-transform: uppercase;
     font-size: 13px;
     line-height: 13px;
@@ -98,6 +103,14 @@ h1.title {
     @include animation(move-up 600ms ease-in);
     @include animation-fill-mode(both);
   }
+}
+
+.score-container:after {
+  content: "Score";
+}
+
+.best-container:after {
+  content: "Best"
 }
 
 p {
@@ -449,7 +462,8 @@ hr {
   }
 
   h1.title {
-    font-size: 50px;
+    font-size: 27px;
+    margin-top: 15px;
   }
 
   .container {
@@ -457,8 +471,15 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container {
+  // .scores-container {
+  //   float: left;
+  //   clear: left;
+  // }
+
+  .score-container, .best-container {
     margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px;
   }
 
   .heading {

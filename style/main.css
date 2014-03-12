@@ -49,9 +49,13 @@ h1.title {
     top: -50px;
     opacity: 0; } }
 
-.score-container {
-  position: relative;
+.scores-container {
   float: right;
+  text-align: right; }
+
+.score-container, .best-container {
+  position: relative;
+  display: inline-block;
   background: #bbada0;
   padding: 15px 25px;
   font-size: 25px;
@@ -60,19 +64,19 @@ h1.title {
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px; }
-  .score-container:after {
+  margin-top: 8px;
+  text-align: center; }
+  .score-container:after, .best-container:after {
     position: absolute;
     width: 100%;
     top: 10px;
     left: 0;
-    content: "Score";
     text-transform: uppercase;
     font-size: 13px;
     line-height: 13px;
     text-align: center;
     color: #eee4da; }
-  .score-container .score-addition {
+  .score-container .score-addition, .best-container .score-addition {
     position: absolute;
     right: 30px;
     color: red;
@@ -85,6 +89,12 @@ h1.title {
     -moz-animation: move-up 600ms ease-in;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both; }
+
+.score-container:after {
+  content: "Score"; }
+
+.best-container:after {
+  content: "Best"; }
 
 p {
   margin-top: 0;
@@ -462,14 +472,17 @@ hr {
     padding: 0 20px; }
 
   h1.title {
-    font-size: 50px; }
+    font-size: 27px;
+    margin-top: 15px; }
 
   .container {
     width: 280px;
     margin: 0 auto; }
 
-  .score-container {
-    margin-top: 0; }
+  .score-container, .best-container {
+    margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px; }
 
   .heading {
     margin-bottom: 10px; }

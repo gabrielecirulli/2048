@@ -60,6 +60,7 @@ h1.title {
 
 .scores-container {
   float: right;
+  text-align: right;
 }
 
 .score-container, .best-container {
@@ -445,7 +446,8 @@ hr {
   }
 
   h1.title {
-    font-size: 50px;
+    font-size: 27px;
+    margin-top: 15px;
   }
 
   .container {
@@ -453,8 +455,15 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container {
+  // .scores-container {
+  //   float: left;
+  //   clear: left;
+  // }
+
+  .score-container, .best-container {
     margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px;
   }
 
   .heading {

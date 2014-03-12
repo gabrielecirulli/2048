@@ -50,7 +50,8 @@ h1.title {
     opacity: 0; } }
 
 .scores-container {
-  float: right; }
+  float: right;
+  text-align: right; }
 
 .score-container, .best-container {
   position: relative;
@@ -460,14 +461,17 @@ hr {
     padding: 0 20px; }
 
   h1.title {
-    font-size: 50px; }
+    font-size: 27px;
+    margin-top: 15px; }
 
   .container {
     width: 280px;
     margin: 0 auto; }
 
-  .score-container {
-    margin-top: 0; }
+  .score-container, .best-container {
+    margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px; }
 
   .heading {
     margin-bottom: 10px; }

@@ -1,14 +1,21 @@
 window.fakeStorage = {
-  _data       : {},
-  setItem     : function (id, val) {
-    console.log("set");
+  _data: {},
+
+  setItem: function (id, val) {
     return this._data[id] = String(val);
   },
-  getItem     : function (id) {
+
+  getItem: function (id) {
     return this._data.hasOwnProperty(id) ? this._data[id] : undefined;
   },
-  removeItem  : function (id) { return delete this._data[id]; },
-  clear       : function () { return this._data = {}; }
+
+  removeItem: function (id) {
+    return delete this._data[id];
+  },
+
+  clear: function () {
+    return this._data = {};
+  }
 };
 
 function LocalScoreManager() {

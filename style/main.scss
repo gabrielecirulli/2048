@@ -282,9 +282,11 @@ hr {
     @for $x from 1 through $grid-row-cells {
       @for $y from 1 through $grid-row-cells {
         &.tile-position-#{$x}-#{$y} {
-          position: absolute;
-          left: round(($tile-size + $grid-spacing) * ($x - 1));
-          top: round(($tile-size + $grid-spacing) * ($y - 1));
+          $xPos: round(($tile-size + $grid-spacing) * ($x - 1));
+          $yPos: round(($tile-size + $grid-spacing) * ($y - 1));
+          -webkit-transform: translate($xPos, $yPos);
+          -moz-transform: translate($xPos, $yPos);
+          transform: translate($xPos, $yPos);
         }
       }
     }
@@ -301,11 +303,14 @@ hr {
   text-align: center;
   font-weight: bold;
   z-index: 10;
+  position: absolute;
 
   font-size: 55px;
 
   @include transition($transition-speed ease-in-out);
-  @include transition-property(top, left);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
 
   $base: 2;
   $exponent: 1;
@@ -394,7 +399,7 @@ hr {
 
 .tile-new {
   @include animation(appear 200ms ease $transition-speed);
-  @include animation-fill-mode(both);
+  @include animation-fill-mode(backwards);
 }
 
 @include keyframes(pop) {
@@ -417,7 +422,7 @@ hr {
 .tile-merged {
   z-index: 20;
   @include animation(pop 200ms ease $transition-speed);
-  @include animation-fill-mode(both);
+  @include animation-fill-mode(backwards);
 }
 
 .game-intro {

@@ -84,6 +84,16 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+
+  // Listen to onscreen arrows
+  var arrowUp = document.getElementsByClassName("arrow-up")[0];
+  var arrowRight = document.getElementsByClassName("arrow-right")[0];
+  var arrowDown = document.getElementsByClassName("arrow-down")[0];
+  var arrowLeft = document.getElementsByClassName("arrow-left")[0];
+  arrowUp.addEventListener("click", function() { self.emit("move", 0) });
+  arrowRight.addEventListener("click", function() { self.emit("move", 1) });
+  arrowDown.addEventListener("click", function() { self.emit("move", 2) });
+  arrowLeft.addEventListener("click", function() { self.emit("move", 3) });
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

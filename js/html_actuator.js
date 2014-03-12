@@ -130,8 +130,8 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   tweet.setAttribute("data-via", "gabrielecirulli");
   tweet.textContent = "Tweet";
 
-  var text = "(A)I scored " + this.score + " points at 2048, a game where you " +
-             "join numbers to score high! #2048game";
+  var text = "I scored " + this.score + " points at 2048, a game where you " +
+             "join numbers to score high! #2048game #2048ai";
   tweet.setAttribute("data-text", text);
 
   return tweet;

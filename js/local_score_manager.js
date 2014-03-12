@@ -1,7 +1,7 @@
 window.fakeStorage = {
   _data       : {},
   setItem     : function (id, val) {
-    console.log('set');
+    console.log("set");
     return this._data[id] = String(val);
   },
   getItem     : function (id) {
@@ -13,8 +13,9 @@ window.fakeStorage = {
 
 function LocalScoreManager() {
   var localSupported = !!window.localStorage;
-  this.key = 'bestScore';
-  this.storage =  localSupported ? window.localStorage : window.fakeStorage;
+
+  this.key     = "bestScore";
+  this.storage = localSupported ? window.localStorage : window.fakeStorage;
 }
 
 LocalScoreManager.prototype.get = function () {

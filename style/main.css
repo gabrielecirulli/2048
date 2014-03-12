@@ -61,6 +61,15 @@ h1.title {
   margin-top: 15px;
   width: 210px; }
 
+@media screen and (max-width: 480px) {
+#undo-button.active {
+    margin-left: 78px;
+    margin-top: 10px;
+    width: 76px;
+    height: 20px;
+    line-height: 23px;
+    font-size: 25px; } }
+
 #undo-button.inactive {
     display: none; }
 

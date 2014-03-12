@@ -53,7 +53,18 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+#undo-button.active {
+  font-size: 32px;
+  line-height: 27px;
+  display: inline-block;
+  margin-left: 120px;
+  margin-top: 15px;
+  width: 210px; }
+
+#undo-button.inactive {
+    display: none; }
+
+.score-container, .best-container, #undo-button {
   position: relative;
   display: inline-block;
   background: #bbada0;

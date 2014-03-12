@@ -6,6 +6,24 @@ function Grid(size) {
   this.build();
 }
 
+Grid.prototype.clone = function () {
+  var new_grid = new Grid (this.size);
+  new_grid.build ();
+
+  for (var x = 0; x < this.size; x++) {
+    for (var y = 0; y < this.size; y++) {
+      if (this.cells[x][y] == null) {
+        new_grid.cells[x][y] = null;
+      }
+      else {
+        new_grid.cells[x][y] = this.cells[x][y].clone();
+      }
+    }
+  }
+
+  return new_grid;
+};
+
 // Build a grid of the specified size
 Grid.prototype.build = function () {
   for (var x = 0; x < this.size; x++) {

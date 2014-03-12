@@ -1,5 +1,6 @@
-function GameManager(size, InputManager, Actuator) {
-  this.size         = size; // Size of the grid
+function GameManager(sizeX, sizeY, InputManager, Actuator) {
+  this.sizeX         = sizeX; // Width of the grid
+  this.sizeY         = sizeY; // Height of the grid
   this.inputManager = new InputManager;
   this.actuator     = new Actuator;
 
@@ -19,11 +20,14 @@ GameManager.prototype.restart = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  this.grid         = new Grid(this.size);
+  this.grid         = new Grid(this.sizeX, this.sizeY);
 
   this.score        = 0;
   this.over         = false;
   this.won          = false;
+
+  // Build the game grid
+  this.actuator.buildHTMLGrid(this.sizeX, this.sizeY);
 
   // Add the initial tiles
   this.addStartTiles();
@@ -70,8 +74,8 @@ GameManager.prototype.prepareTiles = function () {
 
 // Move a tile and its representation
 GameManager.prototype.moveTile = function (tile, cell) {
-  this.grid.cells[tile.x][tile.y] = null;
-  this.grid.cells[cell.x][cell.y] = tile;
+  this.grid.cells[tile.y][tile.x] = null;
+  this.grid.cells[cell.y][cell.x] = tile;
   tile.updatePosition(cell);
 };
 
@@ -92,8 +96,8 @@ GameManager.prototype.move = function (direction) {
   this.prepareTiles();
 
   // Traverse the grid in the right direction and move tiles
-  traversals.x.forEach(function (x) {
-    traversals.y.forEach(function (y) {
+  traversals.y.forEach(function (y) {
+    traversals.x.forEach(function (x) {
       cell = { x: x, y: y };
       tile = self.grid.cellContent(cell);
 
@@ -156,8 +160,10 @@ GameManager.prototype.getVector = function (direction) {
 GameManager.prototype.buildTraversals = function (vector) {
   var traversals = { x: [], y: [] };
 
-  for (var pos = 0; pos < this.size; pos++) {
+  for (var pos = 0; pos < this.sizeX; pos++) {
     traversals.x.push(pos);
+  }
+  for (var pos = 0; pos < this.sizeY; pos++) {
     traversals.y.push(pos);
   }
 
@@ -194,8 +200,8 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
   var tile;
 
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+  for (var y = 0; y < this.sizeY; y++) {
+    for (var x = 0; x < this.sizeX; x++) {
       tile = this.grid.cellContent({ x: x, y: y });
 
       if (tile) {

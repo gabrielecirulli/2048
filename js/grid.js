@@ -1,5 +1,6 @@
-function Grid(size) {
-  this.size = size;
+function Grid(sizeX, sizeY) {
+  this.sizeX = sizeX;
+  this.sizeY = sizeY;
 
   this.cells = [];
 
@@ -8,10 +9,10 @@ function Grid(size) {
 
 // Build a grid of the specified size
 Grid.prototype.build = function () {
-  for (var x = 0; x < this.size; x++) {
-    var row = this.cells[x] = [];
+  for (var y = 0; y < this.sizeY; y++) {
+    var row = this.cells[y] = [];
 
-    for (var y = 0; y < this.size; y++) {
+    for (var x = 0; x < this.sizeX; x++) {
       row.push(null);
     }
   }
@@ -40,9 +41,9 @@ Grid.prototype.availableCells = function () {
 
 // Call callback for every cell
 Grid.prototype.eachCell = function (callback) {
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
-      callback(x, y, this.cells[x][y]);
+  for (var y = 0; y < this.sizeY; y++) {
+    for (var x = 0; x < this.sizeX; x++) {
+      callback(x, y, this.cells[y][x]);
     }
   }
 };
@@ -63,7 +64,7 @@ Grid.prototype.cellOccupied = function (cell) {
 
 Grid.prototype.cellContent = function (cell) {
   if (this.withinBounds(cell)) {
-    return this.cells[cell.x][cell.y];
+    return this.cells[cell.y][cell.x];
   } else {
     return null;
   }
@@ -71,14 +72,14 @@ Grid.prototype.cellContent = function (cell) {
 
 // Inserts a tile at its position
 Grid.prototype.insertTile = function (tile) {
-  this.cells[tile.x][tile.y] = tile;
+  this.cells[tile.y][tile.x] = tile;
 };
 
 Grid.prototype.removeTile = function (tile) {
-  this.cells[tile.x][tile.y] = null;
+  this.cells[tile.y][tile.x] = null;
 };
 
 Grid.prototype.withinBounds = function (position) {
-  return position.x >= 0 && position.x < this.size &&
-         position.y >= 0 && position.y < this.size;
+  return position.x >= 0 && position.x < this.sizeX &&
+         position.y >= 0 && position.y < this.sizeY;
 };

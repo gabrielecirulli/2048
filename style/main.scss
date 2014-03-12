@@ -438,7 +438,7 @@ hr {
   margin-top: 20px;
   text-align: center;
 
-  > iframe, span {
+  > iframe, > span, > form {
     display: inline-block;
     vertical-align: middle;
   }
@@ -508,6 +508,31 @@ hr {
 
     .lower {
       margin-top: 30px !important;
+    }
+  }
+
+  .sharing {
+    > iframe, > span, > form {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// PP Donate button
+.pp-donate {
+  button {
+    @include appearance(none);
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    @include button;
+
+    img {
+      vertical-align: -4px;
+      margin-right: 8px;
     }
   }
 }
@@ -583,8 +608,10 @@ hr {
 
   // Styles for small screens
   @include smaller(480px) {
-    .address{
-      margin-right: -85px;
+    width: 120px;
+
+    .address {
+      margin-right: -150px;
       // background: red;
       width: 300px;
 
@@ -593,7 +620,7 @@ hr {
       }
 
       &:after {
-        left: 73%;
+        left: 50%;
         bottom: 2px;
       }
     }

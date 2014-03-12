@@ -27,8 +27,8 @@ Tile.prototype.serialize = function () {
 }
 
 Tile.deserialize = function (serializedTileState) {
-    var tile = new Tile({ x: serializedTileState.x, y: serializedTileState.y }, serializedTileState.value);
-    tile.previousPosition = serializedTileState.previousPosition;
-    tile.mergedFrom = serializedTileState.mergedFrom;
-    return tile;
+  var tile = new Tile({ x: serializedTileState.x, y: serializedTileState.y }, serializedTileState.value);
+  tile.previousPosition = serializedTileState.previousPosition;
+  tile.mergedFrom = serializedTileState.mergedFrom;
+  return tile;
 }

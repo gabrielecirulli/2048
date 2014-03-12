@@ -24,14 +24,21 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
 
-    if (metadata.over) self.message(false); // You lose
-    if (metadata.won) self.message(true); // You win!
+    if (metadata.gameOver) {
+      if (metadata.over) self.message(false); // You lose
+      else if (metadata.won) self.message(true); // You win!
+    }
+
   });
 };
 
 HTMLActuator.prototype.restart = function () {
   this.clearMessage();
 };
+
+HTMLActuator.prototype.keepPlaying = function () {
+  this.clearMessage();
+}
 
 HTMLActuator.prototype.clearContainer = function (container) {
   while (container.firstChild) {
@@ -42,12 +49,13 @@ HTMLActuator.prototype.clearContainer = function (container) {
 HTMLActuator.prototype.addTile = function (tile) {
   var self = this;
 
-  var element   = document.createElement("div");
-  var position  = tile.previousPosition || { x: tile.x, y: tile.y };
-  positionClass = this.positionClass(position);
+  var element       = document.createElement("div");
+  var position      = tile.previousPosition || { x: tile.x, y: tile.y };
+  var positionClass = this.positionClass(position);
+  var styleClass    = this.styleClass(tile);
 
   // We can't use classlist because it somehow glitches when replacing classes
-  var classes = ["tile", "tile-" + tile.value, positionClass];
+  var classes = ["tile", styleClass, positionClass];
   this.applyClasses(element, classes);
 
   element.textContent = tile.value;
@@ -86,6 +94,15 @@ HTMLActuator.prototype.normalizePosition = function (position) {
 HTMLActuator.prototype.positionClass = function (position) {
   position = this.normalizePosition(position);
   return "tile-position-" + position.x + "-" + position.y;
+};
+
+HTMLActuator.prototype.styleClass = function (tile) {
+  var className = 'tile-'+tile.value;
+
+  if (tile.value > 2048 ) {
+    className = className+' tile-gold';
+  }
+  return className;
 };
 
 HTMLActuator.prototype.updateScore = function (score) {

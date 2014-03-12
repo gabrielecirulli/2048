@@ -15,3 +15,20 @@ Tile.prototype.updatePosition = function (position) {
   this.x = position.x;
   this.y = position.y;
 };
+
+Tile.prototype.serialize = function () {
+  return {
+    x: this.x,
+    y: this.y,
+    value: this.value,
+    previousPosition: this.previousPosition,
+    mergedFrom: this.mergedFrom
+  };
+}
+
+Tile.deserialize = function (serializedTileState) {
+    var tile = new Tile({ x: serializedTileState.x, y: serializedTileState.y }, serializedTileState.value);
+    tile.previousPosition = serializedTileState.previousPosition;
+    tile.mergedFrom = serializedTileState.mergedFrom;
+    return tile;
+}

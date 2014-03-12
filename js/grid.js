@@ -82,3 +82,23 @@ Grid.prototype.withinBounds = function (position) {
   return position.x >= 0 && position.x < this.size &&
          position.y >= 0 && position.y < this.size;
 };
+
+Grid.prototype.serialize = function () {
+  var tiles = [];
+  this.eachCell(function (x, y, tile) {
+    if (tile) {
+      tiles.push(tile);
+    }
+  });
+
+  return {
+    size: this.size,
+    tiles: tiles.map(function (tile) { return tile.serialize(); })
+  };
+}
+
+Grid.deserialize = function (serializedGridState) {
+  var grid = new Grid(serializedGridState.size);
+  serializedGridState.tiles.forEach(function (tileState) { grid.insertTile(Tile.deserialize(tileState)); });
+  return grid;
+}

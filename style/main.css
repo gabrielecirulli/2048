@@ -49,6 +49,44 @@ h1.title {
     top: -50px;
     opacity: 0; } }
 
+.savestate {
+  position: relative;
+  margin: 15px;
+  margin-top: 19px;
+}
+.quicksave {
+  position: relative;
+  float: left;
+  background: #bbada0;
+  border-radius: 3px;
+  padding: 15px 15px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  height: 25px;
+  width: 25%;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.quickload {
+  position: relative;
+  float: right;
+  background: #bbada0;
+  border-radius: 3px;
+  padding: 15px 15px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  height: 25px;
+  width: 25%;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.quickload:hover {text-decoration: underline; }
+.quicksave:hover {text-decoration: underline; }
+
 .score-container {
   position: relative;
   float: right;

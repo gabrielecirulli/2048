@@ -117,6 +117,10 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
 
+  if (typeof ga !== "undefined") {
+    ga("send", "event", "game", "end", type, this.score);
+  }
+
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
 

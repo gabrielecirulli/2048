@@ -48,7 +48,7 @@ KeyboardInputManager.prototype.listen = function () {
         event.preventDefault();
         self.emit("move", mapped);
       }
-
+      
       if (event.which === 32) self.restart.bind(self)(event);
     }
   });

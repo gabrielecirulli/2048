@@ -22,11 +22,13 @@
 
 // Transition mixins
 @mixin transition($args...) {
+  transition: $args;
   -webkit-transition: $args;
   -moz-transition: $args;
 }
 
 @mixin transition-property($args...) {
+  transition-property: $args;
   -webkit-transition-property: $args;
   -moz-transition-property: $args;
 }
@@ -45,11 +47,13 @@
 }
 
 @mixin animation($str) {
+  animation: #{$str};
   -webkit-animation: #{$str};
   -moz-animation: #{$str};
 }
 
 @mixin animation-fill-mode($str) {
+  animation-fill-mode: #{$str};
   -webkit-animation-fill-mode: #{$str};
   -moz-animation-fill-mode: #{$str};
 }

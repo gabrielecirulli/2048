@@ -31,6 +31,8 @@ function GameManager(size, InputManager, Actuator) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.actuator.restart();
+  this.running = false;
+  this.actuator.setRunButton('Auto-run');
   this.setup();
 };
 
@@ -68,7 +70,6 @@ GameManager.prototype.move = function(direction) {
     if (result.moved) {
       this.grid.computerMove();
     }
-
   } else {
     this.won = true;
   }

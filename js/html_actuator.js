@@ -3,7 +3,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.getElementsByClassName("score-container")[0];
   this.messageContainer = document.getElementsByClassName("game-message")[0];
 
-  this.score = 0;
+  this.score = 200000;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -105,7 +105,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!"
+  var message = won ? "awwwwwwwwwwwwwwwww yeaaaaah" : "Game over!"
 
   // if (ga) ga("send", "event", "game", "end", type, this.score);
 

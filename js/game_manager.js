@@ -70,15 +70,7 @@ GameManager.prototype.actuate = function () {
 // Quicksave
 GameManager.prototype.quicksave = function () {
   // Copy values of this.grid into this.quicksaveGrid, for backup
-  this.quicksaveGrid = new Grid(this.size);
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
-      if (this.grid.cells[x][y]) {
-        // Make new tile
-        this.quicksaveGrid.cells[x][y] = new Tile({ x: this.grid.cells[x][y].x, y: this.grid.cells[x][y].y }, this.grid.cells[x][y].value);
-      }
-    }
-  }
+  this.quicksaveGridCopy();
   // Backup other values
   this.quicksaveScore = this.score;
   this.quicksaveOver = this.over;
@@ -86,20 +78,14 @@ GameManager.prototype.quicksave = function () {
 };
 // Quickload
 GameManager.prototype.quickload = function () {
+  // Check if game over
+  if (this.over) {
+    this.actuator.restart();
+  }
   // Restore this.grid
   this.grid = this.quicksaveGrid;
   // Copy values of this.grid into this.quicksaveGrid, for backup (THIS STEP NEEDED FOR MULTIPLE QUICKLOADS)
-  this.quicksaveGrid = new Grid(this.size);
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
-      console.log(x);
-      console.log(this.grid.cells[x][y]);
-      if (this.grid.cells[x][y]) {
-        // Make new tile
-        this.quicksaveGrid.cells[x][y] = new Tile({ x: this.grid.cells[x][y].x, y: this.grid.cells[x][y].y }, this.grid.cells[x][y].value);
-      }
-    }
-  }
+  this.quicksaveGridCopy();
   // Restore other values
   this.score = this.quicksaveScore;
   this.over = this.quicksaveOver;
@@ -110,6 +96,18 @@ GameManager.prototype.quickload = function () {
     won:   this.won
   });
 
+};
+// Copy this.grid into this.quicksaveGrid
+GameManager.prototype.quicksaveGridCopy = function () {
+  this.quicksaveGrid = new Grid(this.size);
+  for (var x = 0; x < this.size; x++) {
+    for (var y = 0; y < this.size; y++) {
+      if (this.grid.cells[x][y]) {
+        // Make new tile
+        this.quicksaveGrid.cells[x][y] = new Tile({ x: this.grid.cells[x][y].x, y: this.grid.cells[x][y].y }, this.grid.cells[x][y].value);
+      }
+    }
+  }
 };
 
 

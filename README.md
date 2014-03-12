@@ -2,13 +2,15 @@
 
 AI for [2048](https://github.com/gabrielecirulli/2048).
 
-See it in action [here](http://ov3y.github.io/2048-AI/). (Hit the auto-run button to let the AI solve it by itself)
+See it in action [here](http://ov3y.github.io/2048-AI/). (Hit the auto-run button to let the AI attempt to solve it by itself)
 
-The algorithm is iterative deepening depth first alpha-beta search. The evaluation function tries to minimize the number of tiles on the grid while keeping same/similar tiles in line with each other.
+The algorithm is iterative deepening depth first alpha-beta search. The evaluation function tries to keep the rows and columns monotonic (either all decreasing or increasing) while minimizing the number of tiles on the grid.
 
 You can tweak the thinking time via global var `animationDelay`. Higher = more time/deeper search.
 
-I think there are still some bugs as it tends to make some weird moves and die during the endgame, but in my testing it almost always gets 1024 and usually gets very close to 2048, achieving scores of roughly 8-10k.
+~~I think there are still some bugs as it tends to make some weird moves and die during the endgame, but in my testing it almost always gets 1024 and usually gets very close to 2048, achieving scores of roughly 8-10k.~~
+
+The better heuristics now give it a success rate of > 75% in my testing, and after fixing the scoring bug it usually finishes at or near 20k.
 
 ### Suggested Improvements
 
@@ -16,6 +18,6 @@ I think there are still some bugs as it tends to make some weird moves and die d
 
 2. Put the search in a webworker. Parallelizing minimax is really hard, but just running it like normal but in another thread would let the animations run smoother.
 
-3. Evaluation tweaks. There are currently three heuristics. Change the weights between them, run a lot of test games and track statistics to find an optimal eval function.
+3. Evaluation tweaks. There are currently four heuristics. Change the weights between them, run a lot of test games and track statistics to find an optimal eval function.
 
 4. Comments and cleanup. It's pretty hacky right now but I've spent too much time already. There are probably lots of low-hanging fruit optimizations.

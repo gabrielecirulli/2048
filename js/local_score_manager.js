@@ -26,7 +26,11 @@ function LocalScoreManager() {
 }
 
 LocalScoreManager.prototype.get = function () {
-  return this.storage.getItem(this.key) || 0;
+  var score = this.storage.getItem(this.key);
+  if (typeof score === "undefined" || score === null) {
+    score = 0;
+  }
+  return score;
 };
 
 LocalScoreManager.prototype.set = function (score) {

@@ -29,6 +29,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
 HTMLActuator.prototype.restart = function () {
   this.clearMessage();
+  document.getElementById("audiotag").pause();
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -111,6 +112,8 @@ HTMLActuator.prototype.message = function (won) {
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+  document.getElementById("audiotag").currentTime=0;
+  document.getElementById("audiotag").play();
 };
 
 HTMLActuator.prototype.clearMessage = function () {

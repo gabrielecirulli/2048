@@ -7,7 +7,7 @@ CACHE MANIFEST
 #
 
 CACHE:
-index.html
+offline.html
 
 # icon
 meta/apple-touch-icon.png

@@ -456,19 +456,21 @@ Grid.prototype.monotonicity = function() {
 
   while (cellQueue.length > 0) {
     markAfter--;
-    markAndScore(cellQueue.shift());
+    markAndScore(cellQueue.shift())
   }
 
   return -increases;
 }
 
+// measures how monotonic the grid is. This means the values of the tiles are strictly increasing
+// or decreasing in both the left/right and up/down directions
 Grid.prototype.monotonicity2 = function() {
+  // scores for all four directions
   var totals = [0, 0, 0, 0];
+
+  // up/down direction
   for (var x=0; x<4; x++) {
     var current = 0;
-    //while ( current<4 && !this.cellOccupied( this.indexes[x][current] )) {
-      //current++;
-    //}
     var next = current+1;
     while ( next<4 ) {
       while ( next<4 && !this.cellOccupied( this.indexes[x][next] )) {
@@ -491,11 +493,9 @@ Grid.prototype.monotonicity2 = function() {
     }
   }
 
+  // left/right direction
   for (var y=0; y<4; y++) {
     var current = 0;
-    //while ( current<4 && !this.cellOccupied( this.indexes[current][y] )) {
-      //current++;
-    //}
     var next = current+1;
     while ( next<4 ) {
       while ( next<4 && !this.cellOccupied( this.indexes[next][y] )) {
@@ -518,9 +518,49 @@ Grid.prototype.monotonicity2 = function() {
     }
   }
 
-  //console.log(totals)
   return Math.max(totals[0], totals[1]) + Math.max(totals[2], totals[3]);
 }
+
+Grid.prototype.maxValue = function() {
+  var max = 0;
+  for (var x=0; x<4; x++) {
+    for (var y=0; y<4; y++) {
+      if (this.cellOccupied(this.indexes[x][y])) {
+        var value = this.cellContent(this.indexes[x][y]).value;
+        if (value > max) {
+          max = value;
+        }
+      }
+    }
+  }
+
+  return Math.log(max) / Math.log(2);
+}
+
+// WIP. trying to favor top-heavy distributions (force consolidation of higher value tiles)
+/*
+Grid.prototype.valueSum = function() {
+  var valueCount = [];
+  for (var i=0; i<11; i++) {
+    valueCount.push(0);
+  }
+
+  for (var x=0; x<4; x++) {
+    for (var y=0; y<4; y++) {
+      if (this.cellOccupied(this.indexes[x][y])) {
+        valueCount[Math.log(this.cellContent(this.indexes[x][y]).value) / Math.log(2)]++;
+      }
+    }
+  }
+
+  var sum = 0;
+  for (var i=1; i<11; i++) {
+    sum += valueCount[i] * Math.pow(2, i) + i;
+  }
+
+  return sum;
+}
+*/
 
 // check for win
 Grid.prototype.isWin = function() {

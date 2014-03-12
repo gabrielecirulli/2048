@@ -3,7 +3,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.messageContainer = document.querySelector(".game-message");
 
-  this.score = 0;
+  this.score = 200000;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -29,6 +29,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
 HTMLActuator.prototype.restart = function () {
   this.clearMessage();
+  document.getElementById("audiotag").pause();
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -105,12 +106,14 @@ HTMLActuator.prototype.updateScore = function (score) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!"
+  var message = won ? "adequate performance yo" : "Game over!"
 
   // if (ga) ga("send", "event", "game", "end", type, this.score);
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+  document.getElementById("audiotag").currentTime=0;
+  document.getElementById("audiotag").play();
 };
 
 HTMLActuator.prototype.clearMessage = function () {

@@ -3,7 +3,7 @@ function GameManager(size, InputManager, Actuator) {
   this.inputManager = new InputManager;
   this.actuator     = new Actuator;
 
-  this.startTiles   = 2;
+  this.startTiles   = 15; //2
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -21,9 +21,9 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.setup = function () {
   this.grid         = new Grid(this.size);
 
-  this.score        = 0;
+  this.score        = 999999999; //0
   this.over         = false;
-  this.won          = false;
+  this.won          = false; 
 
   // Add the initial tiles
   this.addStartTiles();
@@ -42,7 +42,7 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+    var value = Math.random() < 0.9 ? 1024 : 1024; // 2 4
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);

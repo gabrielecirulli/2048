@@ -5,7 +5,7 @@ Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 
 ### Contributions
 
- - [TimPetricola](https://github.com/warmwaffles) added best score storage
+ - [TimPetricola](https://github.com/TimPetricola) added best score storage
  - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile
 
 Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://github.com/Mechazawa), [grant](https://github.com/grant), [remram44](https://github.com/remram44) and [ghoullier](https://github.com/ghoullier) for the many other good contributions.

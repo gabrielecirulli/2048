@@ -153,6 +153,7 @@ hr {
   border-radius: 6px;
   width: 500px;
   height: 500px;
+  -ms-touch-action: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }

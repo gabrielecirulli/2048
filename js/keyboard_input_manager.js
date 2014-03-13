@@ -59,6 +59,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   var keepPlaying = document.querySelector(".keep-playing-button");
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
+  keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
 
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;

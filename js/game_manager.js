@@ -1,13 +1,21 @@
-function GameManager(size, InputManager, Actuator, ScoreManager) {
+function GameManager(size,
+                     InputManager,
+                     Actuator,
+                     ScoreManager,
+                     BottomlessStack) {
   this.size         = size; // Size of the grid
   this.inputManager = new InputManager;
   this.scoreManager = new ScoreManager;
   this.actuator     = new Actuator;
 
+  // TODO: take the history size as a get query param.
+  this.history      = new BottomlessStack (100);
+
   this.startTiles   = 2;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("undo", this.undo.bind(this));
 
   this.setup();
 }
@@ -18,10 +26,31 @@ GameManager.prototype.restart = function () {
   this.setup();
 };
 
+GameManager.prototype.undo = function () {
+  this.loadSavedState();
+  this.actuate();
+};
+
+GameManager.prototype.saveState = function () {
+  this.history.push ({
+    grid  : this.grid.clone(),
+    score : this.score,
+    over  : this.over,
+    won   : this.won
+  });
+};
+
+GameManager.prototype.loadSavedState = function () {
+  var old_state = this.history.pop ();
+  this.grid  = old_state.grid;
+  this.score = old_state.score;
+  this.over  = old_state.over;
+  this.won   = old_state.won;
+};
+
 // Set up the game
 GameManager.prototype.setup = function () {
   this.grid         = new Grid(this.size);
-
   this.score        = 0;
   this.over         = false;
   this.won          = false;
@@ -60,7 +89,8 @@ GameManager.prototype.actuate = function () {
     score:     this.score,
     over:      this.over,
     won:       this.won,
-    bestScore: this.scoreManager.get()
+    bestScore: this.scoreManager.get(),
+    history:   ! this.history.isEmpty()
   });
 
 };
@@ -94,6 +124,9 @@ GameManager.prototype.move = function (direction) {
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
   var moved      = false;
+
+  // backup for undo
+  this.saveState();
 
   // Save the current tile positions and remove merger information
   this.prepareTiles();

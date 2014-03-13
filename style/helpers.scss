@@ -24,11 +24,31 @@
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
+  transition: $args;
 }
 
 @mixin transition-property($args...) {
   -webkit-transition-property: $args;
   -moz-transition-property: $args;
+  transition-property: $args;
+}
+
+@mixin animation($args...) {
+  -webkit-animation: $args;
+  -moz-animation: $args;
+  animation: $args;
+}
+
+@mixin animation-fill-mode($args...) {
+  -webkit-animation-fill-mode: $args;
+  -moz-animation-fill-mode: $args;
+  animation: $args;
+}
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  transform: $args;
 }
 
 // Keyframe animations
@@ -42,16 +62,6 @@
   @keyframes $animation-name {
     @content;
   }
-}
-
-@mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-}
-
-@mixin animation-fill-mode($str) {
-  -webkit-animation-fill-mode: #{$str};
-  -moz-animation-fill-mode: #{$str};
 }
 
 // Media queries

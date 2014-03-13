@@ -274,17 +274,19 @@ hr {
   }
 
   .tile {
-    width: $tile-size;
-    height: $tile-size;
-    line-height: $tile-size + 10px;
+    &, .tile-inner {
+      width: ceil($tile-size);
+      height: ceil($tile-size);
+      line-height: $tile-size + 10px;
+    }
 
     // Build position classes
     @for $x from 1 through $grid-row-cells {
       @for $y from 1 through $grid-row-cells {
         &.tile-position-#{$x}-#{$y} {
-          position: absolute;
-          left: round(($tile-size + $grid-spacing) * ($x - 1));
-          top: round(($tile-size + $grid-spacing) * ($y - 1));
+          $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
+          $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
+          @include transform(translate($xPos, $yPos));
         }
       }
     }
@@ -295,17 +297,24 @@ hr {
 @include game-field;
 
 .tile {
-  border-radius: $tile-border-radius;
+  position: absolute; // Makes transforms relative to the top-left corner
 
-  background: $tile-color;
-  text-align: center;
-  font-weight: bold;
-  z-index: 10;
+  .tile-inner {
+    border-radius: $tile-border-radius;
 
-  font-size: 55px;
+    background: $tile-color;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
 
+    font-size: 55px;
+  }
+
+  // Movement transition
   @include transition($transition-speed ease-in-out);
-  @include transition-property(top, left);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
 
   $base: 2;
   $exponent: 1;
@@ -328,7 +337,7 @@ hr {
   @while $exponent <= $limit {
     $power: pow($base, $exponent);
 
-    &.tile-#{$power} {
+    &.tile-#{$power} .tile-inner {
       // Calculate base background color
       $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
       $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
@@ -381,43 +390,38 @@ hr {
 @include keyframes(appear) {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
+    @include transform(scale(0));
   }
 
   100% {
     opacity: 1;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
+    @include transform(scale(1));
   }
 }
 
-.tile-new {
+.tile-new .tile-inner {
   @include animation(appear 200ms ease $transition-speed);
-  @include animation-fill-mode(both);
+  @include animation-fill-mode(backwards);
 }
 
 @include keyframes(pop) {
   0% {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
+    @include transform(scale(0));
   }
 
   50% {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
+    @include transform(scale(1.2));
   }
 
   100% {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
+    @include transform(scale(1));
   }
 }
 
-.tile-merged {
+.tile-merged .tile-inner {
   z-index: 20;
   @include animation(pop 200ms ease $transition-speed);
-  @include animation-fill-mode(both);
+  @include animation-fill-mode(backwards);
 }
 
 .game-intro {
@@ -455,11 +459,6 @@ hr {
     margin: 0 auto;
   }
 
-  // .scores-container {
-  //   float: left;
-  //   clear: left;
-  // }
-
   .score-container, .best-container {
     margin-top: 0;
     padding: 15px 10px;
@@ -478,7 +477,7 @@ hr {
   }
 
   // Rest of the font-size adjustments in the tile class
-  .tile {
+  .tile .tile-inner {
     font-size: 35px;
   }
 

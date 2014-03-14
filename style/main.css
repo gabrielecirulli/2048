@@ -372,6 +372,13 @@ hr {
     @media screen and (max-width: 480px) {
       .tile.tile-2048 .tile-inner {
         font-size: 15px; } }
+  .tile.tile-super .tile-inner {
+    color: #f9f6f2;
+    background: #3c3a32;
+    font-size: 30px; }
+    @media screen and (max-width: 480px) {
+      .tile.tile-super .tile-inner {
+        font-size: 10px; } }
 
 @-webkit-keyframes appear {
   0% {
@@ -557,9 +564,13 @@ hr {
         height: 40px;
         line-height: 42px;
         margin-left: 9px; }
+        .game-container .game-message a.keep-playing-button {
+          display: none; }
       .game-container .game-message.game-won {
         background: rgba(237, 194, 46, 0.5);
         color: #f9f6f2; }
+        .game-container .game-message.game-won a.keep-playing-button {
+          display: inline-block; }
       .game-container .game-message.game-won, .game-container .game-message.game-over {
         display: block; }
 

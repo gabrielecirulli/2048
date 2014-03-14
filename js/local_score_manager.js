@@ -18,9 +18,21 @@ window.fakeStorage = {
   }
 };
 
-function LocalScoreManager() {
-  var localSupported = !!window.localStorage;
+function isLocalStorageNameSupported() 
+{
+  var testKey = 'test', storage = window.localStorage;
+  try {
+    storage.setItem(testKey, '1');
+    storage.removeItem(testKey);
+    return true;
+  } 
+  catch (error) {
+    return false;
+  }
+}
 
+function LocalScoreManager() {
+  var localSupported = isLocalStorageNameSupported();
   this.key     = "bestScore";
   this.storage = localSupported ? window.localStorage : window.fakeStorage;
 }

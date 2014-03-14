@@ -90,7 +90,7 @@ h1.title {
     animation: move-up 600ms ease-in;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
-    animation: both; }
+    animation-fill-mode: both; }
 
 .score-container:after {
   content: "Score"; }
@@ -173,7 +173,7 @@ hr {
     animation: fade-in 800ms ease 1200ms;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
-    animation: both; }
+    animation-fill-mode: both; }
     .game-container .game-message p {
       font-size: 60px;
       font-weight: bold;
@@ -414,7 +414,7 @@ hr {
   animation: appear 200ms ease 100ms;
   -webkit-animation-fill-mode: backwards;
   -moz-animation-fill-mode: backwards;
-  animation: backwards; }
+  animation-fill-mode: backwards; }
 
 @-webkit-keyframes pop {
   0% {
@@ -471,7 +471,7 @@ hr {
   animation: pop 200ms ease 100ms;
   -webkit-animation-fill-mode: backwards;
   -moz-animation-fill-mode: backwards;
-  animation: backwards; }
+  animation-fill-mode: backwards; }
 
 .game-intro {
   margin-bottom: 0; }
@@ -533,7 +533,7 @@ hr {
       animation: fade-in 800ms ease 1200ms;
       -webkit-animation-fill-mode: both;
       -moz-animation-fill-mode: both;
-      animation: both; }
+      animation-fill-mode: both; }
       .game-container .game-message p {
         font-size: 60px;
         font-weight: bold;

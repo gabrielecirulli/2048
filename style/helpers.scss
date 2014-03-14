@@ -42,7 +42,7 @@
 @mixin animation-fill-mode($args...) {
   -webkit-animation-fill-mode: $args;
   -moz-animation-fill-mode: $args;
-  animation: $args;
+  animation-fill-mode: $args;
 }
 
 @mixin transform($args...) {

@@ -25,7 +25,7 @@ GameManager.prototype.keepPlaying = function () {
   this.actuator.continue();
 };
 
-GameManager.prototype.isGameOver = function () {
+GameManager.prototype.isGameTerminated = function () {
   if (this.over || (this.won && !this.keepPlaying)) {
     return true;
   } else {
@@ -35,12 +35,12 @@ GameManager.prototype.isGameOver = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  this.grid         = new Grid(this.size);
+  this.grid        = new Grid(this.size);
 
-  this.score        = 0;
-  this.over         = false;
-  this.won          = false;
-  this.keepPlaying  = false;
+  this.score       = 0;
+  this.over        = false;
+  this.won         = false;
+  this.keepPlaying = false;
 
   // Add the initial tiles
   this.addStartTiles();
@@ -73,11 +73,11 @@ GameManager.prototype.actuate = function () {
   }
 
   this.actuator.actuate(this.grid, {
-    score:     this.score,
-    over:      this.over,
-    won:       this.won,
-    bestScore: this.scoreManager.get(),
-    gameOver:  this.isGameOver()
+    score:      this.score,
+    over:       this.over,
+    won:        this.won,
+    bestScore:  this.scoreManager.get(),
+    terminated: this.isGameTerminated()
   });
 
 };
@@ -104,7 +104,7 @@ GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
-  if (this.isGameOver()) return; // Don't do anything if the game's over
+  if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
   var cell, tile;
 

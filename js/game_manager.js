@@ -68,15 +68,23 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.scoreManager.get() < this.score) {
-    this.scoreManager.set(this.score);
+  if (this.scoreManager.get("best") < this.score) {
+    this.scoreManager.set("best", this.score);
+  }
+
+  if (this.isGameTerminated()){
+    worstScore = this.scoreManager.get("worst");
+    if (worstScore === 0 || this.score < worstScore) {
+      this.scoreManager.set("worst", this.score);
+    }
   }
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,
     won:        this.won,
-    bestScore:  this.scoreManager.get(),
+    bestScore:  this.scoreManager.get("best"),
+    worstScore: this.scoreManager.get("worst"),
     terminated: this.isGameTerminated()
   });
 

@@ -19,7 +19,10 @@ window.fakeStorage = {
 };
 
 function LocalScoreManager() {
-  this.key     = "bestScore";
+  this.key = {
+    best: "bestScore",
+    worst: "worstScore"
+  };
 
   var supported = this.localStorageSupported();
   this.storage = supported ? window.localStorage : window.fakeStorage;
@@ -38,11 +41,10 @@ LocalScoreManager.prototype.localStorageSupported = function () {
   }
 };
 
-LocalScoreManager.prototype.get = function () {
-  return this.storage.getItem(this.key) || 0;
+LocalScoreManager.prototype.get = function (identifier) {
+  return this.storage.getItem(this.key[identifier]) || 0;
 };
 
-LocalScoreManager.prototype.set = function (score) {
-  this.storage.setItem(this.key, score);
+LocalScoreManager.prototype.set = function (identifier, score) {
+  this.storage.setItem(this.key[identifier], score);
 };
-

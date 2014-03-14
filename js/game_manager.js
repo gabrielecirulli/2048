@@ -8,23 +8,39 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.setup();
 }
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  this.actuator.restart();
+  this.actuator.continue();
   this.setup();
+};
+
+// Keep playing after winning
+GameManager.prototype.keepPlaying = function () {
+  this.keepPlaying = true;
+  this.actuator.continue();
+};
+
+GameManager.prototype.isGameTerminated = function () {
+  if (this.over || (this.won && !this.keepPlaying)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  this.grid         = new Grid(this.size);
+  this.grid        = new Grid(this.size);
 
-  this.score        = 0;
-  this.over         = false;
-  this.won          = false;
+  this.score       = 0;
+  this.over        = false;
+  this.won         = false;
+  this.keepPlaying = false;
 
   // Add the initial tiles
   this.addStartTiles();
@@ -57,10 +73,11 @@ GameManager.prototype.actuate = function () {
   }
 
   this.actuator.actuate(this.grid, {
-    score:     this.score,
-    over:      this.over,
-    won:       this.won,
-    bestScore: this.scoreManager.get()
+    score:      this.score,
+    over:       this.over,
+    won:        this.won,
+    bestScore:  this.scoreManager.get(),
+    terminated: this.isGameTerminated()
   });
 
 };
@@ -87,7 +104,7 @@ GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
-  if (this.over || this.won) return; // Don't do anything if the game's over
+  if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
   var cell, tile;
 

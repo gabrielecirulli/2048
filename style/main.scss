@@ -218,6 +218,10 @@ hr {
         @include button;
         margin-left: 9px;
         // margin-top: 59px;
+
+	&.keep-playing-button {
+	  display: none;
+	}
       }
 
       .score-sharing {
@@ -232,6 +236,10 @@ hr {
       &.game-won {
         background: rgba($tile-gold-color, .5);
         color: $bright-text-color;
+
+	a.keep-playing-button {
+	  display: inline-block;
+	}
       }
 
       &.game-won, &.game-over {
@@ -390,6 +398,18 @@ hr {
     }
 
     $exponent: $exponent + 1;
+  }
+
+  // Super tiles (above 2048)
+  &.tile-super .tile-inner {
+    color: $bright-text-color;
+    background: mix(#333, $tile-gold-color, 95%);
+
+    font-size: 30px;
+
+    @include smaller(480px) {
+      font-size: 10px;
+    }
   }
 }
 

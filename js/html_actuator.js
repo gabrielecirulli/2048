@@ -156,7 +156,6 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   tweet.classList.add("twitter-share-button");
   tweet.setAttribute("href", "https://twitter.com/share");
   tweet.setAttribute("data-via", "gabrielecirulli");
-  tweet.setAttribute("data-url", "http://git.io/2048");
   tweet.textContent = "Tweet";
 
   var text = "I scored " + this.score + " points at 2048, a game where you " +

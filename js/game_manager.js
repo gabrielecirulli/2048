@@ -18,6 +18,8 @@ function GameManager(size, InputManager, Actuator) {
 
 
   this.setup();
+  this.quicksave();
+  
 }
 
 // Restart the game

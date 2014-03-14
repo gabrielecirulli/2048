@@ -1,0 +1,16 @@
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\obj\Debug\ox800Game.Resources.resources
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\obj\Debug\ox800Game.vbproj.GenerateResource.Cache
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\bin\Debug\ox800Game.exe
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\bin\Debug\ox800Game.pdb
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\bin\Debug\ox800Game.xml
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\obj\Debug\ox800Game.exe
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\obj\Debug\ox800Game.xml
+C:\Users\twd2\AppData\Local\Temporary Projects\ox800Game\obj\Debug\ox800Game.pdb
+G:\0Program\dotNet\ox800Game\ox800Game\obj\Debug\ox800Game.exe
+G:\0Program\dotNet\ox800Game\ox800Game\obj\Debug\ox800Game.xml
+G:\0Program\dotNet\ox800Game\ox800Game\obj\Debug\ox800Game.pdb
+G:\0Program\dotNet\ox800Game\ox800Game\bin\Debug\ox800Game.exe
+G:\0Program\dotNet\ox800Game\ox800Game\bin\Debug\ox800Game.pdb
+G:\0Program\dotNet\ox800Game\ox800Game\bin\Debug\ox800Game.xml
+G:\0Program\dotNet\ox800Game\ox800Game\obj\Debug\ox800Game.Resources.resources
+G:\0Program\dotNet\ox800Game\ox800Game\obj\Debug\ox800Game.vbproj.GenerateResource.Cache

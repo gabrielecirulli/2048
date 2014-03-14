@@ -32,11 +32,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
   });
 };
 
-HTMLActuator.prototype.restart = function () {
-  this.clearMessage();
-};
-
-HTMLActuator.prototype.keepPlaying = function () {
+// Continues the game (both restart and keep playing)
+HTMLActuator.prototype.continue = function () {
   this.clearMessage();
 };
 

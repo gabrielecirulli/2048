@@ -15,25 +15,23 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  this.actuator.restart();
+  this.actuator.continue();
   this.setup();
 };
 
 // Keep playing after winning
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
-  this.actuator.keepPlaying();
+  this.actuator.continue();
 };
 
-GameManager.prototype.isGameOver = function() {
-  if (this.over || (this.won && !this.keepPlaying) ) {
+GameManager.prototype.isGameOver = function () {
+  if (this.over || (this.won && !this.keepPlaying)) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
-}
-
+};
 
 // Set up the game
 GameManager.prototype.setup = function () {

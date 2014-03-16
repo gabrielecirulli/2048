@@ -49,7 +49,20 @@ KeyboardInputManager.prototype.listen = function () {
         self.emit("move", mapped);
       }
 
-      if (event.which === 32) self.restart.bind(self)(event);
+      //space to restart game
+      if (event.which === 32) {
+        self.restart.bind(self)(event);
+      }
+
+      if (event.which === 85) {
+        //u - to undo turn
+        self.undo.bind(self)(event);
+      }
+    } else {
+      if ((event.ctrlKey || event.metaKey) && event.which === 90) {
+        //meta or ctrl + z to revert turn
+        self.undo.bind(self)(event);
+      }
     }
   });
 
@@ -60,6 +73,10 @@ KeyboardInputManager.prototype.listen = function () {
   var keepPlaying = document.querySelector(".keep-playing-button");
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
+
+  var undo = document.querySelector(".undo-button");
+  undo.addEventListener("click", this.undo.bind(this));
+  undo.addEventListener("touchend", this.undo.bind(this));
 
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
@@ -101,4 +118,9 @@ KeyboardInputManager.prototype.restart = function (event) {
 KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
+};
+
+KeyboardInputManager.prototype.undo = function (event) {
+  event.preventDefault();
+  this.emit("undo");
 };

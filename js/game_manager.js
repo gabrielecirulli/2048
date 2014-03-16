@@ -7,6 +7,7 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.startTiles   = 2;
 
   this.inputManager.on("move", this.move.bind(this));
+  this.inputManager.on("undo", this.undo.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
@@ -41,6 +42,8 @@ GameManager.prototype.setup = function () {
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
+
+  this.turns       = [];
 
   // Add the initial tiles
   this.addStartTiles();
@@ -104,7 +107,9 @@ GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
-  if (this.isGameTerminated()) return; // Don't do anything if the game's over
+  if (this.isGameTerminated()) {
+    return; // Don't do anything if the game's over
+  }
 
   var cell, tile;
 
@@ -114,6 +119,7 @@ GameManager.prototype.move = function (direction) {
 
   // Save the current tile positions and remove merger information
   this.prepareTiles();
+  this.saveTurn();
 
   // Traverse the grid in the right direction and move tiles
   traversals.x.forEach(function (x) {
@@ -140,7 +146,7 @@ GameManager.prototype.move = function (direction) {
           self.score += merged.value;
 
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === 2048) { self.won = true; }
         } else {
           self.moveTile(tile, positions.farthest);
         }
@@ -160,7 +166,53 @@ GameManager.prototype.move = function (direction) {
     }
 
     this.actuate();
+  } else {
+    this.abandonTurn();
   }
+};
+
+GameManager.prototype.undo = function () {
+  if (this.isGameTerminated()) {
+    return; // Don't do anything if the game's over
+  }
+
+  this.restoreTurn();
+  this.actuate();
+};
+
+GameManager.prototype.saveTurn = function () {
+  var state = { tiles : [], score : 0 };
+  this.grid.eachCell(function (x, y, tile) {
+    if (tile) {
+      var tileClone = tile.clone();
+      state.tiles.push(tileClone);
+    }
+  });
+  state.score = this.score;
+  this.turns.push(state);
+};
+
+GameManager.prototype.restoreTurn = function () {
+  var self  = this;
+  var state = this.turns.pop();
+  if (state === undefined) {
+    //no saved state found
+    return;
+  }
+
+  this.grid.eachCell(function (x, y, tile) {
+    if (tile) {
+      self.grid.removeTile(tile);
+    }
+  });
+  for (i = 0; i < state.tiles.length; i++) {
+    this.grid.insertTile(state.tiles[i]);
+  }
+  this.score = state.score;
+};
+
+GameManager.prototype.abandonTurn = function () {
+  this.turns.pop();
 };
 
 // Get the vector representing the chosen direction

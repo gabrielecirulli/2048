@@ -221,9 +221,9 @@ hr {
         margin-left: 9px;
         // margin-top: 59px;
 
-	&.keep-playing-button {
-	  display: none;
-	}
+        &.keep-playing-button {
+          display: none;
+        }
       }
 
       @include animation(fade-in 800ms ease $transition-speed * 12);
@@ -233,9 +233,9 @@ hr {
         background: rgba($tile-gold-color, .5);
         color: $bright-text-color;
 
-	a.keep-playing-button {
-	  display: inline-block;
-	}
+        a.keep-playing-button {
+          display: inline-block;
+        }
       }
 
       &.game-won, &.game-over {
@@ -301,10 +301,28 @@ hr {
       }
     }
   }
+
+  .game-controls-container {
+    margin-top: 15px;
+
+    a {
+      @include button;
+      padding: 0;
+      text-align: center;
+
+      &.undo-button {
+        display: block;
+      }
+    }
+  }
 }
 
 // End of game-field mixin
 @include game-field;
+
+.game-controls-container {
+  display: none;
+}
 
 .tile {
   position: absolute; // Makes transforms relative to the top-left corner
@@ -493,6 +511,10 @@ hr {
 
   // Render the game field at the right width
   @include game-field;
+
+  .game-controls-container {
+    display: block;
+  }
 
   .game-container {
     margin-top: 20px;

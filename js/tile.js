@@ -3,8 +3,8 @@ function Tile(position, value) {
   this.y                = position.y;
   this.value            = value || 2;
 
-  this.previousPosition   = null;
-  this.mergedFrom         = null; // Tracks tiles that merged together
+  this.previousPosition = null;
+  this.mergedFrom       = null; // Tracks tiles that merged together
 }
 
 Tile.prototype.savePosition = function () {

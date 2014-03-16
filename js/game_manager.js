@@ -172,8 +172,6 @@ GameManager.prototype.move = function (direction) {
 };
 
 GameManager.prototype.undo = function () {
-  console.log("game undo");
-
   if (this.isGameTerminated()) {
     return; // Don't do anything if the game's over
   }

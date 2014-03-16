@@ -30,7 +30,6 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
-
 @-moz-keyframes move-up {
   0% {
     top: 25px;
@@ -39,7 +38,6 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
-
 @keyframes move-up {
   0% {
     top: 25px;
@@ -48,7 +46,6 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
-
 .scores-container {
   float: right;
   text-align: right; }
@@ -128,21 +125,18 @@ hr {
 
   100% {
     opacity: 1; } }
-
 @-moz-keyframes fade-in {
   0% {
     opacity: 0; }
 
   100% {
     opacity: 1; } }
-
 @keyframes fade-in {
   0% {
     opacity: 0; }
 
   100% {
     opacity: 1; } }
-
 .game-container {
   margin-top: 40px;
   position: relative;
@@ -299,6 +293,25 @@ hr {
   -moz-transform: translate(363px, 363px);
   transform: translate(363px, 363px); }
 
+.game-controls-container {
+  margin-top: 15px; }
+  .game-controls-container a {
+    display: inline-block;
+    background: #8f7a66;
+    border-radius: 3px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: #f9f6f2;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    text-align: center; }
+    .game-controls-container a.undo-button {
+      display: block; }
+
+.game-controls-container {
+  display: none; }
+
 .tile {
   position: absolute;
   -webkit-transition: 100ms ease-in-out;
@@ -392,7 +405,6 @@ hr {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
-
 @-moz-keyframes appear {
   0% {
     opacity: 0;
@@ -405,7 +417,6 @@ hr {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
-
 @keyframes appear {
   0% {
     opacity: 0;
@@ -418,7 +429,6 @@ hr {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
-
 .tile-new .tile-inner {
   -webkit-animation: appear 200ms ease 100ms;
   -moz-animation: appear 200ms ease 100ms;
@@ -442,7 +452,6 @@ hr {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
-
 @-moz-keyframes pop {
   0% {
     -webkit-transform: scale(0);
@@ -458,7 +467,6 @@ hr {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
-
 @keyframes pop {
   0% {
     -webkit-transform: scale(0);
@@ -474,7 +482,6 @@ hr {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1); } }
-
 .tile-merged .tile-inner {
   z-index: 20;
   -webkit-animation: pop 200ms ease 100ms;
@@ -669,6 +676,25 @@ hr {
     -webkit-transform: translate(202px, 202px);
     -moz-transform: translate(202px, 202px);
     transform: translate(202px, 202px); }
+
+  .game-controls-container {
+    margin-top: 15px; }
+    .game-controls-container a {
+      display: inline-block;
+      background: #8f7a66;
+      border-radius: 3px;
+      padding: 0 20px;
+      text-decoration: none;
+      color: #f9f6f2;
+      height: 40px;
+      line-height: 42px;
+      padding: 0;
+      text-align: center; }
+      .game-controls-container a.undo-button {
+        display: block; }
+
+  .game-controls-container {
+    display: block; }
 
   .game-container {
     margin-top: 20px; }

@@ -53,6 +53,20 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
+  var auto = false;
+  var t;
+  document.querySelectorAll('#auto_play_button')[0].addEventListener("click", function () {
+    if (auto) {
+      auto = false;
+      clearInterval(t);
+    } else {
+      auto = true;
+      t = setInterval(function () {
+        self.emit("move", Math.floor((Math.random()*3)));
+      }, 500);
+    }
+  });
+
   var retry = document.querySelector(".retry-button");
   retry.addEventListener("click", this.restart.bind(this));
   retry.addEventListener("touchend", this.restart.bind(this));

@@ -888,3 +888,26 @@ hr {
       @media screen and (max-width: 480px) {
         .tile.tile-super .tile-inner {
           font-size: 10px; } }
+
+      .game-container .tzvika-says {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;}
+  .game-container .tzvika-says p {
+    position:fixed;
+    font-size: 60px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    -webkit-animation: fade-in-out 600ms ease-in;
+    -moz-animation: fade-in-out 600ms ease-in;
+    animation: fade-in-out 600ms ease-in;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    animation-fill-mode: both; }
+
+  .tzvika-says p {
+    font-size: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;}

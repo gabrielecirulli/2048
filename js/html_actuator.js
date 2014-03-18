@@ -1,14 +1,15 @@
-function HTMLActuator() {
+﻿function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
   this.sharingContainer = document.querySelector(".score-sharing");
+  this.tzvikaSays = document.querySelector(".tzvika-says");
 
   this.score = 0;
 }
 
-
+tzvikaSayings = ['תקשיב להורים', 'קצת נחנקתי מרוב צחוק', 'מאפ אני צביקה' ]
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
@@ -111,7 +112,9 @@ HTMLActuator.prototype.positionClass = function (position) {
 };
 
 HTMLActuator.prototype.updateScore = function (score) {
-  this.clearContainer(this.scoreContainer);
+    this.clearContainer(this.scoreContainer);
+    this.clearContainer(this.tzvikaSays)
+
 
   var difference = score - this.score;
   this.score = score;
@@ -124,6 +127,16 @@ HTMLActuator.prototype.updateScore = function (score) {
     addition.textContent = "+" + difference;
 
     this.scoreContainer.appendChild(addition);
+
+    var message = tzvikaSayings[Math.floor(Math.random() * tzvikaSayings.length)]
+    var messageElement = document.createElement("p");
+    messageElement.textContent = message
+    var left = 'left:' + Math.round(Math.random() * 80) + '%;'
+    var top = 'top:' + Math.round(Math.random() * 80) + '%;'
+    var color = 'color: rgb(' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ', ' + Math.round(Math.random() * 255) + ');'
+    var styleString = left + top + color
+    messageElement.setAttribute('style', styleString);
+    this.tzvikaSays.appendChild(messageElement);
   }
 };
 

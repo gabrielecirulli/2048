@@ -896,7 +896,7 @@ hr {
   z-index: 100;}
   .game-container .tzvika-says p {
     position:fixed;
-    font-size: 100px;
+    font-size: 300px;
     font-weight: bold;
     height: 60px;
     line-height: 60px;
@@ -908,8 +908,8 @@ hr {
     animation-fill-mode: both; }
 
   .tzvika-says p {
-    font-size: 30px !important;
-    height: 30px !important;
+    font-size: 40px !important;
+    height: 300px !important;
     line-height: 30px !important;}
 
   @-webkit-keyframes fade-in-out {

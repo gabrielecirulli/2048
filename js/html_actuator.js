@@ -9,7 +9,7 @@
   this.score = 0;
 }
 
-tzvikaSayings = ['תקשיב להורים', 'קצת נחנקתי מרוב צחוק', 'מאפ אני צביקה' ]
+tzvikaSayings = ['תקשיב להורים', 'קצת נחנקתי עכשיו מרוב צחוק', 'מאפ אני צביקה' ]
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;

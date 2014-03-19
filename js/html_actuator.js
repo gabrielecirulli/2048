@@ -72,6 +72,11 @@ HTMLActuator.prototype.addTile = function (tile) {
   tile.generateWangValue();
   inner.textContent = tile.wangValue;
 
+  // Some percent chance of seeing a flipped number
+  if (Math.random() > 0.992) {
+    inner.classList.add("flipped");
+  }
+
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
     window.requestAnimationFrame(function () {
@@ -99,11 +104,6 @@ HTMLActuator.prototype.addTile = function (tile) {
     }
     classes.push("tile-small-" + wangLength);
     this.applyClasses(wrapper, classes);
-  }
-
-  // Some percent chance of seeing a flipped number
-  if (Math.random() > 0.992) {
-    inner.classList.add("flipped");
   }
 
   // Add the inner part of the tile to the wrapper
@@ -143,8 +143,9 @@ HTMLActuator.prototype.updateScore = function (score) {
     this.scoreContainer.appendChild(addition);
   }
 
-  if (Math.random() > 0.9) {
+  if (Math.random() > 0.9 && score > 8) {
     var announce = document.createElement("p");
+    announce.classList.add("show-numberwang");
     announce.textContent = "That’s Numberwang!";
     this.thatsNumberwang.appendChild(announce);
   }
@@ -155,6 +156,8 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
+  this.clearContainer(this.thatsNumberwang);
+
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You’re the Numberwang!" : "You’ve been Wangernumbed!";
 

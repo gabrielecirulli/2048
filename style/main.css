@@ -122,26 +122,6 @@ hr {
 .container {
   width: 500px;
   margin: 0 auto; }
-  .container .thats-numberwang {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100; }
-    .container .thats-numberwang p {
-      position: fixed;
-      font-size: 60px;
-      font-weight: bold;
-      height: 60px;
-      line-height: 60px;
-      width: 100%;
-      text-align: center;
-      margin-top: 30%;
-      -webkit-animation: fade-in-out 600ms ease-in;
-      -moz-animation: fade-in-out 600ms ease-in;
-      animation: fade-in-out 600ms ease-in;
-      -webkit-animation-fill-mode: both;
-      -moz-animation-fill-mode: both;
-      animation-fill-mode: both; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -179,6 +159,28 @@ hr {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+  .game-container .thats-numberwang {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%; }
+    .game-container .thats-numberwang .show-numberwang {
+      position: absolute;
+      font-size: 48px;
+      font-weight: bold;
+      height: 60px;
+      width: 100%;
+      text-align: center;
+      margin-top: 50%;
+      top: -30px;
+      -webkit-animation: fade-in-out 600ms ease-in;
+      -moz-animation: fade-in-out 600ms ease-in;
+      animation: fade-in-out 600ms ease-in;
+      -webkit-animation-fill-mode: both;
+      -moz-animation-fill-mode: both;
+      animation-fill-mode: both; }
   .game-container .game-message {
     display: none;
     position: absolute;
@@ -344,7 +346,7 @@ hr {
       -moz-transform: scale(-1, 1);
       transform: scale(-1, 1); }
   .tile.tile-small-4 .tile-inner {
-    font-size: 45px !important; }
+    font-size: 44px !important; }
   .tile.tile-small-5 .tile-inner {
     font-size: 35px !important; }
   .tile.tile-small-6 .tile-inner {
@@ -575,6 +577,28 @@ hr {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
+    .game-container .thats-numberwang {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%; }
+      .game-container .thats-numberwang .show-numberwang {
+        position: absolute;
+        font-size: 48px;
+        font-weight: bold;
+        height: 60px;
+        width: 100%;
+        text-align: center;
+        margin-top: 50%;
+        top: -30px;
+        -webkit-animation: fade-in-out 600ms ease-in;
+        -moz-animation: fade-in-out 600ms ease-in;
+        animation: fade-in-out 600ms ease-in;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        animation-fill-mode: both; }
     .game-container .game-message {
       display: none;
       position: absolute;

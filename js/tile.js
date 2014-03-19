@@ -17,12 +17,12 @@ Tile.prototype.generateWangValue = function () {
   wang = Math.ceil(Math.random() * (value - (value/2)) * 4);
 
   if (random > 0.94) {
-    wang = wang.toString() + '.' + Math.floor(Math.random() * 10).toString();
+    wang = wang.toString() + '.' + Math.ceil(Math.random() * 9).toString();
   }
   else if (random < 0.04) {
     wang = '-' + wang.toString();
   }
-  else if (random > 0.04 && random < 0.05) {
+  else if (random > 0.04 && random < 0.046) {
     wang = chars[Math.floor(Math.random() * chars.length)];
   }
   else if (random > 0.05 && random < 0.08) {

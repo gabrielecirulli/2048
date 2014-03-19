@@ -50,11 +50,11 @@ Tile.prototype.generateWangValue = function () {
   }
   // Subtraction
   else if (random > 0.150 && random < 0.152) {
-    wang = wang.toString() + '-' + Math.floor(Math.random() * 10).toString();
+    wang = wang.toString() + '-' + Math.ceil(Math.random() * 10).toString();
   }
   // Addition
   else if (random > 0.155 && random < 0.157) {
-    wang = wang.toString() + '+' + Math.floor(Math.random() * 10).toString();
+    wang = wang.toString() + '+' + Math.ceil(Math.random() * 10).toString();
   }
   // Square root
   else if (random > 0.200 && random < 0.202) {

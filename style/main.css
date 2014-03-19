@@ -525,8 +525,8 @@ hr {
   margin-bottom: 0;
   position: relative; }
   .game-intro p {
-    padding-top: 14px;
-    line-height: 1.40; }
+    line-height: 1.40;
+    width: 250px; }
 
 .game-explanation {
   margin-top: 50px; }

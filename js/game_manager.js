@@ -15,14 +15,14 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  this.actuator.continue();
+  this.actuator.continueGame();
   this.setup();
 };
 
 // Keep playing after winning
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
-  this.actuator.continue();
+  this.actuator.continueGame();
 };
 
 GameManager.prototype.isGameTerminated = function () {

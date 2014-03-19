@@ -17,9 +17,10 @@
   // TODO: Remember the preferred language
   var language = (navigator.language || navigator.userLanguage).toLowerCase().slice(0,2); 
   var supportedLanguages = ['fr'];
-  if( language != 'en' ) {
+  if( language != 'fr' ) {
     for( i in supportedLanguages ) {
-      if( supportedLanguages[i] === language ){ window.location.replace("/"+language); break; }
+      if (language == 'en' ){ window.location.replace("/"); break; }
+      else if( supportedLanguages[i] === language ){ window.location.replace("/"+language); break; }
     }
   }
   </script>

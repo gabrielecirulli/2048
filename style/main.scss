@@ -146,6 +146,25 @@ hr {
 .container {
   width: $field-width;
   margin: 0 auto;
+
+  .thats-numberwang {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    p {
+      position: fixed;
+      font-size: 60px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      width: 100%;
+      text-align: center;
+      margin-top: 30%;
+      @include animation(fade-in-out 600ms ease-in);
+      @include animation-fill-mode(both);
+    }
+  }
 }
 
 @include keyframes(fade-in) {
@@ -223,9 +242,9 @@ hr {
         margin-left: 9px;
         // margin-top: 59px;
 
-	&.keep-playing-button {
-	  display: none;
-	}
+      	&.keep-playing-button {
+      	  display: none;
+      	}
       }
 
       .score-sharing {
@@ -241,9 +260,9 @@ hr {
         background: rgba($tile-gold-color, .5);
         color: $bright-text-color;
 
-	a.keep-playing-button {
-	  display: inline-block;
-	}
+      	a.keep-playing-button {
+      	  display: inline-block;
+      	}
       }
 
       &.game-won, &.game-over {
@@ -326,6 +345,17 @@ hr {
     z-index: 10;
 
     font-size: 55px;
+  }
+
+  // Hacks for wangValue
+  &.tile-small-4 .tile-inner {
+    font-size: 45px !important;
+  }
+  &.tile-small-5 .tile-inner {
+    font-size: 35px !important;
+  }
+  &.tile-small-6 .tile-inner {
+    font-size: 25px !important;
   }
 
   // Movement transition

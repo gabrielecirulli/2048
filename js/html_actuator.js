@@ -4,6 +4,7 @@ function HTMLActuator() {
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
   this.sharingContainer = document.querySelector(".score-sharing");
+  this.thatsNumberwang  = document.querySelector(".thats-numberwang");
 
   this.score = 0;
 }
@@ -67,7 +68,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-//  inner.textContent = tile.value;
+
   tile.generateWangValue();
   inner.textContent = tile.wangValue;
 
@@ -87,6 +88,16 @@ HTMLActuator.prototype.addTile = function (tile) {
     });
   } else {
     classes.push("tile-new");
+    this.applyClasses(wrapper, classes);
+  }
+
+  // Fit numberwang values
+  var wangLength = String(tile.wangValue).length
+  if (wangLength >= 4) {
+    if (wangLength > 6) {
+      wangLength = 6;
+    }
+    classes.push("tile-small-" + wangLength);
     this.applyClasses(wrapper, classes);
   }
 
@@ -112,6 +123,7 @@ HTMLActuator.prototype.positionClass = function (position) {
 
 HTMLActuator.prototype.updateScore = function (score) {
   this.clearContainer(this.scoreContainer);
+  this.clearContainer(this.thatsNumberwang);
 
   var difference = score - this.score;
   this.score = score;
@@ -124,6 +136,12 @@ HTMLActuator.prototype.updateScore = function (score) {
     addition.textContent = "+" + difference;
 
     this.scoreContainer.appendChild(addition);
+  }
+
+  if (Math.random() > 0.9) {
+    var announce = document.createElement("p");
+    announce.textContent = "That’s Numberwang!";
+    this.thatsNumberwang.appendChild(announce);
   }
 };
 

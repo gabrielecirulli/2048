@@ -64,6 +64,16 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
+  Function.prototype.bind = Function.prototype.bind || function(target) {
+    var self = this;
+    return function(args) {
+      if(! (args instanceof Array)) {
+        args = [ args ];
+      }
+      self.apply(target, args)
+    }
+  };
+
   var retry = document.querySelector(".retry-button");
   retry.addEventListener("click", this.restart.bind(this));
   retry.addEventListener(this.eventTouchend, this.restart.bind(this));

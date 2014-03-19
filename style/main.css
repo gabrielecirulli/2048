@@ -50,7 +50,8 @@ h1.title {
     opacity: 0; } }
 
 .scores-container {
-  float: right;
+  position: absolute;
+  right: 0;
   text-align: right; }
 
 .score-container, .best-container {
@@ -489,7 +490,11 @@ hr {
   animation-fill-mode: backwards; }
 
 .game-intro {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  position: relative; }
+  .game-intro p {
+    padding-top: 14px;
+    line-height: 1.40; }
 
 .game-explanation {
   margin-top: 50px; }

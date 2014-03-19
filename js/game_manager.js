@@ -36,6 +36,8 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   this.grid        = new Grid(this.size);
+  this.undoStates  = Array();
+  this.undoIndex   = 0;
 
   this.score       = 0;
   this.over        = false;
@@ -44,6 +46,7 @@ GameManager.prototype.setup = function () {
 
   // Add the initial tiles
   this.addStartTiles();
+  this.saveUndo();
 
   // Update the actuator
   this.actuate();
@@ -161,6 +164,8 @@ GameManager.prototype.move = function (direction) {
 
     this.actuate();
   }
+
+  this.saveUndo();
 };
 
 // Get the vector representing the chosen direction
@@ -243,3 +248,63 @@ GameManager.prototype.tileMatchesAvailable = function () {
 GameManager.prototype.positionsEqual = function (first, second) {
   return first.x === second.x && first.y === second.y;
 };
+
+GameManager.prototype.getState = function () {
+  var state = {};
+
+  state.grid        = this.grid.copy();
+  state.score       = this.score;
+  state.over        = this.over;
+  state.won         = this.won;
+  state.keepPlaying = this.keepPlaying;
+
+  return state;
+};
+
+GameManager.prototype.setState = function (state) {
+  this.grid        = state.grid;
+  this.score       = state.score;
+  this.over        = state.over;
+  this.won         = state.won;
+  this.keepPlaying = state.keepPlaying;
+};
+
+GameManager.prototype.saveUndo = function () {
+  if (this.undoIndex > 0) {
+    this.undoStates.splice(this.undoStates.length-this.undoIndex, this.undoIndex);
+    this.undoIndex = 0;
+  }
+
+  this.undoStates.push(this.getState());
+};
+
+GameManager.prototype.canUndo = function (n) {
+  if (n === undefined || n === null)  n = this.undoIndex + 1;
+  return this.undoStates.length-1 >= n;
+};
+  
+GameManager.prototype.canRedo = function (n) {
+  if (n === undefined || n === null)  n = this.undoIndex - 1;
+  return this.undoIndex >= n;
+};
+  
+
+GameManager.prototype.undo = function (n) {
+  if (n === undefined || n === null)  n = this.undoIndex + 1;
+  if (!this.canUndo(n)) return;
+
+  var state = this.undoStates[this.undoStates.length-1 - n];
+  this.undoIndex = n;
+  this.setState(state);
+
+  this.actuate();
+
+  console.log("Undone: ", n);
+};
+
+GameManager.prototype.redo = function (n) {
+  if (n === undefined || n === null)  n = this.undoIndex - 1;
+  if (!this.canRedo(n)) return;
+  this.undo(-n);
+};
+

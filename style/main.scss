@@ -345,6 +345,9 @@ hr {
     z-index: 10;
 
     font-size: 55px;
+    &.flipped {
+      @include transform(scale(-1, 1));
+    }
   }
 
   // Hacks for wangValue

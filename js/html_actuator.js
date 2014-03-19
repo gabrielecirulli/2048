@@ -101,6 +101,11 @@ HTMLActuator.prototype.addTile = function (tile) {
     this.applyClasses(wrapper, classes);
   }
 
+  // Some percent chance of seeing a flipped number
+  if (Math.random() > 0.992) {
+    inner.classList.add("flipped");
+  }
+
   // Add the inner part of the tile to the wrapper
   wrapper.appendChild(inner);
 

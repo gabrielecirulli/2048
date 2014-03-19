@@ -184,6 +184,7 @@ hr {
     border-radius: $tile-border-radius * 2;
     width: $field-width;
     height: $field-width;
+    -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

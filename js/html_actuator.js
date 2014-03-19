@@ -138,7 +138,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   if (difference > 0) {
     var addition = document.createElement("div");
     addition.classList.add("score-addition");
-    addition.textContent = "+" + difference;
+    addition.textContent = _randomScore();
 
     this.scoreContainer.appendChild(addition);
   }
@@ -148,6 +148,42 @@ HTMLActuator.prototype.updateScore = function (score) {
     announce.classList.add("show-numberwang");
     announce.textContent = "That’s Numberwang!";
     this.thatsNumberwang.appendChild(announce);
+  }
+
+  function _randomScore() {
+    var random = Math.random(),
+        sign = "+",
+        wang = Math.ceil(Math.random() * (difference - (difference/2)) * 4);
+
+    // Decimal number
+    if (random > 0.94) {
+      wang = wang.toString() + '.' + Math.ceil(Math.random() * 9).toString();
+    }
+    // Negative number
+    else if (random < 0.04) {
+      sign = '-';
+    }
+    // Zero
+    else if (random > 0.46 && random < 0.465) {
+      wang = 0;
+    }
+    // Hundred digit number
+    else if (random > 0.09 && random < 0.12) {
+      wang = wang + Math.floor(Math.random() * 1000);
+    }
+    // Four digit number
+    else if (random > 0.05 && random < 0.08) {
+      wang = wang + Math.floor(Math.random() * 10000);
+    }
+    // Five digit number
+    else if (random > 0.080 && random < 0.082) {
+      wang = wang + Math.floor(Math.random() * 100000);
+    }
+    // Six digit number
+    else if (random > 0.085 && random < 0.086) {
+      wang = wang + Math.floor(Math.random() * 1000000);
+    }
+    return sign + wang;
   }
 };
 

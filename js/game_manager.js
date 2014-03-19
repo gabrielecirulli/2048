@@ -115,7 +115,6 @@ GameManager.prototype.move = function (direction) {
 
   if (direction == -1) {
     if (this.undoStack.length > 0) {
-      console.log("doing undo");
       var prev = this.undoStack.pop();
 
       this.grid.build();
@@ -130,6 +129,9 @@ GameManager.prototype.move = function (direction) {
         this.grid.cells[tile.x][tile.y] = tile;
       }
       this.over = false;
+      this.won = false;
+      this.keepPlaying = false;
+      this.actuator.continue();
       this.actuate();
     }
     return;

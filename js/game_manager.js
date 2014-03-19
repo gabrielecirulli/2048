@@ -13,8 +13,6 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.undoStack = [];
 
   this.setup();
-
-  alok = this;
 }
 
 // Restart the game

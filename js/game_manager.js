@@ -70,6 +70,9 @@ GameManager.prototype.addRandomTile = function () {
 GameManager.prototype.actuate = function () {
   if (this.scoreManager.get() < this.score) {
     this.scoreManager.set(this.score);
+	
+  //Change best score background color when there is new high score.
+  document.getElementById('best-score').style.backgroundColor = '#edcc61';
   }
 
   this.actuator.actuate(this.grid, {
@@ -79,7 +82,6 @@ GameManager.prototype.actuate = function () {
     bestScore:  this.scoreManager.get(),
     terminated: this.isGameTerminated()
   });
-
 };
 
 // Save all tile positions and remove merger info

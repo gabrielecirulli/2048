@@ -61,7 +61,9 @@ h1.title {
 }
 
 .scores-container {
-  float: right;
+  // float: right;
+  position: absolute;
+  right: 0;
   text-align: right;
 }
 
@@ -448,6 +450,10 @@ hr {
 
 .game-intro {
   margin-bottom: 0;
+  position: relative;
+  p {
+    padding-top: 10px;
+  }
 }
 
 .game-explanation {

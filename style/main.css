@@ -527,6 +527,7 @@ hr {
     border-radius: 6px;
     width: 280px;
     height: 280px;
+    -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }

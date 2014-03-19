@@ -195,6 +195,10 @@ hr {
       margin-left: 9px; }
       .game-container .game-message a.keep-playing-button {
         display: none; }
+    .game-container .game-message .score-sharing {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px; }
     .game-container .game-message.game-won {
       background: rgba(237, 194, 46, 0.5);
       color: #f9f6f2; }
@@ -490,6 +494,13 @@ hr {
 .game-explanation {
   margin-top: 50px; }
 
+.sharing {
+  margin-top: 20px;
+  text-align: center; }
+  .sharing > iframe, .sharing > span, .sharing > form {
+    display: inline-block;
+    vertical-align: middle; }
+
 @media screen and (max-width: 520px) {
   html, body {
     font-size: 15px; }
@@ -566,6 +577,10 @@ hr {
         margin-left: 9px; }
         .game-container .game-message a.keep-playing-button {
           display: none; }
+      .game-container .game-message .score-sharing {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px; }
       .game-container .game-message.game-won {
         background: rgba(237, 194, 46, 0.5);
         color: #f9f6f2; }
@@ -682,4 +697,98 @@ hr {
     line-height: 30px !important;
     margin-top: 90px !important; }
   .game-message .lower {
-    margin-top: 30px !important; } }
+    margin-top: 30px !important; }
+
+  .sharing > iframe, .sharing > span, .sharing > form {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px; } }
+.pp-donate button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px; }
+  .pp-donate button img {
+    vertical-align: -4px;
+    margin-right: 8px; }
+
+.btc-donate {
+  position: relative;
+  margin-left: 10px;
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  cursor: pointer; }
+  .btc-donate img {
+    vertical-align: -4px;
+    margin-right: 8px; }
+  .btc-donate a {
+    color: #f9f6f2;
+    text-decoration: none;
+    font-weight: normal; }
+  .btc-donate .address {
+    cursor: auto;
+    position: absolute;
+    width: 340px;
+    right: 50%;
+    margin-right: -170px;
+    padding-bottom: 7px;
+    top: -30px;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: 400ms ease;
+    -moz-transition: 400ms ease;
+    transition: 400ms ease;
+    -webkit-transition-property: top, opacity;
+    -moz-transition-property: top, opacity;
+    transition-property: top, opacity; }
+    .btc-donate .address:after {
+      position: absolute;
+      border-top: 10px solid #bbada0;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      content: "";
+      bottom: 0px;
+      left: 50%;
+      margin-left: -7px; }
+    .btc-donate .address code {
+      background-color: #bbada0;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 3px;
+      line-height: 1;
+      font-weight: normal;
+      font-size: 15px;
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+      text-align: center; }
+  .btc-donate:hover .address, .btc-donate .address:hover .address {
+    opacity: 1;
+    top: -45px;
+    pointer-events: auto; }
+  @media screen and (max-width: 480px) {
+    .btc-donate {
+      width: 120px; }
+      .btc-donate .address {
+        margin-right: -150px;
+        width: 300px; }
+        .btc-donate .address code {
+          font-size: 13px; }
+        .btc-donate .address:after {
+          left: 50%;
+          bottom: 2px; } }

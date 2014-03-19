@@ -41,6 +41,7 @@ GameManager.prototype.setup = function () {
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
+  this.newBest     = false;
 
   // Add the initial tiles
   this.addStartTiles();
@@ -70,6 +71,7 @@ GameManager.prototype.addRandomTile = function () {
 GameManager.prototype.actuate = function () {
   if (this.scoreManager.get() < this.score) {
     this.scoreManager.set(this.score);
+	this.newBest = true;
   }
 
   this.actuator.actuate(this.grid, {
@@ -77,9 +79,9 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.scoreManager.get(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+	newBest:    this.newBest
   });
-
 };
 
 // Save all tile positions and remove merger info

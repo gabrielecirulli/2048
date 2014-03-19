@@ -31,6 +31,10 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         self.message(true); // You win!
       }
     }
+	
+	if (metadata.newBest) {
+		self.bestContainer.setAttribute("class", "best-container-new-score ");
+	}
 
   });
 };

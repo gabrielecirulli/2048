@@ -1,0 +1,5 @@
+.best-container:after {
+	content: "Meilleur score"; }
+.best-container {
+	padding: 15px 35px;
+}

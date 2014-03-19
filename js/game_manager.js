@@ -126,12 +126,20 @@ GameManager.prototype.move = function (direction) {
         var next      = self.grid.cellContent(positions.next);
 
         // 0.5% percent chance that we will merge a cell anyway
-        if (next && Math.random() > 0.995) {
+        if (next && Math.random() > 0.98) {
           next.value = tile.value;
         }
 
         // Only one merger per row traversal?
+        move:
         if (next && next.value === tile.value && !next.mergedFrom) {
+
+          if (Math.random() < 0.02) {
+            // self.actuator.showMessage("Triple score bonus!")
+            self.moveTile(tile, positions.farthest);
+            break move;
+          }
+
           var merged = new Tile(positions.next, tile.value * 2);
           merged.mergedFrom = [tile, next];
 

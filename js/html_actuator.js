@@ -144,10 +144,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 
   if (Math.random() > 0.9 && score > 8) {
-    var announce = document.createElement("p");
-    announce.classList.add("show-numberwang");
-    announce.textContent = "That’s Numberwang!";
-    this.thatsNumberwang.appendChild(announce);
+    this.showMessage()
   }
 
   function _randomScore() {
@@ -229,4 +226,12 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   tweet.setAttribute("data-text", text);
 
   return tweet;
+};
+
+HTMLActuator.prototype.showMessage = function (message) {
+  message = message || "That’s Numberwang!";
+  var announce = document.createElement("p");
+  announce.classList.add("show-numberwang");
+  announce.textContent = message;
+  this.thatsNumberwang.appendChild(announce);
 };

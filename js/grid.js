@@ -82,3 +82,11 @@ Grid.prototype.withinBounds = function (position) {
   return position.x >= 0 && position.x < this.size &&
          position.y >= 0 && position.y < this.size;
 };
+
+Grid.prototype.copy = function () {
+  var cp = new Grid(this.size);
+  this.eachCell(function (x, y, cell) {
+    cp.cells[x][y] = cell ? cell.copy() : cell;
+  });
+  return cp;
+}

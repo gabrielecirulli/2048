@@ -61,6 +61,14 @@ KeyboardInputManager.prototype.listen = function () {
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
 
+  var undo = document.querySelector(".undo-button");
+  var redo = document.querySelector(".redo-button");
+  undo.addEventListener("click",    this.undo.bind(this));
+  undo.addEventListener("touchend", this.undo.bind(this));
+  redo.addEventListener("click",    this.redo.bind(this));
+  redo.addEventListener("touchend", this.redo.bind(this));
+
+
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
@@ -102,3 +110,14 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
 };
+
+KeyboardInputManager.prototype.undo = function (event) {
+  event.preventDefault();
+  this.emit("undo");
+};
+
+KeyboardInputManager.prototype.redo = function (event) {
+  event.preventDefault();
+  this.emit("redo");
+};
+

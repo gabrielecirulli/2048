@@ -62,6 +62,7 @@ GameManager.prototype.addRandomTile = function () {
     var value = Math.random() < 0.9 ? 2 : 4;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
+    tile.generateWangValue();
     this.grid.insertTile(tile);
   }
 };
@@ -146,6 +147,9 @@ GameManager.prototype.move = function (direction) {
           self.grid.insertTile(merged);
           self.grid.removeTile(tile);
 
+          // Update tile value
+          merged.generateWangValue();
+
           // Converge the two tiles' positions
           tile.updatePosition(positions.next);
 
@@ -160,6 +164,12 @@ GameManager.prototype.move = function (direction) {
 
         if (!self.positionsEqual(cell, tile)) {
           moved = true; // The tile moved from its original cell!
+          // 60% chance of changing its value
+          if (Math.random() < 0.60) tile.generateWangValue();
+        }
+        else {
+          // 30% of chance of changing its value
+          if (Math.random() < 0.30) tile.generateWangValue();
         }
       }
     });

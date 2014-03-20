@@ -32,7 +32,11 @@ Tile.prototype.generateWangValue = function () {
   else if (random > 0.46 && random < 0.465) {
     wang = 0;
   }
-  // Hundred digit number
+  // Two digit number
+  else if (random > 0.16 && random < 0.19) {
+    wang = wang + Math.floor(Math.random() * 100);
+  }
+  // Three digit number
   else if (random > 0.09 && random < 0.12) {
     wang = wang + Math.floor(Math.random() * 1000);
   }

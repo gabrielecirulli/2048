@@ -68,8 +68,6 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-
-  tile.generateWangValue();
   inner.textContent = tile.wangValue;
 
   // Some percent chance of seeing a flipped number

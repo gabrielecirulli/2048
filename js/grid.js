@@ -6,6 +6,7 @@ function Grid(size) {
   this.build();
 
   this.falling     = null;
+  this.is_merged = false;
 }
 
 // Build a grid of the specified size

@@ -63,6 +63,7 @@ GameManager.prototype.addRandomTile = function () {
     var value = rand < 0.7 ? 2 : (rand < 0.9 ? 4 : 8);
     var tile = new Tile(this.grid.randomAvailableCell(), value);
     this.grid.falling = tile;
+    this.grid.is_merged = false;
     window.timeOut = 700;
     this.grid.insertTile(tile);
   }
@@ -118,7 +119,6 @@ GameManager.prototype.move = function (direction) {
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
   var moved      = false;
-  var is_merged     = false;
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
@@ -134,7 +134,7 @@ GameManager.prototype.move = function (direction) {
 
         // Only one merger per row traversal?
         if (next && next.value === tile.value && !next.mergedFrom) {
-          is_merged = true;
+          self.grid.is_merged = true;
           var merged = new Tile(positions.next, tile.value * 2);
           merged.mergedFrom = [tile, next];
           self.grid.falling = merged;
@@ -170,14 +170,16 @@ GameManager.prototype.move = function (direction) {
     // if (!this.movesAvailable()) {
     //   this.over = true; // Game over!
     // }
-    // this.actuate();
+   this.actuate();
+   if((direction == 1 || direction == 3 || direction == 2) && self.grid.is_merged)
+     self.move(2); //slide all down
   } else {
     if((direction == 2 || direction == 4) && this.grid.falling.y == 0)
       this.over = true; // Game over!
     if(direction == 4 && this.grid.falling.y != 0)
       this.addRandomTile();    
+    this.actuate();
   }
-  this.actuate();
 };
 
 // Get the vector representing the chosen direction

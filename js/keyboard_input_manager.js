@@ -11,7 +11,6 @@ function KeyboardInputManager() {
     this.eventTouchmove     = "touchmove";
     this.eventTouchend      = "touchend";
   }
-
   this.listen();
 }
 
@@ -33,6 +32,7 @@ KeyboardInputManager.prototype.emit = function (event, data) {
 
 KeyboardInputManager.prototype.listen = function () {
   var self = this;
+  window.autoFall = setTimeout(function(){self.emit("move", 4);}, window.timeOut);
 
   var map = {
     // 38: 0, // Up
@@ -57,6 +57,8 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
+        clearTimeout(autoFall);
+        autoFall = setTimeout(function(){self.emit("move", 4);}, window.timeOut);
         self.emit("move", mapped);
       }
 

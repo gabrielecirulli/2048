@@ -284,21 +284,21 @@ GameManager.prototype.saveUndo = function () {
 
 GameManager.prototype.canUndo = function (n) {
   if (n === undefined || n === null)  n = this.undoIndex + 1;
-  console("CanUndo: ", this.undoStates.length-1 >= n);
+  console.log("CanUndo: ", this.undoStates.length-1 >= n);
   return this.undoStates.length-1 >= n;
 };
   
 GameManager.prototype.canRedo = function (n) {
   if (n === undefined || n === null)  n = this.undoIndex - 1;
-  console("CanRedo: ", this.undoIndex >= n);
+  console.log("CanRedo: ", this.undoIndex >= n);
   return this.undoIndex >= n;
 };
   
 
 GameManager.prototype.undo = function (n) {
   if (n === undefined || n === null)  n = this.undoIndex + 1;
-  console.log(:"undo: ", n);
-  console.log(:"undoIndex: ", this.undoIndex);
+  console.log("undo: ", n);
+  console.log("undoIndex: ", this.undoIndex);
   if (!this.canUndo(n)) return;
 
   var state = this.undoStates[this.undoStates.length-1 - n];
@@ -312,7 +312,7 @@ GameManager.prototype.undo = function (n) {
 
 GameManager.prototype.redo = function (n) {
   if (n === undefined || n === null)  n = this.undoIndex - 1;
-  console.log("redo: ",n);
+  console.log("redo: ", n);
   if (!this.canRedo(n)) return;
   this.undo(-n);
 };

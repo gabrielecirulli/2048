@@ -32,7 +32,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
       }
     }
 
-  });
+   });
 };
 
 // Continues the game (both restart and keep playing)

@@ -4,7 +4,7 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.scoreManager = new ScoreManager;
   this.actuator     = new Actuator;
 
-  this.startTiles   = 2;
+  this.startTiles   = 1;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -153,7 +153,8 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
-    this.addRandomTile();
+    if(vector.y == 1)
+      this.addRandomTile();
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!
@@ -184,23 +185,33 @@ GameManager.prototype.buildTraversals = function (vector) {
     traversals.x.push(pos);
     traversals.y.push(pos);
   }
+    traversals.y.push(this.size);
 
   // Always traverse from the farthest cell in the chosen direction
   if (vector.x === 1) traversals.x = traversals.x.reverse();
   if (vector.y === 1) traversals.y = traversals.y.reverse();
+
+  if(vector.y == 0) traversals.y = [0]
 
   return traversals;
 };
 
 GameManager.prototype.findFarthestPosition = function (cell, vector) {
   var previous;
-
-  // Progress towards the vector direction until an obstacle is found
-  do {
-    previous = cell;
-    cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
-  } while (this.grid.withinBounds(cell) &&
-           this.grid.cellAvailable(cell));
+  
+  if(vector.y == 0) {
+        previous = cell; cell = { x: previous.x + vector.x, y: previous.y + vector.y };
+        if(this.grid.withinBounds(cell)) {
+        previous = cell; cell = { x: previous.x + vector.x, y: previous.y + vector.y };          
+        }
+  } else {
+    // Progress towards the vector direction until an obstacle is found
+    do {
+      previous = cell;
+      cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
+    } while (this.grid.withinBounds(cell) &&
+             this.grid.cellAvailable(cell));
+  }
 
   return {
     farthest: previous,
@@ -219,7 +230,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
   var tile;
 
   for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+    for (var y = 0+1; y < this.size+1; y++) {
       tile = this.grid.cellContent({ x: x, y: y });
 
       if (tile) {

@@ -1,8 +1,11 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
-  this.scoreContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
-  this.messageContainer = document.querySelector(".game-message");
+  this.tileContainer     = document.querySelector(".tile-container");
+  this.scoreContainer    = document.querySelector(".score-container");
+  this.bestContainer     = document.querySelector(".best-container");
+  this.messageContainer  = document.querySelector(".game-message");
+  this.undoRedoContainer = document.querySelector(".undo-redo-container");
+  this.undoButton        = document.querySelector(".undo-button");
+  this.redoButton        = document.querySelector(".redo-button");
 
   this.score = 0;
 }
@@ -23,6 +26,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
+    self.updateUndoRedo(metadata.canUndo, metadata.canRedo);
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -136,4 +140,15 @@ HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
+};
+
+HTMLActuator.prototype.updateUndoRedo = function (canUndo, canRedo) {
+  var undo_classes = ['undo-button'];
+  var redo_classes = ['redo-button'];
+
+  if (!canUndo)  undo_classes.push('disabled-button');
+  if (!canRedo)  redo_classes.push('disabled-button');
+
+  this.applyClasses(this.undoButton, undo_classes);
+  this.applyClasses(this.redoButton, redo_classes);
 };

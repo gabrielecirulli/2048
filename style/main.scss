@@ -160,6 +160,9 @@ h1.title {
   content: " ↷"; /* &#8631; */
 }
 
+.disabled-button {
+  @include opacity(.33);
+}
 
 p {
   margin-top: 0;

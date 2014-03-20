@@ -131,6 +131,13 @@ h1.title {
   content: " ↷";
   /* &#8631; */ }
 
+.disabled-button {
+  filter: alpha(opactiy=33);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=33)";
+  -moz-opacity: 0.33;
+  -khtml-opacity: 0.33;
+  opacity: 0.33; }
+
 p {
   margin-top: 0;
   margin-bottom: 10px;

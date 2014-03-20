@@ -9,6 +9,8 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("undo", this.undo.bind(this));
+  this.inputManager.on("redo", this.redo.bind(this));
 
   this.setup();
 }
@@ -80,7 +82,9 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.scoreManager.get(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+    canUndo:    this.canUndo(),
+    canRedo:    this.canRedo()
   });
 
 };

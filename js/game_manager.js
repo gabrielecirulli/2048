@@ -162,7 +162,7 @@ GameManager.prototype.move = function (direction) {
 
   //Keep on decreasing timeout after each
   //movement of falling block.
-  window.timeOut = window.timeOut * 0.85;
+  window.timeOut = window.timeOut * 0.9;
   if (moved) {
     // if(vector.y == 1)
     //   this.addRandomTile();

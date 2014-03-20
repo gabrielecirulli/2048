@@ -166,10 +166,10 @@ GameManager.prototype.move = function (direction) {
       this.over = true; // Game over!
     }
 
+    this.saveUndo();
     this.actuate();
   }
 
-  this.saveUndo();
 };
 
 // Get the vector representing the chosen direction

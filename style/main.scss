@@ -229,7 +229,7 @@ hr {
         font-weight: bold;
         height: 60px;
         line-height: 60px;
-        margin-top: 222px;
+        margin-top: 188px;
         // height: $field-width;
         // line-height: $field-width;
       }
@@ -347,6 +347,7 @@ hr {
     z-index: 10;
 
     font-size: 55px;
+    overflow: hidden;
     &.flipped {
       @include transform(scale(-1, 1));
     }
@@ -554,11 +555,40 @@ hr {
 
   .game-container {
     margin-top: 20px;
+
+    .thats-numberwang .show-numberwang {
+      font-size: 40px;
+      line-height: 40px;
+    }
   }
 
   // Rest of the font-size adjustments in the tile class
   .tile .tile-inner {
     font-size: 35px;
+  }
+
+  .tile {
+    // Hacks for wangValue
+    &.tile-small-3 .tile-inner {
+      font-size: 30px !important;
+    }
+    &.tile-small-4 .tile-inner {
+      font-size: 24px !important;
+    }
+    &.tile-small-5 .tile-inner {
+      font-size: 15px !important;
+    }
+    &.tile-small-6 .tile-inner {
+      font-size: 9px !important;
+    }
+  }
+
+  .game-intro {
+    p {
+      margin-top: 55px;
+      top: -50px;
+      position: relative;
+    }
   }
 
   .game-message {

@@ -73,7 +73,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   inner.textContent = tile.wangValue;
 
   // Some percent chance of seeing a flipped number
-  if (Math.random() > 0.992) {
+  if (Math.random() > 0.993) {
     inner.classList.add("flipped");
   }
 
@@ -98,7 +98,7 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   // Fit numberwang values
   var wangLength = String(tile.wangValue).length
-  if (wangLength >= 4) {
+  if (wangLength >= 3) {
     if (wangLength > 6) {
       wangLength = 6;
     }

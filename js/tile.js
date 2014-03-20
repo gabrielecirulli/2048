@@ -12,12 +12,12 @@ Tile.prototype.generateWangValue = function () {
   var value = this.value,
       wang  = '',
       random = Math.random(),
-      chars = 'abcdefghijklmnopqrstuvwxyz';
+      chars = 'abcdefghijkmnpqrstuvwxyz';
 
-  wang = Math.ceil(Math.random() * (value - (value/2)) * 4);
+  wang = Math.ceil(Math.random() * (value) * 4);
 
   // Decimal number
-  if (random > 0.94) {
+  if (random > 0.935) {
     wang = wang.toString() + '.' + Math.ceil(Math.random() * 9).toString();
   }
   // Negative number
@@ -25,7 +25,7 @@ Tile.prototype.generateWangValue = function () {
     wang = '-' + wang.toString();
   }
   // Random letter
-  else if (random > 0.04 && random < 0.046) {
+  else if (random > 0.042 && random < 0.046) {
     wang = chars[Math.floor(Math.random() * chars.length)];
   }
   // Zero

@@ -282,24 +282,17 @@ GameManager.prototype.saveUndo = function () {
   this.undoStates.push(this.getState());
 };
 
-GameManager.prototype.canUndo = function (n) {
-  if (n === undefined || n === null)  n = this.undoIndex + 1;
-  console.log("CanUndo: ", this.undoStates.length-1 >= n);
-  return this.undoStates.length-1 >= n;
-};
-  
-GameManager.prototype.canRedo = function (n) {
-  if (n === undefined || n === null)  n = this.undoIndex - 1;
-  console.log("CanRedo: ", this.undoIndex >= n);
-  return this.undoIndex >= n;
-};
-  
 
-GameManager.prototype.undo = function (n) {
-  if (n === undefined || n === null)  n = this.undoIndex + 1;
-  console.log("undo: ", n);
-  console.log("undoIndex: ", this.undoIndex);
-  if (!this.canUndo(n)) return;
+
+// Set the game to the nth state from the end of states array
+// 0 (last in array) is the newest game saved
+// undoIndex-1 (first in array) @@@
+GameManager.prototype.undoSet = function (n) {
+  //if (n === undefined || n === null)  n = this.undoIndex + 1;
+
+  console.log("undoSet: ", n);
+  console.log("undoIndex (before): ", this.undoIndex);
+  //if (!this.canUndo(n)) return; //@@@
 
   var state = this.undoStates[this.undoStates.length-1 - n];
   this.undoIndex = n;
@@ -307,13 +300,54 @@ GameManager.prototype.undo = function (n) {
 
   this.actuate();
 
-  console.log("Undone: ", n);
+  console.log("undoIndex (after): ", this.undoIndex);
+  console.log("done: ", n);
 };
 
+GameManager.prototype.canUndo = function (n) {
+  if (n === undefined || n === null)  n = 1;
+  console.log("undoIndex: ", this.undoIndex);
+  console.log("undoStates len: ", this.undoStates.length);
+  console.log("CanUndo n:", n);
+  console.log("\t", this.undoStates.length-1 >= newIndex);
+  console.log("\t", this.undoStates.length - newIndex >= 1);
+
+  var newIndex = this.undoIndex + n;
+  //return this.undoStates.length-1 >= newIndex;
+  return this.undoStates.length - newIndex >= 1;
+};
+
+// Assuming -n as n redo steps
+GameManager.prototype.canRedo = function (n) {
+  if (n === undefined || n === null)  n = 1;
+  console.log("CanRedo: ", this.undoIndex >= n, " n:",n);
+
+  var newIndex = this.undoIndex - n;
+
+  //return this.undoIndex >= newIndex;
+  return newIndex >= 0;
+
+};
+
+// Undo n steps
+GameManager.prototype.undo = function (n) {
+  if (n === undefined || n === null)  n = 1;
+
+  console.log("undo: ", n, "\tindex: ",this.undoIndex, "n: ", this.undoIndex+n);
+  if (!this.canUndo(n)) return;
+
+  this.undoSet( this.undoIndex + n);
+}
+
+// Redo n steps
 GameManager.prototype.redo = function (n) {
-  if (n === undefined || n === null)  n = this.undoIndex - 1;
-  console.log("redo: ", n);
+  if (n === undefined || n === null)  n = 1;
+  
+  console.log("redo: ", n, "\tindex: ",this.undoIndex, "n: ", this.undoIndex-n);
+
   if (!this.canRedo(n)) return;
-  this.undo(-n);
+  
+  //if (!this.canRedo(n)) return;
+  this.undoSet( this.undoIndex - n);
 };
 

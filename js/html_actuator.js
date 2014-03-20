@@ -141,3 +141,14 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
 };
+
+HTMLActuator.prototype.updateUndoRedo = function (canUndo, canRedo) {
+  var undo_classes = ['undo-button'];
+  var redo_classes = ['redo-button'];
+
+  if (!canUndo)  undo_classes.push('disabled-button');
+  if (!canRedo)  redo_classes.push('disabled-button');
+
+  this.applyClasses(this.undoButton, undo_classes);
+  this.applyClasses(this.redoButton, redo_classes);
+};

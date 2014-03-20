@@ -72,13 +72,6 @@
 }
 
 
-// Appearance
-@mixin appearance($args...) {
-  -webkit-appearance: $args;
-  -moz-appearance: $args;
-  appearance: $args;
-}
-
 // Opacity
 // From: https://gist.github.com/jgv/745754
 @mixin opacity($trans) {
@@ -88,4 +81,3 @@
   -khtml-opacity: $trans;
   opacity: $trans;
 }
-

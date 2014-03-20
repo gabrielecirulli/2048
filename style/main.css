@@ -98,6 +98,39 @@ h1.title {
 .best-container:after {
   content: "Best"; }
 
+.undo-redo-container {
+  height: 35px; }
+
+.undo-button, .redo-button {
+  position: relative;
+  display: inline-block;
+  background: #bbada0;
+  padding: 15px 25px;
+  font-size: 25px;
+  height: 25px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: 8px;
+  text-align: center; }
+  .undo-button:after, .undo-button:before, .redo-button:after, .redo-button:before {
+    padding-left: 5px;
+    padding-right: 5px; }
+
+.undo-button {
+  float: left; }
+
+.redo-button {
+  float: right; }
+
+.undo-button:before {
+  content: "↶ ";
+  /* &#8630; */ }
+
+.redo-button:after {
+  content: " ↷";
+  /* &#8631; */ }
+
 p {
   margin-top: 0;
   margin-bottom: 10px;

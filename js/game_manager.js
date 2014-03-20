@@ -56,12 +56,16 @@ GameManager.prototype.addStartTiles = function () {
   }
 };
 
+// Adds next tile to que
+GameManager.prototype.nextTile = function () {
+  var rand = Math.random();
+  return rand < 0.7 ? 2 : (rand < 0.9 ? 4 : 8);
+};
+
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var rand = Math.random()
-    var value = rand < 0.7 ? 2 : (rand < 0.9 ? 4 : 8);
-    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    var tile = new Tile(this.grid.randomAvailableCell(), this.nextTile());
     this.grid.falling = tile;
     window.timeOut = 700;
     this.grid.insertTile(tile);

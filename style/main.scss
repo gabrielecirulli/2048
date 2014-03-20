@@ -2,6 +2,7 @@
 @import "fonts/clear-sans.css";
 
 $field-width: 500px;
+$field-height: 625px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
@@ -143,6 +144,7 @@ hr {
 
 .container {
   width: $field-width;
+  height: $field-height;
   margin: 0 auto;
 }
 
@@ -183,7 +185,7 @@ hr {
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;
     width: $field-width;
-    height: $field-width;
+    height: $field-height;
     -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -279,7 +281,11 @@ hr {
     }
   }
 
-  .tile-container {
+.invi {
+  background: #bbada0;
+}
+
+ .tile-container {
     position: absolute;
     z-index: 2;
   }

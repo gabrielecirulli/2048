@@ -49,7 +49,15 @@ KeyboardInputManager.prototype.listen = function () {
         self.emit("move", mapped);
       }
 
-      if (event.which === 32) self.restart.bind(self)(event);
+      if (event.which === 32)  self.restart.bind(self)(event); // Space
+      if (event.which === 85) self.undo.bind(self)(event); // U
+      if (event.which === 82) self.redo.bind(self)(event); // R
+    }
+    else if (event.ctrlKey && ~(modifiers & ~event.ctrlKey)) {
+      if (event.which === 90 )  // Z
+        self.undo.bind(self)(event);
+      if (event.which === 82 )  // R
+        self.redo.bind(self)(event);
     }
   });
 

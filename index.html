@@ -12,6 +12,11 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+
+  <meta property="og:title" content="2048 Tetris"/>
+  <meta property="og:site_name" content="2048 Tetris"/>
+  <meta property="og:description" content="2048 with the awesomeness of Tetris! Careful: this game is extremely addictive!"/>
+  <meta property="og:image" content="http://gabrielecirulli.github.io/2048/meta/og_image.png"/>
 </head>
 <body>
   <div class="container">
@@ -22,14 +27,25 @@
         <div class="best-container">0</div>
         <div class="next-tile-container"></div>
       </div>
+      <div style="float:left; font-size: 13px">
+        <input type="radio" onclick="setLevel(0)" value="Easy" name="level" id="levele">
+        <label for="levele">Easy</label>
+        <input type="radio" onclick="setLevel(1)" value="Medium" name="level" id="levelm" checked>
+        <label for="levelm">Medium</label>
+        <input type="radio" onclick="setLevel(2)" value="Hard" name="level" id="levelh">
+        <label for="levelm">Hard</label>
+      </div>
+        <input type="button" style="margin:10px" onclick="pause();" value="Pause" id="Pause">
     </div>
-    <br/>
+    <span style="font-size: 12px; padding-left: 35px">
+    Tip: Falling block can be continously collapsed in left/right directions if applicable.</span>
     <div class="game-container">
       <div class="game-message">
         <p></p>
         <div class="lower">
 	        <a class="keep-playing-button">Keep going</a>
           <a class="retry-button">Try again</a>
+          <div class="score-sharing"></div>
         </div>
       </div>
 
@@ -78,12 +94,22 @@
     <p>
     Enhanced by <a href="http://github.com/prat0318" target="_blank">Prateek Agarwal</a>. 2048 Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
     </p>
+    <div class="sharing">
+      <iframe src="http://ghbtns.com/github-btn.html?user=prat0318&repo=2048-tetris&type=watch"
+      allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=prat0318&repo=2048-tetris&type=fork"
+        allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+    </div>
   </div>
 
   <script type='text/javascript' > 
     window.timeOut = 700; 
     window.autoFall = null;
     window.moveObj = null;
+    window.EASY = 0.95;
+    window.MEDIUM = 0.90;
+    window.HARD = 0.85;
+    window.FACTOR = window.MEDIUM;
   </script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
@@ -93,5 +119,39 @@
   <script src="js/local_score_manager.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49179912-1', 'prat0318.github.io');
+  ga('send', 'pageview');
+
+</script>
+<script>
+  function pause() {
+    var elem = document.getElementById("Pause");
+    if(elem.value == "Pause") {
+     window.clearTimeout(window.autoFall);
+      elem.value = "Start";
+    } else {
+      window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
+      elem.value = "Pause";
+    }
+  }
+
+  function setLevel(val) {
+    switch(val) {
+      case 0: window.FACTOR = window.EASY;
+              break;
+      case 2: window.FACTOR = window.HARD;
+              break;
+      default:
+              window.FACTOR = window.MEDIUM;
+    }
+  }
+</script
 </body>
 </html>

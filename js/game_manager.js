@@ -70,6 +70,12 @@ GameManager.prototype.addRandomTile = function () {
     this.nextTile = this.randomTile();
     this.grid.falling = tile;
     window.timeOut = 700;
+    if(window.moveObj) {
+      clearTimeout(window.autoFall);
+      window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
+    }
+    this.grid.falling = tile;
+    this.grid.is_merged = false;
     this.grid.insertTile(tile);
   }
 };
@@ -125,7 +131,6 @@ GameManager.prototype.move = function (direction) {
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
   var moved      = false;
-  var is_merged     = false;
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
@@ -141,7 +146,7 @@ GameManager.prototype.move = function (direction) {
 
         // Only one merger per row traversal?
         if (next && next.value === tile.value && !next.mergedFrom) {
-          is_merged = true;
+          self.grid.is_merged = true;
           var merged = new Tile(positions.next, tile.value * 2);
           merged.mergedFrom = [tile, next];
           self.grid.falling = merged;
@@ -169,7 +174,7 @@ GameManager.prototype.move = function (direction) {
 
   //Keep on decreasing timeout after each
   //movement of falling block.
-  window.timeOut = window.timeOut * 0.85;
+  window.timeOut = window.timeOut * window.FACTOR;
   if (moved) {
     // if(vector.y == 1)
     //   this.addRandomTile();
@@ -177,14 +182,18 @@ GameManager.prototype.move = function (direction) {
     // if (!this.movesAvailable()) {
     //   this.over = true; // Game over!
     // }
-    // this.actuate();
+   this.actuate();
+   if((direction == 1 || direction == 3 || direction == 2) && self.grid.is_merged) {
+     window.timeOut = window.timeOut / (window.FACTOR - 0.05);
+     setTimeout(function(){window.moveObj.move(2);}, 200);
+   }
   } else {
     if((direction == 2 || direction == 4) && this.grid.falling.y == 0)
       this.over = true; // Game over!
     if(direction == 4 && this.grid.falling.y != 0)
-      this.addRandomTile();
+      this.addRandomTile();    
+    this.actuate();
   }
-  this.actuate();
 };
 
 // Get the vector representing the chosen direction

@@ -22,7 +22,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
       });
     });
 
-    self.updateNextTile(metadata.score);
+    self.updateNextTile(metadata.tileValue);
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
 
@@ -124,10 +124,7 @@ HTMLActuator.prototype.updateScore = function (score) {
 
 HTMLActuator.prototype.updateNextTile = function (nextTile) {
     this.clearContainer(this.nextTileContainer);
-
-    this.nextTile = nextTile;
-
-    this.nextTileContainer.textContent = this.nextTile;
+    this.nextTileContainer.textContent = nextTile;
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {

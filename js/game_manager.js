@@ -38,6 +38,7 @@ GameManager.prototype.setup = function () {
   this.grid        = new Grid(this.size);
 
   this.score       = 0;
+  this.nextTile    = this.randomTile();
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
@@ -56,8 +57,8 @@ GameManager.prototype.addStartTiles = function () {
   }
 };
 
-// Adds next tile to que
-GameManager.prototype.nextTile = function () {
+// Generates tile value
+GameManager.prototype.randomTile = function () {
   var rand = Math.random();
   return rand < 0.7 ? 2 : (rand < 0.9 ? 4 : 8);
 };
@@ -65,7 +66,8 @@ GameManager.prototype.nextTile = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var tile = new Tile(this.grid.randomAvailableCell(), this.nextTile());
+    var tile = new Tile(this.grid.randomAvailableCell(), this.nextTile);
+    this.nextTile = this.randomTile();
     this.grid.falling = tile;
     window.timeOut = 700;
     this.grid.insertTile(tile);
@@ -80,6 +82,7 @@ GameManager.prototype.actuate = function () {
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
+    tileValue:  this.nextTile,
     over:       this.over,
     won:        this.won,
     bestScore:  this.scoreManager.get(),
@@ -179,7 +182,7 @@ GameManager.prototype.move = function (direction) {
     if((direction == 2 || direction == 4) && this.grid.falling.y == 0)
       this.over = true; // Game over!
     if(direction == 4 && this.grid.falling.y != 0)
-      this.addRandomTile();    
+      this.addRandomTile();
   }
   this.actuate();
 };

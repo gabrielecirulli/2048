@@ -39,6 +39,7 @@ GameManager.prototype.restoreGame = function () {
     this.grid.cells = grid_and_score[0]
     this.score = grid_and_score[1]
   }
+  this.over        = false;
   this.actuator.continue();
   this.actuate();
 };

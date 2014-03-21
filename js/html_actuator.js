@@ -4,9 +4,10 @@ function HTMLActuator() {
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
   this.sharingContainer = document.querySelector(".score-sharing");
-  this.thatsNumberwang  = document.querySelector(".thats-numberwang");
-  this.rotateTheBoard   = document.querySelector(".lets-rotate-the-board");
+  this.announcer        = document.querySelector(".announcer");
   this.gameContainer    = document.querySelector('.game-container')
+  this.rotateButton     = document.querySelector(".rotate-button");
+  this.boardContainer   = document.querySelector(".board-container");
 
   this.score = 0;
 }
@@ -46,7 +47,6 @@ HTMLActuator.prototype.continue = function () {
   }
 
   this.clearMessage();
-  this.gameContainer.classList.remove('rotate');
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -129,7 +129,7 @@ HTMLActuator.prototype.positionClass = function (position) {
 
 HTMLActuator.prototype.updateScore = function (score) {
   this.clearContainer(this.scoreContainer);
-  this.clearContainer(this.thatsNumberwang);
+  this.clearContainer(this.announcer);
 
   var difference = score - this.score;
   this.score = score;
@@ -144,11 +144,11 @@ HTMLActuator.prototype.updateScore = function (score) {
     this.scoreContainer.appendChild(addition);
   }
 
-  if (!this.rotateTheBoard.hasChildNodes() && Math.random() > 0.9 && score > 8 ) {
-    this.showMessage()
+  if (!this.announcer.hasChildNodes() && Math.random() > 0.9 && score > 8 ) {
+    this.announce()
     // multiple unreleated animationEnd events might fire
     // before rotate is done so setTimeout instead
-    setTimeout(this.clearContainer.bind(this,this.rotateTheBoard),3000);
+    setTimeout(this.clearContainer.bind(this,this.announcer),3000);
   }
 
   function _randomScore() {
@@ -187,11 +187,16 @@ HTMLActuator.prototype.updateScore = function (score) {
     return sign + wang;
   }
 
-  if (!this.gameContainer.classList.contains('rotate') && Math.random() > 0.9 && score > 600) {
-    this.gameContainer.classList.add('rotate');
-    var announce = document.createElement("p");
-    announce.textContent = "Let's Rotate The Board!";
-    this.rotateTheBoard.appendChild(announce);
+  if (!this.boardContainer.classList.contains('rotated') && Math.random() > 0.9 && score > 7230) {
+    this.boardContainer.classList.add('rotate');
+    this.boardContainer.classList.add('rotated');
+    //this.announce("It’s time for Wangernumb. Let’s rotate the board!");
+    this.announce("Let’s rotate the board!");
+    var self = this
+    setTimeout(function () {
+      self.boardContainer.classList.remove('rotate');
+      // self.announce("Welcome back!");
+    }, 4000)
   }
 
 };
@@ -201,8 +206,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  this.clearContainer(this.thatsNumberwang);
-  this.clearContainer(this.rotateTheBoard);
+  this.clearContainer(this.announcer);
 
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You’re the Numberwang!" : "You’ve been Wangernumbed!";
@@ -241,16 +245,18 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   return tweet;
 };
 
-HTMLActuator.prototype.showMessage = function (message) {
+HTMLActuator.prototype.announce = function (message) {
   message = message || "That’s Numberwang!";
   var announce = document.createElement("p");
-  announce.classList.add("show-numberwang");
+  announce.classList.add("announcement");
   announce.textContent = message;
-  this.thatsNumberwang.appendChild(announce);
+  this.announcer.appendChild(announce);
 };
 
+/*
+// Manual rotate button is disabled
 HTMLActuator.prototype.rotate = function () {
-  this.gameContainer.classList.add('rotate');
+  this.boardContainer.classList.add('rotate');
   this.rotateButton.textContent = "Board rotated!"
 }
-
+*/

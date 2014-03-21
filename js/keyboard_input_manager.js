@@ -61,6 +61,10 @@ KeyboardInputManager.prototype.listen = function () {
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
 
+  var rotate = document.querySelector(".rotate-button");
+  rotate.addEventListener("click", this.rotate.bind(this));
+  rotate.addEventListener("touchend", this.rotate.bind(this));
+
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
@@ -102,3 +106,9 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
 };
+
+KeyboardInputManager.prototype.rotate = function (event) {
+  event.preventDefault();
+  this.emit("rotate");
+};
+

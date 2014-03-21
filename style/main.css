@@ -99,6 +99,16 @@ h1.title {
 .best-container:after {
   content: "Best"; }
 
+.rotate-button {
+  background: #bbada0;
+  padding: 15px 25px;
+  font-size: 25px;
+  height: 25px;
+  line-height: 47px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white; }
+
 p {
   margin-top: 0;
   margin-bottom: 10px;
@@ -121,7 +131,11 @@ hr {
 
 .container {
   width: 500px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -229,6 +243,30 @@ hr {
         display: inline-block; }
     .game-container .game-message.game-won, .game-container .game-message.game-over {
       display: block; }
+  .game-container.rotate {
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+
+    -webkit-transition: 10s;
+    -webkit-transform-style: preserve-3d;
+
+    -moz-transition: 10s;
+    -moz-transform-style: preserve-3d;
+
+    -o-transition: 10s;
+    -o-transform-style: preserve-3d;
+
+    -ms-transition: 10s;
+    -ms-transform-style: preserve-3d;
+
+    transition: 10s;
+    transform-style: preserve-3d; }
 
 .grid-container {
   position: absolute;

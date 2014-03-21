@@ -5,6 +5,8 @@ function HTMLActuator() {
   this.messageContainer = document.querySelector(".game-message");
   this.sharingContainer = document.querySelector(".score-sharing");
   this.thatsNumberwang  = document.querySelector(".thats-numberwang");
+  this.gameContainer    = document.querySelector(".game-container");
+  this.rotateButton     = document.querySelector(".rotate-button");
 
   this.score = 0;
 }
@@ -44,6 +46,8 @@ HTMLActuator.prototype.continue = function () {
   }
 
   this.clearMessage();
+  this.gameContainer.classList.remove("rotate");
+  this.rotateButton.textContent = "Rotate the board"
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -233,3 +237,9 @@ HTMLActuator.prototype.showMessage = function (message) {
   announce.textContent = message;
   this.thatsNumberwang.appendChild(announce);
 };
+
+HTMLActuator.prototype.rotate = function () {
+  this.gameContainer.classList.add('rotate');
+  this.rotateButton.textContent = "Board rotated!"
+}
+

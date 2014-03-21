@@ -7,6 +7,8 @@ function HTMLActuator() {
   this.sharingContainer = document.querySelector(".score-sharing");
 
   this.score = 0;
+  this.next_background = {'2': '#eee4da', '4': '#ede0c8', '8': '#f2b179'};
+  this.next_color = {'2': '#776E65', '4': '#776E65', '8': '#f9f6f2'};
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -130,6 +132,8 @@ HTMLActuator.prototype.updateScore = function (score) {
 HTMLActuator.prototype.updateNextTile = function (nextTile) {
     this.clearContainer(this.nextTileContainer);
     this.nextTileContainer.textContent = nextTile;
+    this.nextTileContainer.style.background = this.next_background[nextTile];
+    this.nextTileContainer.style.color = this.next_color[nextTile];
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {

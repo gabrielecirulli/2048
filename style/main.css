@@ -98,6 +98,7 @@ h1.title {
   content: "Best"; }
 
 .next-tile-container:after {
+  color: #776E65;
   content: "Next Tile"; }
 
 .pause-container:after {
@@ -113,17 +114,6 @@ h1.title {
     width: 25px; 
     float: right;
     display: block; }
-
-/* ToDo: COLOR THE _NEXT_ TILES
-  .tile.tile-2 .tile-inner {
-    background: #eee4da;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
-  .tile.tile-4 .tile-inner {
-    background: #ede0c8;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
-  .tile.tile-8 .tile-inner {
-    color: #f9f6f2;
-    background: #f2b179; }*/
 
 p {
   margin-top: 0;

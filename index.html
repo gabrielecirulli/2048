@@ -134,7 +134,7 @@
     var elem = document.getElementById("Pause");
     if(elem.value == "Pause") {
      window.clearTimeout(window.autoFall);
-      elem.value = "Resume";
+      elem.value = "Start";
     } else {
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
       elem.value = "Pause";

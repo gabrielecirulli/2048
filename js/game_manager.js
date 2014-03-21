@@ -62,9 +62,13 @@ GameManager.prototype.addRandomTile = function () {
     var rand = Math.random()
     var value = rand < 0.7 ? 2 : (rand < 0.9 ? 4 : 8);
     var tile = new Tile(this.grid.randomAvailableCell(), value);
+    window.timeOut = 700;
+    if(window.moveObj) {
+      clearTimeout(window.autoFall);
+      window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
+    }
     this.grid.falling = tile;
     this.grid.is_merged = false;
-    window.timeOut = 700;
     this.grid.insertTile(tile);
   }
 };

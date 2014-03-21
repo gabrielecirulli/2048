@@ -102,6 +102,9 @@ h1.title {
   content: "Next Tile"; }
 
 .next-tile-container {
+    margin: 8px 25% 0 auto ; 
+    width: 25px; 
+    float: right;
     display: block; }
 
 p {

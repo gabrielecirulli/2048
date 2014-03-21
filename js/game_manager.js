@@ -9,6 +9,7 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("rotate", this.rotate.bind(this));
 
   this.setup();
 }
@@ -23,6 +24,11 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continue();
+};
+
+// Rotate the board
+GameManager.prototype.rotate = function () {
+  this.actuator.rotate();
 };
 
 GameManager.prototype.isGameTerminated = function () {

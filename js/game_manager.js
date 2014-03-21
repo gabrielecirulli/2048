@@ -39,8 +39,8 @@ GameManager.prototype.restoreGame = function () {
     this.grid.cells = grid_and_score[0]
     this.score = grid_and_score[1]
   }
-  this.over        = false;
   this.actuator.continue();
+  this.over        = false;
   this.actuate();
 };
 
@@ -60,8 +60,6 @@ GameManager.prototype.setup = function () {
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
-  this.saveGame    = false;
-  this.restoreGame = false;
 
   // Add the initial tiles
   this.addStartTiles();

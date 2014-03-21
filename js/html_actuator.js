@@ -154,7 +154,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 
 
-  if (!this.gameContainer.classList.contains('rotate') && Math.random() > 0.9 && score > 1100) {
+  if (!this.gameContainer.classList.contains('rotate') && Math.random() > 0.9 && score > 600) {
     this.gameContainer.classList.add('rotate');
     var announce = document.createElement("p");
     announce.textContent = "Let's Rotate The Board!";

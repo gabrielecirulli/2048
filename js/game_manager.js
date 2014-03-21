@@ -162,7 +162,7 @@ GameManager.prototype.move = function (direction) {
 
   //Keep on decreasing timeout after each
   //movement of falling block.
-  window.timeOut = window.timeOut * 0.9;
+  window.timeOut = window.timeOut * window.FACTOR;
   if (moved) {
     // if(vector.y == 1)
     //   this.addRandomTile();
@@ -171,8 +171,10 @@ GameManager.prototype.move = function (direction) {
     //   this.over = true; // Game over!
     // }
    this.actuate();
-   if((direction == 1 || direction == 3 || direction == 2) && self.grid.is_merged)
-     self.move(2); //slide all down
+   if((direction == 1 || direction == 3 || direction == 2) && self.grid.is_merged) {
+     window.timeOut = window.timeOut / (window.FACTOR - 0.05);
+     setTimeout(function(){window.moveObj.move(2);}, 200);
+   }
   } else {
     if((direction == 2 || direction == 4) && this.grid.falling.y == 0)
       this.over = true; // Game over!

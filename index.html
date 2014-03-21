@@ -22,6 +22,13 @@
   <div class="container">
     <div class="heading">
       <h1 class="title">2048-Tetris</h1>
+      <input type="button" id="Pause" value="Pause" onClick="pause();" />
+      <input type="radio" id="levele" name="level" value="Easy" onclick="setLevel(0)" />
+      <label for="levele">Easy</label>
+      <input type="radio" id="levelm" name="level" value="Medium"  onclick="setLevel(1)"/>
+      <label for="levelm">Medium</label>
+      <input type="radio" id="levelh" name="level" value="Hard"  onclick="setLevel(2)"/>
+      <label for="levelm">Hard</label>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
@@ -95,6 +102,10 @@
     window.timeOut = 700; 
     window.autoFall = null;
     window.moveObj = null;
+    window.EASY = 0.95;
+    window.MEDIUM = 0.90;
+    window.HARD = 0.85;
+    window.FACTOR = window.MEDIUM;
   </script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
@@ -115,5 +126,28 @@
   ga('send', 'pageview');
 
 </script>
+<script>
+  function pause() {
+    var elem = document.getElementById("Pause");
+    if(elem.value == "Pause") {
+     window.clearTimeout(window.autoFall);
+      elem.value = "Resume";
+    } else {
+      window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
+      elem.value = "Pause";
+    }
+  }
+
+  function setLevel(val) {
+    switch(val) {
+      case 0: window.FACTOR = window.EASY;
+              break;
+      case 2: window.FACTOR = window.HARD;
+              break;
+      default:
+              window.FACTOR = window.MEDIUM;
+    }
+  }
+</script
 </body>
 </html>

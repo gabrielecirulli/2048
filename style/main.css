@@ -53,7 +53,7 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+.score-container, .best-container, .save-container {
   position: relative;
   display: inline-block;
   background: #bbada0;

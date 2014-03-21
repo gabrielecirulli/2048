@@ -60,7 +60,15 @@ KeyboardInputManager.prototype.listen = function () {
         self.emit("move", mapped);
       }
 
-      if (event.which === 32) self.restart.bind(self)(event);
+      if (event.which === 32)  self.restart.bind(self)(event); // Space
+      if (event.which === 85) self.undo.bind(self)(event); // U
+      if (event.which === 82) self.redo.bind(self)(event); // R
+    }
+    else if (event.ctrlKey && ~(modifiers & ~event.ctrlKey)) {
+      if (event.which === 90 )  // Z
+        self.undo.bind(self)(event);
+      if (event.which === 82 )  // R
+        self.redo.bind(self)(event);
     }
   });
 
@@ -71,6 +79,14 @@ KeyboardInputManager.prototype.listen = function () {
   var keepPlaying = document.querySelector(".keep-playing-button");
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
+
+  var undo = document.querySelector(".undo-button");
+  var redo = document.querySelector(".redo-button");
+  undo.addEventListener("click",    this.undo.bind(this));
+  undo.addEventListener("touchend", this.undo.bind(this));
+  redo.addEventListener("click",    this.redo.bind(this));
+  redo.addEventListener("touchend", this.redo.bind(this));
+
 
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
@@ -128,3 +144,14 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
 };
+
+KeyboardInputManager.prototype.undo = function (event) {
+  event.preventDefault();
+  this.emit("undo");
+};
+
+KeyboardInputManager.prototype.redo = function (event) {
+  event.preventDefault();
+  this.emit("redo");
+};
+

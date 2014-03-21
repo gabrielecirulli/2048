@@ -13,6 +13,9 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.setup();
 }
 
+// Merge rule
+GameManager.prototype.tilesRule = ["竹蜻蜓", "风筝", "直升机", "高空气球", "国际空间站", "同步卫星", "玉兔号", "好奇号", "嫦娥2号", "卡西尼号", "旅行者号", "企业号"];
+
 // Restart the game
 GameManager.prototype.restart = function () {
   this.actuator.continue();
@@ -59,12 +62,18 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
-    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    var pos = Math.random() < 0.9 ? 0 : 1,
+        title = this.tilesRule[pos];
+    var tile = new Tile(this.grid.randomAvailableCell(), title, pos);
 
     this.grid.insertTile(tile);
   }
 };
+
+// Get a tile value ( position with array )
+GameManager.prototype.tilePos = function (tileTitle) {
+  return self.tilesRule.indexOf(tileTitle);
+}
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
@@ -127,7 +136,7 @@ GameManager.prototype.move = function (direction) {
 
         // Only one merger per row traversal?
         if (next && next.value === tile.value && !next.mergedFrom) {
-          var merged = new Tile(positions.next, tile.value * 2);
+          var merged = new Tile(positions.next, self.tilesRule[tile.value+1], tile.value+1);
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
@@ -140,7 +149,7 @@ GameManager.prototype.move = function (direction) {
           self.score += merged.value;
 
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === self.tilesRule.length) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }

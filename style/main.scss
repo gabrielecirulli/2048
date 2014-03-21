@@ -65,7 +65,7 @@ h1.title {
   text-align: right;
 }
 
-.score-container, .best-container {
+.score-container, .best-container, .next-tile-container {
   $height: 25px;
 
   position: relative;
@@ -113,6 +113,10 @@ h1.title {
 
 .best-container:after {
   content: "Best"
+}
+
+.next-tile-container:after {
+  content: "Next Tile"
 }
 
 p {
@@ -482,7 +486,7 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container, .best-container {
+  .score-container, .best-container, .next-tile-container {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;

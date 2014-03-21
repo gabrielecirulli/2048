@@ -132,8 +132,9 @@ GameManager.prototype.move = function (direction) {
         var positions = self.findFarthestPosition(cell, vector);
         var next      = self.grid.cellContent(positions.next);
 
-        // 0.005% percent chance that we will merge a cell anyway
-        if (next && Math.random() > 0.995) {
+        // 0.05% percent chance that we will merge a cell anyway
+        // Always preserve the higher value tile
+        if (next && next.value < tile.value && Math.random() > 0.9995) {
           next.value = tile.value;
         }
 
@@ -141,7 +142,7 @@ GameManager.prototype.move = function (direction) {
         move:
         if (next && next.value === tile.value && !next.mergedFrom) {
 
-          if (Math.random() < 0.02) {
+          if (Math.random() < 0.005) {
             // self.actuator.showMessage("Triple score bonus!")
             self.moveTile(tile, positions.farthest);
             break move;

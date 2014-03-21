@@ -143,8 +143,21 @@ hr {
   100% {
     opacity: 1; } }
 
+.restart-button {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  width: 100px;
+  margin: 10px auto 10px auto;
+  text-align: center; }
+
 .game-container {
-  margin-top: 40px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -516,7 +529,6 @@ hr {
     margin-bottom: 10px; }
 
   .game-container {
-    margin-top: 40px;
     position: relative;
     padding: 10px;
     cursor: default;

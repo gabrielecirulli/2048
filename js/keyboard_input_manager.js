@@ -68,6 +68,10 @@ KeyboardInputManager.prototype.listen = function () {
   retry.addEventListener("click", this.restart.bind(this));
   retry.addEventListener(this.eventTouchend, this.restart.bind(this));
 
+  var restart = document.querySelector(".restart-button");
+  restart.addEventListener("click", this.restart.bind(this));
+  restart.addEventListener("touchend", this.restart.bind(this));
+
   var keepPlaying = document.querySelector(".keep-playing-button");
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));

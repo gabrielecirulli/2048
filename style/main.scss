@@ -168,10 +168,17 @@ hr {
   line-height: 42px;
 }
 
+.restart-button {
+  @include button;
+  display: block;
+  width: 100px;
+  margin: 10px auto 10px auto;
+  text-align: center;
+}
+
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
-    margin-top: 40px;
     position: relative;
     padding: $grid-spacing;
 

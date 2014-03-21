@@ -25,6 +25,7 @@
     <div class="heading">
       <h1 class="title">2048-Tetris</h1>
       <div class="scores-container">
+        <div class="pause-container" onclick="pause();" id = "Pause">||</div>
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
@@ -36,7 +37,7 @@
         <input type="radio" onclick="setLevel(2)" value="Hard" name="level" id="levelh">
         <label for="levelm">Hard</label>
       </div>
-        <input type="button" style="margin:10px" onclick="pause();" value="Pause" id="Pause">
+        <!-- <input type="button" style="margin:10px" onclick="pause();" value="Pause" id="Pause"> -->
     </div>
     <span style="font-size: 12px; padding-left: 35px">
     Tip: Falling block can be continously collapsed in left/right directions if applicable.</span>
@@ -134,12 +135,12 @@
 <script>
   function pause() {
     var elem = document.getElementById("Pause");
-    if(elem.value == "Pause") {
+    if(elem.innerHTML == "||") {
      window.clearTimeout(window.autoFall);
-      elem.value = "Start";
+      elem.innerHTML = "&#9658;";
     } else {
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
-      elem.value = "Pause";
+      elem.innerHTML = "||";
     }
   }
 

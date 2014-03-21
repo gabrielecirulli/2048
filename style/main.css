@@ -83,9 +83,9 @@ h1.title {
     transform: rotateY(360deg); } }
 
 .rotate {
-  -webkit-animation: rotate-board 4s ease-out;
-  -moz-animation: rotate-board 4s ease-out;
-  animation: rotate-board 4s ease-out;
+  -webkit-animation: rotate-board 5s ease-out;
+  -moz-animation: rotate-board 5s ease-out;
+  animation: rotate-board 5s ease-out;
   -moz-transform: perspective(1000px);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;

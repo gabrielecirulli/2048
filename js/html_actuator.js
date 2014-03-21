@@ -187,7 +187,7 @@ HTMLActuator.prototype.updateScore = function (score) {
     return sign + wang;
   }
 
-  if (!this.boardContainer.classList.contains('rotated') && Math.random() > 0.9 && score > 7230) {
+  if (!this.boardContainer.classList.contains('rotated') && Math.random() > 0.9 && score > 5230) {
     this.boardContainer.classList.add('rotate');
     this.boardContainer.classList.add('rotated');
     //this.announce("It’s time for Wangernumb. Let’s rotate the board!");
@@ -196,7 +196,7 @@ HTMLActuator.prototype.updateScore = function (score) {
     setTimeout(function () {
       self.boardContainer.classList.remove('rotate');
       // self.announce("Welcome back!");
-    }, 4000)
+    }, 5000)
   }
 
 };

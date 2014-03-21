@@ -5,6 +5,8 @@ function HTMLActuator() {
   this.messageContainer = document.querySelector(".game-message");
   this.sharingContainer = document.querySelector(".score-sharing");
   this.thatsNumberwang  = document.querySelector(".thats-numberwang");
+  this.rotateTheBoard   = document.querySelector(".lets-rotate-the-board");
+  this.gameContainer    = document.querySelector('.game-container')
 
   this.score = 0;
 }
@@ -44,6 +46,7 @@ HTMLActuator.prototype.continue = function () {
   }
 
   this.clearMessage();
+  this.gameContainer.classList.remove('rotate');
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -143,12 +146,24 @@ HTMLActuator.prototype.updateScore = function (score) {
     this.scoreContainer.appendChild(addition);
   }
 
-  if (Math.random() > 0.9 && score > 8) {
+  if (!this.rotateTheBoard.hasChildNodes() && Math.random() > 0.9 && score > 8 ) {
     var announce = document.createElement("p");
     announce.classList.add("show-numberwang");
     announce.textContent = "That’s Numberwang!";
     this.thatsNumberwang.appendChild(announce);
   }
+
+
+  if (!this.gameContainer.classList.contains('rotate') && Math.random() > 0.9 && score > 1100) {
+    this.gameContainer.classList.add('rotate');
+    var announce = document.createElement("p");
+    announce.textContent = "Let's Rotate The Board!";
+    this.rotateTheBoard.appendChild(announce);
+    // multiple unreleated animationEnd events might fire
+    // before rotate is done so setTimeout instead
+    setTimeout(this.clearContainer.bind(this,this.rotateTheBoard),3000);
+  }
+
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
@@ -157,6 +172,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   this.clearContainer(this.thatsNumberwang);
+  this.clearContainer(this.rotateTheBoard);
 
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You’re the Numberwang!" : "You’ve been Wangernumbed!";

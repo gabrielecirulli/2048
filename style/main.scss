@@ -62,17 +62,18 @@ h1.title {
 
 @include keyframes(rotate-board){
   0% {
-    @include transform(rotate(0deg));
+    @include transform(rotateY(0deg));
   }
 
   100% {
-    @include transform(rotate(360deg));
+    @include transform(rotateY(360deg));
   }
 }
 
 .rotate {
-  @include animation(rotate-board 3s ease-out);
+  @include animation(rotate-board 4s ease-out);
 }
+
 .scores-container {
   // float: right;
   position: absolute;
@@ -568,6 +569,10 @@ hr {
   .container {
     width: $field-width;
     margin: 0 auto;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    perspective: 1000px;
   }
 
   .score-container, .best-container {

@@ -48,38 +48,38 @@ h1.title {
     opacity: 0; } }
 @-webkit-keyframes rotate-board {
   0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
 
   100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
 @-moz-keyframes rotate-board {
   0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
 
   100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
 @keyframes rotate-board {
   0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
 
   100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
 .rotate {
-  -webkit-animation: rotate-board 3s ease-out;
-  -moz-animation: rotate-board 3s ease-out;
-  animation: rotate-board 3s ease-out; }
+  -webkit-animation: rotate-board 4s ease-out;
+  -moz-animation: rotate-board 4s ease-out;
+  animation: rotate-board 4s ease-out; }
 
 .scores-container {
   position: absolute;
@@ -591,7 +591,11 @@ hr {
 
   .container {
     width: 280px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    perspective: 1000px; }
 
   .score-container, .best-container {
     margin-top: 0;

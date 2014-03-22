@@ -72,13 +72,21 @@ KeyboardInputManager.prototype.listen = function () {
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
 
+  var saveGame = document.querySelector(".save-game-button");
+  saveGame.addEventListener("click", this.saveGame.bind(this));
+  saveGame.addEventListener("touchend", this.saveGame.bind(this));
+
+  var restoreGame = document.querySelector(".restore-game-button");
+  restoreGame.addEventListener("click", this.restoreGame.bind(this));
+  restoreGame.addEventListener("touchend", this.restoreGame.bind(this));
+
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if (( !window.navigator.msPointerEnabled && event.touches.length > 1) || event.targetTouches > 1) return;
-    
+
     if(window.navigator.msPointerEnabled){
         touchStartClientX = event.pageX;
         touchStartClientY = event.pageY;
@@ -86,7 +94,7 @@ KeyboardInputManager.prototype.listen = function () {
         touchStartClientX = event.touches[0].clientX;
         touchStartClientY = event.touches[0].clientY;
     }
-    
+
     event.preventDefault();
   });
 
@@ -127,4 +135,14 @@ KeyboardInputManager.prototype.restart = function (event) {
 KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
+};
+
+KeyboardInputManager.prototype.saveGame = function (event) {
+  event.preventDefault();
+  this.emit("saveGame");
+};
+
+KeyboardInputManager.prototype.restoreGame = function (event) {
+  event.preventDefault();
+  this.emit("restoreGame");
 };

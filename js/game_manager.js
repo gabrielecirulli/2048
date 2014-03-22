@@ -1,7 +1,8 @@
-function GameManager(size, InputManager, Actuator, ScoreManager) {
+function GameManager(size, InputManager, Actuator, ScoreManager, SaveManager) {
   this.size         = size; // Size of the grid
   this.inputManager = new InputManager;
   this.scoreManager = new ScoreManager;
+  this.saveManager  = new SaveManager;
   this.actuator     = new Actuator;
 
   this.startTiles   = 2;
@@ -9,6 +10,8 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("saveGame", this.saveGame.bind(this));
+  this.inputManager.on("restoreGame", this.restoreGame.bind(this));
 
   this.setup();
 }
@@ -23,6 +26,22 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continue();
+};
+
+GameManager.prototype.saveGame = function () {
+  this.saveManager.set(this.grid.cells, this.score)
+  this.actuate();
+};
+
+GameManager.prototype.restoreGame = function () {
+  grid_and_score = this.saveManager.get(this.grid)
+  if (grid_and_score[0]) {
+    this.grid.cells = grid_and_score[0]
+    this.score = grid_and_score[1]
+  }
+  this.actuator.continue();
+  this.over        = false;
+  this.actuate();
 };
 
 GameManager.prototype.isGameTerminated = function () {

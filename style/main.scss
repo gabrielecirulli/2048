@@ -474,7 +474,7 @@ hr {
   $grid-row-cells: 4;
   $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
   $tile-border-radius: 3px;
-  $game-container-margin-top: 10px;
+  $game-container-margin-top: 17px;
 
   html, body {
     font-size: 15px;

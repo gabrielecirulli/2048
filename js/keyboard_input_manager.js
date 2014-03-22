@@ -111,13 +111,7 @@ KeyboardInputManager.prototype.pollGamepad = function () {
     }
 
     // check gamepad again on next animation frame
-    if (window.requestAnimationFrame) {
-      window.requestAnimationFrame(nextPoll);
-    } else if (window.mozRequestAnimationFrame) {
-      window.mozRequestAnimationFrame(nextPoll);
-    } else if (window.webkitRequestAnimationFrame) {
-      window.webkitRequestAnimationFrame(nextPoll);
-    }
+    window.requestAnimationFrame(nextPoll);
   }
 
 };

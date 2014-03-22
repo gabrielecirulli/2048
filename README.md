@@ -12,4 +12,4 @@ You can find the same information in the [contributing guide.](https://github.co
 2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
 
 ## Donations
-I'm not accepting donations, but if you would like to donate to Gabriel, use her BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!
+I'm not accepting donations, but if you would like to donate to Gabriel, use his BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!

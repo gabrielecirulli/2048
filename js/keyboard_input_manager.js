@@ -45,6 +45,7 @@ KeyboardInputManager.prototype.pollGamepad = function () {
     if (gamepad) {
       var newDirectionPressed = null;
 
+      // button handling
       var buttonMap = {
         12: 0, // up
         13: 2, // right
@@ -60,6 +61,27 @@ KeyboardInputManager.prototype.pollGamepad = function () {
         }
       }
 
+      // stick handling
+      var stickSensitivityThreshold = 0.75;
+
+      // left stick vertical
+      if (gamepad.axes[1]) {
+        if (gamepad.axes[1] < -stickSensitivityThreshold) {
+          newDirectionPressed = 0;
+        } else if (gamepad.axes[1] > stickSensitivityThreshold) {
+          newDirectionPressed = 2;
+        }
+      }
+      // left stick horizontal
+      if (gamepad.axes[0]) {
+        if (gamepad.axes[0] < -stickSensitivityThreshold) {
+          newDirectionPressed = 3;
+        } else if (gamepad.axes[0] > stickSensitivityThreshold) {
+          newDirectionPressed = 1;
+        }
+      }
+
+      // emit events on direction change
       if (newDirectionPressed !== self.directionPressed) {
         self.directionPressed = newDirectionPressed;
 

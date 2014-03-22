@@ -57,7 +57,9 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
-        clearTimeout(autoFall);
+        clearTimeout(window.autoFall);
+        var elem = document.getElementById("Pause");
+        if(elem.innerHTML != "||") elem.innerHTML = "||";
         autoFall = setTimeout(function(){self.emit("move", 4);}, window.timeOut);
         self.emit("move", mapped);
       }

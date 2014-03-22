@@ -97,7 +97,6 @@ GameManager.prototype.actuate = function () {
 
 GameManager.prototype.serialize = function () {
   return {
-    size:        this.size,
     grid:        this.grid.serialize(),
     score:       this.score,
     over:        this.over,

@@ -27,7 +27,7 @@ html, body {
 
   background: #faf8ef;
   color: $text-color;
-  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Clear Sans", "Helvetica Neue", "Microsoft Yahei", Arial, sans-serif;
   font-size: 18px;
 }
 
@@ -318,7 +318,8 @@ hr {
     font-weight: bold;
     z-index: 10;
 
-    font-size: 55px;
+    font-size: 100%;
+    white-space: nowrap;
   }
 
   // Movement transition
@@ -346,7 +347,7 @@ hr {
 
   // Build tile colors
   @while $exponent <= $limit {
-    $power: pow($base, $exponent);
+    $power: $exponent;
 
     &.tile-#{$power} .tile-inner {
       // Calculate base background color
@@ -378,36 +379,36 @@ hr {
       }
 
       // Adjust font size for bigger numbers
-      @if $power >= 100 and $power < 1000 {
-        font-size: 45px;
+      //@if $power >= 3 and $power < 7 {
+      //  font-size: 45px;
 
-        // Media queries placed here to avoid carrying over the rest of the logic
-        @include smaller($mobile-threshold) {
-          font-size: 25px;
-        }
-      } @else if $power >= 1000 {
-        font-size: 35px;
+      //  // Media queries placed here to avoid carrying over the rest of the logic
+      //  @include smaller($mobile-threshold) {
+      //    font-size: 25px;
+      //  }
+      //} @else if $power >= 7 {
+      //  font-size: 35px;
 
-        @include smaller($mobile-threshold) {
-          font-size: 15px;
-        }
-      }
+      //  @include smaller($mobile-threshold) {
+      //    font-size: 15px;
+      //  }
+      //}
     }
 
     $exponent: $exponent + 1;
   }
 
   // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-    color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
+  //&.tile-super .tile-inner {
+  //  color: $bright-text-color;
+  //  background: mix(#333, $tile-gold-color, 95%);
 
-    font-size: 30px;
+  //  font-size: 30px;
 
-    @include smaller($mobile-threshold) {
-      font-size: 10px;
-    }
-  }
+  //  @include smaller($mobile-threshold) {
+  //    font-size: 10px;
+  //  }
+  //}
 }
 
 @include keyframes(appear) {
@@ -527,7 +528,7 @@ hr {
 
   // Rest of the font-size adjustments in the tile class
   .tile .tile-inner {
-    font-size: 35px;
+    font-size: 100%;
   }
 
   .game-message {

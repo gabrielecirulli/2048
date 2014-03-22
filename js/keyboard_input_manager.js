@@ -90,6 +90,16 @@ KeyboardInputManager.prototype.pollGamepad = function () {
         }
       }
 
+      // any button will restart the game if the retry button is visible
+      var retry = document.querySelector(".retry-button");
+      if (retry.offsetParent !== null) {
+        for (var i = 0; i < 10; i++) {
+          if (gamepad.buttons[i] && (gamepad.buttons[i] > buttonSensitivityThreshold)) {
+            this.emit("restart");
+          }
+        }
+      }
+
     }
 
     var nextPoll = function () {

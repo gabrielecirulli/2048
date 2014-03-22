@@ -70,9 +70,11 @@ GameManager.prototype.addRandomTile = function () {
     this.nextTile = this.randomTile();
     this.grid.falling = tile;
     window.timeOut = 700;
+    if(window.trySlideDown) {
+      window.moveObj.move(2); clearTimeout(window.trySlideDown); window.trySlideDown = null;
+    }
     if(window.moveObj) {
       clearTimeout(window.autoFall);
-      clearTimeout(window.trySlideDown);
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
     }
     this.grid.falling = tile;
@@ -119,6 +121,10 @@ GameManager.prototype.moveTile = function (tile, cell) {
 GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2:down, 3: left, 4: one step fall
   window.moveObj = this;
+
+  if(direction == 2 && window.trySlideDown) {
+    clearTimeout(window.trySlideDown); window.trySlideDown = null;
+  }
 
   if(direction == 4)
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
@@ -186,6 +192,7 @@ GameManager.prototype.move = function (direction) {
    this.actuate();
    if((direction == 1 || direction == 3 || direction == 2) && self.grid.is_merged) {
      window.timeOut = window.timeOut / (window.FACTOR - 0.05);
+     clearTimeout(window.trySlideDown);
      window.trySlideDown = setTimeout(function(){ window.moveObj.move(2); }, 200);
    }
   } else {

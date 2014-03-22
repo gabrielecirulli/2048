@@ -1,11 +1,12 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 500px;
 $grid-spacing: 15px;
-$grid-row-cells: 4;
+$grid-row-cells: 5;
+$field-width: 125px * $grid-row-cells;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
+
 
 $mobile-threshold: $field-width + 20px;
 
@@ -459,7 +460,8 @@ hr {
   // Redefine variables for smaller screens
   $field-width: 280px;
   $grid-spacing: 10px;
-  $grid-row-cells: 4;
+  $grid-row-cells: 5;
+  $field-width: 70px * $grid-row-cells;
   $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
   $tile-border-radius: 3px;
 

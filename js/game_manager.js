@@ -66,9 +66,6 @@ GameManager.prototype.randomTile = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var tile = new Tile(this.grid.randomAvailableCell(), this.nextTile);
-    this.nextTile = this.randomTile();
-    this.grid.falling = tile;
     window.timeOut = 700;
     if(window.trySlideDown) {
       window.moveObj.move(2); clearTimeout(window.trySlideDown); window.trySlideDown = null;
@@ -77,6 +74,8 @@ GameManager.prototype.addRandomTile = function () {
       clearTimeout(window.autoFall);
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
     }
+    var tile = new Tile(this.grid.randomAvailableCell(), this.nextTile);
+    this.nextTile = this.randomTile();
     this.grid.falling = tile;
     this.grid.is_merged = false;
     this.grid.insertTile(tile);

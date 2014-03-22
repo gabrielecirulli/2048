@@ -19,6 +19,7 @@ h1.title {
   font-weight: bold;
   margin: 0;
   display: block;
+  font-size: 28px;
   float: left; }
 
 @-webkit-keyframes move-up {

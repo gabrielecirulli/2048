@@ -16,6 +16,7 @@ $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
+$game-container-margin-top: 40px;
 $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
@@ -169,7 +170,7 @@ hr {
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
-    margin-top: 40px;
+    margin-top: $game-container-margin-top;
     position: relative;
     padding: $grid-spacing;
 
@@ -447,20 +448,17 @@ hr {
 
 .above-game {
   @include clearfix;
-  // margin-bottom: 10px;
 }
 
 .game-intro {
   float: left;
   line-height: 42px;
-  // margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .restart-button {
   @include button;
   display: block;
-  // width: 100px;
-  // margin: 10px auto 10px auto;
   text-align: center;
   float: right;
 }
@@ -476,6 +474,7 @@ hr {
   $grid-row-cells: 4;
   $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
   $tile-border-radius: 3px;
+  $game-container-margin-top: 10px;
 
   html, body {
     font-size: 15px;
@@ -524,10 +523,6 @@ hr {
 
   // Render the game field at the right width
   @include game-field;
-
-  .game-container {
-    margin-top: 20px;
-  }
 
   // Rest of the font-size adjustments in the tile class
   .tile .tile-inner {

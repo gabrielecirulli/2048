@@ -13,7 +13,9 @@ Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://gith
 
 ### Screenshot
 
-[![Screenshot](http://pictures.gabrielecirulli.com/2048-20140309-234100.png)](http://pictures.gabrielecirulli.com/2048-20140309-234100.png)
+<p align="center">
+  <img src="http://pictures.gabrielecirulli.com/2048-20140309-234100.png" alt="Screenshot"/>
+</p>
 
 That screenshot is fake, by the way. I never reached 2048 :smile:
 

@@ -77,3 +77,12 @@
   -moz-appearance: $args;
   appearance: $args;
 }
+
+// Clearfix
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

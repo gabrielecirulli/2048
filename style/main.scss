@@ -227,6 +227,12 @@ hr {
 	}
       }
 
+      .score-sharing {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
       @include animation(fade-in 800ms ease $transition-speed * 12);
       @include animation-fill-mode(both);
 
@@ -455,6 +461,16 @@ hr {
   margin-top: 50px;
 }
 
+.sharing {
+  margin-top: 20px;
+  text-align: center;
+
+  > iframe, > span, > form {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
 @include smaller($mobile-threshold) {
   // Redefine variables for smaller screens
   $field-width: 280px;
@@ -514,6 +530,121 @@ hr {
 
     .lower {
       margin-top: 30px !important;
+    }
+  }
+
+  .sharing {
+    > iframe, > span, > form {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// PP Donate button
+.pp-donate {
+  button {
+    @include appearance(none);
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    @include button;
+
+    img {
+      vertical-align: -4px;
+      margin-right: 8px;
+    }
+  }
+}
+
+// Bitcoin donate button
+.btc-donate {
+  // font-size: 14px;
+  position: relative;
+  margin-left: 10px;
+  @include button;
+  cursor: pointer;
+
+  img {
+    vertical-align: -4px;
+    margin-right: 8px;
+  }
+
+  a {
+    color: $bright-text-color;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .address {
+    // display: none;
+    cursor: auto;
+    position: absolute;
+    // background: red;
+    width: 340px;
+    right: 50%;
+    margin-right: -170px;
+
+    padding-bottom: 7px;
+
+    top: -30px;
+    opacity: 0;
+    pointer-events: none;
+    @include transition(400ms ease);
+    @include transition-property(top, opacity);
+
+    &:after {
+      position: absolute;
+      border-top: 10px solid $game-container-background;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      content: "";
+      bottom: 0px;
+      left: 50%;
+      margin-left: -7px;
+    }
+
+    code {
+      background-color: $game-container-background;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 3px;
+      line-height: 1;
+      font-weight: normal;
+      font-size: 15px;
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+      text-align: center;
+
+    }
+  }
+
+  &:hover, .address:hover {
+    .address {
+      opacity: 1;
+      top: -45px;
+      pointer-events: auto;
+    }
+  }
+
+  // Styles for small screens
+  @include smaller(480px) {
+    width: 120px;
+
+    .address {
+      margin-right: -150px;
+      // background: red;
+      width: 300px;
+
+      code {
+        font-size: 13px;
+      }
+
+      &:after {
+        left: 50%;
+        bottom: 2px;
+      }
     }
   }
 }

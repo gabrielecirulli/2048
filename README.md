@@ -9,7 +9,7 @@ Made just for fun. [Play it here!](http://prat0318.github.io/2048-tetris)
 
 ### Screenshot
 
-[![Screenshot](http://i.imgur.com/w8OEjb4.png)](http://i.imgur.com/w8OEjb4.png)
+[![Screenshot](http://i.imgur.com/k0miKcD.png)](http://i.imgur.com/w8OEjb4.png)
 
 That screenshot is real. I was so cloase :rage:
 

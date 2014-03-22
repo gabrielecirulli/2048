@@ -484,7 +484,8 @@ hr {
 
 .game-intro {
   float: left;
-  line-height: 42px; }
+  line-height: 42px;
+  margin-bottom: 0; }
 
 .restart-button {
   display: inline-block;
@@ -547,7 +548,7 @@ hr {
     margin-top: 2px; }
 
   .game-container {
-    margin-top: 40px;
+    margin-top: 10px;
     position: relative;
     padding: 10px;
     cursor: default;
@@ -706,9 +707,6 @@ hr {
     -webkit-transform: translate(202px, 202px);
     -moz-transform: translate(202px, 202px);
     transform: translate(202px, 202px); }
-
-  .game-container {
-    margin-top: 20px; }
 
   .tile .tile-inner {
     font-size: 35px; }

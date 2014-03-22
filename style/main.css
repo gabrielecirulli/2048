@@ -145,6 +145,7 @@ hr {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   background: #bbada0;
   border-radius: 6px;
   width: 500px;
@@ -555,6 +556,7 @@ hr {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+    -ms-user-select: none;
     background: #bbada0;
     border-radius: 6px;
     width: 280px;

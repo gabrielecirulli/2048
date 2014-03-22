@@ -190,7 +190,7 @@ GameManager.prototype.move = function (direction) {
     // }
    this.actuate();
    if((direction == 1 || direction == 3 || direction == 2) && self.grid.is_merged) {
-     window.timeOut = window.timeOut / (window.FACTOR - 0.05);
+     window.timeOut = window.timeOut / window.FACTOR;
      clearTimeout(window.trySlideDown);
      window.trySlideDown = setTimeout(function(){ window.moveObj.move(2); }, 200);
    }

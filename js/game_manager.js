@@ -36,23 +36,24 @@ GameManager.prototype.isGameTerminated = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  var previousGameState = this.storageManager.getGameState();
+  var previousState = this.storageManager.getGameState();
 
-  if (previousGameState) {
-      this.grid        = new Grid(previousGameState.grid.size, previousGameState.grid.cells);
-      this.score       = previousGameState.score;
-      this.over        = previousGameState.over;
-      this.won         = previousGameState.won;
-      this.keepPlaying = previousGameState.keepPlaying;
+  if (previousState) {
+    this.grid        = new Grid(previousState.grid.size,
+                                previousState.grid.cells); // Reload grid
+    this.score       = previousState.score;
+    this.over        = previousState.over;
+    this.won         = previousState.won;
+    this.keepPlaying = previousState.keepPlaying;
   } else {
-      this.grid        = new Grid(this.size);
-      this.score       = 0;
-      this.over        = false;
-      this.won         = false;
-      this.keepPlaying = false;
+    this.grid        = new Grid(this.size);
+    this.score       = 0;
+    this.over        = false;
+    this.won         = false;
+    this.keepPlaying = false;
 
-      // Add the initial tiles
-      this.addStartTiles();
+    // Add the initial tiles
+    this.addStartTiles();
   }
 
   // Update the actuator
@@ -82,7 +83,7 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
-  this.storageManager.setGameState(this.serializeGameState());
+  this.storageManager.setGameState(this.serialize());
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
@@ -94,16 +95,16 @@ GameManager.prototype.actuate = function () {
 
 };
 
-GameManager.prototype.serializeGameState = function () {
-    return {
-        size:        this.size,
-        grid:        this.grid.gridState(),
-        score:       this.score,
-        over:        this.over,
-        won:         this.won,
-        keepPlaying: this.keepPlaying
-    };
-}
+GameManager.prototype.serialize = function () {
+  return {
+    size:        this.size,
+    grid:        this.grid.serialize(),
+    score:       this.score,
+    over:        this.over,
+    won:         this.won,
+    keepPlaying: this.keepPlaying
+  };
+};
 
 // Save all tile positions and remove merger info
 GameManager.prototype.prepareTiles = function () {

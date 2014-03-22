@@ -16,12 +16,12 @@ Tile.prototype.updatePosition = function (position) {
   this.y = position.y;
 };
 
-Tile.prototype.tileState = function () {
-    return {
-        position: {
-            x: this.x,
-            y: this.y
-        },
-        value: this.value
-    };
-}
+Tile.prototype.serialize = function () {
+  return {
+    position: {
+      x: this.x,
+      y: this.y
+    },
+    value: this.value
+  };
+};

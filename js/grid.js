@@ -1,11 +1,12 @@
-function Grid(size, previousCellState) {
+function Grid(size, previousState) {
   this.size = size;
-  this.cells = previousCellState ? this.buildFromPreviousState(previousCellState) : this.buildNew();
+  this.cells = previousState ? this.fromState(previousState) : this.empty();
 }
 
 // Build a grid of the specified size
-Grid.prototype.buildNew = function () {
+Grid.prototype.empty = function () {
   var cells = [];
+
   for (var x = 0; x < this.size; x++) {
     var row = cells[x] = [];
 
@@ -13,20 +14,23 @@ Grid.prototype.buildNew = function () {
       row.push(null);
     }
   }
+
   return cells;
 };
 
-Grid.prototype.buildFromPreviousState = function (state) {
-    var cells = [];
-    for (var x = 0; x < this.size; x++) {
-        var row = cells[x] = [];
+Grid.prototype.fromState = function (state) {
+  var cells = [];
 
-        for (var y = 0; y < this.size; y++) {
-            var tileState = state[x][y];
-            row.push(tileState ? new Tile(tileState.position, tileState.value) : null);
-        }
+  for (var x = 0; x < this.size; x++) {
+    var row = cells[x] = [];
+
+    for (var y = 0; y < this.size; y++) {
+      var tile = state[x][y];
+      row.push(tile ? new Tile(tile.position, tile.value) : null);
     }
-    return cells;
+  }
+
+  return cells;
 };
 
 // Find the first available random position
@@ -95,18 +99,19 @@ Grid.prototype.withinBounds = function (position) {
          position.y >= 0 && position.y < this.size;
 };
 
-Grid.prototype.gridState = function () {
+Grid.prototype.serialize = function () {
   var cellState = [];
+
   for (var x = 0; x < this.size; x++) {
     var row = cellState[x] = [];
 
     for (var y = 0; y < this.size; y++) {
-        row.push(this.cells[x][y] ? this.cells[x][y].tileState() : null);
+      row.push(this.cells[x][y] ? this.cells[x][y].serialize() : null);
     }
   }
 
   return {
-      size: this.size,
-      cells: cellState
-  }
+    size: this.size,
+    cells: cellState
+  };
 };

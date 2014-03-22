@@ -31,6 +31,91 @@ KeyboardInputManager.prototype.emit = function (event, data) {
   }
 };
 
+KeyboardInputManager.prototype.handleGamepadInput = function () {
+  var self = this;
+  var newDirectionPressed = null;
+
+  // button handling
+  var buttonMap = {
+    12: 0, // up
+    13: 2, // right
+    14: 3, // down
+    15: 1  // left
+  };
+  var buttonSensitivityThreshold = 0.5;
+
+  for (button in buttonMap) {
+    direction = buttonMap[button];
+    if (self.gamepad.buttons[button] && (self.gamepad.buttons[button] > buttonSensitivityThreshold)) {
+      newDirectionPressed = direction;
+    }
+  }
+
+  // stick handling
+  var stickSensitivityThreshold = 0.75;
+
+  // left stick vertical
+  if (self.gamepad.axes[1]) {
+    if (self.gamepad.axes[1] < -stickSensitivityThreshold) {
+      newDirectionPressed = 0;
+    } else if (self.gamepad.axes[1] > stickSensitivityThreshold) {
+      newDirectionPressed = 2;
+    }
+  }
+  // left stick horizontal
+  if (self.gamepad.axes[0]) {
+    if (self.gamepad.axes[0] < -stickSensitivityThreshold) {
+      newDirectionPressed = 3;
+    } else if (self.gamepad.axes[0] > stickSensitivityThreshold) {
+      newDirectionPressed = 1;
+    }
+  }
+
+  // emit events on direction change
+  if (newDirectionPressed !== self.directionPressed) {
+    self.directionPressed = newDirectionPressed;
+
+    if (self.directionPressed !== null) {
+      self.emit("move", self.directionPressed);
+    }
+  }
+
+  // any button will restart the game if the retry button is visible
+  var retry = document.querySelector(".retry-button");
+  if (retry.offsetParent !== null) {
+    for (var i = 0; i < 10; i++) {
+      if (self.gamepad.buttons[i] && (self.gamepad.buttons[i] > buttonSensitivityThreshold)) {
+        this.emit("restart");
+      }
+    }
+  }
+}
+
+KeyboardInputManager.prototype.pollGamepad = function () {
+  var self = this;
+
+  if (typeof self.directionPressed === 'undefined') {
+    self.directionPressed = null;
+  }
+
+  var chromeGamepadSupportAvailable = !!navigator.webkitGetGamepads || !!navigator.webkitGamepads;
+  if (chromeGamepadSupportAvailable) {
+    self.gamepad = navigator.webkitGetGamepads && navigator.webkitGetGamepads()[0];
+
+    if (self.gamepad) {
+      self.handleGamepadInput();
+    }
+
+    var nextPoll = function () {
+      self.pollGamepad();
+    }
+
+    // check gamepad again on next animation frame
+    window.requestAnimationFrame(nextPoll);
+  }
+
+};
+
 KeyboardInputManager.prototype.listen = function () {
   var self = this;
 
@@ -78,7 +163,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if (( !window.navigator.msPointerEnabled && event.touches.length > 1) || event.targetTouches > 1) return;
-    
+
     if(window.navigator.msPointerEnabled){
         touchStartClientX = event.pageX;
         touchStartClientY = event.pageY;
@@ -86,7 +171,7 @@ KeyboardInputManager.prototype.listen = function () {
         touchStartClientX = event.touches[0].clientX;
         touchStartClientY = event.touches[0].clientY;
     }
-    
+
     event.preventDefault();
   });
 
@@ -117,6 +202,10 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+
+  // setup gamepad polling loop
+  self.pollGamepad();
+
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

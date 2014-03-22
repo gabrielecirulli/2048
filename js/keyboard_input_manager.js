@@ -31,6 +31,66 @@ KeyboardInputManager.prototype.emit = function (event, data) {
   }
 };
 
+KeyboardInputManager.prototype.handleGamepadInput = function () {
+  var self = this;
+  var newDirectionPressed = null;
+
+  // button handling
+  var buttonMap = {
+    12: 0, // up
+    13: 2, // right
+    14: 3, // down
+    15: 1  // left
+  };
+  var buttonSensitivityThreshold = 0.5;
+
+  for (button in buttonMap) {
+    direction = buttonMap[button];
+    if (self.gamepad.buttons[button] && (self.gamepad.buttons[button] > buttonSensitivityThreshold)) {
+      newDirectionPressed = direction;
+    }
+  }
+
+  // stick handling
+  var stickSensitivityThreshold = 0.75;
+
+  // left stick vertical
+  if (self.gamepad.axes[1]) {
+    if (self.gamepad.axes[1] < -stickSensitivityThreshold) {
+      newDirectionPressed = 0;
+    } else if (self.gamepad.axes[1] > stickSensitivityThreshold) {
+      newDirectionPressed = 2;
+    }
+  }
+  // left stick horizontal
+  if (self.gamepad.axes[0]) {
+    if (self.gamepad.axes[0] < -stickSensitivityThreshold) {
+      newDirectionPressed = 3;
+    } else if (self.gamepad.axes[0] > stickSensitivityThreshold) {
+      newDirectionPressed = 1;
+    }
+  }
+
+  // emit events on direction change
+  if (newDirectionPressed !== self.directionPressed) {
+    self.directionPressed = newDirectionPressed;
+
+    if (self.directionPressed !== null) {
+      self.emit("move", self.directionPressed);
+    }
+  }
+
+  // any button will restart the game if the retry button is visible
+  var retry = document.querySelector(".retry-button");
+  if (retry.offsetParent !== null) {
+    for (var i = 0; i < 10; i++) {
+      if (self.gamepad.buttons[i] && (self.gamepad.buttons[i] > buttonSensitivityThreshold)) {
+        this.emit("restart");
+      }
+    }
+  }
+}
+
 KeyboardInputManager.prototype.pollGamepad = function () {
   var self = this;
 
@@ -40,66 +100,10 @@ KeyboardInputManager.prototype.pollGamepad = function () {
 
   var chromeGamepadSupportAvailable = !!navigator.webkitGetGamepads || !!navigator.webkitGamepads;
   if (chromeGamepadSupportAvailable) {
-    var gamepad = navigator.webkitGetGamepads && navigator.webkitGetGamepads()[0];
+    self.gamepad = navigator.webkitGetGamepads && navigator.webkitGetGamepads()[0];
 
-    if (gamepad) {
-      var newDirectionPressed = null;
-
-      // button handling
-      var buttonMap = {
-        12: 0, // up
-        13: 2, // right
-        14: 3, // down
-        15: 1  // left
-      };
-      var buttonSensitivityThreshold = 0.5;
-
-      for (button in buttonMap) {
-        direction = buttonMap[button];
-        if (gamepad.buttons[button] && (gamepad.buttons[button] > buttonSensitivityThreshold)) {
-          newDirectionPressed = direction;
-        }
-      }
-
-      // stick handling
-      var stickSensitivityThreshold = 0.75;
-
-      // left stick vertical
-      if (gamepad.axes[1]) {
-        if (gamepad.axes[1] < -stickSensitivityThreshold) {
-          newDirectionPressed = 0;
-        } else if (gamepad.axes[1] > stickSensitivityThreshold) {
-          newDirectionPressed = 2;
-        }
-      }
-      // left stick horizontal
-      if (gamepad.axes[0]) {
-        if (gamepad.axes[0] < -stickSensitivityThreshold) {
-          newDirectionPressed = 3;
-        } else if (gamepad.axes[0] > stickSensitivityThreshold) {
-          newDirectionPressed = 1;
-        }
-      }
-
-      // emit events on direction change
-      if (newDirectionPressed !== self.directionPressed) {
-        self.directionPressed = newDirectionPressed;
-
-        if (self.directionPressed !== null) {
-          self.emit("move", self.directionPressed);
-        }
-      }
-
-      // any button will restart the game if the retry button is visible
-      var retry = document.querySelector(".retry-button");
-      if (retry.offsetParent !== null) {
-        for (var i = 0; i < 10; i++) {
-          if (gamepad.buttons[i] && (gamepad.buttons[i] > buttonSensitivityThreshold)) {
-            this.emit("restart");
-          }
-        }
-      }
-
+    if (self.gamepad) {
+      self.handleGamepadInput();
     }
 
     var nextPoll = function () {

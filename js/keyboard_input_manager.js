@@ -31,6 +31,61 @@ KeyboardInputManager.prototype.emit = function (event, data) {
   }
 };
 
+KeyboardInputManager.prototype.pollGamepad = function () {
+  var self = this;
+
+  if (typeof self.directionPressed === 'undefined') {
+    self.directionPressed = null;
+  }
+
+  var chromeGamepadSupportAvailable = !!navigator.webkitGetGamepads || !!navigator.webkitGamepads;
+  if (chromeGamepadSupportAvailable) {
+    var gamepad = navigator.webkitGetGamepads && navigator.webkitGetGamepads()[0];
+
+    if (gamepad) {
+      var newDirectionPressed = null;
+
+      var buttonMap = {
+        12: 0, // up
+        13: 2, // right
+        14: 3, // down
+        15: 1  // left
+      };
+      var buttonSensitivityThreshold = 0.5;
+
+      for (button in buttonMap) {
+        direction = buttonMap[button];
+        if (gamepad.buttons[button] && (gamepad.buttons[button] > buttonSensitivityThreshold)) {
+          newDirectionPressed = direction;
+        }
+      }
+
+      if (newDirectionPressed !== self.directionPressed) {
+        self.directionPressed = newDirectionPressed;
+
+        if (self.directionPressed !== null) {
+          self.emit("move", self.directionPressed);
+        }
+      }
+
+    }
+
+    var nextPoll = function () {
+      self.pollGamepad();
+    }
+
+    // check gamepad again on next animation frame
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(nextPoll);
+    } else if (window.mozRequestAnimationFrame) {
+      window.mozRequestAnimationFrame(nextPoll);
+    } else if (window.webkitRequestAnimationFrame) {
+      window.webkitRequestAnimationFrame(nextPoll);
+    }
+  }
+
+};
+
 KeyboardInputManager.prototype.listen = function () {
   var self = this;
 
@@ -78,7 +133,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if (( !window.navigator.msPointerEnabled && event.touches.length > 1) || event.targetTouches > 1) return;
-    
+
     if(window.navigator.msPointerEnabled){
         touchStartClientX = event.pageX;
         touchStartClientY = event.pageY;
@@ -86,7 +141,7 @@ KeyboardInputManager.prototype.listen = function () {
         touchStartClientX = event.touches[0].clientX;
         touchStartClientY = event.touches[0].clientY;
     }
-    
+
     event.preventDefault();
   });
 
@@ -117,6 +172,10 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+
+  // setup gamepad polling loop
+  self.pollGamepad();
+
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

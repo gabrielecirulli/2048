@@ -176,15 +176,18 @@ hr {
 
     cursor: default;
     -webkit-touch-callout: none;
+    -ms-touch-callout: none;
+
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+
+    -ms-touch-action: none;
 
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;
     width: $field-width;
     height: $field-width;
-    -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

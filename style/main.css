@@ -143,14 +143,15 @@ hr {
   padding: 15px;
   cursor: default;
   -webkit-touch-callout: none;
+  -ms-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -ms-touch-action: none;
   background: #bbada0;
   border-radius: 6px;
   width: 500px;
   height: 500px;
-  -ms-touch-action: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -543,14 +544,15 @@ hr {
     padding: 10px;
     cursor: default;
     -webkit-touch-callout: none;
+    -ms-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    -ms-touch-action: none;
     background: #bbada0;
     border-radius: 6px;
     width: 280px;
     height: 280px;
-    -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }

@@ -183,6 +183,7 @@ hr {
     -ms-user-select: none;
 
     -ms-touch-action: none;
+    touch-action: none;
 
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;

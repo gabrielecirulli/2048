@@ -37,7 +37,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 };
 
 // Continues the game (both restart and keep playing)
-HTMLActuator.prototype.continue = function () {
+HTMLActuator.prototype.continueGame = function () {
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "restart");
   }

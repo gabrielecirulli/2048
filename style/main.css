@@ -148,6 +148,7 @@ hr {
   -moz-user-select: none;
   -ms-user-select: none;
   -ms-touch-action: none;
+  touch-action: none;
   background: #bbada0;
   border-radius: 6px;
   width: 500px;
@@ -549,6 +550,7 @@ hr {
     -moz-user-select: none;
     -ms-user-select: none;
     -ms-touch-action: none;
+    touch-action: none;
     background: #bbada0;
     border-radius: 6px;
     width: 280px;

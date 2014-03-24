@@ -35,6 +35,56 @@ body {
   margin: 80px 0;
 }
 
+// Styles for buttons
+@mixin button {
+  display: inline-block;
+  background: darken($game-container-background, 20%);
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: $bright-text-color;
+  height: 40px;
+  line-height: 42px;
+  cursor: pointer;
+}
+
+input {
+  @include button;
+  font: inherit;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: bold;
+  margin: 0;
+  @include appearance(none);
+
+  &[type="text"], &[type="email"] {
+    cursor: auto;
+    background: lighten($tile-color, 9%);
+    font-weight: normal;
+    color: $text-color;
+
+    padding: 0 15px;
+
+    @mixin placeholder {
+      color: lighten($text-color, 15%);
+    }
+
+    // Included separately so that browsers don't refuse mixed rules
+    &::-webkit-input-placeholder {
+      @include placeholder;
+    }
+
+    &::-moz-placeholder {
+      @include placeholder;
+    }
+
+    &:-ms-input-placeholder {
+      @include placeholder;
+    }
+  }
+}
+
 .heading {
   @include clearfix;
 }
@@ -155,16 +205,16 @@ hr {
   }
 }
 
-// Styles for buttons
-@mixin button {
-  display: inline-block;
-  background: darken($game-container-background, 20%);
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: $bright-text-color;
-  height: 40px;
-  line-height: 42px;
+@include keyframes(slide-up) {
+  0% {
+    margin-top: 32%;
+    // margin-top: 222px;
+  }
+
+  100% {
+    margin-top: 20%;
+    // margin-top: 150px;
+  }
 }
 
 // Game field mixin used to render CSS at different width
@@ -192,65 +242,91 @@ hr {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+  }
 
-    .game-message {
-      display: none;
+  .game-message {
+    display: none;
 
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($tile-color, .5);
-      z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($tile-color, .73);
+    z-index: 100;
 
-      text-align: center;
+    padding-top: 40px; // Pushes content down in desktop version (removed on mobile)
+
+    text-align: center;
+
+    p {
+      font-size: 60px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      margin-top: 222px;
+      // height: $field-width;
+      // line-height: $field-width;
+    }
+
+    .lower {
+      display: block;
+      margin-top: 29px;
+    }
+
+    .mailing-list {
+      margin-top: 52px;
+
+      strong {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .mailing-list-email-field {
+        width: 230px;
+        margin-right: 5px;
+      }
+    }
+
+    a {
+      @include button;
+      margin-left: 9px;
+      // margin-top: 59px;
+
+      &.keep-playing-button {
+        display: none;
+      }
+    }
+
+    .score-sharing {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+
+    @include animation(fade-in 800ms ease $transition-speed * 12);
+    @include animation-fill-mode(both);
+
+    &.game-won {
+      background: rgba($tile-gold-color, .5);
+      color: $bright-text-color;
+
+      a.keep-playing-button {
+        display: inline-block;
+      }
+    }
+
+    &.game-won, &.game-over {
+      display: block;
 
       p {
-        font-size: 60px;
-        font-weight: bold;
-        height: 60px;
-        line-height: 60px;
-        margin-top: 222px;
-        // height: $field-width;
-        // line-height: $field-width;
+        @include animation(slide-up 1.5s ease-in-out $transition-speed * 25);
+        @include animation-fill-mode(both);
       }
 
-      .lower {
-        display: block;
-        margin-top: 59px;
-      }
-
-      a {
-        @include button;
-        margin-left: 9px;
-        // margin-top: 59px;
-
-	&.keep-playing-button {
-	  display: none;
-	}
-      }
-
-      .score-sharing {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 10px;
-      }
-
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
-
-      &.game-won {
-        background: rgba($tile-gold-color, .5);
-        color: $bright-text-color;
-
-	a.keep-playing-button {
-	  display: inline-block;
-	}
-      }
-
-      &.game-won, &.game-over {
-        display: block;
+      .mailing-list {
+        @include animation(fade-in 1.5s ease-in-out $transition-speed * 25);
+        @include animation-fill-mode(both);
       }
     }
   }
@@ -551,15 +627,34 @@ hr {
   }
 
   .game-message {
+    padding-top: 0;
+
     p {
       font-size: 30px !important;
       height: 30px !important;
       line-height: 30px !important;
-      margin-top: 90px !important;
+      margin-top: 32% !important;
+      margin-bottom: 0 !important;
     }
 
     .lower {
-      margin-top: 30px !important;
+      margin-top: 10px !important;
+    }
+
+    &.game-won .score-sharing {
+      margin-top: 10px;
+    }
+
+    &.game-over .mailing-list {
+      margin-top: 25px;
+    }
+
+    .mailing-list {
+      margin-top: 10px;
+
+      .mailing-list-email-field {
+        width: 180px;
+      }
     }
   }
 
@@ -579,7 +674,6 @@ hr {
     border: none;
     font: inherit;
     color: inherit;
-    cursor: pointer;
     @include button;
 
     img {
@@ -595,7 +689,6 @@ hr {
   position: relative;
   margin-left: 10px;
   @include button;
-  cursor: pointer;
 
   img {
     vertical-align: -4px;

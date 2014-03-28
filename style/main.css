@@ -566,7 +566,7 @@ hr {
     margin-bottom: 10px; }
 
   .game-container {
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     position: relative;
     padding: 10px;
     cursor: default;
@@ -576,7 +576,7 @@ hr {
     background: #bbada0;
     border-radius: 6px;
     width: 280px;
-    height: 280px;
+    height: 350px;
     -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

@@ -6,6 +6,7 @@ Made just for fun. [Play it here!](http://prat0318.github.io/2048-tetris)
 ### Contributions
 
  - [jcbeaury](http://github.com/jcbeaury): For adding next tile display feature.
+ - [Topener](http://github.com/Topener): For fixing mobile rendering.
 
 ### Screenshot
 

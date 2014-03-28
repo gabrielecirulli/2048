@@ -94,6 +94,11 @@ h1.title {
 }
 
 @media screen and (max-width: 520px) {
+    h1.title {
+        font-size: 27px;
+        margin-top: 15px;
+    }
+
     .tile-inner.mac-tile-inner {
         font-weight: 300;
     }

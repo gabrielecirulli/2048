@@ -561,7 +561,10 @@ hr {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px; }
-
+    
+.invi {
+  background: #bbada0;
+}
   .heading {
     margin-bottom: 10px; }
 

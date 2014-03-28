@@ -6,6 +6,15 @@
     font-style: normal
 }
 
+html, body {
+  font-family: "Myriad Pro", "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+h1.title {
+    font-size: 56px;
+    margin-top: 8px;
+}
+
 .tile-inner.mac-tile-inner {
     font-family: "Myriad Pro", "Helvetica Neue", Ubuntu, "Segoe UI", sans-serif;
     font-weight: 100;

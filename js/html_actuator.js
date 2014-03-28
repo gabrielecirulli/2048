@@ -67,7 +67,14 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  inner.classList.add("mac-tile-inner");
+  var mac_names = [null, 'Macintosh', 'PowerBook', 'iMac', 'Power Mac G4', 'iBook', 'iMac','MacBook Pro', 'iMac', 'MacBook Air', 'MacBook Pro with Retina Display', 'Mac Pro']
+  var mac_years = [null, '1984', '1991', '1998', '1999', '2000', '2002', '2006', '2007', '2008', '2012', '2013'];
+  inner.innerHTML = function(n) {
+    var level;
+    for (level = 0; n > 1; ++level, n >>= 1);
+    return mac_names[level] + "<br>" + mac_years[level];
+  } (tile.value);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first

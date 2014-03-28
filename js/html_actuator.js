@@ -68,12 +68,15 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   inner.classList.add("tile-inner");
   inner.classList.add("mac-tile-inner");
+  var mac_years = [null, '1984', '1991', '1998', '1999', '2000', '2002', '2006', '2007', '2008', '2012', '2014'];
+  var mac_icons = [null, '', '', '', '', '', '', '', '', '', '', ''];
   var mac_names = [null, 'Macintosh', 'PowerBook', 'iMac', 'Power Mac G4', 'iBook', 'iMac','MacBook Pro', 'iMac', 'MacBook Air', 'MacBook Pro with Retina Display', 'Mac Pro']
-  var mac_years = [null, '1984', '1991', '1998', '1999', '2000', '2002', '2006', '2007', '2008', '2012', '2013'];
   inner.innerHTML = function(n) {
     var level;
     for (level = 0; n > 1; ++level, n >>= 1);
-    return mac_names[level] + "<br>" + mac_years[level];
+    return '<p class="mac-year">' + mac_years[level] + '</p>' +
+      '<p class="mac-icon mac-' + mac_years[level] + '">' + mac_icons[level] + '</p>' +
+      '<p class="mac-name mac-' + mac_years[level] + '">' + mac_names[level] + '</p>';
   } (tile.value);
 
   if (tile.previousPosition) {

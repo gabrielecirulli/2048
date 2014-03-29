@@ -36,6 +36,8 @@ GameManagerII.prototype.restart = function () {
     this.opponent.grid = new Grid(this.size);
     this.opponent.setup(this.watch);
     this.opponent.actuate();
+    this.opponent.animator.reset();
+    this.animator.reset();
 };
 
 // Adds a tile in a random position

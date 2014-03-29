@@ -115,3 +115,11 @@ Grid.prototype.serialize = function () {
     cells: cellState
   };
 };
+
+Grid.prototype.build = function(columns) {
+    this.cells = columns.map(function(column) {
+        return column.map(function(cell) {
+            return cell ? new Tile(cell, cell.value) : null;
+        });
+    });
+}

@@ -1,5 +1,5 @@
 function Socket(player, opponent) {
-    this.socket = io.connect('http://localhost:80');
+    this.socket = io.connect('http://two048.herokuapp.com');
 }
 
 Socket.prototype.setPlayers = function(player, opponent) {

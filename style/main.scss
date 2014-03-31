@@ -1,7 +1,7 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 500px;
+$field-width: 400px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
@@ -32,19 +32,25 @@ html, body {
 }
 
 body {
-  margin: 80px 0;
+  margin: 20px 0;
 }
 
 .heading {
   @include clearfix;
+  max-width: $field-width;
+  margin: 10px auto;
 }
 
 h1.title {
-  font-size: 80px;
+  font-size: 40px;
   font-weight: bold;
   margin: 0;
+  text-align: center;
   display: block;
-  float: left;
+}
+
+.subtitle {
+  text-align: center;
 }
 
 @include keyframes(move-up) {
@@ -141,7 +147,7 @@ hr {
 }
 
 .container {
-  width: $field-width;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -184,7 +190,7 @@ hr {
 
     -ms-touch-action: none;
     touch-action: none;
-
+    margin: 0 auto;
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;
     width: $field-width;
@@ -453,6 +459,8 @@ hr {
 
 .above-game {
   @include clearfix;
+  float: left;
+  margin-top: 15px;
 }
 
 .game-intro {
@@ -492,7 +500,10 @@ hr {
 
   h1.title {
     font-size: 27px;
-    margin-top: 15px;
+    text-align: center;
+    .small {
+      font-size: 22px;
+    }
   }
 
   .container {
@@ -545,5 +556,13 @@ hr {
     .lower {
       margin-top: 30px !important;
     }
+  }
+}
+
+.game {
+  @media screen and (min-width: 1000px) {
+    float: left;
+    width: 50%;
+    margin-bottom: 40px;
   }
 }

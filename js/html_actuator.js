@@ -3,6 +3,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.gameContainer    = document.querySelector(".game-container");
 
   this.score = 0;
 }
@@ -137,3 +138,15 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
 };
+
+HTMLActuator.prototype.setTileContainer = function (container) {
+    this.tileContainer = document.querySelector(container);
+}
+
+HTMLActuator.prototype.setScoreContainer = function (container) {
+    this.scoreContainer = document.querySelector(container);
+}
+
+HTMLActuator.prototype.setGameContainer = function (container) {
+    this.gameContainer = document.querySelector(container);
+}

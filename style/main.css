@@ -708,131 +708,775 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
-.tile .tile-inner {
-  border-radius: 0;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important; }
-
-.restart-button {
-  border-radius: 0; }
-
+/*
+ * theme default ('happy')
+ */
 .tile-2 .tile-inner {
-  background-image: url(../img/tile-img-2.png) !important; }
+  background-image: url("../img/happy/tile-img-2.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-2 .tile-inner {
+      background-image: url("../img/happy/tile-img-2@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-2 .tile-inner {
-      background-image: url(../img/tile-img-2-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-2-smaller.png") !important; } }
 
 .tile-4 .tile-inner {
-  background-image: url(../img/tile-img-4.png) !important; }
+  background-image: url("../img/happy/tile-img-4.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-4 .tile-inner {
+      background-image: url("../img/happy/tile-img-4@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-4 .tile-inner {
-      background-image: url(../img/tile-img-4-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-4-smaller.png") !important; } }
 
 .tile-8 .tile-inner {
-  background-image: url(../img/tile-img-8.png) !important; }
+  background-image: url("../img/happy/tile-img-8.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-8 .tile-inner {
+      background-image: url("../img/happy/tile-img-8@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-8 .tile-inner {
-      background-image: url(../img/tile-img-8-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-8-smaller.png") !important; } }
 
 .tile-16 .tile-inner {
-  background-image: url(../img/tile-img-16.png) !important; }
+  background-image: url("../img/happy/tile-img-16.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-16 .tile-inner {
+      background-image: url("../img/happy/tile-img-16@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-16 .tile-inner {
-      background-image: url(../img/tile-img-16-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-16-smaller.png") !important; } }
 
 .tile-32 .tile-inner {
-  background-image: url(../img/tile-img-32.png) !important; }
+  background-image: url("../img/happy/tile-img-32.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-32 .tile-inner {
+      background-image: url("../img/happy/tile-img-32@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-32 .tile-inner {
-      background-image: url(../img/tile-img-32-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-32-smaller.png") !important; } }
 
 .tile-64 .tile-inner {
-  background-image: url(../img/tile-img-64.png) !important; }
+  background-image: url("../img/happy/tile-img-64.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-64 .tile-inner {
+      background-image: url("../img/happy/tile-img-64@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-64 .tile-inner {
-      background-image: url(../img/tile-img-64-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-64-smaller.png") !important; } }
 
 .tile-128 .tile-inner {
-  background-image: url(../img/tile-img-128.png) !important; }
+  background-image: url("../img/happy/tile-img-128.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-128 .tile-inner {
+      background-image: url("../img/happy/tile-img-128@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-128 .tile-inner {
-      background-image: url(../img/tile-img-128-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-128-smaller.png") !important; } }
 
 .tile-256 .tile-inner {
-  background-image: url(../img/tile-img-256.png) !important; }
+  background-image: url("../img/happy/tile-img-256.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-256 .tile-inner {
+      background-image: url("../img/happy/tile-img-256@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-256 .tile-inner {
-      background-image: url(../img/tile-img-256-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-256-smaller.png") !important; } }
 
 .tile-512 .tile-inner {
-  background-image: url(../img/tile-img-512.png) !important; }
+  background-image: url("../img/happy/tile-img-512.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-512 .tile-inner {
+      background-image: url("../img/happy/tile-img-512@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-512 .tile-inner {
-      background-image: url(../img/tile-img-512-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-512-smaller.png") !important; } }
 
 .tile-1024 .tile-inner {
-  background-image: url(../img/tile-img-1024.png) !important; }
+  background-image: url("../img/happy/tile-img-1024.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-1024 .tile-inner {
+      background-image: url("../img/happy/tile-img-1024@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-1024 .tile-inner {
-      background-image: url(../img/tile-img-1024-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-1024-smaller.png") !important; } }
 
 .tile-2048 .tile-inner {
-  background-image: url(../img/tile-img-2048.png) !important; }
+  background-image: url("../img/happy/tile-img-2048.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-2048 .tile-inner {
+      background-image: url("../img/happy/tile-img-2048@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-2048 .tile-inner {
-      background-image: url(../img/tile-img-2048-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-2048-smaller.png") !important; } }
 
 .tile-4096 .tile-inner {
-  background-image: url(../img/tile-img-4096.png) !important; }
+  background-image: url("../img/happy/tile-img-4096.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-4096 .tile-inner {
+      background-image: url("../img/happy/tile-img-4096@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-4096 .tile-inner {
-      background-image: url(../img/tile-img-4096-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-4096-smaller.png") !important; } }
 
 .tile-8192 .tile-inner {
-  background-image: url(../img/tile-img-8192.png) !important; }
+  background-image: url("../img/happy/tile-img-8192.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-8192 .tile-inner {
+      background-image: url("../img/happy/tile-img-8192@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-8192 .tile-inner {
-      background-image: url(../img/tile-img-8192-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-8192-smaller.png") !important; } }
 
 .tile-16384 .tile-inner {
-  background-image: url(../img/tile-img-16384.png) !important; }
+  background-image: url("../img/happy/tile-img-16384.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-16384 .tile-inner {
+      background-image: url("../img/happy/tile-img-16384@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-16384 .tile-inner {
-      background-image: url(../img/tile-img-16384-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-16384-smaller.png") !important; } }
 
 .tile-32768 .tile-inner {
-  background-image: url(../img/tile-img-32768.png) !important; }
+  background-image: url("../img/happy/tile-img-32768.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-32768 .tile-inner {
+      background-image: url("../img/happy/tile-img-32768@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-32768 .tile-inner {
-      background-image: url(../img/tile-img-32768-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-32768-smaller.png") !important; } }
 
 .tile-65536 .tile-inner {
-  background-image: url(../img/tile-img-65536.png) !important; }
+  background-image: url("../img/happy/tile-img-65536.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-65536 .tile-inner {
+      background-image: url("../img/happy/tile-img-65536@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-65536 .tile-inner {
-      background-image: url(../img/tile-img-65536-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-65536-smaller.png") !important; } }
 
 .tile-131072 .tile-inner {
-  background-image: url(../img/tile-img-131072.png) !important; }
+  background-image: url("../img/happy/tile-img-131072.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-131072 .tile-inner {
+      background-image: url("../img/happy/tile-img-131072@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-131072 .tile-inner {
-      background-image: url(../img/tile-img-131072-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-131072-smaller.png") !important; } }
 
 .tile-262144 .tile-inner {
-  background-image: url(../img/tile-img-262144.png) !important; }
+  background-image: url("../img/happy/tile-img-262144.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-262144 .tile-inner {
+      background-image: url("../img/happy/tile-img-262144@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-262144 .tile-inner {
-      background-image: url(../img/tile-img-262144-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-262144-smaller.png") !important; } }
 
 .tile-524288 .tile-inner {
-  background-image: url(../img/tile-img-524288.png) !important; }
+  background-image: url("../img/happy/tile-img-524288.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-524288 .tile-inner {
+      background-image: url("../img/happy/tile-img-524288@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-524288 .tile-inner {
-      background-image: url(../img/tile-img-524288-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-524288-smaller.png") !important; } }
 
 .tile-1048576 .tile-inner {
-  background-image: url(../img/tile-img-1048576.png) !important; }
+  background-image: url("../img/happy/tile-img-1048576.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-1048576 .tile-inner {
+      background-image: url("../img/happy/tile-img-1048576@2x.png") !important;
+      background-size: 107px 107px !important; } }
   @media screen and (max-width: 520px) {
     .tile-1048576 .tile-inner {
-      background-image: url(../img/tile-img-1048576-smaller.png) !important; } }
+      background-image: url("../img/happy/tile-img-1048576-smaller.png") !important; } }
+
+.tile .tile-inner {
+  border-radius: 0;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  text-indent: -9999px;
+  color: transparent; }
+
+.select-theme ul {
+  margin: 0;
+  padding: 0; }
+.select-theme li {
+  list-style: none;
+  float: left; }
+  .select-theme li a {
+    display: block;
+    padding: 4px 6px;
+    text-decoration: none; }
+
+/*
+ * theme union
+ */
+.union .tile-2 .tile-inner {
+  background-image: url("../img/union/tile-img-2.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-2 .tile-inner {
+      background-image: url("../img/union/tile-img-2@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-2 .tile-inner {
+      background-image: url("../img/union/tile-img-2-smaller.png") !important; } }
+.union .tile-4 .tile-inner {
+  background-image: url("../img/union/tile-img-4.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-4 .tile-inner {
+      background-image: url("../img/union/tile-img-4@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-4 .tile-inner {
+      background-image: url("../img/union/tile-img-4-smaller.png") !important; } }
+.union .tile-8 .tile-inner {
+  background-image: url("../img/union/tile-img-8.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-8 .tile-inner {
+      background-image: url("../img/union/tile-img-8@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-8 .tile-inner {
+      background-image: url("../img/union/tile-img-8-smaller.png") !important; } }
+.union .tile-16 .tile-inner {
+  background-image: url("../img/union/tile-img-16.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-16 .tile-inner {
+      background-image: url("../img/union/tile-img-16@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-16 .tile-inner {
+      background-image: url("../img/union/tile-img-16-smaller.png") !important; } }
+.union .tile-32 .tile-inner {
+  background-image: url("../img/union/tile-img-32.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-32 .tile-inner {
+      background-image: url("../img/union/tile-img-32@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-32 .tile-inner {
+      background-image: url("../img/union/tile-img-32-smaller.png") !important; } }
+.union .tile-64 .tile-inner {
+  background-image: url("../img/union/tile-img-64.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-64 .tile-inner {
+      background-image: url("../img/union/tile-img-64@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-64 .tile-inner {
+      background-image: url("../img/union/tile-img-64-smaller.png") !important; } }
+.union .tile-128 .tile-inner {
+  background-image: url("../img/union/tile-img-128.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-128 .tile-inner {
+      background-image: url("../img/union/tile-img-128@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-128 .tile-inner {
+      background-image: url("../img/union/tile-img-128-smaller.png") !important; } }
+.union .tile-256 .tile-inner {
+  background-image: url("../img/union/tile-img-256.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-256 .tile-inner {
+      background-image: url("../img/union/tile-img-256@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-256 .tile-inner {
+      background-image: url("../img/union/tile-img-256-smaller.png") !important; } }
+.union .tile-512 .tile-inner {
+  background-image: url("../img/union/tile-img-512.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-512 .tile-inner {
+      background-image: url("../img/union/tile-img-512@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-512 .tile-inner {
+      background-image: url("../img/union/tile-img-512-smaller.png") !important; } }
+.union .tile-1024 .tile-inner {
+  background-image: url("../img/union/tile-img-1024.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-1024 .tile-inner {
+      background-image: url("../img/union/tile-img-1024@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-1024 .tile-inner {
+      background-image: url("../img/union/tile-img-1024-smaller.png") !important; } }
+.union .tile-2048 .tile-inner {
+  background-image: url("../img/union/tile-img-2048.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-2048 .tile-inner {
+      background-image: url("../img/union/tile-img-2048@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-2048 .tile-inner {
+      background-image: url("../img/union/tile-img-2048-smaller.png") !important; } }
+.union .tile-4096 .tile-inner {
+  background-image: url("../img/union/tile-img-4096.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-4096 .tile-inner {
+      background-image: url("../img/union/tile-img-4096@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-4096 .tile-inner {
+      background-image: url("../img/union/tile-img-4096-smaller.png") !important; } }
+.union .tile-8192 .tile-inner {
+  background-image: url("../img/union/tile-img-8192.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-8192 .tile-inner {
+      background-image: url("../img/union/tile-img-8192@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-8192 .tile-inner {
+      background-image: url("../img/union/tile-img-8192-smaller.png") !important; } }
+.union .tile-16384 .tile-inner {
+  background-image: url("../img/union/tile-img-16384.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-16384 .tile-inner {
+      background-image: url("../img/union/tile-img-16384@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-16384 .tile-inner {
+      background-image: url("../img/union/tile-img-16384-smaller.png") !important; } }
+.union .tile-32768 .tile-inner {
+  background-image: url("../img/union/tile-img-32768.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-32768 .tile-inner {
+      background-image: url("../img/union/tile-img-32768@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-32768 .tile-inner {
+      background-image: url("../img/union/tile-img-32768-smaller.png") !important; } }
+.union .tile-65536 .tile-inner {
+  background-image: url("../img/union/tile-img-65536.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-65536 .tile-inner {
+      background-image: url("../img/union/tile-img-65536@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-65536 .tile-inner {
+      background-image: url("../img/union/tile-img-65536-smaller.png") !important; } }
+.union .tile-131072 .tile-inner {
+  background-image: url("../img/union/tile-img-131072.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-131072 .tile-inner {
+      background-image: url("../img/union/tile-img-131072@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-131072 .tile-inner {
+      background-image: url("../img/union/tile-img-131072-smaller.png") !important; } }
+.union .tile-262144 .tile-inner {
+  background-image: url("../img/union/tile-img-262144.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-262144 .tile-inner {
+      background-image: url("../img/union/tile-img-262144@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-262144 .tile-inner {
+      background-image: url("../img/union/tile-img-262144-smaller.png") !important; } }
+.union .tile-524288 .tile-inner {
+  background-image: url("../img/union/tile-img-524288.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-524288 .tile-inner {
+      background-image: url("../img/union/tile-img-524288@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-524288 .tile-inner {
+      background-image: url("../img/union/tile-img-524288-smaller.png") !important; } }
+.union .tile-1048576 .tile-inner {
+  background-image: url("../img/union/tile-img-1048576.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .union .tile-1048576 .tile-inner {
+      background-image: url("../img/union/tile-img-1048576@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .union .tile-1048576 .tile-inner {
+      background-image: url("../img/union/tile-img-1048576-smaller.png") !important; } }
+
+/*
+ * theme feast
+ */
+.feast .tile-2 .tile-inner {
+  background-image: url("../img/feast/tile-img-2.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-2 .tile-inner {
+      background-image: url("../img/feast/tile-img-2@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-2 .tile-inner {
+      background-image: url("../img/feast/tile-img-2-smaller.png") !important; } }
+.feast .tile-4 .tile-inner {
+  background-image: url("../img/feast/tile-img-4.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-4 .tile-inner {
+      background-image: url("../img/feast/tile-img-4@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-4 .tile-inner {
+      background-image: url("../img/feast/tile-img-4-smaller.png") !important; } }
+.feast .tile-8 .tile-inner {
+  background-image: url("../img/feast/tile-img-8.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-8 .tile-inner {
+      background-image: url("../img/feast/tile-img-8@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-8 .tile-inner {
+      background-image: url("../img/feast/tile-img-8-smaller.png") !important; } }
+.feast .tile-16 .tile-inner {
+  background-image: url("../img/feast/tile-img-16.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-16 .tile-inner {
+      background-image: url("../img/feast/tile-img-16@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-16 .tile-inner {
+      background-image: url("../img/feast/tile-img-16-smaller.png") !important; } }
+.feast .tile-32 .tile-inner {
+  background-image: url("../img/feast/tile-img-32.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-32 .tile-inner {
+      background-image: url("../img/feast/tile-img-32@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-32 .tile-inner {
+      background-image: url("../img/feast/tile-img-32-smaller.png") !important; } }
+.feast .tile-64 .tile-inner {
+  background-image: url("../img/feast/tile-img-64.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-64 .tile-inner {
+      background-image: url("../img/feast/tile-img-64@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-64 .tile-inner {
+      background-image: url("../img/feast/tile-img-64-smaller.png") !important; } }
+.feast .tile-128 .tile-inner {
+  background-image: url("../img/feast/tile-img-128.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-128 .tile-inner {
+      background-image: url("../img/feast/tile-img-128@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-128 .tile-inner {
+      background-image: url("../img/feast/tile-img-128-smaller.png") !important; } }
+.feast .tile-256 .tile-inner {
+  background-image: url("../img/feast/tile-img-256.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-256 .tile-inner {
+      background-image: url("../img/feast/tile-img-256@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-256 .tile-inner {
+      background-image: url("../img/feast/tile-img-256-smaller.png") !important; } }
+.feast .tile-512 .tile-inner {
+  background-image: url("../img/feast/tile-img-512.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-512 .tile-inner {
+      background-image: url("../img/feast/tile-img-512@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-512 .tile-inner {
+      background-image: url("../img/feast/tile-img-512-smaller.png") !important; } }
+.feast .tile-1024 .tile-inner {
+  background-image: url("../img/feast/tile-img-1024.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-1024 .tile-inner {
+      background-image: url("../img/feast/tile-img-1024@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-1024 .tile-inner {
+      background-image: url("../img/feast/tile-img-1024-smaller.png") !important; } }
+.feast .tile-2048 .tile-inner {
+  background-image: url("../img/feast/tile-img-2048.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-2048 .tile-inner {
+      background-image: url("../img/feast/tile-img-2048@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-2048 .tile-inner {
+      background-image: url("../img/feast/tile-img-2048-smaller.png") !important; } }
+.feast .tile-4096 .tile-inner {
+  background-image: url("../img/feast/tile-img-4096.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-4096 .tile-inner {
+      background-image: url("../img/feast/tile-img-4096@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-4096 .tile-inner {
+      background-image: url("../img/feast/tile-img-4096-smaller.png") !important; } }
+.feast .tile-8192 .tile-inner {
+  background-image: url("../img/feast/tile-img-8192.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-8192 .tile-inner {
+      background-image: url("../img/feast/tile-img-8192@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-8192 .tile-inner {
+      background-image: url("../img/feast/tile-img-8192-smaller.png") !important; } }
+.feast .tile-16384 .tile-inner {
+  background-image: url("../img/feast/tile-img-16384.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-16384 .tile-inner {
+      background-image: url("../img/feast/tile-img-16384@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-16384 .tile-inner {
+      background-image: url("../img/feast/tile-img-16384-smaller.png") !important; } }
+.feast .tile-32768 .tile-inner {
+  background-image: url("../img/feast/tile-img-32768.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-32768 .tile-inner {
+      background-image: url("../img/feast/tile-img-32768@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-32768 .tile-inner {
+      background-image: url("../img/feast/tile-img-32768-smaller.png") !important; } }
+.feast .tile-65536 .tile-inner {
+  background-image: url("../img/feast/tile-img-65536.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-65536 .tile-inner {
+      background-image: url("../img/feast/tile-img-65536@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-65536 .tile-inner {
+      background-image: url("../img/feast/tile-img-65536-smaller.png") !important; } }
+.feast .tile-131072 .tile-inner {
+  background-image: url("../img/feast/tile-img-131072.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-131072 .tile-inner {
+      background-image: url("../img/feast/tile-img-131072@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-131072 .tile-inner {
+      background-image: url("../img/feast/tile-img-131072-smaller.png") !important; } }
+.feast .tile-262144 .tile-inner {
+  background-image: url("../img/feast/tile-img-262144.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-262144 .tile-inner {
+      background-image: url("../img/feast/tile-img-262144@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-262144 .tile-inner {
+      background-image: url("../img/feast/tile-img-262144-smaller.png") !important; } }
+.feast .tile-524288 .tile-inner {
+  background-image: url("../img/feast/tile-img-524288.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-524288 .tile-inner {
+      background-image: url("../img/feast/tile-img-524288@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-524288 .tile-inner {
+      background-image: url("../img/feast/tile-img-524288-smaller.png") !important; } }
+.feast .tile-1048576 .tile-inner {
+  background-image: url("../img/feast/tile-img-1048576.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .feast .tile-1048576 .tile-inner {
+      background-image: url("../img/feast/tile-img-1048576@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .feast .tile-1048576 .tile-inner {
+      background-image: url("../img/feast/tile-img-1048576-smaller.png") !important; } }
+
+/*
+ * theme excel
+ */
+.excel .tile-2 .tile-inner {
+  background-image: url("../img/excel/tile-img-2.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-2 .tile-inner {
+      background-image: url("../img/excel/tile-img-2@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-2 .tile-inner {
+      background-image: url("../img/excel/tile-img-2-smaller.png") !important; } }
+.excel .tile-4 .tile-inner {
+  background-image: url("../img/excel/tile-img-4.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-4 .tile-inner {
+      background-image: url("../img/excel/tile-img-4@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-4 .tile-inner {
+      background-image: url("../img/excel/tile-img-4-smaller.png") !important; } }
+.excel .tile-8 .tile-inner {
+  background-image: url("../img/excel/tile-img-8.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-8 .tile-inner {
+      background-image: url("../img/excel/tile-img-8@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-8 .tile-inner {
+      background-image: url("../img/excel/tile-img-8-smaller.png") !important; } }
+.excel .tile-16 .tile-inner {
+  background-image: url("../img/excel/tile-img-16.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-16 .tile-inner {
+      background-image: url("../img/excel/tile-img-16@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-16 .tile-inner {
+      background-image: url("../img/excel/tile-img-16-smaller.png") !important; } }
+.excel .tile-32 .tile-inner {
+  background-image: url("../img/excel/tile-img-32.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-32 .tile-inner {
+      background-image: url("../img/excel/tile-img-32@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-32 .tile-inner {
+      background-image: url("../img/excel/tile-img-32-smaller.png") !important; } }
+.excel .tile-64 .tile-inner {
+  background-image: url("../img/excel/tile-img-64.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-64 .tile-inner {
+      background-image: url("../img/excel/tile-img-64@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-64 .tile-inner {
+      background-image: url("../img/excel/tile-img-64-smaller.png") !important; } }
+.excel .tile-128 .tile-inner {
+  background-image: url("../img/excel/tile-img-128.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-128 .tile-inner {
+      background-image: url("../img/excel/tile-img-128@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-128 .tile-inner {
+      background-image: url("../img/excel/tile-img-128-smaller.png") !important; } }
+.excel .tile-256 .tile-inner {
+  background-image: url("../img/excel/tile-img-256.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-256 .tile-inner {
+      background-image: url("../img/excel/tile-img-256@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-256 .tile-inner {
+      background-image: url("../img/excel/tile-img-256-smaller.png") !important; } }
+.excel .tile-512 .tile-inner {
+  background-image: url("../img/excel/tile-img-512.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-512 .tile-inner {
+      background-image: url("../img/excel/tile-img-512@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-512 .tile-inner {
+      background-image: url("../img/excel/tile-img-512-smaller.png") !important; } }
+.excel .tile-1024 .tile-inner {
+  background-image: url("../img/excel/tile-img-1024.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-1024 .tile-inner {
+      background-image: url("../img/excel/tile-img-1024@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-1024 .tile-inner {
+      background-image: url("../img/excel/tile-img-1024-smaller.png") !important; } }
+.excel .tile-2048 .tile-inner {
+  background-image: url("../img/excel/tile-img-2048.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-2048 .tile-inner {
+      background-image: url("../img/excel/tile-img-2048@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-2048 .tile-inner {
+      background-image: url("../img/excel/tile-img-2048-smaller.png") !important; } }
+.excel .tile-4096 .tile-inner {
+  background-image: url("../img/excel/tile-img-4096.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-4096 .tile-inner {
+      background-image: url("../img/excel/tile-img-4096@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-4096 .tile-inner {
+      background-image: url("../img/excel/tile-img-4096-smaller.png") !important; } }
+.excel .tile-8192 .tile-inner {
+  background-image: url("../img/excel/tile-img-8192.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-8192 .tile-inner {
+      background-image: url("../img/excel/tile-img-8192@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-8192 .tile-inner {
+      background-image: url("../img/excel/tile-img-8192-smaller.png") !important; } }
+.excel .tile-16384 .tile-inner {
+  background-image: url("../img/excel/tile-img-16384.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-16384 .tile-inner {
+      background-image: url("../img/excel/tile-img-16384@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-16384 .tile-inner {
+      background-image: url("../img/excel/tile-img-16384-smaller.png") !important; } }
+.excel .tile-32768 .tile-inner {
+  background-image: url("../img/excel/tile-img-32768.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-32768 .tile-inner {
+      background-image: url("../img/excel/tile-img-32768@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-32768 .tile-inner {
+      background-image: url("../img/excel/tile-img-32768-smaller.png") !important; } }
+.excel .tile-65536 .tile-inner {
+  background-image: url("../img/excel/tile-img-65536.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-65536 .tile-inner {
+      background-image: url("../img/excel/tile-img-65536@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-65536 .tile-inner {
+      background-image: url("../img/excel/tile-img-65536-smaller.png") !important; } }
+.excel .tile-131072 .tile-inner {
+  background-image: url("../img/excel/tile-img-131072.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-131072 .tile-inner {
+      background-image: url("../img/excel/tile-img-131072@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-131072 .tile-inner {
+      background-image: url("../img/excel/tile-img-131072-smaller.png") !important; } }
+.excel .tile-262144 .tile-inner {
+  background-image: url("../img/excel/tile-img-262144.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-262144 .tile-inner {
+      background-image: url("../img/excel/tile-img-262144@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-262144 .tile-inner {
+      background-image: url("../img/excel/tile-img-262144-smaller.png") !important; } }
+.excel .tile-524288 .tile-inner {
+  background-image: url("../img/excel/tile-img-524288.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-524288 .tile-inner {
+      background-image: url("../img/excel/tile-img-524288@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-524288 .tile-inner {
+      background-image: url("../img/excel/tile-img-524288-smaller.png") !important; } }
+.excel .tile-1048576 .tile-inner {
+  background-image: url("../img/excel/tile-img-1048576.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .excel .tile-1048576 .tile-inner {
+      background-image: url("../img/excel/tile-img-1048576@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .excel .tile-1048576 .tile-inner {
+      background-image: url("../img/excel/tile-img-1048576-smaller.png") !important; } }

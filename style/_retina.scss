@@ -1,0 +1,21 @@
+// retina.sass
+// A helper mixin for applying high-resolution background images (http://www.retinajs.com)
+
+// Submitted by Nathan Crank
+// nathancrank.com
+
+@mixin at2x($path, $ext: "jpg", $w: auto, $h: auto, $important: "") {
+  $at1x_path: "#{$path}.#{$ext}";
+  $at2x_path: "#{$path}@2x.#{$ext}";
+
+  background-image: url("#{$at1x_path}") $important;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5),
+         all and (-o-min-device-pixel-ratio: 3/2),
+         all and (min--moz-device-pixel-ratio: 1.5),
+         all and (min-device-pixel-ratio: 1.5) {
+           background-image: url("#{$at2x_path}") $important;
+           background-size: $w $h $important;
+  }
+}
+

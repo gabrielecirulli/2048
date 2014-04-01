@@ -1,15 +1,4 @@
-.tile {
-    .tile-inner {
-      border-radius: 0;
-      background-size: cover !important;
-      background-position: center center!important;
-      background-repeat: no-repeat !important;
-    }
-}
-
-.restart-button {
-  border-radius: 0;
-}
+@import "retina";
 
 @function power($base, $exponent) {
   $value: $base;
@@ -23,16 +12,92 @@
   @return $value;
 }
 
-@for $i from 1 through 20 {
-  .tile {
-    $num: power(2, $i);
-    &-#{$num} .tile-inner {
-        background-image: url(../img/tile-img-#{$num}.png) !important;
+@mixin theme($theme: 'happy') {
+    @for $i from 1 through 20 {
+    .tile {
+      $num: power(2, $i);
+      &-#{$num} .tile-inner {
+        @include at2x('../img/' + $theme + '/tile-img-#{$num}', png, 107px, 107px, !important);
 
         @include smaller($mobile-threshold) {
-          background-image: url(../img/tile-img-#{$num}-smaller.png) !important;
+          @include at2x('../img/' + $theme + '/tile-img-#{$num}-smaller', png, 58px, 58px, !important);
         }
+      }
     }
   }
 }
 
+
+/*
+ * theme default ('happy')
+ */
+
+@include theme;
+
+.tile {
+    .tile-inner {
+      border-radius: 0;
+      background-position: center center!important;
+      background-repeat: no-repeat !important;
+      text-indent: -9999px;
+      color: transparent;
+    }
+}
+
+.select-theme {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    float: left;
+
+    &.disabled {
+      a {
+
+      }
+    }
+
+    a {
+      display: block;
+      padding: 4px 6px;
+      text-decoration: none;
+
+      &.active {
+
+      }
+    }
+  }
+}
+
+
+
+/*
+ * theme union
+ */
+
+.union {
+  @include theme('union');
+}
+
+
+
+/*
+ * theme feast
+ */
+
+.feast {
+  @include theme('feast');
+}
+
+
+
+/*
+ * theme excel
+ */
+
+.excel {
+  @include theme('excel');
+}

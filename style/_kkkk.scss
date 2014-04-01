@@ -1,0 +1,38 @@
+.tile {
+    .tile-inner {
+      border-radius: 0;
+      background-size: cover !important;
+      background-position: center center!important;
+      background-repeat: no-repeat !important;
+    }
+}
+
+.restart-button {
+  border-radius: 0;
+}
+
+@function power($base, $exponent) {
+  $value: $base;
+
+  @if $exponent > 1 {
+    @for $i from 2 through $exponent {
+      $value: $value * $base; } }
+  @if $exponent < 1 {
+    @for $i from 0 through -$exponent {
+      $value: $value / $base; } }
+  @return $value;
+}
+
+@for $i from 1 through 20 {
+  .tile {
+    $num: power(2, $i);
+    &-#{$num} .tile-inner {
+        background-image: url(../img/tile-img-#{$num}.png) !important;
+
+        @include smaller($mobile-threshold) {
+          background-image: url(../img/tile-img-#{$num}-smaller.png) !important;
+        }
+    }
+  }
+}
+

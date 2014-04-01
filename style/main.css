@@ -1,4 +1,3 @@
-@import url(fonts/clear-sans.css);
 html, body {
   margin: 0;
   padding: 0;
@@ -709,3 +708,131 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+.tile .tile-inner {
+  border-radius: 0;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important; }
+
+.restart-button {
+  border-radius: 0; }
+
+.tile-2 .tile-inner {
+  background-image: url(../img/tile-img-2.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-2 .tile-inner {
+      background-image: url(../img/tile-img-2-smaller.png) !important; } }
+
+.tile-4 .tile-inner {
+  background-image: url(../img/tile-img-4.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-4 .tile-inner {
+      background-image: url(../img/tile-img-4-smaller.png) !important; } }
+
+.tile-8 .tile-inner {
+  background-image: url(../img/tile-img-8.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-8 .tile-inner {
+      background-image: url(../img/tile-img-8-smaller.png) !important; } }
+
+.tile-16 .tile-inner {
+  background-image: url(../img/tile-img-16.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-16 .tile-inner {
+      background-image: url(../img/tile-img-16-smaller.png) !important; } }
+
+.tile-32 .tile-inner {
+  background-image: url(../img/tile-img-32.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-32 .tile-inner {
+      background-image: url(../img/tile-img-32-smaller.png) !important; } }
+
+.tile-64 .tile-inner {
+  background-image: url(../img/tile-img-64.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-64 .tile-inner {
+      background-image: url(../img/tile-img-64-smaller.png) !important; } }
+
+.tile-128 .tile-inner {
+  background-image: url(../img/tile-img-128.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-128 .tile-inner {
+      background-image: url(../img/tile-img-128-smaller.png) !important; } }
+
+.tile-256 .tile-inner {
+  background-image: url(../img/tile-img-256.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-256 .tile-inner {
+      background-image: url(../img/tile-img-256-smaller.png) !important; } }
+
+.tile-512 .tile-inner {
+  background-image: url(../img/tile-img-512.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-512 .tile-inner {
+      background-image: url(../img/tile-img-512-smaller.png) !important; } }
+
+.tile-1024 .tile-inner {
+  background-image: url(../img/tile-img-1024.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-1024 .tile-inner {
+      background-image: url(../img/tile-img-1024-smaller.png) !important; } }
+
+.tile-2048 .tile-inner {
+  background-image: url(../img/tile-img-2048.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-2048 .tile-inner {
+      background-image: url(../img/tile-img-2048-smaller.png) !important; } }
+
+.tile-4096 .tile-inner {
+  background-image: url(../img/tile-img-4096.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-4096 .tile-inner {
+      background-image: url(../img/tile-img-4096-smaller.png) !important; } }
+
+.tile-8192 .tile-inner {
+  background-image: url(../img/tile-img-8192.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-8192 .tile-inner {
+      background-image: url(../img/tile-img-8192-smaller.png) !important; } }
+
+.tile-16384 .tile-inner {
+  background-image: url(../img/tile-img-16384.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-16384 .tile-inner {
+      background-image: url(../img/tile-img-16384-smaller.png) !important; } }
+
+.tile-32768 .tile-inner {
+  background-image: url(../img/tile-img-32768.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-32768 .tile-inner {
+      background-image: url(../img/tile-img-32768-smaller.png) !important; } }
+
+.tile-65536 .tile-inner {
+  background-image: url(../img/tile-img-65536.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-65536 .tile-inner {
+      background-image: url(../img/tile-img-65536-smaller.png) !important; } }
+
+.tile-131072 .tile-inner {
+  background-image: url(../img/tile-img-131072.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-131072 .tile-inner {
+      background-image: url(../img/tile-img-131072-smaller.png) !important; } }
+
+.tile-262144 .tile-inner {
+  background-image: url(../img/tile-img-262144.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-262144 .tile-inner {
+      background-image: url(../img/tile-img-262144-smaller.png) !important; } }
+
+.tile-524288 .tile-inner {
+  background-image: url(../img/tile-img-524288.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-524288 .tile-inner {
+      background-image: url(../img/tile-img-524288-smaller.png) !important; } }
+
+.tile-1048576 .tile-inner {
+  background-image: url(../img/tile-img-1048576.png) !important; }
+  @media screen and (max-width: 520px) {
+    .tile-1048576 .tile-inner {
+      background-image: url(../img/tile-img-1048576-smaller.png) !important; } }

@@ -1,4 +1,5 @@
 @import "retina";
+@import "themes";
 
 @function power($base, $exponent) {
   $value: $base;
@@ -12,7 +13,7 @@
   @return $value;
 }
 
-@mixin theme($theme: 'happy') {
+@mixin theme-tile($theme: 'happy') {
     @for $i from 1 through 20 {
     .tile {
       $num: power(2, $i);
@@ -27,12 +28,40 @@
   }
 }
 
+@mixin theme-button($theme: 'happy') {
+  .restart-button, .game-message a {
+    background-color: $primary-color-#{$theme};
+    color: $text-color-#{$theme};
+  }
+}
+
+@mixin theme-bg($theme: 'happy') {
+  .#{$theme} {
+    color: $text-color-#{$theme};
+
+    @if $bg-image-#{$theme} {
+      background: url(../img/bg-#{$theme}.png) no-repeat;
+      background-size: cover;
+    }
+    @else {
+      background: $bg-color-#{$theme};
+    }
+
+    .score-container, .best-container, .game-container {
+      background:$secondary-color-#{$theme};
+    }
+  }
+}
+
+@mixin theme($theme: 'happy') {
+  @include theme-tile($theme);
+  @include theme-button($theme);
+  @include theme-bg($theme);
+}
 
 /*
- * theme default ('happy')
+ * global
  */
-
-@include theme;
 
 .tile {
     .tile-inner {
@@ -71,6 +100,16 @@
     }
   }
 }
+
+
+/*
+ * theme default ('happy')
+ */
+
+
+@include theme();
+
+
 
 
 

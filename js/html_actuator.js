@@ -187,16 +187,37 @@ HTMLActuator.prototype.updateScore = function (score) {
     return sign + wang;
   }
 
-  if (!this.boardContainer.classList.contains('rotated') && Math.random() > 0.9 && score > 5230) {
+  // Once player hits a score threshold, go get a random GIF and start tee-ing up for board rotate
+  if (!this.boardContainer.classList.contains('got-gif') && score > 2000) {
+    var request = new XMLHttpRequest(),
+        self = this.boardContainer;
+
+    request.onload = loadGif;
+    request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC', true);
+    request.send(null);
+
+    function loadGif () {
+      var response = this.responseText,
+          json = JSON.parse(response),
+          imageUrl = json.data.image_url;
+
+      document.querySelector('.behind-board').style.backgroundImage = "url('" + imageUrl + "')";
+      self.classList.add('got-gif');
+    }
+  }
+
+  // Once player hits a score threshold, some percent chance that board will rotate
+  if (!this.boardContainer.classList.contains('rotated') && Math.random() > 0.95 && score > 3100) {
     this.boardContainer.classList.add('rotate');
     this.boardContainer.classList.add('rotated');
+
     //this.announce("It’s time for Wangernumb. Let’s rotate the board!");
     this.announce("Let’s rotate the board!");
     var self = this
     setTimeout(function () {
       self.boardContainer.classList.remove('rotate');
       // self.announce("Welcome back!");
-    }, 5000)
+    }, 8000) // Match this number to rotate time of CSS
   }
 
 };

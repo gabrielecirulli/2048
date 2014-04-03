@@ -71,7 +71,7 @@ h1.title {
 }
 
 .rotate {
-  @include animation(rotate-board 5s ease-out);
+  @include animation(rotate-board 8s ease-out);
   -moz-transform: perspective(1000px);
     -webkit-transform-style: preserve-3d;
        -moz-transform-style: preserve-3d;

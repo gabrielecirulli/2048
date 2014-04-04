@@ -1,9 +1,61 @@
 /*
- * theme default ('happy')
+ * theme 1: default ('happy')
  */
 
-$primary-color-happy: #5F1A2B;
-$secondary-color-happy: #C96466;
-$text-color-happy: #E4D49E;
-$bg-image-happy: false;
-$bg-color-happy: #1D2834;
+$pri-color-happy: #5F1A2B;
+$sec-color-happy: #C96466;
+$txt-color-happy: #E4D49E;
+$bkg-image-happy: false;
+$bkg-color-happy: #1D2834;
+
+
+
+
+/*
+ * theme 2: union
+ */
+
+$pri-color-union: #5F1A2B;
+$sec-color-union: #C96466;
+$txt-color-union: #E4D49E;
+$bkg-image-union: true;
+$bkg-color-union: '';
+
+
+
+
+/*
+ * theme 3: feast
+ */
+
+$pri-color-feast: #5F1A2B;
+$sec-color-feast: #C96466;
+$txt-color-feast: #E4D49E;
+$bkg-image-feast: true;
+$bkg-color-feast: '';
+
+
+
+
+/*
+ * theme 4: excel
+ */
+
+$pri-color-excel: #5F1A2B;
+$sec-color-excel: #C96466;
+$txt-color-excel: #E4D49E;
+$bkg-image-excel: true;
+$bkg-color-excel: '';
+
+
+
+
+/*
+ * lists (append new theme colors to the lists)
+ */
+
+$pri-color: $pri-color-happy, $pri-color-union, $pri-color-feast, $pri-color-excel;
+$sec-color: $sec-color-happy, $sec-color-union, $sec-color-feast, $sec-color-excel;
+$txt-color: $txt-color-happy, $txt-color-union, $txt-color-feast, $txt-color-excel;
+$bkg-image: $bkg-image-happy, $bkg-image-union, $bkg-image-feast, $bkg-image-excel;
+$bkg-color: $bkg-color-happy, $bkg-color-union, $bkg-color-feast, $bkg-color-excel;

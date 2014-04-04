@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="theme-happy">
 <head>
   <meta charset="utf-8">
   <title>KKKK</title>
@@ -26,10 +26,10 @@
 
     <div class="select-theme">
       <ul>
-        <li class="theme-happy disabled"><a href="#"><i class="icon-wink"></i> 欢乐</a></li>
-        <li class="theme-union disabled"><a href="#"><i class="icon-users"></i> 群集</a></li>
-        <li class="theme-feast disabled"><a href="#"><i class="icon-pacman"></i> 饕餮</a></li>
-        <li class="theme-excel disabled"><a href="#"><i class="icon-evil"></i> 超凡</a></li>
+        <li class="select-happy disabled active"><a href="#"><i class="icon-wink"></i> 欢乐</a></li>
+        <li class="select-union disabled"><a href="#"><i class="icon-users"></i> 群集</a></li>
+        <li class="select-feast disabled"><a href="#"><i class="icon-pacman"></i> 饕餮</a></li>
+        <li class="select-excel disabled"><a href="#"><i class="icon-evil"></i> 超凡</a></li>
       </ul>
     </div>
 
@@ -79,6 +79,7 @@
 
       </div>
     </div>
+    <div class="blur"></div>
 
     <p class="game-explanation">
       <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the faces. When two same faces smash, they <strong>evole into a new one!</strong>
@@ -99,5 +100,12 @@
   <script src="js/local_storage_manager.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
+
+  <script>
+    var el = document.querySelector("html");
+    // el.addEventListener('click', function(){
+
+    // }, false);
+  </script>
 </body>
 </html>

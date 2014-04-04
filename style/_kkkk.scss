@@ -13,70 +13,149 @@
   @return $value;
 }
 
-@mixin theme-tile($theme: 'happy') {
+
+@mixin theme-body($theme: 1) {
+  body {
+    @if nth($bkg-image, $theme) {
+      background: url(../img/#{$theme}/bg.png) no-repeat center center;
+      background-size: cover;
+    }
+    @else {
+      background: nth($bkg-color, $theme);
+    }
+  }
+}
+
+@mixin theme-text($theme: 1) {
+  $text-color: nth($txt-color, $theme);
+  body {
+    color: $text-color;
+  }
+
+  a {
+    color: lighten($text-color, 20%);
+  }
+  .game-over p {
+    color: nth($pri-color, $theme);
+  }
+}
+
+@mixin theme-button($theme: 1) {
+  .restart-button, .retry-button, .game-message a {
+    background-color: nth($pri-color, $theme);
+    color: nth($txt-color, $theme);
+  }
+}
+
+@mixin theme-container($theme: 1) {
+  $container-color: nth($sec-color, $theme);
+
+  .score-container, .best-container {
+    background: $container-color;
+  }
+
+  .game-container {
+    background: transparentize($container-color, 0.2);
+  }
+
+  .grid-cell {
+    background: tranparentize($container-color, 0.65)
+  }
+}
+
+@mixin theme-tile($theme: 1) {
     @for $i from 1 through 20 {
     .tile {
       $num: power(2, $i);
       &-#{$num} .tile-inner {
-        @include at2x('../img/' + $theme + '/tile-img-#{$num}', png, 107px, 107px, !important);
+        @include at2x('../img/#{$theme}/tile-img-#{$num}', png, 107px, 107px, !important);
 
         @include smaller($mobile-threshold) {
-          @include at2x('../img/' + $theme + '/tile-img-#{$num}-smaller', png, 58px, 58px, !important);
+          @include at2x('../img/#{$theme}/tile-img-#{$num}-smaller', png, 58px, 58px, !important);
         }
       }
     }
   }
 }
 
-@mixin theme-button($theme: 'happy') {
-  .restart-button, .game-message a {
-    background-color: $primary-color-#{$theme};
-    color: $text-color-#{$theme};
+@mixin theme-others($theme: 1) {
+  hr {
+    border-color: darken(nth($txt-color, $theme), 50%);
+  }
+
+  .select-theme {
+    ul {
+
+    }
+
+    li {
+      $li-color: transparentize(nth($sec-color, $theme), 0.2);
+      background: $li-color;
+
+      border-right: 1px solid darken($li-color, 10%);
+      &:first-child {
+        border-radius: 3px 0 0 3px;
+      }
+
+      &:last-child {
+        border-radius: 0 3px 3px 0;
+        border-right: 0;
+      }
+
+      &.active {
+        background: nth($pri-color, $theme);
+      }
+    }
   }
 }
 
-@mixin theme-bg($theme: 'happy') {
-  .#{$theme} {
-    color: $text-color-#{$theme};
-
-    @if $bg-image-#{$theme} {
-      background: url(../img/bg-#{$theme}.png) no-repeat;
-      background-size: cover;
-    }
-    @else {
-      background: $bg-color-#{$theme};
-    }
-
-    .score-container, .best-container, .game-container {
-      background:$secondary-color-#{$theme};
-    }
-  }
-}
-
-@mixin theme($theme: 'happy') {
-  @include theme-tile($theme);
+@mixin theme($theme: 1) {
+  @include theme-body($theme);
+  @include theme-text($theme);
   @include theme-button($theme);
-  @include theme-bg($theme);
+  @include theme-container($theme);
+  @include theme-tile($theme);
+  @include theme-others($theme);
 }
+
 
 /*
  * global
  */
+ html {
+  background: none;
+ }
+
+ body {
+  margin: 0;
+  padding-top: 80px;
+ }
+
+ a {
+  text-decoration: none;
+ }
 
 .tile {
-    .tile-inner {
-      border-radius: 0;
-      background-position: center center!important;
-      background-repeat: no-repeat !important;
-      text-indent: -9999px;
-      color: transparent;
-    }
+  .tile-inner {
+    border-radius: 0;
+    background-position: center center!important;
+    background-repeat: no-repeat !important;
+    text-indent: -9999px;
+    overflow: hidden;
+    color: transparent;
+  }
 }
 
 .select-theme {
+  margin: 10px 0;
+  clear: both;
   ul {
     margin: 0;
     padding: 0;
+
+    @include smaller($mobile-threshold) {
+      padding: 10px 0 40px 0;
+    }
   }
 
   li {
@@ -107,7 +186,8 @@
  */
 
 
-@include theme();
+// @include theme(happy);
+@include theme(1);
 
 
 
@@ -117,9 +197,6 @@
  * theme union
  */
 
-.union {
-  @include theme('union');
-}
 
 
 
@@ -127,16 +204,9 @@
  * theme feast
  */
 
-.feast {
-  @include theme('feast');
-}
 
 
 
 /*
  * theme excel
  */
-
-.excel {
-  @include theme('excel');
-}

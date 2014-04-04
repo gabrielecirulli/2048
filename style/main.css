@@ -1,124 +1,1014 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px; }
+
+body {
+  margin: 80px 0; }
+
+.heading:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+h1.title {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 0;
+  display: block;
+  float: left; }
+
+@-webkit-keyframes move-up {
+  0% {
+    top: 25px;
+    opacity: 1; }
+
+  100% {
+    top: -50px;
+    opacity: 0; } }
+@-moz-keyframes move-up {
+  0% {
+    top: 25px;
+    opacity: 1; }
+
+  100% {
+    top: -50px;
+    opacity: 0; } }
+@keyframes move-up {
+  0% {
+    top: 25px;
+    opacity: 1; }
+
+  100% {
+    top: -50px;
+    opacity: 0; } }
+.scores-container {
+  float: right;
+  text-align: right; }
+
+.score-container, .best-container {
+  position: relative;
+  display: inline-block;
+  background: #bbada0;
+  padding: 15px 25px;
+  font-size: 25px;
+  height: 25px;
+  line-height: 47px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: 8px;
+  text-align: center; }
+  .score-container:after, .best-container:after {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    left: 0;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 13px;
+    text-align: center;
+    color: #eee4da; }
+  .score-container .score-addition, .best-container .score-addition {
+    position: absolute;
+    right: 30px;
+    color: red;
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: bold;
+    color: rgba(119, 110, 101, 0.9);
+    z-index: 100;
+    -webkit-animation: move-up 600ms ease-in;
+    -moz-animation: move-up 600ms ease-in;
+    animation: move-up 600ms ease-in;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    animation-fill-mode: both; }
+
+.score-container:after {
+  content: "Score"; }
+
+.best-container:after {
+  content: "Best"; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.65; }
+
+a {
+  color: #776e65;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer; }
+
+strong.important {
+  text-transform: uppercase; }
+
+hr {
+  border: none;
+  border-bottom: 1px solid #d8d4d0;
+  margin-top: 20px;
+  margin-bottom: 30px; }
+
+.container {
+  width: 500px;
+  margin: 0 auto; }
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+.game-container {
+  margin-top: 40px;
+  position: relative;
+  padding: 15px;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -ms-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  background: #bbada0;
+  border-radius: 6px;
+  width: 500px;
+  height: 500px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  .game-container .game-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(238, 228, 218, 0.5);
+    z-index: 100;
+    text-align: center;
+    -webkit-animation: fade-in 800ms ease 1200ms;
+    -moz-animation: fade-in 800ms ease 1200ms;
+    animation: fade-in 800ms ease 1200ms;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    animation-fill-mode: both; }
+    .game-container .game-message p {
+      font-size: 60px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      margin-top: 222px; }
+    .game-container .game-message .lower {
+      display: block;
+      margin-top: 59px; }
+    .game-container .game-message a {
+      display: inline-block;
+      background: #8f7a66;
+      border-radius: 3px;
+      padding: 0 20px;
+      text-decoration: none;
+      color: #f9f6f2;
+      height: 40px;
+      line-height: 42px;
+      margin-left: 9px; }
+      .game-container .game-message a.keep-playing-button {
+        display: none; }
+    .game-container .game-message.game-won {
+      background: rgba(237, 194, 46, 0.5);
+      color: #f9f6f2; }
+      .game-container .game-message.game-won a.keep-playing-button {
+        display: inline-block; }
+    .game-container .game-message.game-won, .game-container .game-message.game-over {
+      display: block; }
+
+.grid-container {
+  position: absolute;
+  z-index: 1; }
+
+.grid-row {
+  margin-bottom: 15px; }
+  .grid-row:last-child {
+    margin-bottom: 0; }
+  .grid-row:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.grid-cell {
+  width: 106.25px;
+  height: 106.25px;
+  margin-right: 15px;
+  float: left;
+  border-radius: 3px;
+  background: rgba(238, 228, 218, 0.35); }
+  .grid-cell:last-child {
+    margin-right: 0; }
+
+.tile-container {
+  position: absolute;
+  z-index: 2; }
+
+.tile, .tile .tile-inner {
+  width: 107px;
+  height: 107px;
+  line-height: 116.25px; }
+.tile.tile-position-1-1 {
+  -webkit-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  transform: translate(0px, 0px); }
+.tile.tile-position-1-2 {
+  -webkit-transform: translate(0px, 121px);
+  -moz-transform: translate(0px, 121px);
+  transform: translate(0px, 121px); }
+.tile.tile-position-1-3 {
+  -webkit-transform: translate(0px, 242px);
+  -moz-transform: translate(0px, 242px);
+  transform: translate(0px, 242px); }
+.tile.tile-position-1-4 {
+  -webkit-transform: translate(0px, 363px);
+  -moz-transform: translate(0px, 363px);
+  transform: translate(0px, 363px); }
+.tile.tile-position-2-1 {
+  -webkit-transform: translate(121px, 0px);
+  -moz-transform: translate(121px, 0px);
+  transform: translate(121px, 0px); }
+.tile.tile-position-2-2 {
+  -webkit-transform: translate(121px, 121px);
+  -moz-transform: translate(121px, 121px);
+  transform: translate(121px, 121px); }
+.tile.tile-position-2-3 {
+  -webkit-transform: translate(121px, 242px);
+  -moz-transform: translate(121px, 242px);
+  transform: translate(121px, 242px); }
+.tile.tile-position-2-4 {
+  -webkit-transform: translate(121px, 363px);
+  -moz-transform: translate(121px, 363px);
+  transform: translate(121px, 363px); }
+.tile.tile-position-3-1 {
+  -webkit-transform: translate(242px, 0px);
+  -moz-transform: translate(242px, 0px);
+  transform: translate(242px, 0px); }
+.tile.tile-position-3-2 {
+  -webkit-transform: translate(242px, 121px);
+  -moz-transform: translate(242px, 121px);
+  transform: translate(242px, 121px); }
+.tile.tile-position-3-3 {
+  -webkit-transform: translate(242px, 242px);
+  -moz-transform: translate(242px, 242px);
+  transform: translate(242px, 242px); }
+.tile.tile-position-3-4 {
+  -webkit-transform: translate(242px, 363px);
+  -moz-transform: translate(242px, 363px);
+  transform: translate(242px, 363px); }
+.tile.tile-position-4-1 {
+  -webkit-transform: translate(363px, 0px);
+  -moz-transform: translate(363px, 0px);
+  transform: translate(363px, 0px); }
+.tile.tile-position-4-2 {
+  -webkit-transform: translate(363px, 121px);
+  -moz-transform: translate(363px, 121px);
+  transform: translate(363px, 121px); }
+.tile.tile-position-4-3 {
+  -webkit-transform: translate(363px, 242px);
+  -moz-transform: translate(363px, 242px);
+  transform: translate(363px, 242px); }
+.tile.tile-position-4-4 {
+  -webkit-transform: translate(363px, 363px);
+  -moz-transform: translate(363px, 363px);
+  transform: translate(363px, 363px); }
+
+.tile {
+  position: absolute;
+  -webkit-transition: 100ms ease-in-out;
+  -moz-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform; }
+  .tile .tile-inner {
+    border-radius: 3px;
+    background: #eee4da;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    font-size: 55px; }
+  .tile.tile-2 .tile-inner {
+    background: #eee4da;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+  .tile.tile-4 .tile-inner {
+    background: #ede0c8;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+  .tile.tile-8 .tile-inner {
+    color: #f9f6f2;
+    background: #f2b179; }
+  .tile.tile-16 .tile-inner {
+    color: #f9f6f2;
+    background: #f59563; }
+  .tile.tile-32 .tile-inner {
+    color: #f9f6f2;
+    background: #f67c5f; }
+  .tile.tile-64 .tile-inner {
+    color: #f9f6f2;
+    background: #f65e3b; }
+  .tile.tile-128 .tile-inner {
+    color: #f9f6f2;
+    background: #edcf72;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+    font-size: 45px; }
+    @media screen and (max-width: 520px) {
+      .tile.tile-128 .tile-inner {
+        font-size: 25px; } }
+  .tile.tile-256 .tile-inner {
+    color: #f9f6f2;
+    background: #edcc61;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+    font-size: 45px; }
+    @media screen and (max-width: 520px) {
+      .tile.tile-256 .tile-inner {
+        font-size: 25px; } }
+  .tile.tile-512 .tile-inner {
+    color: #f9f6f2;
+    background: #edc850;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+    font-size: 45px; }
+    @media screen and (max-width: 520px) {
+      .tile.tile-512 .tile-inner {
+        font-size: 25px; } }
+  .tile.tile-1024 .tile-inner {
+    color: #f9f6f2;
+    background: #edc53f;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+    font-size: 35px; }
+    @media screen and (max-width: 520px) {
+      .tile.tile-1024 .tile-inner {
+        font-size: 15px; } }
+  .tile.tile-2048 .tile-inner {
+    color: #f9f6f2;
+    background: #edc22e;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+    font-size: 35px; }
+    @media screen and (max-width: 520px) {
+      .tile.tile-2048 .tile-inner {
+        font-size: 15px; } }
+  .tile.tile-super .tile-inner {
+    color: #f9f6f2;
+    background: #3c3a32;
+    font-size: 30px; }
+    @media screen and (max-width: 520px) {
+      .tile.tile-super .tile-inner {
+        font-size: 10px; } }
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+@-moz-keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+@keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+.tile-new .tile-inner {
+  -webkit-animation: appear 200ms ease 100ms;
+  -moz-animation: appear 200ms ease 100ms;
+  animation: appear 200ms ease 100ms;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  animation-fill-mode: backwards; }
+
+@-webkit-keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2); }
+
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+@-moz-keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2); }
+
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+@keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0); }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2); }
+
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1); } }
+.tile-merged .tile-inner {
+  z-index: 20;
+  -webkit-animation: pop 200ms ease 100ms;
+  -moz-animation: pop 200ms ease 100ms;
+  animation: pop 200ms ease 100ms;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  animation-fill-mode: backwards; }
+
+.above-game:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.game-intro {
+  float: left;
+  line-height: 42px;
+  margin-bottom: 0; }
+
+.restart-button {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
+  float: right; }
+
+.game-explanation {
+  margin-top: 50px; }
+
+@media screen and (max-width: 520px) {
+  html, body {
+    font-size: 15px; }
+
+  body {
+    margin: 20px 0;
+    padding: 0 20px; }
+
+  h1.title {
+    font-size: 27px;
+    margin-top: 15px; }
+
+  .container {
+    width: 280px;
+    margin: 0 auto; }
+
+  .score-container, .best-container {
+    margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px; }
+
+  .heading {
+    margin-bottom: 10px; }
+
+  .game-intro {
+    width: 55%;
+    display: block;
+    box-sizing: border-box;
+    line-height: 1.65; }
+
+  .restart-button {
+    width: 42%;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 2px; }
+
+  .game-container {
+    margin-top: 17px;
+    position: relative;
+    padding: 10px;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -ms-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    background: #bbada0;
+    border-radius: 6px;
+    width: 280px;
+    height: 280px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .game-container .game-message {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(238, 228, 218, 0.5);
+      z-index: 100;
+      text-align: center;
+      -webkit-animation: fade-in 800ms ease 1200ms;
+      -moz-animation: fade-in 800ms ease 1200ms;
+      animation: fade-in 800ms ease 1200ms;
+      -webkit-animation-fill-mode: both;
+      -moz-animation-fill-mode: both;
+      animation-fill-mode: both; }
+      .game-container .game-message p {
+        font-size: 60px;
+        font-weight: bold;
+        height: 60px;
+        line-height: 60px;
+        margin-top: 222px; }
+      .game-container .game-message .lower {
+        display: block;
+        margin-top: 59px; }
+      .game-container .game-message a {
+        display: inline-block;
+        background: #8f7a66;
+        border-radius: 3px;
+        padding: 0 20px;
+        text-decoration: none;
+        color: #f9f6f2;
+        height: 40px;
+        line-height: 42px;
+        margin-left: 9px; }
+        .game-container .game-message a.keep-playing-button {
+          display: none; }
+      .game-container .game-message.game-won {
+        background: rgba(237, 194, 46, 0.5);
+        color: #f9f6f2; }
+        .game-container .game-message.game-won a.keep-playing-button {
+          display: inline-block; }
+      .game-container .game-message.game-won, .game-container .game-message.game-over {
+        display: block; }
+
+  .grid-container {
+    position: absolute;
+    z-index: 1; }
+
+  .grid-row {
+    margin-bottom: 10px; }
+    .grid-row:last-child {
+      margin-bottom: 0; }
+    .grid-row:after {
+      content: "";
+      display: block;
+      clear: both; }
+
+  .grid-cell {
+    width: 57.5px;
+    height: 57.5px;
+    margin-right: 10px;
+    float: left;
+    border-radius: 3px;
+    background: rgba(238, 228, 218, 0.35); }
+    .grid-cell:last-child {
+      margin-right: 0; }
+
+  .tile-container {
+    position: absolute;
+    z-index: 2; }
+
+  .tile, .tile .tile-inner {
+    width: 58px;
+    height: 58px;
+    line-height: 67.5px; }
+  .tile.tile-position-1-1 {
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); }
+  .tile.tile-position-1-2 {
+    -webkit-transform: translate(0px, 67px);
+    -moz-transform: translate(0px, 67px);
+    transform: translate(0px, 67px); }
+  .tile.tile-position-1-3 {
+    -webkit-transform: translate(0px, 135px);
+    -moz-transform: translate(0px, 135px);
+    transform: translate(0px, 135px); }
+  .tile.tile-position-1-4 {
+    -webkit-transform: translate(0px, 202px);
+    -moz-transform: translate(0px, 202px);
+    transform: translate(0px, 202px); }
+  .tile.tile-position-2-1 {
+    -webkit-transform: translate(67px, 0px);
+    -moz-transform: translate(67px, 0px);
+    transform: translate(67px, 0px); }
+  .tile.tile-position-2-2 {
+    -webkit-transform: translate(67px, 67px);
+    -moz-transform: translate(67px, 67px);
+    transform: translate(67px, 67px); }
+  .tile.tile-position-2-3 {
+    -webkit-transform: translate(67px, 135px);
+    -moz-transform: translate(67px, 135px);
+    transform: translate(67px, 135px); }
+  .tile.tile-position-2-4 {
+    -webkit-transform: translate(67px, 202px);
+    -moz-transform: translate(67px, 202px);
+    transform: translate(67px, 202px); }
+  .tile.tile-position-3-1 {
+    -webkit-transform: translate(135px, 0px);
+    -moz-transform: translate(135px, 0px);
+    transform: translate(135px, 0px); }
+  .tile.tile-position-3-2 {
+    -webkit-transform: translate(135px, 67px);
+    -moz-transform: translate(135px, 67px);
+    transform: translate(135px, 67px); }
+  .tile.tile-position-3-3 {
+    -webkit-transform: translate(135px, 135px);
+    -moz-transform: translate(135px, 135px);
+    transform: translate(135px, 135px); }
+  .tile.tile-position-3-4 {
+    -webkit-transform: translate(135px, 202px);
+    -moz-transform: translate(135px, 202px);
+    transform: translate(135px, 202px); }
+  .tile.tile-position-4-1 {
+    -webkit-transform: translate(202px, 0px);
+    -moz-transform: translate(202px, 0px);
+    transform: translate(202px, 0px); }
+  .tile.tile-position-4-2 {
+    -webkit-transform: translate(202px, 67px);
+    -moz-transform: translate(202px, 67px);
+    transform: translate(202px, 67px); }
+  .tile.tile-position-4-3 {
+    -webkit-transform: translate(202px, 135px);
+    -moz-transform: translate(202px, 135px);
+    transform: translate(202px, 135px); }
+  .tile.tile-position-4-4 {
+    -webkit-transform: translate(202px, 202px);
+    -moz-transform: translate(202px, 202px);
+    transform: translate(202px, 202px); }
+
+  .tile .tile-inner {
+    font-size: 35px; }
+
+  .game-message p {
+    font-size: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    margin-top: 90px !important; }
+  .game-message .lower {
+    margin-top: 30px !important; } }
 /*
-Syntax error: Undefined variable: "$primary-color-".
-        on line 33 of _kkkk.scss, in `theme-button'
-        from line 58 of _kkkk.scss, in `theme'
-        from line 110 of _kkkk.scss
-        from line 551 of main.scss
+ * theme 1: default ('happy')
+ */
+/*
+ * theme 2: union
+ */
+/*
+ * theme 3: feast
+ */
+/*
+ * theme 4: excel
+ */
+/*
+ * lists (append new theme colors to the lists)
+ */
+/*
+ * global
+ */
+html {
+  background: none; }
 
-28:   background: #faf8ef;
-29:   color: $text-color;
-30:   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-31:   font-size: 18px;
-32: }
-33: 
-34: body {
-35:   margin: 80px 0;
-36: }
-37: 
-38: .heading {
+body {
+  margin: 0;
+  padding-top: 80px; }
 
-Backtrace:
-_kkkk.scss:33:in `theme-button'
-_kkkk.scss:58:in `theme'
-_kkkk.scss:110
-main.scss:551
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/script/tree/variable.rb:49:in `_perform'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/script/tree/node.rb:50:in `perform'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/script/tree/interpolation.rb:91:in `_perform'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/script/tree/node.rb:50:in `perform'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:366:in `visit_prop'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `block in with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:389:in `block (2 levels) in visit_rule'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:389:in `map'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:389:in `block in visit_rule'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:387:in `visit_rule'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `block in with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `block (4 levels) in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `map'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `block (3 levels) in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `block (2 levels) in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:78:in `perform_arguments'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:330:in `block in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:98:in `block in with_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:98:in `with_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:318:in `visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `block in with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `block (4 levels) in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `map'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `block (3 levels) in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:335:in `block (2 levels) in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:78:in `perform_arguments'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:330:in `block in visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:98:in `block in with_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:98:in `with_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:318:in `visit_mixin'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `block in with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:297:in `block (2 levels) in visit_import'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:297:in `map'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:297:in `block in visit_import'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:88:in `block in with_import'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:88:in `with_import'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `block in with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:121:in `with_frame'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/stack.rb:79:in `with_base'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:152:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:52:in `map'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:151:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/visitors/perform.rb:8:in `visit'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/root_node.rb:36:in `css_tree'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/tree/root_node.rb:20:in `render'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/engine.rb:274:in `render'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:186:in `each'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/lib/sass/plugin/compiler.rb:248:in `block in watch'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/listener.rb:252:in `call'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-D:/Program Files/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.3.4/vendor/listen/lib/listen/adapter.rb:297:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$primary-color-\".\A         on line 33 of _kkkk.scss, in `theme-button'\A         from line 58 of _kkkk.scss, in `theme'\A         from line 110 of _kkkk.scss\A         from line 551 of main.scss\A \A 28:   background: #faf8ef;\A 29:   color: $text-color;\A 30:   font-family: \"Clear Sans\", \"Helvetica Neue\", Arial, sans-serif;\A 31:   font-size: 18px;\A 32: }\A 33: \A 34: body {\A 35:   margin: 80px 0;\A 36: }\A 37: \A 38: .heading {"; }
+a {
+  text-decoration: none; }
+
+.tile .tile-inner {
+  border-radius: 0;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  text-indent: -9999px;
+  overflow: hidden;
+  color: transparent; }
+
+.select-theme {
+  margin: 10px 0;
+  clear: both; }
+  .select-theme ul {
+    margin: 0;
+    padding: 0; }
+    @media screen and (max-width: 520px) {
+      .select-theme ul {
+        padding: 10px 0 40px 0; } }
+  .select-theme li {
+    list-style: none;
+    float: left; }
+    .select-theme li a {
+      display: block;
+      padding: 4px 6px;
+      text-decoration: none; }
+
+/*
+ * theme default ('happy')
+ */
+body {
+  background: #1d2834; }
+
+body {
+  color: #e4d49e; }
+
+a {
+  color: #faf7ee; }
+
+.game-over p {
+  color: #5f1a2b; }
+
+.restart-button, .retry-button, .game-message a {
+  background-color: #5f1a2b;
+  color: #e4d49e; }
+
+.score-container, .best-container {
+  background: #c96466; }
+
+.game-container {
+  background: rgba(201, 100, 102, 0.8); }
+
+.grid-cell {
+  background: tranparentize(#c96466, 0.65); }
+
+.tile-2 .tile-inner {
+  background-image: url("../img/1/tile-img-2.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-2 .tile-inner {
+      background-image: url("../img/1/tile-img-2@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-2 .tile-inner {
+      background-image: url("../img/1/tile-img-2-smaller.png") !important; } }
+
+.tile-4 .tile-inner {
+  background-image: url("../img/1/tile-img-4.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-4 .tile-inner {
+      background-image: url("../img/1/tile-img-4@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-4 .tile-inner {
+      background-image: url("../img/1/tile-img-4-smaller.png") !important; } }
+
+.tile-8 .tile-inner {
+  background-image: url("../img/1/tile-img-8.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-8 .tile-inner {
+      background-image: url("../img/1/tile-img-8@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-8 .tile-inner {
+      background-image: url("../img/1/tile-img-8-smaller.png") !important; } }
+
+.tile-16 .tile-inner {
+  background-image: url("../img/1/tile-img-16.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-16 .tile-inner {
+      background-image: url("../img/1/tile-img-16@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-16 .tile-inner {
+      background-image: url("../img/1/tile-img-16-smaller.png") !important; } }
+
+.tile-32 .tile-inner {
+  background-image: url("../img/1/tile-img-32.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-32 .tile-inner {
+      background-image: url("../img/1/tile-img-32@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-32 .tile-inner {
+      background-image: url("../img/1/tile-img-32-smaller.png") !important; } }
+
+.tile-64 .tile-inner {
+  background-image: url("../img/1/tile-img-64.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-64 .tile-inner {
+      background-image: url("../img/1/tile-img-64@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-64 .tile-inner {
+      background-image: url("../img/1/tile-img-64-smaller.png") !important; } }
+
+.tile-128 .tile-inner {
+  background-image: url("../img/1/tile-img-128.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-128 .tile-inner {
+      background-image: url("../img/1/tile-img-128@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-128 .tile-inner {
+      background-image: url("../img/1/tile-img-128-smaller.png") !important; } }
+
+.tile-256 .tile-inner {
+  background-image: url("../img/1/tile-img-256.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-256 .tile-inner {
+      background-image: url("../img/1/tile-img-256@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-256 .tile-inner {
+      background-image: url("../img/1/tile-img-256-smaller.png") !important; } }
+
+.tile-512 .tile-inner {
+  background-image: url("../img/1/tile-img-512.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-512 .tile-inner {
+      background-image: url("../img/1/tile-img-512@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-512 .tile-inner {
+      background-image: url("../img/1/tile-img-512-smaller.png") !important; } }
+
+.tile-1024 .tile-inner {
+  background-image: url("../img/1/tile-img-1024.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-1024 .tile-inner {
+      background-image: url("../img/1/tile-img-1024@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-1024 .tile-inner {
+      background-image: url("../img/1/tile-img-1024-smaller.png") !important; } }
+
+.tile-2048 .tile-inner {
+  background-image: url("../img/1/tile-img-2048.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-2048 .tile-inner {
+      background-image: url("../img/1/tile-img-2048@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-2048 .tile-inner {
+      background-image: url("../img/1/tile-img-2048-smaller.png") !important; } }
+
+.tile-4096 .tile-inner {
+  background-image: url("../img/1/tile-img-4096.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-4096 .tile-inner {
+      background-image: url("../img/1/tile-img-4096@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-4096 .tile-inner {
+      background-image: url("../img/1/tile-img-4096-smaller.png") !important; } }
+
+.tile-8192 .tile-inner {
+  background-image: url("../img/1/tile-img-8192.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-8192 .tile-inner {
+      background-image: url("../img/1/tile-img-8192@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-8192 .tile-inner {
+      background-image: url("../img/1/tile-img-8192-smaller.png") !important; } }
+
+.tile-16384 .tile-inner {
+  background-image: url("../img/1/tile-img-16384.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-16384 .tile-inner {
+      background-image: url("../img/1/tile-img-16384@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-16384 .tile-inner {
+      background-image: url("../img/1/tile-img-16384-smaller.png") !important; } }
+
+.tile-32768 .tile-inner {
+  background-image: url("../img/1/tile-img-32768.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-32768 .tile-inner {
+      background-image: url("../img/1/tile-img-32768@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-32768 .tile-inner {
+      background-image: url("../img/1/tile-img-32768-smaller.png") !important; } }
+
+.tile-65536 .tile-inner {
+  background-image: url("../img/1/tile-img-65536.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-65536 .tile-inner {
+      background-image: url("../img/1/tile-img-65536@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-65536 .tile-inner {
+      background-image: url("../img/1/tile-img-65536-smaller.png") !important; } }
+
+.tile-131072 .tile-inner {
+  background-image: url("../img/1/tile-img-131072.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-131072 .tile-inner {
+      background-image: url("../img/1/tile-img-131072@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-131072 .tile-inner {
+      background-image: url("../img/1/tile-img-131072-smaller.png") !important; } }
+
+.tile-262144 .tile-inner {
+  background-image: url("../img/1/tile-img-262144.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-262144 .tile-inner {
+      background-image: url("../img/1/tile-img-262144@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-262144 .tile-inner {
+      background-image: url("../img/1/tile-img-262144-smaller.png") !important; } }
+
+.tile-524288 .tile-inner {
+  background-image: url("../img/1/tile-img-524288.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-524288 .tile-inner {
+      background-image: url("../img/1/tile-img-524288@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-524288 .tile-inner {
+      background-image: url("../img/1/tile-img-524288-smaller.png") !important; } }
+
+.tile-1048576 .tile-inner {
+  background-image: url("../img/1/tile-img-1048576.png") !important; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .tile-1048576 .tile-inner {
+      background-image: url("../img/1/tile-img-1048576@2x.png") !important;
+      background-size: 107px 107px !important; } }
+  @media screen and (max-width: 520px) {
+    .tile-1048576 .tile-inner {
+      background-image: url("../img/1/tile-img-1048576-smaller.png") !important; } }
+
+hr {
+  border-color: #66561d; }
+
+.select-theme li {
+  background: rgba(201, 100, 102, 0.8);
+  border-right: 1px solid rgba(185, 65, 67, 0.8); }
+  .select-theme li:first-child {
+    border-radius: 3px 0 0 3px; }
+  .select-theme li:last-child {
+    border-radius: 0 3px 3px 0;
+    border-right: 0; }
+  .select-theme li.active {
+    background: #5f1a2b; }
+
+/*
+ * theme union
+ */
+/*
+ * theme feast
+ */
+/*
+ * theme excel
+ */

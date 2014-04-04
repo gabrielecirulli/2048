@@ -21,27 +21,7 @@ span.tile-text {
   line-height: 1.25;
 }
 
-a.learn {
-  background-color: #de8b3e;
-  text-decoration: none;
-  border: 1px solid;
-  border-color: #c7640b;
-  color: white;
-  margin: 0 auto;
-  margin-top: 5px;
-  display: block;
-  width: 150px;
-  padding-left: 0;
-  padding-right: 0;
-  padding: 10px;
-  text-align: center;
-}
-a.learn:visited{
-  }
-a.learn:hover{
-  background-image: linear-gradient(to bottom,#f59a18 0,#f27d13 100%);
-  background-repeat: repeat-x;
-}
+
 
 input {
   display: inline-block;
@@ -246,7 +226,7 @@ hr {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(238, 228, 218, 0.73);
+  background: rgba(150, 150, 150, 0.83);
   z-index: 100;
   padding-top: 40px;
   text-align: center;
@@ -618,20 +598,6 @@ hr {
   line-height: 42px;
   margin-bottom: 0; }
 
-.restart-button {
-  display: inline-block;
-  background: #1e6477;
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: #f9f6f2;
-  height: 40px;
-  line-height: 42px;
-  cursor: pointer;
-  display: block;
-  text-align: center;
-  float: right; }
-
 .game-explanation {
   margin-top: 50px; }
 
@@ -672,7 +638,7 @@ hr {
     box-sizing: border-box;
     line-height: 1.65; }
 
-  .restart-button {
+  .restart-button, .retry-button {
     width: 42%;
     padding: 0;
     display: block;
@@ -983,3 +949,57 @@ hr {
         .btc-donate .address:after {
           left: 50%;
           bottom: 2px; } }
+a.learn, a.keep-playing-button {
+  background-color: #de8b3e;
+  text-decoration: none;
+  border: 1px solid;
+  border-color: #c7640b;
+  color: white;
+  border-radius: 0;
+  margin: 0 auto;
+  margin-top: 5px;
+  display: block;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+}
+a.learn:visited, a.keep-playing-button {
+  }
+a.learn:hover, a.keep-playing-button:hover, a.learn-low:hover {
+  background-image: linear-gradient(to bottom,#f59a18 0,#f27d13 100%);
+  background-repeat: repeat-x;
+}
+.restart-button, a.retry-button {
+  display: inline-block;
+  background: #1e6477;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  line-height: 42px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  float: right; 
+}
+
+a.retry-button, a.learn-low {
+  width: 150px;
+  height: 40px;
+  padding: 0;
+  border-radius: 0;
+  display: inline-block;
+  margin: 0;
+  line-height: 42px;
+}
+
+a.learn-low {
+  margin-right: 10px;
+}
+
+a.retry-button {
+  margin-left: 10px;
+  float: center;
+}
+
+

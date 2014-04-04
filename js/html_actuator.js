@@ -63,7 +63,7 @@ HTMLActuator.prototype.addTile = function (tile) {
     256 :  '</Job search>',
     512 :  'if Udacious:',
     1024 : 'skills.increase()',
-    2048 : 'self.job.advance()',
+    2048 : 'myJob.advance()',
     4096 : 'myCareer=myJob'
   }
   var self = this;

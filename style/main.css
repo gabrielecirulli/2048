@@ -146,7 +146,7 @@ p {
   line-height: 1.65; }
 
 a {
-  font-weight: bold;
+  font-weight: medium;
   text-decoration: underline;
   cursor: pointer; }
 
@@ -594,8 +594,9 @@ hr {
   clear: both; }
 
 .game-intro {
+  margin-top: 5px;
   float: left;
-  line-height: 42px;
+  line-height: 30px;
   margin-bottom: 0; }
 
 .game-explanation {
@@ -988,6 +989,7 @@ a.retry-button, a.learn-low {
   height: 40px;
   padding: 0;
   border-radius: 0;
+  background-color:black;
   display: inline-block;
   margin: 0;
   line-height: 42px;

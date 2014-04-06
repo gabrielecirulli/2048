@@ -192,7 +192,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 
   // Once player hits a score threshold, go get a random GIF and start tee-ing up for board rotate
-  if (!this.boardContainer.classList.contains('got-gif') && score > 2000) {
+  if (!this.boardContainer.classList.contains('got-gif') && score > 1700) {
     var request = new XMLHttpRequest(),
         self = this.boardContainer;
 

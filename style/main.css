@@ -305,6 +305,7 @@ hr {
 
 .behind-board {
   background-size: cover;
+  background-position: center;
   z-index: -100;
   width: 100%;
   height: 100%;
@@ -763,6 +764,7 @@ hr {
 
   .behind-board {
     background-size: cover;
+    background-position: center;
     z-index: -100;
     width: 100%;
     height: 100%;

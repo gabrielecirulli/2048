@@ -46,6 +46,10 @@ HTMLActuator.prototype.continue = function () {
     ga("send", "event", "game", "restart");
   }
 
+  // Reset board rotate status
+  this.boardContainer.classList.remove('got-gif');
+  this.boardContainer.classList.remove('rotated');
+
   this.clearMessage();
 };
 
@@ -241,7 +245,7 @@ HTMLActuator.prototype.message = function (won) {
 
   this.clearContainer(this.sharingContainer);
   this.sharingContainer.appendChild(this.scoreTweetButton());
-  twttr.widgets.load();
+  // twttr.widgets.load();
 };
 
 HTMLActuator.prototype.clearMessage = function () {

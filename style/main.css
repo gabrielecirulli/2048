@@ -406,6 +406,7 @@ hr {
     font-size: 16px; 
     color: #354b59;}
   .tile.tile-2 .tile-inner {
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/2.png');
     background-size: 100%;
@@ -422,73 +423,95 @@ hr {
     background: url('../tile-sets/udacity/8.png');
     background-size: 100%;
     background-color: #6599ba;
+=======
+    color: #d87531;
+    background: #f5f5f5;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+  .tile.tile-4 .tile-inner {
+    background: #dfeaf1;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+  .tile.tile-8 .tile-inner {
+    color: #f9f6f2;
+    background: #9cc2d2;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
     font-weight: medium;
     font-size: 12px;
   }
   .tile.tile-16 .tile-inner {
-    color: rgba(0,0,0,0);
-    background: url('../tile-sets/udacity/16.png');
-    background-size: 100%;
+    background: #f59563;
     font-weight: medium;
     font-size: 10px;
   }
   .tile.tile-32 .tile-inner {
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/32.png');
     background-size: 100%;
     background-color: #fff;
+=======
+    color: #f9f6f2;
+    background: #f67c5f;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
     font-size: 14px;
   }
   .tile.tile-64 .tile-inner {
-    color: rgba(0,0,0,0);
-    background: url('../tile-sets/udacity/64.png');
-    background-size: 100%;
+    color: #f9f6f2;
+    background: #f65e3b;
     font-size: 14px;
 
   }
   .tile.tile-128 .tile-inner {
     font-weight: medium;
-    color: rgba(0,0,0,0);
-    background: url('../tile-sets/udacity/128.png');
-    background-size: 100%;
+    background: #edcf72;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 12px; }
     @media screen and (max-width: 520px) {
       .tile.tile-128 .tile-inner {
         font-size: 12px; } }
   .tile.tile-256 .tile-inner {
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/256.png');
     background-size: 100%;
     border: 2px solid #9cc2d2;
+=======
+    color: #f9f6f2;
+    background: #edcc61;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 14px; }
     @media screen and (max-width: 520px) {
       .tile.tile-256 .tile-inner {
         font-size: 16px; } }
   .tile.tile-512 .tile-inner {
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/512.png');
     background-size: 100%;
     border: 2px solid #d87531;
+=======
+    color: #354b59;
+    font-weight: medium;
+    background: #edc850;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 13px; }
     @media screen and (max-width: 520px) {
       .tile.tile-512 .tile-inner {
         font-size: 13px; } }
   .tile.tile-1024 .tile-inner {
-    color: rgba(0,0,0,0);
-    background: url('../tile-sets/udacity/1024.png');
-    background-size: 100%;
+    color: #f9f6f2;
+    font-weight: light;
+    background: #edc53f;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 10px; }
     @media screen and (max-width: 520px) {
       .tile.tile-1024 .tile-inner {
         font-size: 10px; } }
   .tile.tile-2048 .tile-inner {
-    color: rgba(0,0,0,0);
-    background: url('../tile-sets/udacity/2048.jpg');
-    background-size: 100%;
+    color: #f9f6f2;
+    font-weight: light;
+    background: #edc22e;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 10px; }
     @media screen and (max-width: 520px) {

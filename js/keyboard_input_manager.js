@@ -69,6 +69,11 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers && event.which === 82) {
       self.restart.call(self, event);
     }
+
+    // C key clears the local storage
+    if (!modifiers && event.which === 82) {
+      self.clearAll.call(self, event);
+    }
   });
 
   // Respond to button presses
@@ -136,6 +141,11 @@ KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
 };
+
+KeyboardInputManager.prototype.clearAll = function (event) {
+  event.preventDefault();
+  this.emit("clearAll");
+}
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();

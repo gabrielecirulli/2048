@@ -407,6 +407,7 @@ hr {
     color: #354b59;}
   .tile.tile-2 .tile-inner {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/2.png');
     background-size: 100%;
@@ -434,6 +435,17 @@ hr {
     color: #f9f6f2;
     background: #9cc2d2;
 >>>>>>> parent of 392ba3a... change udacity tiles to pictures
+=======
+    color: #d87531;
+    background: #f5f5f5;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+  .tile.tile-4 .tile-inner {
+    background: #dfeaf1;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+  .tile.tile-8 .tile-inner {
+    color: #f9f6f2;
+    background: #9cc2d2;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
     font-weight: medium;
     font-size: 12px;
   }
@@ -444,10 +456,15 @@ hr {
   }
   .tile.tile-32 .tile-inner {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/32.png');
     background-size: 100%;
     background-color: #fff;
+=======
+    color: #f9f6f2;
+    background: #f67c5f;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
 =======
     color: #f9f6f2;
     background: #f67c5f;
@@ -470,10 +487,15 @@ hr {
         font-size: 12px; } }
   .tile.tile-256 .tile-inner {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/256.png');
     background-size: 100%;
     border: 2px solid #9cc2d2;
+=======
+    color: #f9f6f2;
+    background: #edcc61;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
 =======
     color: #f9f6f2;
     background: #edcc61;
@@ -485,10 +507,16 @@ hr {
         font-size: 16px; } }
   .tile.tile-512 .tile-inner {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: rgba(0,0,0,0);
     background: url('../tile-sets/udacity/512.png');
     background-size: 100%;
     border: 2px solid #d87531;
+=======
+    color: #354b59;
+    font-weight: medium;
+    background: #edc850;
+>>>>>>> parent of 392ba3a... change udacity tiles to pictures
 =======
     color: #354b59;
     font-weight: medium;

@@ -9,6 +9,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("shuffle", this.shuffle.bind(this));
 
   this.setup();
 }
@@ -18,6 +19,34 @@ GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
+};
+
+GameManager.prototype.shuffle = function () {
+	var self = this;
+	var newTiles = [];
+	
+	this.over = false;
+	
+	this.grid.eachCell(function(x, y, oldTile) {
+		if(oldTile) {
+			var newTile = oldTile.clone();
+			self.grid.removeTile(oldTile);
+			newTiles.push(newTile);
+		}
+	});
+	
+	for(var i in newTiles) {
+		var tile = newTiles[i];
+		var availableCell = this.grid.randomAvailableCell();
+		tile.updatePosition( {x: availableCell.x, y: availableCell.y });
+		this.grid.insertTile(tile);
+	}
+	
+	this.actuator.continueGame();
+	this.actuator.actuate(this.grid, {
+		score: this.storageManager.getGameState().score,
+		bestScore: this.storageManager.getBestScore()
+	});
 };
 
 // Keep playing after winning (allows going over 2048)
@@ -85,12 +114,7 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
-  // Clear the state when the game is over (game over only, not win)
-  if (this.over) {
-    this.storageManager.clearGameState();
-  } else {
-    this.storageManager.setGameState(this.serialize());
-  }
+  this.storageManager.setGameState(this.serialize());
 
   this.actuator.actuate(this.grid, {
     score:      this.score,

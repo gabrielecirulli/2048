@@ -21,8 +21,7 @@ BGC = ['#eee4da', '#ede0c8', '#f2b179', '#f59563', '#f67c5f', '#f65e3b',
 
 
 for ii in xrange(12):
-    print ii
-    fig = plt.figure(num=ii, figsize=(1, 1), dpi=80)
-    # Total image size will be 80 x 80
-    fig.text(0.5,0.5, Text[ii], size=FSze[ii], color=TCol[ii], ha="center", va="center")
+    fig = plt.figure(num=ii, figsize=(1.06, 1.06))
+    # Total image size will be 106 x 106
+    fig.text(0.5,0.44, Text[ii], size=FSze[ii], color=TCol[ii], ha="center", va="center")
     fig.savefig(str(ii)+".png", facecolor=BGC[ii])

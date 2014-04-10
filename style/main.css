@@ -13,8 +13,7 @@ body {
   margin: 80px 0; }
 
 p.learn {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 span.tile-text {
@@ -200,7 +199,7 @@ hr {
   100% {
     margin-top: 20%; } }
 .game-container {
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -645,7 +644,7 @@ hr {
     margin-bottom: 10px; }
 
   .game-intro {
-    width: 55%;
+    width: 100%;
     display: block;
     box-sizing: border-box;
     line-height: 1.65; }
@@ -669,7 +668,7 @@ hr {
     -ms-user-select: none;
     -ms-touch-action: none;
     touch-action: none;
-    background: #bbada0;
+    background: #1e6477;
     border-radius: 6px;
     width: 280px;
     height: 280px;
@@ -971,7 +970,7 @@ a.learn, a.keep-playing-button {
   margin: 0 auto;
   margin-top: 5px;
   display: block;
-  width: 150px;
+  width: 200px;
   padding: 10px;
   text-align: center;
 }
@@ -993,6 +992,7 @@ a.learn:hover, a.keep-playing-button:hover, a.learn-low:hover {
   display: block;
   text-align: center;
   float: right; 
+  margin-top: 7px;
 }
 
 a.retry-button, a.learn-low {

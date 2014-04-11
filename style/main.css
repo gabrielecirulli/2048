@@ -2,8 +2,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #faf8ef;
-  color: #776e65;
+  background: #3399FF;
+  color: #0F0F4C;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
@@ -187,7 +187,7 @@ hr {
       border-radius: 3px;
       padding: 0 20px;
       text-decoration: none;
-      color: #f9f6f2;
+      color: #CC52A3;
       height: 40px;
       line-height: 42px;
       margin-left: 9px; }
@@ -195,7 +195,7 @@ hr {
         display: none; }
     .game-container .game-message.game-won {
       background: rgba(237, 194, 46, 0.5);
-      color: #f9f6f2; }
+      color: #CC52A3; }
       .game-container .game-message.game-won a.keep-playing-button {
         display: inline-block; }
     .game-container .game-message.game-won, .game-container .game-message.game-over {
@@ -231,7 +231,7 @@ hr {
 .tile, .tile .tile-inner {
   width: 107px;
   height: 107px;
-  line-height: 116.25px; }
+  line-height: 25px; }
 .tile.tile-position-1-1 {
   -webkit-transform: translate(0px, 0px);
   -moz-transform: translate(0px, 0px);
@@ -308,31 +308,29 @@ hr {
   .tile .tile-inner {
     border-radius: 3px;
     background: #eee4da;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     z-index: 10;
-    font-size: 55px; }
+    font-size: 21px; }
   .tile.tile-2 .tile-inner {
-    background: #eee4da;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+    background: url(dan2048.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;}
   .tile.tile-4 .tile-inner {
-    background: #ede0c8;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+    background: url(aido2048.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;}
   .tile.tile-8 .tile-inner {
     color: #f9f6f2;
-    background: #f2b179; }
+    background: url(ronan2048.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;}
   .tile.tile-16 .tile-inner {
     color: #f9f6f2;
-    background: #f59563; }
+   background: url(Peterheg.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;}
   .tile.tile-32 .tile-inner {
     color: #f9f6f2;
-    background: #f67c5f; }
+    background: url(flavio3.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;} 
   .tile.tile-64 .tile-inner {
     color: #f9f6f2;
-    background: #f65e3b; }
+    background: url(moises2048.png); background-size: 91%; background-repeat: no-repeat;} 
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
-    background: #edcf72;
+    background: url(seamus2048.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -340,7 +338,7 @@ hr {
         font-size: 25px; } }
   .tile.tile-256 .tile-inner {
     color: #f9f6f2;
-    background: #edcc61;
+     background: url(frainc2048.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -348,7 +346,7 @@ hr {
         font-size: 25px; } }
   .tile.tile-512 .tile-inner {
     color: #f9f6f2;
-    background: #edc850;
+     background: url(gearoid2048.png) 70% 70%; background-size: 91%; background-repeat: no-repeat;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 45px; }
     @media screen and (max-width: 520px) {

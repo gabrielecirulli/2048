@@ -68,6 +68,59 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
+
+
+
+
+
+
+  // Respond to Leap Motion Controller swipe gestures
+  //$(document).ready(function() {
+
+    var ctl = new Leap.Controller({enableGestures: true});
+
+    var swiper = ctl.gesture('swipe');
+
+    var tolerance = 50;
+    var cooloff = 300;
+
+    var slider = _.debounce(function(xDir, yDir) {
+        var mapped = -1
+        if(yDir==-1)mapped=0;
+        else if(yDir==1)mapped=2;
+        else if(xDir==-1)mapped=3;
+        else if(xDir==1)mapped=1;
+        if (mapped != -1) {
+          self.emit("move", mapped);
+        }
+      }, cooloff);
+
+      swiper.update(function(g) {
+        if (Math.abs(g.translation()[0]) > tolerance || Math.abs(g.translation()[1]) > tolerance) {
+          var xDir = Math.abs(g.translation()[0]) > tolerance ? (g.translation()[0] > 0 ? -1 : 1) : 0;
+          var yDir = Math.abs(g.translation()[1]) > tolerance ? (g.translation()[1] < 0 ? -1 : 1) : 0;
+          /*
+          if(Math.abs(g.translation()[0])>=Math.abs(g.translation()[1])){
+            yDir=0;
+          }else{
+            xDir=0;
+          }
+          */
+          slider(xDir, yDir);
+        }
+      });
+
+      ctl.connect();
+
+  //});
+
+
+
+
+
+
+
+
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);

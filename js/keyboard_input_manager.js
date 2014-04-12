@@ -82,7 +82,7 @@ KeyboardInputManager.prototype.listen = function () {
     var swiper = ctl.gesture('swipe');
 
     var tolerance = 50;
-    var cooloff = 300;
+    var cooloff = 100;
 
     var slider = _.debounce(function(xDir, yDir) {
         var mapped = -1
@@ -96,16 +96,18 @@ KeyboardInputManager.prototype.listen = function () {
       }, cooloff);
 
       swiper.update(function(g) {
+        console.log(g.translation()[0]+"   "+g.translation()[1]);
         if (Math.abs(g.translation()[0]) > tolerance || Math.abs(g.translation()[1]) > tolerance) {
+          //alert(g.translation()[0]+"   "+g.translation()[1]);
           var xDir = Math.abs(g.translation()[0]) > tolerance ? (g.translation()[0] > 0 ? -1 : 1) : 0;
           var yDir = Math.abs(g.translation()[1]) > tolerance ? (g.translation()[1] < 0 ? -1 : 1) : 0;
-          /*
+          
           if(Math.abs(g.translation()[0])>=Math.abs(g.translation()[1])){
             yDir=0;
           }else{
             xDir=0;
           }
-          */
+          
           slider(xDir, yDir);
         }
       });

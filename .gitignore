@@ -1,3 +1,2 @@
-*.sass-cache/
 *.db
-*.png
+*/*.png

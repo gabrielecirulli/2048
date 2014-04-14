@@ -1,94 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Ardan1 Game</title>
 
-  <link href="style/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="2048 : A small clone of 1024 (https://play.google.com/store/apps/details?id=com.veewo.a1024)" />
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-</head>
-<body>
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">Ardan1 Game</h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
-      </div>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>2048</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/doozles/2048">View on GitHub</a>
+
+          <h1 id="project_title">2048</h1>
+          <h2 id="project_tagline">A small clone of 1024 (https://play.google.com/store/apps/details?id=com.veewo.a1024)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/doozles/2048/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/doozles/2048/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
 
-    <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>Paul tile!</strong></p>
-      <a class="restart-button">New Game</a>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="2048" class="anchor" href="#2048"><span class="octicon octicon-link"></span></a>2048</h1>
+
+<p>A small clone of <a href="https://play.google.com/store/apps/details?id=com.veewo.a1024">1024</a>, based on <a href="http://saming.fr/p/2048/">Saming's 2048</a> (also a clone).</p>
+
+<p>Made just for fun. <a href="http://gabrielecirulli.github.io/2048/">Play it here!</a></p>
+
+<h3>
+<a name="contributions" class="anchor" href="#contributions"><span class="octicon octicon-link"></span></a>Contributions</h3>
+
+<ul>
+<li>
+<a href="https://github.com/TimPetricola">TimPetricola</a> added best score storage</li>
+<li>
+<a href="https://github.com/chrisprice">chrisprice</a> added custom code for swipe handling on mobile</li>
+<li>
+<a href="https://github.com/elektryk">elektryk</a> made swipes work on Windows Phone</li>
+<li>
+<a href="https://github.com/mgarciaisaia">mgarciaisaia</a> addes support for Android 2.3</li>
+</ul><p>Many thanks to <a href="https://github.com/rayhaanj">rayhaanj</a>, <a href="https://github.com/Mechazawa">Mechazawa</a>, <a href="https://github.com/grant">grant</a>, <a href="https://github.com/remram44">remram44</a> and <a href="https://github.com/ghoullier">ghoullier</a> for the many other good contributions.</p>
+
+<h3>
+<a name="screenshot" class="anchor" href="#screenshot"><span class="octicon octicon-link"></span></a>Screenshot</h3>
+
+<p align="center">
+  <img src="http://pictures.gabrielecirulli.com/2048-20140309-234100.png" alt="Screenshot"></p>
+
+<p>That screenshot is fake, by the way. I never reached 2048 <img class="emoji" title=":smile:" alt=":smile:" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle"></p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into <code>master</code>! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.</p>
+
+<p>You can find the same information in the <a href="https://github.com/gabrielecirulli/2048/blob/master/CONTRIBUTING.md">contributing guide.</a></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>2048 is licensed under the <a href="https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt">MIT license.</a></p>
+
+<h2>
+<a name="donations" class="anchor" href="#donations"><span class="octicon octicon-link"></span></a>Donations</h2>
+
+<p>I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like buying me coffee, you can donate at my BTC address: <code>1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i</code>. Thank you very much!</p>
+      </section>
     </div>
 
-    <div class="game-container">
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
-        </div>
-      </div>
-
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-      </div>
-
-      <div class="tile-container">
-
-      </div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">2048 maintained by <a href="https://github.com/doozles">doozles</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
     </div>
 
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same face touch, they <strong>merge into one!</strong>
-    </p>
-    <p>
-    Created by <a href="http://ardan1.com" target="_blank">Danny Berry.</a> 
-    </p>
-  </div>
+    
 
-  <script src="js/bind_polyfill.js"></script>
-  <script src="js/classlist_polyfill.js"></script>
-  <script src="js/animframe_polyfill.js"></script>
-  <script src="js/keyboard_input_manager.js"></script>
-  <script src="js/html_actuator.js"></script>
-  <script src="js/grid.js"></script>
-  <script src="js/tile.js"></script>
-  <script src="js/local_storage_manager.js"></script>
-  <script src="js/game_manager.js"></script>
-  <script src="js/application.js"></script>
-</body>
+  </body>
 </html>

@@ -311,13 +311,11 @@ hr {
     text-align: center;
     font-weight: bold;
     z-index: 10;
-    font-size: 55px; }
+    font-size: 0px; }
   .tile.tile-2 .tile-inner {
-    /*background: #FFFFFF;*/
+    background: #FFFFFF;
     background: url('C:/Users/Lupe/Documents/GitHub/2048/tile-sets/m.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /*box-shadow: 0 0 30px 10px rgba(0,0,0, 0), inset 0 0 0 1px rgba(0,0,0, 0);*/ }
+    box-shadow: 0 0 30px 10px rgba(0,0,0, 0), inset 0 0 0 1px rgba(0,0,0, 0); }
   .tile.tile-4 .tile-inner {
     background: #FFFFFF;
     background: url('C:/Users/Lupe/Documents/GitHub/2048/tile-sets/m2.jpg');
@@ -343,7 +341,7 @@ hr {
     background: #FFFFFF;
     background: url('C:/Users/Lupe/Documents/GitHub/2048/tile-sets/m1.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
-    font-size: 45px; }
+    font-size: 0px; }
     @media screen and (max-width: 520px) {
       .tile.tile-128 .tile-inner {
         font-size: 25px; } }

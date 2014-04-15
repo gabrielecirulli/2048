@@ -2,7 +2,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #faf8ef;
+  background #faf8ef;
+  background: red; 
   color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
@@ -117,7 +118,8 @@ hr {
 
 .container {
   width: 500px;
-  margin: 0 auto; }
+  margin: 0 auto; 
+  background-color: red}
 
 @-webkit-keyframes fade-in {
   0% {
@@ -149,7 +151,7 @@ hr {
   -ms-user-select: none;
   -ms-touch-action: none;
   touch-action: none;
-  background: #bbada0;
+  background: gray;
   border-radius: 6px;
   width: 500px;
   height: 500px;
@@ -220,7 +222,7 @@ hr {
   margin-right: 15px;
   float: left;
   border-radius: 3px;
-  background: rgba(238, 228, 218, 0.35); }
+  background: black; }
   .grid-cell:last-child {
     margin-right: 0; }
 

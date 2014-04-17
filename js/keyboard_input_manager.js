@@ -68,6 +68,20 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
+  // Respond to leap gestures
+  document.addEventListener("leap-gesture", function (event) {
+    var dx = event.detail && event.detail[0] ? event.detail[0] : 0;
+    var absDx = Math.abs(dx);
+
+    var dy = event.detail && event.detail[1] ? event.detail[1] : 0;
+    var absDy = Math.abs(dy);
+
+    if (Math.max(absDx, absDy) > sensitivity) {
+      // (right : left) : (down : up)
+      self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy < 0 ? 2 : 0));
+    }
+  });
+
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);

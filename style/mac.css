@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'mac-icons-simple';
+    src: url("http://www.apple.com/v/30-years/c/fonts/icons/mac-icon-simple.eot");
+    src: url("http://www.apple.com/v/30-years/c/fonts/icons/mac-icon-simple.eot?#iefix") format("embedded-opentype"), url("http://www.apple.com/v/30-years/c/fonts/icons/mac-icon-simple.svg#mac-icon-simple") format("svg"), url("http://www.apple.com/v/30-years/c/fonts/icons/mac-icon-simple.woff") format("woff"), url("http://www.apple.com/v/30-years/c/fonts/icons/mac-icon-simple.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+html, body {
+  font-family: "Myriad Pro", "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+h1.title {
+    font-size: 56px;
+    margin-top: 8px;
+}
+
+.tile-inner.mac-tile-inner {
+    font-family: "Myriad Pro", "Helvetica Neue", Ubuntu, "Segoe UI", sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.tile-inner.mac-tile-inner p {
+    margin: 0;
+}
+
+.tile-inner.mac-tile-inner .mac-name {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.tile-inner.mac-tile-inner .mac-year {
+    font-size: 20px;
+    line-height: 20px;
+    padding-top: 9px;
+}
+
+.tile-inner.mac-tile-inner .mac-icon {
+    font-size: 60px;
+    line-height: 60px;
+    margin-top: -10px;
+    font-family: mac-icons-simple;
+}
+
+@media screen and (min-width: 520px) {
+    .tile-inner.mac-tile-inner .mac-icon.mac-1984 {
+        font-size: 64px;
+        line-height: 64px;
+        margin-top: -14px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-1991 {
+        font-size: 64px;
+        line-height: 67px;
+        margin-top: -17px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-1999 {
+        line-height: 56px;
+        margin-top: -6px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2002 {
+        font-size: 52px;
+        line-height: 46px;
+        margin-top: 4px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2006 {
+        font-size: 64px;
+        line-height: 66px;
+        margin-top: -16px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2007 {
+        font-size: 56px;
+        line-height: 48px;
+        margin-top: 2px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2008 {
+        font-size: 72px;
+        line-height: 76px;
+        margin-top: -26px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2012 {
+        font-size: 66px;
+        line-height: 66px;
+        margin-top: -24px;
+    }
+    .tile-inner.mac-tile-inner .mac-name.mac-2012 {
+        line-height: 13px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2014 {
+        font-size: 72px;
+        line-height: 70px;
+        margin-top: -20px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    h1.title {
+        font-size: 27px;
+        margin-top: 15px;
+    }
+
+    .tile-inner.mac-tile-inner {
+        font-weight: 300;
+    }
+
+    .tile-inner.mac-tile-inner .mac-year {
+        font-size: 10px;
+        line-height: 10px;
+        padding-top: 4px;
+    }
+
+    .tile-inner.mac-tile-inner .mac-icon {
+        font-size: 32px;
+        line-height: 34px;
+        margin-top: -4px;
+        font-family: mac-icons-simple;
+    }
+
+    .tile-inner.mac-tile-inner .mac-name {
+        margin-top: 1px;
+        font-size: 8px;
+    }
+
+    .tile-inner.mac-tile-inner .mac-icon.mac-2000 {
+        font-size: 36px;
+        line-height: 37px;
+        margin-top: -7px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-1991 {
+        line-height: 36px;
+        margin-top: -6px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2002 {
+        font-size: 29px;
+        line-height: 29px;
+        margin-top: 1px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2006 {
+        font-size: 34px;
+        line-height: 40px;
+        margin-top: -10px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2007 {
+        font-size: 29px;
+        line-height: 28px;
+        margin-top: 2px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2008 {
+        font-size: 36px;
+        line-height: 42px;
+        margin-top: -12px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2012 {
+        font-size: 36px;
+        line-height: 42px;
+        margin-top: -16px;
+    }
+    .tile-inner.mac-tile-inner .mac-name.mac-2012 {
+        font-size: 7px;
+        line-height: 8px;
+    }
+    .tile-inner.mac-tile-inner .mac-icon.mac-2014 {
+        font-size: 38px;
+        line-height: 42px;
+        margin-top: -12px;
+    }
+}

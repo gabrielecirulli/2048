@@ -67,7 +67,17 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  inner.classList.add("mac-tile-inner");
+  var mac_years = [null, '1984', '1991', '1998', '1999', '2000', '2002', '2006', '2007', '2008', '2012', '2014'];
+  var mac_icons = [null, '', '', '', '', '', '', '', '', '', '', ''];
+  var mac_names = [null, 'Macintosh', 'PowerBook', 'iMac', 'Power Mac G4', 'iBook', 'iMac','MacBook Pro', 'iMac', 'MacBook Air', 'MacBook Pro with Retina Display', 'Mac Pro']
+  inner.innerHTML = function(n) {
+    var level;
+    for (level = 0; n > 1; ++level, n >>= 1);
+    return '<p class="mac-year">' + mac_years[level] + '</p>' +
+      '<p class="mac-icon mac-' + mac_years[level] + '">' + mac_icons[level] + '</p>' +
+      '<p class="mac-name mac-' + mac_years[level] + '">' + mac_names[level] + '</p>';
+  } (tile.value);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -131,7 +141,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "You win a Mac Pro!" : "Game over!";
 
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "end", type, this.score);
@@ -155,13 +165,13 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   var tweet = document.createElement("a");
   tweet.classList.add("twitter-share-button");
   tweet.setAttribute("href", "https://twitter.com/share");
-  tweet.setAttribute("data-via", "gabrielecirulli");
-  tweet.setAttribute("data-url", "http://git.io/2048");
-  tweet.setAttribute("data-counturl", "http://gabrielecirulli.github.io/2048/");
+  tweet.setAttribute("data-via", "xhacker");
+  tweet.setAttribute("data-url", "http://blog.xhacker.im/2048-Mac/");
+  tweet.setAttribute("data-counturl", "http://blog.xhacker.im/2048-Mac/");
   tweet.textContent = "Tweet";
 
-  var text = "I scored " + this.score + " points at 2048, a game where you " +
-             "join numbers to score high! #2048game";
+  var text = "I scored " + this.score + " points at 2048-Mac, a game where you " +
+             "can finally get a Mac Pro! #2048game";
   tweet.setAttribute("data-text", text);
 
   return tweet;

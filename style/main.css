@@ -103,7 +103,10 @@ h1.title {
   content: "Next Tile"; }
 
 .pause-container:after {
-  content: "|| \25BA"; }
+  content: "PAUSE"; }
+  
+.pause-container.paused:after {
+  content: "PLAY"; }
 
 .pause-container {
     background-color: #E6B978;

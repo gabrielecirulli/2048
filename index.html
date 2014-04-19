@@ -25,7 +25,7 @@
     <div class="heading">
       <h1 class="title">2048-Tetris</h1>
       <div class="scores-container">
-        <div class="pause-container" onclick="pause();" id = "Pause">||</div>
+        <div class="pause-container" onclick="pause();" id = "Pause" title="Spacebar">||</div>
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
@@ -139,9 +139,11 @@
     if(elem.innerHTML == "||") {
      window.clearTimeout(window.autoFall);
       elem.innerHTML = "&#9658;";
+      elem.setAttribute('class','pause-container paused');
     } else {
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
       elem.innerHTML = "||";
+      elem.setAttribute('class','pause-container');
     }
   }
 

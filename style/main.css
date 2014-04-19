@@ -20,7 +20,8 @@ h1.title {
   margin: 0;
   display: block;
   font-size: 28px;
-  float: left; }
+  float: left;
+  margin-top: 12px; }
 
 @-webkit-keyframes move-up {
   0% {
@@ -118,6 +119,21 @@ h1.title {
     width: 25px; 
     float: right;
     display: block; }
+
+.levels-container {
+	float:left;
+	font-size: 10px;
+	cursor: default; }
+
+.levels-container input[type="radio"] {
+	margin: 0 0 4px 2px; }
+
+.levels-container label {
+	margin-right: 6px; }
+
+.levels-container input[type="radio"], .levels-container label {
+	vertical-align: middle;
+	cursor: pointer; }
 
 p {
   margin-top: 0;

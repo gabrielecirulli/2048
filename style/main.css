@@ -220,7 +220,8 @@ hr {
   margin-right: 15px;
   float: left;
   border-radius: 3px;
-  background: rgba(238, 228, 218, 0.35); }
+  background: rgba(238, 228, 218, 0.35) url(images/staff.svg) center center no-repeat;
+  background-size: cover; }
   .grid-cell:last-child {
     margin-right: 0; }
 
@@ -622,7 +623,8 @@ hr {
     margin-right: 10px;
     float: left;
     border-radius: 3px;
-    background: rgba(238, 228, 218, 0.35); }
+    background: rgba(238, 228, 218, 0.35) url(images/staff.svg) center center no-repeat;
+    background-size: cover; }
     .grid-cell:last-child {
       margin-right: 0; }
 

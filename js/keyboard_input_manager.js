@@ -65,6 +65,7 @@ KeyboardInputManager.prototype.listen = function () {
       }
 
       if (event.which === 32) self.restart.bind(self)(event);
+      if (event.which === 80) pause();
     }
   }
 

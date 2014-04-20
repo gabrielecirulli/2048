@@ -25,17 +25,17 @@
     <div class="heading">
       <h1 class="title">2048-Tetris</h1>
       <div class="scores-container">
-        <div class="pause-container" onclick="pause();" id = "Pause">||</div>
+        <div class="pause-container" onclick="pause();" id = "Pause" title="Spacebar">||</div>
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
-      <div style="float:left; font-size: 10px">
+      <div class="levels-container">
         <input type="radio" onclick="setLevel(0)" value="Easy" name="level" id="levele">
         <label for="levele">Easy</label>
         <input type="radio" onclick="setLevel(1)" value="Medium" name="level" id="levelm" checked>
         <label for="levelm">Medium</label>
         <input type="radio" onclick="setLevel(2)" value="Hard" name="level" id="levelh">
-        <label for="levelm">Hard</label>
+        <label for="levelh">Hard</label>
       </div>
         <!-- <input type="button" style="margin:10px" onclick="pause();" value="Pause" id="Pause"> -->
     </div>
@@ -139,9 +139,11 @@
     if(elem.innerHTML == "||") {
      window.clearTimeout(window.autoFall);
       elem.innerHTML = "&#9658;";
+      elem.setAttribute('class','pause-container paused');
     } else {
       window.autoFall = setTimeout(function(){window.moveObj.move(4);}, window.timeOut);
       elem.innerHTML = "||";
+      elem.setAttribute('class','pause-container');
     }
   }
 

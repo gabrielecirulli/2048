@@ -316,17 +316,17 @@ hr {
   .tile.tile-2 .tile-inner {
     background: #eee4da;
     color: #f9f6f2;
-    background: url('../tile-sets/joanesburgos/2.jpg');
+    background: url('../tile-sets/joanesburgos/2.JPG');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 .tile-inner {
     background: #ede0c8;
     color: #f9f6f2;
-    background: url('../tile-sets/joanesburgos/4.jpg');
+    background: url('../tile-sets/joanesburgos/4.JPG');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-8 .tile-inner {
     color: #f9f6f2;
     background: #f2b179;
-    background: url('../tile-sets/joanesburgos/8.jpg'); }
+    background: url('../tile-sets/joanesburgos/8.JPG'); }
   .tile.tile-16 .tile-inner {
     color: #f9f6f2;
     background: #f59563; 
@@ -369,7 +369,7 @@ hr {
   .tile.tile-1024 .tile-inner {
     color: #f9f6f2;
     background: #edc53f;
-    background: url('../tile-sets/joanesburgos/1024.jpg');
+    background: url('../tile-sets/joanesburgos/1024.JPG');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 35px; }
     @media screen and (max-width: 520px) {

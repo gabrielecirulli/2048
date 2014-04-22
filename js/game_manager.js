@@ -66,13 +66,10 @@ GameManager.prototype.move = function(direction) {
   var result = this.grid.move(direction);
   this.score += result.score;
 
-  if (!result.won) {
-    if (result.moved) {
-      this.grid.computerMove();
-    }
-  } else {
-    this.won = true;
-  }
+
+	if (result.moved) {
+	  this.grid.computerMove();
+	}
 
   //console.log(this.grid.valueSum());
 
@@ -88,10 +85,8 @@ GameManager.prototype.run = function() {
   var best = this.ai.getBest();
   this.move(best.move);
   var timeout = animationDelay;
-  if (this.running && !this.over && !this.won) {
-    var self = this;
-    setTimeout(function(){
-      self.run();
-    }, timeout);
-  }
+  var self = this;
+  setTimeout(function(){
+    self.run();
+  }, timeout);
 }

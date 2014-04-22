@@ -1,9 +1,9 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 500px;
+$field-width: 600px;
 $grid-spacing: 15px;
-$grid-row-cells: 4;
+$grid-row-cells: 5;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
 
@@ -335,18 +335,24 @@ hr {
   $exponent: 1;
   $limit: 11;
 
-  // Colors for all 11 states, false = no special color
+  // Colors for all 11/17 states, false = no special color
   $special-colors: false false, // 2
                    false false, // 4
                    #f78e48 true, // 8
                    #fc5e2e true, // 16
                    #ff3333 true, // 32
                    #ff0000 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+                   #edcf72 true, // 128
+                   #edcc61 true, // 256
+                   #edc850 true, // 512
+                   #edc53f true, // 1024
+                   #edc22e true, // 2048
+                   false true, // 4096
+                   false true, // 8192
+                   false true, // 16384
+                   false true, // 32768
+                   false true, // 65536
+                   false true; // 131072
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -355,6 +361,7 @@ hr {
     &.tile-#{$power} .tile-inner {
       // Calculate base background color
       $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+
       $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
 
       $nth-color: nth($special-colors, $exponent);

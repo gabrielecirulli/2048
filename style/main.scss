@@ -752,7 +752,7 @@ hr {
   }
 
   // Styles for small screens
-  @include smaller(480px) {
+  @include smaller($mobile-threshold) {
     width: 120px;
 
     .address {
@@ -769,5 +769,78 @@ hr {
         bottom: 2px;
       }
     }
+  }
+}
+
+@include keyframes(pop-in-big) {
+  0% {
+    @include transform(scale(0) translateZ(0));
+    opacity: 0;
+    margin-top: -56px;
+  }
+
+  100% {
+    @include transform(scale(1) translateZ(0));
+    opacity: 1;
+    margin-top: 30px;
+  }
+}
+
+@include keyframes(pop-in-small) {
+  0% {
+    @include transform(scale(0) translateZ(0));
+    opacity: 0;
+    margin-top: -76px;
+  }
+
+  100% {
+    @include transform(scale(1) translateZ(0));
+    opacity: 1;
+    margin-top: 10px;
+  }
+}
+
+.app-notice {
+  position: relative;
+  @include animation(pop-in-big 700ms ease 2s both);
+  background: #edc53f;
+  color: white;
+  padding: 18px;
+  margin-top: 30px;
+  height: 56px;
+  box-sizing: border-box;
+  border-radius: $tile-border-radius;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .notice-close-button {
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.7;
+  }
+
+  p {
+    margin-bottom: 0;
+    // float: left;
+  }
+
+  &, p {
+    line-height: 20px;
+  }
+
+  a {
+    color: white;
+  }
+
+  @include smaller($mobile-threshold) {
+    @include animation(pop-in-small 700ms ease 2s both);
+    margin-top: 10px;
+    height: 76px;
   }
 }

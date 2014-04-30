@@ -3,7 +3,7 @@ CACHE MANIFEST
 # Adds the ability to play the game online.
 # The following comment needs to be updated whenever a change is made.
 # Run `rake appcache:update` to do so
-# Updated: 2014-04-28T12:49:34+02:00
+# Updated: 2014-04-30T13:29:03+02:00
 
 # Main page
 index.html

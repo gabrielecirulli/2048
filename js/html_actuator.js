@@ -25,6 +25,9 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateBestScore(metadata.bestScore);
 
     if (metadata.terminated) {
+        // when last move get a 2048 tile and couldn't find next move,
+        // metadata.over and metadata.won are both set to true
+        //
       if (metadata.over) {
         self.message(false); // You lose
       } else if (metadata.won) {

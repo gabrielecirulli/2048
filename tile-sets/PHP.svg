@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="300"
+   height="159"
+   viewBox="0 0 300 160"
+   id="svg2943">
+  <defs
+     id="defs2945">
+    <linearGradient
+       x1="150"
+       y1="84"
+       x2="299"
+       y2="84"
+       id="linearGradient3798"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3800"
+         style="stop-color:#dddce9;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3802"
+         style="stop-color:#5664a3;stop-opacity:1"
+         offset="0.37" />
+      <stop
+         id="stop3804"
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       cx="77.914261"
+       cy="-48.544521"
+       r="146"
+       fx="77.914261"
+       fy="-48.544521"
+       id="radialGradient3870"
+       xlink:href="#linearGradient3798"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5089497,0,0,1.3582164,-39.028917,76.957747)" />
+  </defs>
+  <ellipse
+     cx="150"
+     cy="80"
+     rx="146"
+     ry="76"
+     id="ellipse3860"
+     style="fill:#6c7eb7;stroke:url(#radialGradient3870);stroke-width:5.5" />
+  <path
+     d="m 45,125 16,-81 37,0 c 16,1 24,9 24,23 0,24 -19,38 -36,37 l -18,0 -4,21 -19,0 z m 27,-36 5,-30 13,0 c 7,0 12,3 12,9 -1,17 -9,20 -18,21 l -12,0 z"
+     id="p"
+     style="fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linejoin:round" />
+  <path
+     d="m 116,104 16,-81 19,0 -4,21 18,0 c 16,1 22,9 20,19 l -7,41 -20,0 7,-37 c 1,-5 1,-8 -6,-8 l -15,0 -9,45 -19,0 z"
+     id="h"
+     style="stroke:#ffffff;stroke-width:2;stroke-linejoin:round" />
+  <use
+     transform="translate(134,0)"
+     id="p2"
+     xlink:href="#p" />
+</svg>

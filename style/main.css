@@ -228,7 +228,6 @@ hr {
   position: absolute;
   z-index: 2; }
 
-/* tile*/
 .tile, .tile .tile-inner {
   width: 107px;
   height: 107px;

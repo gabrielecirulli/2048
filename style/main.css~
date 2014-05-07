@@ -418,7 +418,7 @@ hr {
     background-image: url(../assets/img/2048.png);
   }
   .tile.tile-super .tile-inner {
-    background-image: url(../assets/img/super.png);
+    
   }
 
 @-webkit-keyframes appear {

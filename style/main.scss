@@ -203,6 +203,11 @@ hr {
       left: 0;
       background: rgba($tile-color, .5);
       z-index: 100;
+      -webkit-filter: blur(20px);
+      -moz-filter: blur(20px);
+      -o-filter: blur(20px);
+      -ms-filter: blur(20px);
+      filter: blur(20px);
 
       text-align: center;
 

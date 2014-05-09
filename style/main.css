@@ -16,7 +16,7 @@ body {
   clear: both; }
 
 h1.title {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
   margin: 0;
   display: block;
@@ -96,6 +96,7 @@ h1.title {
   content: "Best"; }
 
 p {
+  font-size: 35px;
   margin-top: 0;
   margin-bottom: 10px;
   line-height: 1.65; }
@@ -150,7 +151,7 @@ hr {
   -ms-touch-action: none;
   touch-action: none;
   background: #bbada0;
-  border-radius: 6px;
+  border-radius: 16px;
   width: 500px;
   height: 500px;
   -webkit-box-sizing: border-box;
@@ -219,7 +220,7 @@ hr {
   height: 106.25px;
   margin-right: 15px;
   float: left;
-  border-radius: 3px;
+  border-radius: 15px;
   background: rgba(238, 228, 218, 0.35); }
   .grid-cell:last-child {
     margin-right: 0; }
@@ -306,7 +307,7 @@ hr {
   -moz-transition-property: -moz-transform;
   transition-property: transform; }
   .tile .tile-inner {
-    border-radius: 3px;
+    border-radius: 15px;
     background: #eee4da;
     text-align: center;
     font-weight: bold;
@@ -488,6 +489,7 @@ hr {
 
 .restart-button {
   display: inline-block;
+  margin:5px;
   background: #8f7a66;
   border-radius: 3px;
   padding: 0 20px;
@@ -500,7 +502,17 @@ hr {
   float: right; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 50px; 
+  font-size: 10px;
+  height: 380px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('././images/3.jpg');
+  opacity: 0.8;
+  background-size: contain;
+  border-radius: 10px;
+}
+
 
 @media screen and (max-width: 520px) {
   html, body {
@@ -552,7 +564,7 @@ hr {
     -ms-touch-action: none;
     touch-action: none;
     background: #bbada0;
-    border-radius: 6px;
+    border-radius: 10px;
     width: 280px;
     height: 280px;
     -webkit-box-sizing: border-box;
@@ -586,7 +598,7 @@ hr {
       .game-container .game-message a {
         display: inline-block;
         background: #8f7a66;
-        border-radius: 3px;
+        border-radius: 15px;
         padding: 0 20px;
         text-decoration: none;
         color: #f9f6f2;
@@ -621,7 +633,7 @@ hr {
     height: 57.5px;
     margin-right: 10px;
     float: left;
-    border-radius: 3px;
+    border-radius: 15px;
     background: rgba(238, 228, 218, 0.35); }
     .grid-cell:last-child {
       margin-right: 0; }

@@ -503,14 +503,15 @@ hr {
 
 .game-explanation {
   margin-top: 50px; 
-  font-size: 10px;
-  height: 380px;
+  font-size: 20px;
+  height: 500px;
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url('././images/3.jpg');
-  opacity: 0.8;
+  opacity: 0.9;
   background-size: contain;
   border-radius: 10px;
+  background-position:0px,0px,0px,50px;
 }
 
 

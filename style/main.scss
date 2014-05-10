@@ -16,6 +16,7 @@ $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
+$game-container-margin-top: 40px;
 $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
@@ -34,10 +35,8 @@ body {
   margin: 80px 0;
 }
 
-.heading:after {
-  content: "";
-  display: block;
-  clear: both;
+.heading {
+  @include clearfix;
 }
 
 h1.title {
@@ -171,14 +170,20 @@ hr {
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
-    margin-top: 40px;
+    margin-top: $game-container-margin-top;
     position: relative;
     padding: $grid-spacing;
 
     cursor: default;
     -webkit-touch-callout: none;
+    -ms-touch-callout: none;
+
     -webkit-user-select: none;
     -moz-user-select: none;
+    -ms-user-select: none;
+
+    -ms-touch-action: none;
+    touch-action: none;
 
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;
@@ -446,8 +451,21 @@ hr {
   @include animation-fill-mode(backwards);
 }
 
+.above-game {
+  @include clearfix;
+}
+
 .game-intro {
+  float: left;
+  line-height: 42px;
   margin-bottom: 0;
+}
+
+.restart-button {
+  @include button;
+  display: block;
+  text-align: center;
+  float: right;
 }
 
 .game-explanation {
@@ -461,6 +479,7 @@ hr {
   $grid-row-cells: 4;
   $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
   $tile-border-radius: 3px;
+  $game-container-margin-top: 17px;
 
   html, body {
     font-size: 15px;
@@ -491,12 +510,24 @@ hr {
     margin-bottom: 10px;
   }
 
+  // Show intro and restart button side by side
+  .game-intro {
+    width: 55%;
+    display: block;
+    box-sizing: border-box;
+    line-height: 1.65;
+  }
+
+  .restart-button {
+    width: 42%;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 2px;
+  }
+
   // Render the game field at the right width
   @include game-field;
-
-  .game-container {
-    margin-top: 20px;
-  }
 
   // Rest of the font-size adjustments in the tile class
   .tile .tile-inner {

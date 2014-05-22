@@ -69,6 +69,10 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers && event.which === 82) {
       self.restart.call(self, event);
     }
+
+    if (!modifiers && event.which === 84) {
+      self.setup.call(self, event);
+    }
   });
 
   // Respond to button presses
@@ -135,6 +139,11 @@ KeyboardInputManager.prototype.listen = function () {
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
+};
+
+KeyboardInputManager.prototype.setup = function (event) {
+  event.preventDefault();
+  this.emit("setup");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {

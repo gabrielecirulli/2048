@@ -65,14 +65,15 @@ KeyboardInputManager.prototype.listen = function () {
       }
     }
 
-    // R key restarts the game
-    if (!modifiers && event.which === 82) {
+    // Z key restarts the game
+    if (!modifiers && event.which === 90) {
       self.restart.call(self, event);
     }
 
     // T key restores the game state before last move
     if (!modifiers && event.which === 84) {
-      self.restart.call(self, event);
+      console.log("pressing T");
+      self.setup.call(self, event);
     }
   });
 

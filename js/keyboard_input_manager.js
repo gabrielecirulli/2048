@@ -70,7 +70,9 @@ KeyboardInputManager.prototype.listen = function () {
       self.restart.call(self, event);
     }
 
+    // T key restores the game state before last move
     if (!modifiers && event.which === 84) {
+      console.log("pressing T");
       self.setup.call(self, event);
     }
   });
@@ -143,6 +145,7 @@ KeyboardInputManager.prototype.restart = function (event) {
 
 KeyboardInputManager.prototype.setup = function (event) {
   event.preventDefault();
+  console.log("emitting restoring request");
   this.emit("setup");
 };
 

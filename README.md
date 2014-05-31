@@ -9,6 +9,10 @@ Currently, it adapts the search depth according to the highest cell and the numb
 
 So far it has solved the puzzle (up to the 2048 cell) a number of times, reaching the 4096 block once (search depth of 7).
 
+TODOs:
+ - Add button to start AI
+ - Improve AI
+
 # 2048
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 

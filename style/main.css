@@ -454,9 +454,9 @@ hr {
   -moz-transform: translate(570px, 570px);
   transform: translate(570px, 570px); }
 .tile.tile-position-7-8 {
-  -webkit-transform: translate(665px, 665px);
-  -moz-transform: translate(665px, 665px);
-  transform: translate(665px, 665px); }
+  -webkit-transform: translate(570px, 665px);
+  -moz-transform: translate(570px, 665px);
+  transform: translate(570px, 665px); }
   .tile.tile-position-8-1 {
   -webkit-transform: translate(665px, 0px);
   -moz-transform: translate(665px, 0px);

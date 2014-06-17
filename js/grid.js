@@ -29,7 +29,6 @@ Grid.prototype.fromState = function (state) {
       row.push(tile ? new Tile(tile.position, tile.value) : null);
     }
   }
-
   return cells;
 };
 

@@ -3,8 +3,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
-  //boolean needsDelete = false;
-  this.startTiles     = 2;
+  this.startTiles     = 4;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -192,8 +191,7 @@ GameManager.prototype.move = function (direction) {
     this.addRandomTile();
     this.addRandomTile();
     this.addRandomTile();
-
-
+   
     if (!this.movesAvailable()) {
       this.over = true; // Game over!
     }

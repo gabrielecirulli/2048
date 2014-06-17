@@ -89,6 +89,30 @@ Grid.prototype.cellContent = function (cell) {
 Grid.prototype.insertTile = function (tile) {
   this.cells[tile.x][tile.y] = tile;
 };
+//deletes the highest tile
+Grid.prototype.highestTile = function(){
+  window.console.log("in high tile");
+   cell = { x: 4, y: 0};
+    var theTile = this.cellContent(cell);
+    window.console.log(theTile);
+  //var maxTile = this.cells[0][0];
+  //window.console.log(max);
+  //var max = maxTile.value;
+  
+   var row = 0;
+   var col = 0;
+  // for(var i = 0; i < this.size; i++){
+  //   for(var j = 0; j<this.size; j++){
+  //    if(max < this.cells[i][j].value){
+  //     max = this.cells[i][j].value;
+  //     row = i;
+  //     col = j;
+  //    }
+  //   }
+  // }
+  //removeTile(this.cells[row][col]);
+  return theTile;
+}
 
 Grid.prototype.removeTile = function (tile) {
   this.cells[tile.x][tile.y] = null;

@@ -71,7 +71,6 @@ GameManager.prototype.addRandomTile = function () {
     var value = Math.random();
     value *= initialTile.length
     value = Math.floor(value);
-    //var value = Math.random() < 0.9 ? 2 : 4;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
 
@@ -129,10 +128,6 @@ GameManager.prototype.moveTile = function (tile, cell) {
   this.grid.cells[cell.x][cell.y] = tile;
   tile.updatePosition(cell);
 };
-
-// GameManager.prototype.timedDelete = function(){
-
-// }
 
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {

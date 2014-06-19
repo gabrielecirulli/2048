@@ -320,7 +320,7 @@ hr {
   .tile.tile-4 .tile-inner {
     background: #ede0c8;
     background: url('../tile-sets/mar.jpg');
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); 
+    box-shadow: 0 0 31px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); 
     font-size: 2px;}
   .tile.tile-8 .tile-inner {
     color: #f9f6f2;
@@ -337,7 +337,7 @@ hr {
     background: #f67c5f; 
     background: url('../tile-sets/el.jpg');
     font-size: 2px;}
-  .tile.tile-64 .tile-inner {
+  .tile.tile-64  .tile-inner {
     color: #f9f6f2;
     background: #f65e3b;
     background: url('../tile-sets/p.jpg');

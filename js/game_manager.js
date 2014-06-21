@@ -7,6 +7,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
+  this.inputManager.on("rotate", this.rotate.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
@@ -125,6 +126,53 @@ GameManager.prototype.moveTile = function (tile, cell) {
   this.grid.cells[cell.x][cell.y] = tile;
   tile.updatePosition(cell);
 };
+
+// Update grid cell with passed tile
+GameManager.prototype.updateCell = function (tile, cell) {
+  this.grid.cells[cell.x][cell.y] = tile;
+
+  if(tile){
+    tile.updatePosition(cell);
+  }
+};
+
+// Rotate the grid in the specified direction
+GameManager.prototype.rotate = function (direction) {
+  if (this.isGameTerminated()) return; // Don't do anything if the game's over  
+
+  // Save the current tile positions and remove merger information
+  this.prepareTiles();
+
+  // rotate the grid
+  for(var i = 0; i < Math.floor(this.size / 2); i++){
+    for(var j = i; j < this.size - i - 1; j++){
+      // get the cells to swap
+      var cells = [
+        { x: j, y: i },
+        { x: this.size - i - 1, y: j },
+        { x: this.size - j - 1, y: this.size - i - 1 },
+        { x: i, y: this.size - j - 1 }
+      ];
+
+      // if rotate right, reverse the cells
+      if(direction === 1) cells.reverse();
+
+      // save the first tile so it is not overwritten
+      var tmp = this.grid.cellContent(cells[0]);
+
+      for(var k = 1; k < cells.length; k++){
+        var tile = this.grid.cellContent(cells[k]);
+
+        // move the tile to its now position
+        this.updateCell(tile, cells[k-1]);
+      }
+
+      this.updateCell(tmp, cells[cells.length - 1]);
+    }
+  }
+
+  this.actuate();
+}
 
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {

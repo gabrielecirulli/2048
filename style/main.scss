@@ -21,6 +21,8 @@ $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
 
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -33,6 +35,64 @@ html, body {
 
 body {
   margin: 80px 0;
+}
+
+.sc1{
+  background: #faf8ef !important;
+  color: #776e65 !important;
+
+  .score-container, .best-container{
+    background: #bbada0 !important;
+  }
+
+}
+
+.sc2{
+  background: #6e6e6e !important;
+  color: #ff5a09!important;
+
+
+  .score-container, .best-container{
+    background: #ff9900 !important;
+  }
+
+
+  .restart-button, .game-message{
+    background: #393939 !important;
+  }
+}
+
+.sc3{
+  background: #48d89b !important;
+  color: #ddb4c7 !important;
+
+
+  .score-container, .best-container{
+    background: #E4FF0B !important;
+  }
+
+  .menu{
+    background-color: rgba(200, 174, 165, 0.901961);;
+  }
+
+  .restart-button, .game-message{
+    background: #52AFE0 !important;
+  }
+}
+
+.sc4{
+  background: #F7B900 !important;
+  color: #578637!important;
+
+
+  .score-container, .best-container{
+    background: #2E7ECF !important;
+  }
+
+
+  .restart-button, .game-message{
+    background: #FF1F00 !important;
+  }
 }
 
 .heading {
@@ -453,6 +513,73 @@ hr {
 
 .above-game {
   @include clearfix;
+  position: relative;
+
+  .settings{
+    height: 30px;
+    width: 30px;
+    background-image: url(settings.png);
+    background-size: cover;
+    position:absolute;
+    bottom: -35px;
+    right: 30px;
+    border-radius: 9px
+  }
+}
+
+.menu{
+  background-color: rgba( 224, 200, 190, .9 );
+  border:5px solid #776e65;
+  border-radius: 6px;
+  position: absolute;
+  padding: 20px;
+  z-index: 10;
+  width: 30%;
+  top: 20%;
+  left: 33%;
+  opacity: 0;
+
+  .scharrowdown{
+    display: none;
+  }
+
+  p{
+    margin-left: 41%;
+  }
+
+
+  li{
+    list-style: square;
+    margin-bottom: 5px;
+    display:none;
+  }
+
+  .close{
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    background-color: #776e65;
+    border-color: #776e65;
+    border-radius:4px;
+  }
+}
+
+.rotate{
+  transform:rotateY(90deg);
+-ms-transform:rotateY(90deg); 
+-webkit-transform:rotateY(90deg);
+}
+
+.show2{
+  opacity: 1!important;
+  display: inline-block !important;
+}
+
+.show{
+  opacity: 1!important;
+  display: block !important;
+}
+
+.hide{
+  display: none !important;
 }
 
 .game-intro {
@@ -484,6 +611,8 @@ hr {
   html, body {
     font-size: 15px;
   }
+
+
 
   body {
     margin: 20px 0;

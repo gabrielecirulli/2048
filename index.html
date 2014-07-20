@@ -8,28 +8,42 @@
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
   <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->  
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
   <div class="container">
-    <div class="heading">
-      <h1 class="title">2048</h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
+      <div class="heading">
+        <h1 class="title">2048</h1>
+        <div class="scores-container">
+          <div class="score-container">0</div>
+          <div class="best-container">0</div>
+        </div>
       </div>
-    </div>
 
-    <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
-    </div>
+      <div class="above-game">
+        <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+        <a class="restart-button">New Game</a>
+        <button class="settings"></button>
+      </div>
+
+      <div class="modal menu">
+          <p><b>Settings</b></p>
+          <span class="scheme min"><i class="scharrowright">»</i><i class="scharrowdown">▼</i>Color Schemes</span>
+            <ul>
+              <li class="scheme1 colorops">Original</li>
+              <li class="scheme2 colorops">Midnight Flare</li>
+              <li class="scheme3 colorops">Neon</li>
+              <li class="scheme4 colorops">Poppies</li>
+            </ul>
+            <button class="close">Close</button>
+      </div>
+
 
     <div class="game-container">
       <div class="game-message">
@@ -84,7 +98,7 @@
     Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
     </p>
   </div>
-
+  <script src="js/settings_box.js"></script>
   <script src="js/bind_polyfill.js"></script>
   <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>

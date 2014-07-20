@@ -1,0 +1,8 @@
+$(function(){
+
+	$('.settings').clicked	(function() {
+	 $('.menu').addClass('show');
+	});
+
+
+});

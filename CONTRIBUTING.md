@@ -27,7 +27,7 @@ We have to be conservative with the core game. This means that some modification
  - Changes to the grid size
 
 ### Changes that are welcome
- - Bug fixes
+ - Bug fixes 
  - Compatibility improvements
  - "Under the hood" enhancements
  - Small changes that don't have an impact on the core gameplay

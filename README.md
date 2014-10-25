@@ -11,16 +11,15 @@ The official app can also be found on the [Play Store](https://play.google.com/s
  - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile
  - [elektryk](https://github.com/elektryk) made swipes work on Windows Phone
  - [mgarciaisaia](https://github.com/mgarciaisaia) added support for Android 2.3
+ - [luis140219](https://github.com/luis140219) removed fake screenshot from this file
 
 Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://github.com/Mechazawa), [grant](https://github.com/grant), [remram44](https://github.com/remram44) and [ghoullier](https://github.com/ghoullier) for the many other good contributions.
 
 ### Screenshot
 
 <p align="center">
-  <img src="http://pictures.gabrielecirulli.com/2048-20140309-234100.png" alt="Screenshot"/>
+  <img src="https://cloud.githubusercontent.com/assets/8597264/4472374/9c1cf766-4946-11e4-8959-a851d587f0b8.PNG" alt="Screenshot"/>
 </p>
-
-That screenshot is fake, by the way. I never reached 2048 :smile:
 
 ## Contributing
 Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.

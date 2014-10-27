@@ -18,7 +18,7 @@ Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://gith
 ### Screenshot
 
 <p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/8597264/4472374/9c1cf766-4946-11e4-8959-a851d587f0b8.PNG" alt="Screenshot"/>
+  <img src="https://cloud.githubusercontent.com/assets/3494358/4783815/fb2ea8b8-5d36-11e4-91ac-0c0acc09e82e.png" alt="Screenshot"/>
 </p>
 
 ## Contributing

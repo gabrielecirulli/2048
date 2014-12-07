@@ -7,6 +7,10 @@ The official app can also be found on the [Play Store](https://play.google.com/s
 
 ### Contributions
 
+[Anna Harren](https://github.com/iirelu/) and [sigod](https://github.com/sigod) are maintainers for this repository.
+
+Other notable contributors:
+
  - [TimPetricola](https://github.com/TimPetricola) added best score storage
  - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile
  - [elektryk](https://github.com/elektryk) made swipes work on Windows Phone

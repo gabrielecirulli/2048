@@ -1,0 +1,47 @@
+CACHE MANIFEST
+
+# Adds the ability to play the game online.
+# The following comment needs to be updated whenever a change is made.
+# Run `rake appcache:update` to do so
+# Updated: 2014-03-27T17:09:22+01:00
+
+# Main page
+index.html
+
+# CSS
+style/main.css
+
+# Fonts
+style/fonts/clear-sans.css
+style/fonts/ClearSans-Bold-webfont.eot
+style/fonts/ClearSans-Bold-webfont.svg
+style/fonts/ClearSans-Bold-webfont.woff
+style/fonts/ClearSans-Light-webfont.eot
+style/fonts/ClearSans-Light-webfont.svg
+style/fonts/ClearSans-Light-webfont.woff
+style/fonts/ClearSans-Regular-webfont.eot
+style/fonts/ClearSans-Regular-webfont.svg
+style/fonts/ClearSans-Regular-webfont.woff
+
+# Other resources
+meta/apple-touch-icon.png
+meta/icon_bitcoin.svg
+meta/icon_pp.svg
+meta/og_image.png
+
+# JavaScript
+js/animframe_polyfill.js
+js/application.js
+js/bind_polyfill.js
+js/classlist_polyfill.js
+js/game_manager.js
+js/grid.js
+js/html_actuator.js
+js/keyboard_input_manager.js
+js/local_storage_manager.js
+js/tile.js
+
+favicon.ico
+
+NETWORK:
+*

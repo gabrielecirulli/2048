@@ -3,8 +3,10 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.movesContainer   = document.querySelector(".moves-container");
 
   this.score = 0;
+  this.moves=[0,0,0,0];
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -22,8 +24,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     });
 
     self.updateScore(metadata.score);
-    self.updateBestScore(metadata.bestScore);
-
+    self.updateBestScore(metadata.bestScore,metadata.bestMoves);
+    self.updateMoves(metadata.moves);
     if (metadata.terminated) {
       if (metadata.over) {
         self.message(false); // You lose
@@ -102,7 +104,18 @@ HTMLActuator.prototype.positionClass = function (position) {
   position = this.normalizePosition(position);
   return "tile-position-" + position.x + "-" + position.y;
 };
-
+/********************************************************************************************************************************/
+HTMLActuator.prototype.updateMoves=function (moves) {
+	//this.clearContainer(this.movesContainer);
+	this.moves=moves;
+	var tot=moves[0]+moves[1]+moves[2]+moves[3];
+	this.movesContainer.children[0].children[4].textContent=tot;
+	this.movesContainer.children[0].children[0].style.opacity=moves[0]/tot;
+	this.movesContainer.children[0].children[1].style.opacity=moves[1]/tot;
+	this.movesContainer.children[0].children[2].style.opacity=moves[2]/tot;
+	this.movesContainer.children[0].children[3].style.opacity=moves[3]/tot;
+} 
+/***********************************************************************************************************************************/
 HTMLActuator.prototype.updateScore = function (score) {
   this.clearContainer(this.scoreContainer);
 
@@ -120,8 +133,18 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 };
 
-HTMLActuator.prototype.updateBestScore = function (bestScore) {
+HTMLActuator.prototype.updateBestScore = function (bestScore,bestMoves) {
   this.bestContainer.textContent = bestScore;
+  	this.bestMoves=bestMoves;
+  	best=bestMoves.split(",");
+   var tot=(best[0]-'0')+(best[1]-'0')+(best[2]-'0')+(best[3]-'0');
+	this.movesContainer.children[1].children[4].textContent=tot;
+	this.movesContainer.children[1].children[0].style.opacity=(best[0]-'0')/tot;
+	this.movesContainer.children[1].children[1].style.opacity=(best[1]-'0')/tot;
+	this.movesContainer.children[1].children[2].style.opacity=(best[2]-'0')/tot;
+	this.movesContainer.children[1].children[3].style.opacity=(best[3]-'0')/tot;
+
+  
 };
 
 HTMLActuator.prototype.message = function (won) {

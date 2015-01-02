@@ -34,7 +34,7 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
-
+  
   // Reload the game from a previous game if present
   if (previousState) {
     this.grid        = new Grid(previousState.grid.size,
@@ -42,6 +42,7 @@ GameManager.prototype.setup = function () {
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
+    this.moves			= previousState.moves;
     this.keepPlaying = previousState.keepPlaying;
   } else {
     this.grid        = new Grid(this.size);
@@ -49,7 +50,7 @@ GameManager.prototype.setup = function () {
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
-
+    this.moves=[0,0,0,0];
     // Add the initial tiles
     this.addStartTiles();
   }
@@ -79,8 +80,11 @@ GameManager.prototype.addRandomTile = function () {
 GameManager.prototype.actuate = function () {
   if (this.storageManager.getBestScore() < this.score) {
     this.storageManager.setBestScore(this.score);
+    this.storageManager.setBestMoves(this.moves);
   }
-
+  if (this.storageManager.getBestMoves()==0) {
+  	this.storageManager.setBestMoves(this.moves);
+  	}
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
     this.storageManager.clearGameState();
@@ -92,6 +96,8 @@ GameManager.prototype.actuate = function () {
     score:      this.score,
     over:       this.over,
     won:        this.won,
+    moves:      this.moves,
+    bestMoves:  this.storageManager.getBestMoves(),
     bestScore:  this.storageManager.getBestScore(),
     terminated: this.isGameTerminated()
   });
@@ -105,6 +111,7 @@ GameManager.prototype.serialize = function () {
     score:       this.score,
     over:        this.over,
     won:         this.won,
+    moves:		  this.moves,
     keepPlaying: this.keepPlaying
   };
 };
@@ -130,7 +137,7 @@ GameManager.prototype.moveTile = function (tile, cell) {
 GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2: down, 3: left
   var self = this;
-
+  
   if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
   var cell, tile;
@@ -175,13 +182,15 @@ GameManager.prototype.move = function (direction) {
         if (!self.positionsEqual(cell, tile)) {
           moved = true; // The tile moved from its original cell!
         }
-      }
+      } 
     });
-  });
+  });  
 
   if (moved) {
     this.addRandomTile();
-
+ /*************************************************************************************************************************************/   
+    this.moves[direction]++;
+ /*************************************************************************************************************************************/
     if (!this.movesAvailable()) {
       this.over = true; // Game over!
     }

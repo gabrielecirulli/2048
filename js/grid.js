@@ -115,3 +115,39 @@ Grid.prototype.serialize = function () {
     cells: cellState
   };
 };
+
+Grid.prototype.transpose = function () {
+  var newCells = this.empty();
+  for (x = 0; x < this.size; x++) {
+    for (y = 0; y < this.size; y++) {
+      var cell = this.cells[x][y];
+      newCells[y][x] = cell;
+    }
+  }
+  this.cells = newCells;
+};
+
+Grid.prototype.flipX = function (hold) {
+  this.cells = this.cells.reverse();
+  hold || this.updateTiles();
+};
+
+Grid.prototype.flipY = function (hold) {
+  this.cells = this.cells.map(function (row) { return row.reverse(); });
+  hold || this.updateTiles();
+};
+
+// Rotate by (n * 90 degrees) clockwise
+Grid.prototype.rotate = function (n) {
+  switch ((n % 4 + 4) % 4) {
+    case 1: this.transpose(); this.flipX(); break;
+    case 2: this.flipX(true); this.flipY(); break;
+    case 3: this.transpose(); this.flipY(); break;
+  }
+};
+
+Grid.prototype.updateTiles = function () {
+  this.eachCell(function (x, y, tile) {
+    tile && tile.updatePosition({ x: x, y: y });
+  });
+};

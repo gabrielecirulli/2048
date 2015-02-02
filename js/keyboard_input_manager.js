@@ -46,7 +46,12 @@ KeyboardInputManager.prototype.listen = function () {
     87: 0, // W
     68: 1, // D
     83: 2, // S
-    65: 3  // A
+    65: 3, // A
+    
+    81: 10, // Q
+    69: 11, // E
+    90: 12, // Z
+    88: 13, // X
   };
 
   // Respond to direction keys
@@ -55,10 +60,14 @@ KeyboardInputManager.prototype.listen = function () {
                     event.shiftKey;
     var mapped    = map[event.which];
 
-    if (!modifiers) {
-      if (mapped !== undefined) {
-        event.preventDefault();
-        self.emit("move", mapped);
+    if (!modifiers && mapped !== undefined) {
+      event.preventDefault();
+      switch (mapped) {
+        case 10: self.emit("rotate", -1); break;
+        case 11: self.emit("rotate", 1); break;
+        case 12: self.emit("flipX"); break;
+        case 13: self.emit("flipY"); break;
+        default: self.emit("move", mapped); break;
       }
     }
 

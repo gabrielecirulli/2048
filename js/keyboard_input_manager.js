@@ -140,7 +140,7 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
 
 KeyboardInputManager.prototype.place = function (event) {
 	event.preventDefault();
-	event.currentTarget.style.visibility = "hidden";
+	this.emit("placeTile", event.target);
 };
 
 KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {

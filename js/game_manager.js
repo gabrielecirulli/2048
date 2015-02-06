@@ -7,6 +7,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
+  this.inputManager.on("placeTile", this.placeTile.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
@@ -74,6 +75,11 @@ GameManager.prototype.addRandomTile = function () {
     this.grid.insertTile(tile);
   }
 };
+
+GameManager.prototype.placeTile = function (tile) {
+	this.addRandomTile();
+	this.actuate();
+}
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {

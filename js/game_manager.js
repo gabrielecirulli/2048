@@ -3,8 +3,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
+  this.playerTurn	  = 2;
 
-  this.startTiles     = 2;
+  this.startTiles     = 6;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("placeTile", this.placeTile.bind(this));
@@ -44,12 +45,14 @@ GameManager.prototype.setup = function () {
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
+	this.playerTurn	 = previousState.playerTurn;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
+	this.playerTurn	 = 2;
 
     // Add the initial tiles
     this.addStartTiles();
@@ -76,9 +79,24 @@ GameManager.prototype.addRandomTile = function () {
   }
 };
 
-GameManager.prototype.placeTile = function (tile) {
-	this.addRandomTile();
-	this.actuate();
+GameManager.prototype.placeTile = function (position) {
+	if(this.playerTurn == 2){
+		this.prepareTiles();
+		if(this.grid.cellAvailable(position)){
+			var tile = new Tile(position, 2);
+			this.grid.insertTile(tile);
+		}
+		//this.addRandomTile();
+		this.actuate();
+	}
+}
+
+GameManager.prototype.changeTurn = function () {
+  if(this.playerTurn == 1){
+	this.playerTurn = 2;
+  }else{
+	this.playerTurn = 1;
+  }
 }
 
 // Sends the updated grid to the actuator
@@ -87,6 +105,7 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
+
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
     this.storageManager.clearGameState();
@@ -94,14 +113,16 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setGameState(this.serialize());
   }
 
+  this.changeTurn();
+
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+	playerTurn: this.playerTurn
   });
-
 };
 
 // Represent the current game as an object
@@ -111,7 +132,8 @@ GameManager.prototype.serialize = function () {
     score:       this.score,
     over:        this.over,
     won:         this.won,
-    keepPlaying: this.keepPlaying
+    keepPlaying: this.keepPlaying,
+	playerTurn:  this.playerTurn
   };
 };
 
@@ -134,6 +156,9 @@ GameManager.prototype.moveTile = function (tile, cell) {
 
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {
+  if(this.playerTurn !=1){
+	return;
+  }
   // 0: up, 1: right, 2: down, 3: left
   var self = this;
 
@@ -186,7 +211,7 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
-    this.addRandomTile();
+    //this.addRandomTile();
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!

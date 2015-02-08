@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   background: #faf8ef;
-  color: #776E65;
+  color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
@@ -26,6 +26,7 @@ h1.title {
   0% {
     top: 25px;
     opacity: 1; }
+
   100% {
     top: -50px;
     opacity: 0; } }
@@ -33,6 +34,7 @@ h1.title {
   0% {
     top: 25px;
     opacity: 1; }
+
   100% {
     top: -50px;
     opacity: 0; } }
@@ -40,6 +42,7 @@ h1.title {
   0% {
     top: 25px;
     opacity: 1; }
+
   100% {
     top: -50px;
     opacity: 0; } }
@@ -98,7 +101,7 @@ p {
   line-height: 1.65; }
 
 a {
-  color: #776E65;
+  color: #776e65;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer; }
@@ -119,16 +122,19 @@ hr {
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 @-moz-keyframes fade-in {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 @keyframes fade-in {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 .game-container {
@@ -378,6 +384,7 @@ hr {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0); }
+
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
@@ -389,6 +396,7 @@ hr {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0); }
+
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
@@ -400,6 +408,7 @@ hr {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0); }
+
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
@@ -418,10 +427,12 @@ hr {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0); }
+
   50% {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2); }
+
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -431,10 +442,12 @@ hr {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0); }
+
   50% {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2); }
+
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -444,10 +457,12 @@ hr {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0); }
+
   50% {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2); }
+
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -483,19 +498,6 @@ hr {
   display: block;
   text-align: center;
   float: right; }
-
-.turn-container {
-  display: inline-block;
-  background: #8f7a66;
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: #f9f6f2;
-  height: 40px;
-  line-height: 42px;
-  display: block;
-  text-alight: center;
-  float: left; }
 
 .game-explanation {
   margin-top: 50px; }

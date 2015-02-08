@@ -468,6 +468,13 @@ hr {
   float: right;
 }
 
+.turn-container {
+  @include button;
+  display: block;
+  text-alight: center;
+  float: left;
+}
+
 .game-explanation {
   margin-top: 50px;
 }

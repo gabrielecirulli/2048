@@ -51,12 +51,6 @@
   transform: $args;
 }
 
-@mixin test($animation-name) {
-	@-webkit-keyframes $animation-name{
-		float: right;;
-	}
-}
-
 // Keyframe animations
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {

@@ -357,7 +357,7 @@ Grid.prototype.islands = function() {
       if (this.cells[x][y] &&
           !this.cells[x][y].marked) {
         islands++;
-        mark({ x:x, y:y }, this.cells[x][y].value);
+        mark(x, y , this.cells[x][y].value);
       }
     }
   }

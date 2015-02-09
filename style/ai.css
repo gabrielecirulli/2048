@@ -5,7 +5,7 @@
 }
 
 .controls button {
-  display: inline-block;
+  /*display: inline-block;*/
   background: #8f7a66;
   border: 0;
   border-radius: 3px;
@@ -16,7 +16,12 @@
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
+
+.controls button:hover {
+    background: #ad957f;
+} 
 
 .ai-button, #feedback-container {
   line-height: 40px;

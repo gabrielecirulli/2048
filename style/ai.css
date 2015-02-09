@@ -32,6 +32,8 @@
 }
 
 #feedback-container {
+  background: #8f7a66;
+  color: #f9f6f2;
   margin-left: 1em;
   font-weight: bold;
 }

@@ -1,0 +1,8 @@
+---
+applications:
+- memory: 512MB
+  path: .
+  name: CarlosNode
+  host: CarlosNode
+  command: node app.js
+  instances: 1

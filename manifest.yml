@@ -1,8 +1,8 @@
 ---
-applications:
-- memory: 512MB
-  path: .
-  name: CarlosNode
-  host: CarlosNode
-  command: node app.js
-  instances: 1
+ applications:
+ - name: my-site
+   memory: 64M
+   instances: 1
+   host: my-site
+   path: .
+   buildpack: https://github.com/cloudfoundry-community/staticfile-buildpack.git	

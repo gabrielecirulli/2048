@@ -31,6 +31,10 @@ Changes and improvements are more than welcome! Feel free to fork and open a pul
 
 You can find the same information in the [contributing guide.](https://github.com/gabrielecirulli/2048/blob/master/CONTRIBUTING.md)
 
+You can deploy your own copy of this application to Bluemix using the button below:
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/fe01134/2048.git)
+
 ## License
 2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
 

@@ -1,5 +1,5 @@
 # 2048
-A small clone of [1024](https://itunes.apple.com/us/app/1024!/id823499224?mt=8), based on [Saming's 2048](https://github.com/saming/2048) (also a clone).
+A small clone of [1024](http://www.veewo.com/games/?name=1024), based on [Saming's 2048](https://github.com/saming/2048) (also a clone).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 

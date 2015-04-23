@@ -1,5 +1,5 @@
 # 2048
-A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
+A small clone of [1024](https://itunes.apple.com/us/app/1024!/id823499224?mt=8), based on [Saming's 2048](https://github.com/saming/2048) (also a clone).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 
@@ -24,7 +24,7 @@ Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://gith
   <img src="http://pictures.gabrielecirulli.com/2048-20140309-234100.png" alt="Screenshot"/>
 </p>
 
-That screenshot is fake, by the way. I never reached 2048 :smile:
+That screenshot is fake, by the way. I've never reached 2048! :smile:
 
 ## Contributing
 Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.

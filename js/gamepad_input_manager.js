@@ -58,7 +58,12 @@ GamepadInputManager.prototype.listen = function() {
        self.listen();
     });
 
-    var gamepads = navigator.getGamepads();
+    var gamepads;
+    if (!navigator || !navigator.getGamepads) {
+        return;
+    }
+
+    gamepads = navigator.getGamepads();
 
     for (var i = 0; i < gamepads.length; ++i)
     {

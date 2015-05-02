@@ -5,6 +5,7 @@ function GamepadInputManager() {
     this.axisValueBefore = {};
     this.axisDirectionThreshold = 0.8;
 
+    // See standard gamepad mapping: http://www.w3.org/TR/2015/WD-gamepad-20150414/#remapping
     this.buttons = {
         "D_PAD_DOWN": 13,
         "D_PAD_RIGHT": 15,
@@ -15,8 +16,8 @@ function GamepadInputManager() {
     };
 
     this.axes = {
-        "HORIZONTAL": 0,
-        "VERTICAL": 1
+        "LEFT_THUMB_HORIZONTAL": 0,
+        "LEFT_THUMB_VERTICAL": 1
     };
 
     this.directions = {
@@ -83,8 +84,8 @@ GamepadInputManager.prototype.listen = function() {
             checkButton(pad, this.buttons.D_PAD_LEFT, this.directions.LEFT);
             checkButton(pad, this.buttons.D_PAD_UP, this.directions.UP);
 
-            checkAxis(pad, this.axes.HORIZONTAL, this.directions.LEFT, this.directions.RIGHT);
-            checkAxis(pad, this.axes.VERTICAL, this.directions.UP, this.directions.DOWN);
+            checkAxis(pad, this.axes.LEFT_THUMB_HORIZONTAL, this.directions.LEFT, this.directions.RIGHT);
+            checkAxis(pad, this.axes.LEFT_THUMB_VERTICAL, this.directions.UP, this.directions.DOWN);
         }
     }
 

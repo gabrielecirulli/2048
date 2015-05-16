@@ -153,16 +153,25 @@ KeyboardInputManager.prototype.listen = function () {
   });
 
   // Respond to gamepad input
-  window.addEventListener("gamepadconnected", checkGamepad);
+  if (navigator.getGamepads || !!navigator.webkitGetGamepads || !!navigator.webkitGamepads) {
+    if ('ongamepadconnected' in window) {
+      window.addEventListener('gamepadconnected', startGamepadPolling);
+    } else {
+      startGamepadPolling();
+    }
+  }
 
-  if (navigator.getGamepads && navigator.getGamepads().length > 0) {
-    checkGamepad();
+  var gamepadPollingStarted = false;
+
+  function startGamepadPolling() {
+    if (!gamepadPollingStarted) {
+      gamepadPollingStarted = true;
+      checkGamepad();
+    }
   }
 
   function checkGamepad() {
-    window.requestAnimationFrame(checkGamepad);
-
-    var gamepads = navigator.getGamepads();
+    var gamepads = (navigator.getGamepads && navigator.getGamepads()) || (navigator.webkitGetGamepads && navigator.webkitGetGamepads());
 
     for (var i = 0; i < gamepads.length; ++i) {
       var pad = gamepads[i];
@@ -185,6 +194,8 @@ KeyboardInputManager.prototype.listen = function () {
         checkAxis(pad, self.axes.LEFT_THUMB_VERTICAL, self.directions.UP, self.directions.DOWN);
       }
     }
+
+    window.requestAnimationFrame(checkGamepad);
   }
 
   function checkButton(pad, buttonId, direction) {

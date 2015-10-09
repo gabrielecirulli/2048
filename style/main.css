@@ -10,18 +10,6 @@ html, body {
 body {
   margin: 80px 0; }
 
-.heading:after {
-  content: "";
-  display: block;
-  clear: both; }
-
-h1.title {
-  font-size: 80px;
-  font-weight: bold;
-  margin: 0;
-  display: block;
-  float: left; }
-
 @-webkit-keyframes move-up {
   0% {
     top: 25px;
@@ -46,54 +34,6 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
-.scores-container {
-  float: right;
-  text-align: right; }
-
-.score-container, .best-container {
-  position: relative;
-  display: inline-block;
-  background: #bbada0;
-  padding: 15px 25px;
-  font-size: 25px;
-  height: 25px;
-  line-height: 47px;
-  font-weight: bold;
-  border-radius: 3px;
-  color: white;
-  margin-top: 8px;
-  text-align: center; }
-  .score-container:after, .best-container:after {
-    position: absolute;
-    width: 100%;
-    top: 10px;
-    left: 0;
-    text-transform: uppercase;
-    font-size: 13px;
-    line-height: 13px;
-    text-align: center;
-    color: #eee4da; }
-  .score-container .score-addition, .best-container .score-addition {
-    position: absolute;
-    right: 30px;
-    color: red;
-    font-size: 25px;
-    line-height: 25px;
-    font-weight: bold;
-    color: rgba(119, 110, 101, 0.9);
-    z-index: 100;
-    -webkit-animation: move-up 600ms ease-in;
-    -moz-animation: move-up 600ms ease-in;
-    animation: move-up 600ms ease-in;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both; }
-
-.score-container:after {
-  content: "Score"; }
-
-.best-container:after {
-  content: "Best"; }
 
 p {
   margin-top: 0;
@@ -108,12 +48,6 @@ a {
 
 strong.important {
   text-transform: uppercase; }
-
-hr {
-  border: none;
-  border-bottom: 1px solid #d8d4d0;
-  margin-top: 20px;
-  margin-bottom: 30px; }
 
 .container {
   width: 500px;
@@ -476,16 +410,6 @@ hr {
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
 
-.above-game:after {
-  content: "";
-  display: block;
-  clear: both; }
-
-.game-intro {
-  float: left;
-  line-height: 42px;
-  margin-bottom: 0; }
-
 .restart-button {
   display: inline-block;
   background: #8f7a66;
@@ -499,9 +423,6 @@ hr {
   text-align: center;
   float: right; }
 
-.game-explanation {
-  margin-top: 50px; }
-
 @media screen and (max-width: 520px) {
   html, body {
     font-size: 15px; }
@@ -510,27 +431,12 @@ hr {
     margin: 20px 0;
     padding: 0 20px; }
 
-  h1.title {
-    font-size: 27px;
-    margin-top: 15px; }
-
   .container {
     width: 280px;
     margin: 0 auto; }
 
-  .score-container, .best-container {
-    margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px; }
-
   .heading {
     margin-bottom: 10px; }
-
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65; }
 
   .restart-button {
     width: 42%;
@@ -709,3 +615,5 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+
+

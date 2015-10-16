@@ -82,7 +82,7 @@ a {
 // Styles for buttons
 @mixin button {
   display: inline-block;
-  background: darken($game-container-background, 20%);
+  background: $tile-gold-color;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;
@@ -125,7 +125,7 @@ a {
       right: 0;
       bottom: 0;
       left: 0;
-      background: rgba($tile-color, .5);
+      background: rgba($tile-color, .7);
       z-index: 100;
 
       text-align: center;
@@ -149,6 +149,9 @@ a {
         @include button;
         margin-left: 9px;
         // margin-top: 59px;
+      }
+      &.game-over{
+        display: block;
       }
     }
 
@@ -244,7 +247,7 @@ a {
                    false false, // 4
                    false false, // 8
                    false false, // 16
-                   false true, // 32
+                   false false, // 32
                    false true, // 64
                    false true, // 128
                    false true, // 256

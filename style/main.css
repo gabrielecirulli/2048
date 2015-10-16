@@ -92,7 +92,7 @@ a {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     z-index: 100;
     text-align: center; }
     .game-container .game-message p {
@@ -106,7 +106,7 @@ a {
       margin-top: 59px; }
     .game-container .game-message a {
       display: inline-block;
-      background: #c4c4c4;
+      background: #4CB7EF;
       border-radius: 3px;
       padding: 0 20px;
       text-decoration: none;
@@ -114,6 +114,8 @@ a {
       height: 40px;
       line-height: 42px;
       margin-left: 9px; }
+    .game-container .game-message.game-over {
+      display: block; }
   .game-container .grid-container {
     position: absolute;
     z-index: 1; }
@@ -234,7 +236,6 @@ a {
     background: #c9e9fa;
     box-shadow: 0 0 30px 10px rgba(146, 211, 245, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-32 .tile-inner {
-    color: #f9f6f2;
     background: #b7e2f9;
     box-shadow: 0 0 30px 10px rgba(146, 211, 245, 0.07937), inset 0 0 0 1px rgba(255, 255, 255, 0.04762); }
   .tile.tile-64 .tile-inner {
@@ -380,7 +381,7 @@ a {
 
 .restart-button {
   display: inline-block;
-  background: #c4c4c4;
+  background: #4CB7EF;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;
@@ -436,7 +437,7 @@ a {
       right: 0;
       bottom: 0;
       left: 0;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.7);
       z-index: 100;
       text-align: center; }
       .game-container .game-message p {
@@ -450,7 +451,7 @@ a {
         margin-top: 59px; }
       .game-container .game-message a {
         display: inline-block;
-        background: #c4c4c4;
+        background: #4CB7EF;
         border-radius: 3px;
         padding: 0 20px;
         text-decoration: none;
@@ -458,6 +459,8 @@ a {
         height: 40px;
         line-height: 42px;
         margin-left: 9px; }
+      .game-container .game-message.game-over {
+        display: block; }
     .game-container .grid-container {
       position: absolute;
       z-index: 1; }

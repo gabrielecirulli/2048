@@ -12,12 +12,12 @@ $mobile-threshold: $field-width + 20px;
 $text-color: #776E65;
 $bright-text-color: #f9f6f2;
 
-$tile-color: #eee4da;
-$tile-gold-color: #edc22e;
+$tile-color: #FFFFFF;
+$tile-gold-color: #4CB7EF;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 $game-container-margin-top: 40px;
-$game-container-background: #bbada0;
+$game-container-background: #F7F7F7;
 
 $transition-speed: 100ms;
 
@@ -25,7 +25,7 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background: #faf8ef;
+  background: #FFFFFF;
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
@@ -149,38 +149,40 @@ a {
         @include button;
         margin-left: 9px;
         // margin-top: 59px;
+      }
+    }
 
   .grid-container {
     position: absolute;
     z-index: 1;
-  }
 
-  .grid-row {
-    margin-bottom: $grid-spacing;
+    .grid-row {
+      margin-bottom: $grid-spacing;
 
-    &:last-child {
-      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
     }
 
-    &:after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-  }
+    .grid-cell {
+      width: $tile-size;
+      height: $tile-size;
+      margin-right: $grid-spacing;
+      float: left;
 
-  .grid-cell {
-    width: $tile-size;
-    height: $tile-size;
-    margin-right: $grid-spacing;
-    float: left;
+      border-radius: $tile-border-radius;
 
-    border-radius: $tile-border-radius;
+      background: darken($game-container-background, 3) ;
 
-    background: rgba($tile-color, .35);
-
-    &:last-child {
-      margin-right: 0;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -207,6 +209,7 @@ a {
       }
     }
   }
+}
 }
 
 // End of game-field mixin
@@ -239,10 +242,10 @@ a {
   // Colors for all 11 states, false = no special color
   $special-colors: false false, // 2
                    false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
+                   false false, // 8
+                   false false, // 16
+                   false true, // 32
+                   false true, // 64
                    false true, // 128
                    false true, // 256
                    false true, // 512

@@ -12,12 +12,12 @@ $mobile-threshold: $field-width + 20px;
 $text-color: #776E65;
 $bright-text-color: #f9f6f2;
 
-$tile-color: #eee4da;
-$tile-gold-color: #edc22e;
+$tile-color: #FFFFFF;
+$tile-gold-color: #4CB7EF;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 $game-container-margin-top: 40px;
-$game-container-background: #bbada0;
+$game-container-background: #F7F7F7;
 
 $transition-speed: 100ms;
 
@@ -25,7 +25,7 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background: #faf8ef;
+  background: #FFFFFF;
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
@@ -37,14 +37,6 @@ body {
 
 .heading {
   @include clearfix;
-}
-
-h1.title {
-  font-size: 80px;
-  font-weight: bold;
-  margin: 0;
-  display: block;
-  float: left;
 }
 
 @include keyframes(move-up) {
@@ -59,61 +51,6 @@ h1.title {
   }
 }
 
-.scores-container {
-  float: right;
-  text-align: right;
-}
-
-.score-container, .best-container {
-  $height: 25px;
-
-  position: relative;
-  display: inline-block;
-  background: $game-container-background;
-  padding: 15px 25px;
-  font-size: $height;
-  height: $height;
-  line-height: $height + 22px;
-  font-weight: bold;
-  border-radius: 3px;
-  color: white;
-  margin-top: 8px;
-  text-align: center;
-
-  &:after {
-    position: absolute;
-    width: 100%;
-    top: 10px;
-    left: 0;
-    text-transform: uppercase;
-    font-size: 13px;
-    line-height: 13px;
-    text-align: center;
-    color: $tile-color;
-  }
-
-  .score-addition {
-    position: absolute;
-    right: 30px;
-    color: red;
-    font-size: $height;
-    line-height: $height;
-    font-weight: bold;
-    color: rgba($text-color, .9);
-    z-index: 100;
-    @include animation(move-up 600ms ease-in);
-    @include animation-fill-mode(both);
-  }
-}
-
-.score-container:after {
-  content: "Score";
-}
-
-.best-container:after {
-  content: "Best"
-}
-
 p {
   margin-top: 0;
   margin-bottom: 10px;
@@ -125,19 +62,6 @@ a {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-}
-
-strong {
-  &.important {
-    text-transform: uppercase;
-  }
-}
-
-hr {
-  border: none;
-  border-bottom: 1px solid lighten($text-color, 40%);
-  margin-top: 20px;
-  margin-bottom: 30px;
 }
 
 .container {
@@ -158,7 +82,7 @@ hr {
 // Styles for buttons
 @mixin button {
   display: inline-block;
-  background: darken($game-container-background, 20%);
+  background: $tile-gold-color;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;
@@ -201,7 +125,7 @@ hr {
       right: 0;
       bottom: 0;
       left: 0;
-      background: rgba($tile-color, .5);
+      background: rgba($tile-color, .7);
       z-index: 100;
 
       text-align: center;
@@ -225,61 +149,43 @@ hr {
         @include button;
         margin-left: 9px;
         // margin-top: 59px;
-
-	&.keep-playing-button {
-	  display: none;
-	}
       }
-
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
-
-      &.game-won {
-        background: rgba($tile-gold-color, .5);
-        color: $bright-text-color;
-
-	a.keep-playing-button {
-	  display: inline-block;
-	}
-      }
-
-      &.game-won, &.game-over {
+      &.game-over{
         display: block;
       }
     }
-  }
 
   .grid-container {
     position: absolute;
     z-index: 1;
-  }
 
-  .grid-row {
-    margin-bottom: $grid-spacing;
+    .grid-row {
+      margin-bottom: $grid-spacing;
 
-    &:last-child {
-      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
     }
 
-    &:after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-  }
+    .grid-cell {
+      width: $tile-size;
+      height: $tile-size;
+      margin-right: $grid-spacing;
+      float: left;
 
-  .grid-cell {
-    width: $tile-size;
-    height: $tile-size;
-    margin-right: $grid-spacing;
-    float: left;
+      border-radius: $tile-border-radius;
 
-    border-radius: $tile-border-radius;
+      background: darken($game-container-background, 3) ;
 
-    background: rgba($tile-color, .35);
-
-    &:last-child {
-      margin-right: 0;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -306,6 +212,7 @@ hr {
       }
     }
   }
+}
 }
 
 // End of game-field mixin
@@ -338,10 +245,10 @@ hr {
   // Colors for all 11 states, false = no special color
   $special-colors: false false, // 2
                    false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
+                   false false, // 8
+                   false false, // 16
+                   false false, // 32
+                   false true, // 64
                    false true, // 128
                    false true, // 256
                    false true, // 512
@@ -451,25 +358,11 @@ hr {
   @include animation-fill-mode(backwards);
 }
 
-.above-game {
-  @include clearfix;
-}
-
-.game-intro {
-  float: left;
-  line-height: 42px;
-  margin-bottom: 0;
-}
-
 .restart-button {
   @include button;
   display: block;
   text-align: center;
   float: right;
-}
-
-.game-explanation {
-  margin-top: 50px;
 }
 
 @include smaller($mobile-threshold) {
@@ -500,30 +393,8 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container, .best-container {
-    margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px;
-  }
-
   .heading {
     margin-bottom: 10px;
-  }
-
-  // Show intro and restart button side by side
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65;
-  }
-
-  .restart-button {
-    width: 42%;
-    padding: 0;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 2px;
   }
 
   // Render the game field at the right width

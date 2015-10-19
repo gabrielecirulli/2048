@@ -15,6 +15,8 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
 // Restart the game
 GameManager.prototype.restart = function () {
+  document.getElementById("404Message").style.display="none";
+  document.getElementById("808Message").style.display="none";
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
@@ -34,25 +36,13 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
+  this.grid        = new Grid(this.size);
+  this.over        = false;
+  this.won         = false;
+  this.keepPlaying = false;
 
-  // Reload the game from a previous game if present
-  if (previousState) {
-    this.grid        = new Grid(previousState.grid.size,
-                                previousState.grid.cells); // Reload grid
-    this.score       = previousState.score;
-    this.over        = previousState.over;
-    this.won         = previousState.won;
-    this.keepPlaying = previousState.keepPlaying;
-  } else {
-    this.grid        = new Grid(this.size);
-    this.score       = 0;
-    this.over        = false;
-    this.won         = false;
-    this.keepPlaying = false;
-
-    // Add the initial tiles
-    this.addStartTiles();
-  }
+  // Add the initial tiles
+  this.addStartTiles();
 
   // Update the actuator
   this.actuate();
@@ -61,14 +51,16 @@ GameManager.prototype.setup = function () {
 // Set up the initial tiles to start the game with
 GameManager.prototype.addStartTiles = function () {
   for (var i = 0; i < this.startTiles; i++) {
-    this.addRandomTile();
+    this.grid.insertTile(new Tile({x: 0, y:0},4));
+    this.grid.insertTile(new Tile({x: 1, y:0},0));
+    this.grid.insertTile(new Tile({x: 2, y:0},4));
   }
 };
 
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+    var value = Math.random() < (2/3) ? 4 : 0;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);
@@ -77,9 +69,6 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.storageManager.getBestScore() < this.score) {
-    this.storageManager.setBestScore(this.score);
-  }
 
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
@@ -89,10 +78,8 @@ GameManager.prototype.actuate = function () {
   }
 
   this.actuator.actuate(this.grid, {
-    score:      this.score,
     over:       this.over,
     won:        this.won,
-    bestScore:  this.storageManager.getBestScore(),
     terminated: this.isGameTerminated()
   });
 
@@ -102,7 +89,6 @@ GameManager.prototype.actuate = function () {
 GameManager.prototype.serialize = function () {
   return {
     grid:        this.grid.serialize(),
-    score:       this.score,
     over:        this.over,
     won:         this.won,
     keepPlaying: this.keepPlaying
@@ -155,6 +141,13 @@ GameManager.prototype.move = function (direction) {
         // Only one merger per row traversal?
         if (next && next.value === tile.value && !next.mergedFrom) {
           var merged = new Tile(positions.next, tile.value * 2);
+          if(tile.value === 512) {
+            merged.value = 404;
+            document.getElementById("404Message").style.display="block";
+            setTimeout(function(){
+              document.getElementById("404Message").style.display="none";
+            }, 5000);
+          }
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
@@ -163,11 +156,10 @@ GameManager.prototype.move = function (direction) {
           // Converge the two tiles' positions
           tile.updatePosition(positions.next);
 
-          // Update the score
-          self.score += merged.value;
-
-          // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value > 404){
+            self.won = true;
+            document.getElementById("404Message").style.display="none";
+          }
         } else {
           self.moveTile(tile, positions.farthest);
         }

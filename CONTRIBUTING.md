@@ -11,11 +11,11 @@ Please follow the house rules to have a bigger chance of your contribution being
  - If you want to modify the CSS, please edit the SCSS files present in `style/`: `main.scss` and others. Don't edit the `main.css`, because it's supposed to be generated.  
  In order to compile your SCSS modifications, you need to use the `sass` gem (install it by running `gem install sass` once Ruby is installed).  
  To run SASS, simply use the following command:  
- `sass --watch style/main.scss`  
+ `sass --unix-newlines --watch style/main.scss`  
  SASS will automatically recompile your css when changed.
  - `Rakefile` contains some tasks that help during development. Feel free to add useful tasks if needed.
  - Please use 2-space indentation when editing the JavaScript. A `.jshintrc` file is present, which will help your code to follow the guidelines if you install and run `jshint`.
- - Please test your modification thouroughly before submitting your Pull Request.
+ - Please test your modification thoroughly before submitting your Pull Request.
 
 ### Changes that might not be accepted
 We have to be conservative with the core game. This means that some modifications won't be merged, or will have to be evaluated carefully before being merged:

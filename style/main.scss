@@ -2,9 +2,12 @@
 @import "fonts/clear-sans.css";
 
 $field-width: 500px;
+$field-width-smaller: 280px;
 $grid-spacing: 15px;
+$grid-spacing-smaller: 10px;
 $grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+$tile-size-smaller: ($field-width-smaller - $grid-spacing-smaller * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
@@ -17,6 +20,7 @@ $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 $game-container-margin-top: 40px;
+$game-container-margin-top-smaller: 17px;
 $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
@@ -29,14 +33,26 @@ html, body {
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
+  @include smaller($mobile-threshold) {
+    font-size: 15px;
+  }
 }
 
 body {
   margin: 80px 0;
+  @include smaller($mobile-threshold) {
+    margin: 20px 0;
+    padding: 0 20px;
+  }
+
+
 }
 
 .heading {
   @include clearfix;
+  @include smaller($mobile-threshold) {
+    margin-bottom: 10px;
+  }
 }
 
 h1.title {
@@ -45,6 +61,12 @@ h1.title {
   margin: 0;
   display: block;
   float: left;
+  @include smaller($mobile-threshold) {
+    font-size: 27px;
+    margin-top: 15px;
+  }
+
+
 }
 
 @include keyframes(move-up) {
@@ -79,6 +101,12 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center;
+
+  @include smaller($mobile-threshold) {
+    margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px;
+  }
 
   &:after {
     position: absolute;
@@ -142,6 +170,9 @@ hr {
 
 .container {
   width: $field-width;
+  @include smaller($mobile-threshold) {
+    width: $field-width-smaller
+  }
   margin: 0 auto;
 }
 
@@ -167,8 +198,6 @@ hr {
   line-height: 42px;
 }
 
-// Game field mixin used to render CSS at different width
-@mixin game-field {
   .game-container {
     margin-top: $game-container-margin-top;
     position: relative;
@@ -189,9 +218,13 @@ hr {
     border-radius: $tile-border-radius * 2;
     width: $field-width;
     height: $field-width;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include smaller($mobile-threshold) {
+      margin-top: $game-container-margin-top-smaller;
+      padding: $grid-spacing-smaller;
+      width: $field-width-smaller;
+      height: $field-width-smaller;
+    }
+    @include boxsize (border-box);
 
     .game-message {
       display: none;
@@ -214,11 +247,21 @@ hr {
         margin-top: 222px;
         // height: $field-width;
         // line-height: $field-width;
+
+        @include smaller($mobile-threshold) {
+          font-size: 30px !important;
+          height: 30px !important;
+          line-height: 30px !important;
+          margin-top: 90px !important;
+        }
       }
 
       .lower {
         display: block;
         margin-top: 59px;
+        @include smaller($mobile-threshold) {
+          margin-top: 30px !important;
+        }
       }
 
       a {
@@ -256,6 +299,9 @@ hr {
 
   .grid-row {
     margin-bottom: $grid-spacing;
+    @include smaller($mobile-threshold) {
+      margin-bottom: $grid-spacing-smaller;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -272,6 +318,11 @@ hr {
     width: $tile-size;
     height: $tile-size;
     margin-right: $grid-spacing;
+    @include smaller($mobile-threshold) {
+      width: $tile-size-smaller;
+      height: $tile-size-smaller;
+      margin-right: $grid-spacing-smaller;
+    }
     float: left;
 
     border-radius: $tile-border-radius;
@@ -293,6 +344,11 @@ hr {
       width: ceil($tile-size);
       height: ceil($tile-size);
       line-height: ceil($tile-size);
+      @include smaller($mobile-threshold) {
+        width: ceil($tile-size-smaller);
+        height: ceil($tile-size-smaller);
+        line-height: ceil($tile-size-smaller);
+      }
     }
 
     // Build position classes
@@ -302,14 +358,15 @@ hr {
           $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
           $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
           @include transform(translate($xPos, $yPos));
+          @include smaller($mobile-threshold) {
+            $xPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($x - 1));
+            $yPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($y - 1));
+            @include transform(translate($xPos-smaller, $yPos-smaller));
+          }
         }
       }
     }
   }
-}
-
-// End of game-field mixin
-@include game-field;
 
 .tile {
   position: absolute; // Makes transforms relative to the top-left corner
@@ -323,6 +380,9 @@ hr {
     z-index: 10;
 
     font-size: 55px;
+    @include smaller($mobile-threshold) {
+      font-size: 35px;
+    }
   }
 
   // Movement transition
@@ -459,6 +519,14 @@ hr {
   float: left;
   line-height: 42px;
   margin-bottom: 0;
+
+  // Show intro and restart button side by side
+  @include smaller($mobile-threshold) {
+    width: 55%;
+    display: block;
+    @include boxsize(border-box);
+    line-height: 1.65;
+  }
 }
 
 .restart-button {
@@ -466,84 +534,15 @@ hr {
   display: block;
   text-align: center;
   float: right;
+  @include smaller($mobile-threshold) {
+    width: 42%;
+    padding: 0;
+    display: block;
+    @include boxsize(border-box);
+    margin-top: 2px;
+  }
 }
 
 .game-explanation {
   margin-top: 50px;
-}
-
-@include smaller($mobile-threshold) {
-  // Redefine variables for smaller screens
-  $field-width: 280px;
-  $grid-spacing: 10px;
-  $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-  $tile-border-radius: 3px;
-  $game-container-margin-top: 17px;
-
-  html, body {
-    font-size: 15px;
-  }
-
-  body {
-    margin: 20px 0;
-    padding: 0 20px;
-  }
-
-  h1.title {
-    font-size: 27px;
-    margin-top: 15px;
-  }
-
-  .container {
-    width: $field-width;
-    margin: 0 auto;
-  }
-
-  .score-container, .best-container {
-    margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px;
-  }
-
-  .heading {
-    margin-bottom: 10px;
-  }
-
-  // Show intro and restart button side by side
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65;
-  }
-
-  .restart-button {
-    width: 42%;
-    padding: 0;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 2px;
-  }
-
-  // Render the game field at the right width
-  @include game-field;
-
-  // Rest of the font-size adjustments in the tile class
-  .tile .tile-inner {
-    font-size: 35px;
-  }
-
-  .game-message {
-    p {
-      font-size: 30px !important;
-      height: 30px !important;
-      line-height: 30px !important;
-      margin-top: 90px !important;
-    }
-
-    .lower {
-      margin-top: 30px !important;
-    }
-  }
 }

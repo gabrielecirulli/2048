@@ -10,7 +10,23 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
+  this.displayCells();
   this.setup();
+}
+
+GameManager.prototype.displayCells = function() {
+  var gridContainer = document.querySelector(".grid-container");
+  for (var x = 0; x < this.size; x++) {
+    var row = document.createElement("div");
+    row.className = "grid-row";
+
+    for (var y = 0; y < this.size; y++) {
+      var cell = document.createElement("div");
+      cell.className = "grid-cell";
+      row.appendChild(cell);
+    }
+    gridContainer.appendChild(row);
+  }
 }
 
 // Restart the game

@@ -8,8 +8,8 @@
   @if $exponent > 1 {
     @for $i from 2 through $exponent {
       $value: $value * $base; } }
-  // negitive intergers get divided. A number divided by itself is 1
-  @if $exponent < 1 {
+  // negative intergers get divided. A number divided by itself is 1
+  @else if $exponent < 1 {
     @for $i from 0 through -$exponent {
       $value: $value / $base; } }
   // return the last value written
@@ -50,6 +50,12 @@
   -moz-transform: $args;
   -ms-transform: $args;
   transform: $args;
+}
+
+@mixin boxsize($args...) {
+    -webkit-box-sizing: $args;
+    -moz-box-sizing: $args;
+    box-sizing: $args;
 }
 
 // Keyframe animations

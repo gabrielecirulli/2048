@@ -36,21 +36,21 @@ h1.title {
       font-size: 27px;
       margin-top: 15px; } }
 
-@-webkit-keyframes $animation-name {
+@-webkit-keyframes move-up {
   0% {
     top: 25px;
     opacity: 1; }
   100% {
     top: -50px;
     opacity: 0; } }
-@-moz-keyframes $animation-name {
+@-moz-keyframes move-up {
   0% {
     top: 25px;
     opacity: 1; }
   100% {
     top: -50px;
     opacity: 0; } }
-@keyframes $animation-name {
+@keyframes move-up {
   0% {
     top: 25px;
     opacity: 1; }
@@ -138,17 +138,17 @@ hr {
     .container {
       width: 280px; } }
 
-@-webkit-keyframes $animation-name {
+@-webkit-keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-@-moz-keyframes $animation-name {
+@-moz-keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-@keyframes $animation-name {
+@keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
@@ -537,7 +537,7 @@ hr {
       .tile.tile-super .tile-inner {
         font-size: 10px; } }
 
-@-webkit-keyframes $animation-name {
+@-webkit-keyframes appear {
   0% {
     opacity: 0;
     -webkit-transform: scale(0);
@@ -550,7 +550,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
-@-moz-keyframes $animation-name {
+@-moz-keyframes appear {
   0% {
     opacity: 0;
     -webkit-transform: scale(0);
@@ -563,7 +563,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
-@keyframes $animation-name {
+@keyframes appear {
   0% {
     opacity: 0;
     -webkit-transform: scale(0);
@@ -584,7 +584,7 @@ hr {
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
 
-@-webkit-keyframes $animation-name {
+@-webkit-keyframes pop {
   0% {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
@@ -600,7 +600,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
-@-moz-keyframes $animation-name {
+@-moz-keyframes pop {
   0% {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
@@ -616,7 +616,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
-@keyframes $animation-name {
+@keyframes pop {
   0% {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);

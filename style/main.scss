@@ -44,8 +44,6 @@ body {
     margin: 20px 0;
     padding: 0 20px;
   }
-
-
 }
 
 .heading {
@@ -65,8 +63,6 @@ h1.title {
     font-size: 27px;
     margin-top: 15px;
   }
-
-
 }
 
 @include keyframes(move-up) {
@@ -198,175 +194,175 @@ hr {
   line-height: 42px;
 }
 
-  .game-container {
-    margin-top: $game-container-margin-top;
-    position: relative;
-    padding: $grid-spacing;
+.game-container {
+  margin-top: $game-container-margin-top;
+  position: relative;
+  padding: $grid-spacing;
 
-    cursor: default;
-    -webkit-touch-callout: none;
-    -ms-touch-callout: none;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -ms-touch-callout: none;
 
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 
-    -ms-touch-action: none;
-    touch-action: none;
+  -ms-touch-action: none;
+  touch-action: none;
 
-    background: $game-container-background;
-    border-radius: $tile-border-radius * 2;
-    width: $field-width;
-    height: $field-width;
-    @include smaller($mobile-threshold) {
-      margin-top: $game-container-margin-top-smaller;
-      padding: $grid-spacing-smaller;
-      width: $field-width-smaller;
-      height: $field-width-smaller;
-    }
-    @include boxsize (border-box);
-
-    .game-message {
-      display: none;
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($tile-color, .5);
-      z-index: 100;
-
-      text-align: center;
-
-      p {
-        font-size: 60px;
-        font-weight: bold;
-        height: 60px;
-        line-height: 60px;
-        margin-top: 222px;
-        // height: $field-width;
-        // line-height: $field-width;
-
-        @include smaller($mobile-threshold) {
-          font-size: 30px !important;
-          height: 30px !important;
-          line-height: 30px !important;
-          margin-top: 90px !important;
-        }
-      }
-
-      .lower {
-        display: block;
-        margin-top: 59px;
-        @include smaller($mobile-threshold) {
-          margin-top: 30px !important;
-        }
-      }
-
-      a {
-        @include button;
-        margin-left: 9px;
-        // margin-top: 59px;
-
-	&.keep-playing-button {
-	  display: none;
-	}
-      }
-
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
-
-      &.game-won {
-        background: rgba($tile-gold-color, .5);
-        color: $bright-text-color;
-
-	a.keep-playing-button {
-	  display: inline-block;
-	}
-      }
-
-      &.game-won, &.game-over {
-        display: block;
-      }
-    }
+  background: $game-container-background;
+  border-radius: $tile-border-radius * 2;
+  width: $field-width;
+  height: $field-width;
+  @include smaller($mobile-threshold) {
+    margin-top: $game-container-margin-top-smaller;
+    padding: $grid-spacing-smaller;
+    width: $field-width-smaller;
+    height: $field-width-smaller;
   }
+  @include boxsize (border-box);
 
-  .grid-container {
+  .game-message {
+    display: none;
+
     position: absolute;
-    z-index: 1;
-  }
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($tile-color, .5);
+    z-index: 100;
 
-  .grid-row {
-    margin-bottom: $grid-spacing;
-    @include smaller($mobile-threshold) {
-      margin-bottom: $grid-spacing-smaller;
-    }
+    text-align: center;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+    p {
+      font-size: 60px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      margin-top: 222px;
+      // height: $field-width;
+      // line-height: $field-width;
 
-    &:after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-  }
-
-  .grid-cell {
-    width: $tile-size;
-    height: $tile-size;
-    margin-right: $grid-spacing;
-    @include smaller($mobile-threshold) {
-      width: $tile-size-smaller;
-      height: $tile-size-smaller;
-      margin-right: $grid-spacing-smaller;
-    }
-    float: left;
-
-    border-radius: $tile-border-radius;
-
-    background: rgba($tile-color, .35);
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .tile-container {
-    position: absolute;
-    z-index: 2;
-  }
-
-  .tile {
-    &, .tile-inner {
-      width: ceil($tile-size);
-      height: ceil($tile-size);
-      line-height: ceil($tile-size);
       @include smaller($mobile-threshold) {
-        width: ceil($tile-size-smaller);
-        height: ceil($tile-size-smaller);
-        line-height: ceil($tile-size-smaller);
+        font-size: 30px !important;
+        height: 30px !important;
+        line-height: 30px !important;
+        margin-top: 90px !important;
       }
     }
 
-    // Build position classes
-    @for $x from 1 through $grid-row-cells {
-      @for $y from 1 through $grid-row-cells {
-        &.tile-position-#{$x}-#{$y} {
-          $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
-          $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
-          @include transform(translate($xPos, $yPos));
-          @include smaller($mobile-threshold) {
-            $xPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($x - 1));
-            $yPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($y - 1));
-            @include transform(translate($xPos-smaller, $yPos-smaller));
-          }
+    .lower {
+      display: block;
+      margin-top: 59px;
+      @include smaller($mobile-threshold) {
+        margin-top: 30px !important;
+      }
+    }
+
+    a {
+      @include button;
+      margin-left: 9px;
+      // margin-top: 59px;
+
+      &.keep-playing-button {
+        display: none;
+      }
+    }
+
+    @include animation(fade-in 800ms ease $transition-speed * 12);
+    @include animation-fill-mode(both);
+
+    &.game-won {
+      background: rgba($tile-gold-color, .5);
+      color: $bright-text-color;
+
+      a.keep-playing-button {
+        display: inline-block;
+      }
+    }
+
+    &.game-won, &.game-over {
+      display: block;
+    }
+  }
+}
+
+.grid-container {
+  position: absolute;
+  z-index: 1;
+}
+
+.grid-row {
+  margin-bottom: $grid-spacing;
+  @include smaller($mobile-threshold) {
+    margin-bottom: $grid-spacing-smaller;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.grid-cell {
+  width: $tile-size;
+  height: $tile-size;
+  margin-right: $grid-spacing;
+  @include smaller($mobile-threshold) {
+    width: $tile-size-smaller;
+    height: $tile-size-smaller;
+    margin-right: $grid-spacing-smaller;
+  }
+  float: left;
+
+  border-radius: $tile-border-radius;
+
+  background: rgba($tile-color, .35);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tile-container {
+  position: absolute;
+  z-index: 2;
+}
+
+.tile {
+  &, .tile-inner {
+    width: ceil($tile-size);
+    height: ceil($tile-size);
+    line-height: ceil($tile-size);
+    @include smaller($mobile-threshold) {
+      width: ceil($tile-size-smaller);
+      height: ceil($tile-size-smaller);
+      line-height: ceil($tile-size-smaller);
+    }
+  }
+
+  // Build position classes
+  @for $x from 1 through $grid-row-cells {
+    @for $y from 1 through $grid-row-cells {
+      &.tile-position-#{$x}-#{$y} {
+        $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
+        $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
+        @include transform(translate($xPos, $yPos));
+        @include smaller($mobile-threshold) {
+          $xPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($x - 1));
+          $yPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($y - 1));
+          @include transform(translate($xPos-smaller, $yPos-smaller));
         }
       }
     }
   }
+}
 
 .tile {
   position: absolute; // Makes transforms relative to the top-left corner
@@ -397,16 +393,16 @@ hr {
 
   // Colors for all 11 states, false = no special color
   $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+  false false, // 4
+  #f78e48 true, // 8
+  #fc5e2e true, // 16
+  #ff3333 true, // 32
+  #ff0000 true, // 64
+  false true, // 128
+  false true, // 256
+  false true, // 512
+  false true, // 1024
+  false true; // 2048
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -438,7 +434,7 @@ hr {
 
       @if not $special-background {
         box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+        inset 0 0 0 1px rgba(white, $glow-opacity / 3);
       }
 
       // Adjust font size for bigger numbers

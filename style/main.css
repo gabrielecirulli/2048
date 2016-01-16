@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   background: #faf8ef;
-  color: #776E65;
+  color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
   @media screen and (max-width: 520px) {
@@ -117,7 +117,7 @@ p {
   line-height: 1.65; }
 
 a {
-  color: #776E65;
+  color: #776e65;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer; }
@@ -683,5 +683,12 @@ hr {
 
 .game-explanation {
   margin-top: 50px; }
+
+.auto-move-container {
+  margin: 60px auto 0px auto;
+  width: 450px;
+  clear: both;
+  font-size: 20px;
+  color: #09f; }
 
 /*# sourceMappingURL=main.css.map */

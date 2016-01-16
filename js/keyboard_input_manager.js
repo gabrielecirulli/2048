@@ -60,6 +60,11 @@ KeyboardInputManager.prototype.listen = function () {
         event.preventDefault();
         self.emit("move", mapped);
       }
+
+      if (event.which === 32) {
+        toggle_auto_move();
+        event.preventDefault();
+      }
     }
 
     // R key restarts the game

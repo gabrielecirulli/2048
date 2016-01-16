@@ -70,6 +70,8 @@ GameManager.prototype.setup = function () {
     this.addStartTiles();
   }
 
+  stop_auto_move();
+
   // Update the actuator
   this.actuate();
 };

@@ -1,6 +1,5 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
-
 $field-width: 500px;
 $field-width-smaller: 280px;
 $grid-spacing: 15px;
@@ -12,7 +11,7 @@ $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
-$text-color: #776E65;
+$text-color: #776e65;
 $bright-text-color: #f9f6f2;
 
 $tile-color: #eee4da;
@@ -26,152 +25,136 @@ $game-container-background: #bbada0;
 $transition-speed: 100ms;
 
 html, body {
-  margin: 0;
-  padding: 0;
-
-  background: #faf8ef;
-  color: $text-color;
+  margin:      0;
+  padding:     0;
+  background:  #faf8ef;
+  color:       $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
+  font-size:   18px;
   @include smaller($mobile-threshold) {
     font-size: 15px;
   }
 }
-
 body {
   margin: 80px 0;
   @include smaller($mobile-threshold) {
-    margin: 20px 0;
+    margin:  20px 0;
     padding: 0 20px;
   }
 }
-
 .heading {
   @include clearfix;
   @include smaller($mobile-threshold) {
     margin-bottom: 10px;
   }
 }
-
 h1.title {
-  font-size: 80px;
+  font-size:   80px;
   font-weight: bold;
-  margin: 0;
-  display: block;
-  float: left;
+  margin:      0;
+  display:     block;
+  float:       left;
   @include smaller($mobile-threshold) {
-    font-size: 27px;
+    font-size:  27px;
     margin-top: 15px;
   }
 }
-
 @include keyframes(move-up) {
   0% {
-    top: 25px;
+    top:     25px;
     opacity: 1;
   }
 
   100% {
-    top: -50px;
+    top:     -50px;
     opacity: 0;
   }
 }
-
 .scores-container {
-  float: right;
+  float:      right;
   text-align: right;
 }
-
 .score-container, .best-container {
   $height: 25px;
-
-  position: relative;
-  display: inline-block;
-  background: $game-container-background;
-  padding: 15px 25px;
-  font-size: $height;
-  height: $height;
-  line-height: $height + 22px;
-  font-weight: bold;
+  position:      relative;
+  display:       inline-block;
+  background:    $game-container-background;
+  padding:       15px 25px;
+  font-size:     $height;
+  height:        $height;
+  line-height:   $height + 22px;
+  font-weight:   bold;
   border-radius: 3px;
-  color: white;
-  margin-top: 8px;
-  text-align: center;
+  color:         white;
+  margin-top:    8px;
+  text-align:    center;
 
   @include smaller($mobile-threshold) {
     margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px;
+    padding:    15px 10px;
+    min-width:  40px;
   }
 
   &:after {
-    position: absolute;
-    width: 100%;
-    top: 10px;
-    left: 0;
+    position:       absolute;
+    width:          100%;
+    top:            10px;
+    left:           0;
     text-transform: uppercase;
-    font-size: 13px;
-    line-height: 13px;
-    text-align: center;
-    color: $tile-color;
+    font-size:      13px;
+    line-height:    13px;
+    text-align:     center;
+    color:          $tile-color;
   }
 
   .score-addition {
-    position: absolute;
-    right: 30px;
-    color: red;
-    font-size: $height;
+    position:    absolute;
+    right:       30px;
+    color:       red;
+    font-size:   $height;
     line-height: $height;
     font-weight: bold;
-    color: rgba($text-color, .9);
-    z-index: 100;
+    color:       rgba($text-color, .9);
+    z-index:     100;
     @include animation(move-up 600ms ease-in);
     @include animation-fill-mode(both);
   }
 }
-
 .score-container:after {
   content: "Score";
 }
-
 .best-container:after {
   content: "Best"
 }
-
 p {
-  margin-top: 0;
+  margin-top:    0;
   margin-bottom: 10px;
-  line-height: 1.65;
+  line-height:   1.65;
 }
-
 a {
-  color: $text-color;
-  font-weight: bold;
+  color:           $text-color;
+  font-weight:     bold;
   text-decoration: underline;
-  cursor: pointer;
+  cursor:          pointer;
 }
-
 strong {
   &.important {
     text-transform: uppercase;
   }
 }
-
 hr {
-  border: none;
+  border:        none;
   border-bottom: 1px solid lighten($text-color, 40%);
-  margin-top: 20px;
+  margin-top:    20px;
   margin-bottom: 30px;
 }
-
 .container {
-  width: $field-width;
+  width:  $field-width;
   @include smaller($mobile-threshold) {
     width: $field-width-smaller
   }
   margin: 0 auto;
 }
-
 @include keyframes(fade-in) {
   0% {
     opacity: 0;
@@ -181,79 +164,71 @@ hr {
     opacity: 1;
   }
 }
-
 // Styles for buttons
 @mixin button {
-  display: inline-block;
-  background: darken($game-container-background, 20%);
-  border-radius: 3px;
-  padding: 0 20px;
+  display:         inline-block;
+  background:      darken($game-container-background, 20%);
+  border-radius:   3px;
+  padding:         0 20px;
   text-decoration: none;
-  color: $bright-text-color;
-  height: 40px;
-  line-height: 42px;
+  color:           $bright-text-color;
+  height:          40px;
+  line-height:     42px;
 }
-
 .game-container {
-  margin-top: $game-container-margin-top;
-  position: relative;
-  padding: $grid-spacing;
-
-  cursor: default;
+  margin-top:            $game-container-margin-top;
+  position:              relative;
+  padding:               $grid-spacing;
+  cursor:                default;
   -webkit-touch-callout: none;
-  -ms-touch-callout: none;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-
-  -ms-touch-action: none;
-  touch-action: none;
-
-  background: $game-container-background;
-  border-radius: $tile-border-radius * 2;
-  width: $field-width;
-  height: $field-width;
+  -ms-touch-callout:     none;
+  -webkit-user-select:   none;
+  -moz-user-select:      none;
+  -ms-user-select:       none;
+  -ms-touch-action:      none;
+  touch-action:          none;
+  background:            $game-container-background;
+  border-radius:         $tile-border-radius * 2;
+  width:                 $field-width;
+  height:                $field-width;
   @include smaller($mobile-threshold) {
     margin-top: $game-container-margin-top-smaller;
-    padding: $grid-spacing-smaller;
-    width: $field-width-smaller;
-    height: $field-width-smaller;
+    padding:    $grid-spacing-smaller;
+    width:      $field-width-smaller;
+    height:     $field-width-smaller;
   }
   @include boxsize (border-box);
 
   .game-message {
-    display: none;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    display:    none;
+    position:   absolute;
+    top:        0;
+    right:      0;
+    bottom:     0;
+    left:       0;
     background: rgba($tile-color, .5);
-    z-index: 100;
-
+    z-index:    100;
     text-align: center;
 
     p {
-      font-size: 60px;
+      font-size:   60px;
       font-weight: bold;
-      height: 60px;
+      height:      60px;
       line-height: 60px;
-      margin-top: 222px;
+      margin-top:  222px;
       // height: $field-width;
       // line-height: $field-width;
 
       @include smaller($mobile-threshold) {
-        font-size: 30px !important;
-        height: 30px !important;
+        font-size:   30px !important;
+        height:      30px !important;
         line-height: 30px !important;
-        margin-top: 90px !important;
+        margin-top:  90px !important;
       }
     }
 
     .lower {
-      display: block;
+      display:    block;
       margin-top: 59px;
       @include smaller($mobile-threshold) {
         margin-top: 30px !important;
@@ -275,7 +250,7 @@ hr {
 
     &.game-won {
       background: rgba($tile-gold-color, .5);
-      color: $bright-text-color;
+      color:      $bright-text-color;
 
       a.keep-playing-button {
         display: inline-block;
@@ -287,12 +262,10 @@ hr {
     }
   }
 }
-
 .grid-container {
   position: absolute;
-  z-index: 1;
+  z-index:  1;
 }
-
 .grid-row {
   margin-bottom: $grid-spacing;
   @include smaller($mobile-threshold) {
@@ -306,43 +279,38 @@ hr {
   &:after {
     content: "";
     display: block;
-    clear: both;
+    clear:   both;
   }
 }
-
 .grid-cell {
-  width: $tile-size;
-  height: $tile-size;
-  margin-right: $grid-spacing;
+  width:         $tile-size;
+  height:        $tile-size;
+  margin-right:  $grid-spacing;
   @include smaller($mobile-threshold) {
-    width: $tile-size-smaller;
-    height: $tile-size-smaller;
+    width:        $tile-size-smaller;
+    height:       $tile-size-smaller;
     margin-right: $grid-spacing-smaller;
   }
-  float: left;
-
+  float:         left;
   border-radius: $tile-border-radius;
-
-  background: rgba($tile-color, .35);
+  background:    rgba($tile-color, .35);
 
   &:last-child {
     margin-right: 0;
   }
 }
-
 .tile-container {
   position: absolute;
-  z-index: 2;
+  z-index:  2;
 }
-
 .tile {
   &, .tile-inner {
-    width: ceil($tile-size);
-    height: ceil($tile-size);
+    width:       ceil($tile-size);
+    height:      ceil($tile-size);
     line-height: ceil($tile-size);
     @include smaller($mobile-threshold) {
-      width: ceil($tile-size-smaller);
-      height: ceil($tile-size-smaller);
+      width:       ceil($tile-size-smaller);
+      height:      ceil($tile-size-smaller);
       line-height: ceil($tile-size-smaller);
     }
   }
@@ -363,19 +331,16 @@ hr {
     }
   }
 }
-
 .tile {
-  position: absolute; // Makes transforms relative to the top-left corner
+  position:                    absolute; // Makes transforms relative to the top-left corner
 
   .tile-inner {
     border-radius: $tile-border-radius;
-
-    background: $tile-color;
-    text-align: center;
-    font-weight: bold;
-    z-index: 10;
-
-    font-size: 55px;
+    background:    $tile-color;
+    text-align:    center;
+    font-weight:   bold;
+    z-index:       10;
+    font-size:     55px;
     @include smaller($mobile-threshold) {
       font-size: 35px;
     }
@@ -384,25 +349,24 @@ hr {
   // Movement transition
   @include transition($transition-speed ease-in-out);
   -webkit-transition-property: -webkit-transform;
-  -moz-transition-property: -moz-transform;
-  transition-property: transform;
-
+  -moz-transition-property:    -moz-transform;
+  transition-property:         transform;
   $base: 2;
   $exponent: 1;
   $limit: 11;
 
   // Colors for all 11 states, false = no special color
   $special-colors: false false, // 2
-  false false, // 4
-  #f78e48 true, // 8
-  #fc5e2e true, // 16
-  #ff3333 true, // 32
-  #ff0000 true, // 64
-  false true, // 128
-  false true, // 256
-  false true, // 512
-  false true, // 1024
-  false true; // 2048
+                   false false, // 4
+                   #f78e48 true, // 8
+                   #fc5e2e true, // 16
+                   #f33 true, // 32
+                   #f00 true, // 64
+                   false true, // 128
+                   false true, // 256
+                   false true, // 512
+                   false true, // 1024
+                   false true; // 2048
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -412,9 +376,7 @@ hr {
       // Calculate base background color
       $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
       $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
-
       $nth-color: nth($special-colors, $exponent);
-
       $special-background: nth($nth-color, 1);
       $bright-color: nth($nth-color, 2);
 
@@ -434,7 +396,7 @@ hr {
 
       @if not $special-background {
         box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-        inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
       }
 
       // Adjust font size for bigger numbers
@@ -459,17 +421,15 @@ hr {
 
   // Super tiles (above 2048)
   &.tile-super .tile-inner {
-    color: $bright-text-color;
+    color:      $bright-text-color;
     background: mix(#333, $tile-gold-color, 95%);
-
-    font-size: 30px;
+    font-size:  30px;
 
     @include smaller($mobile-threshold) {
       font-size: 10px;
     }
   }
 }
-
 @include keyframes(appear) {
   0% {
     opacity: 0;
@@ -481,12 +441,10 @@ hr {
     @include transform(scale(1));
   }
 }
-
 .tile-new .tile-inner {
   @include animation(appear 200ms ease $transition-speed);
   @include animation-fill-mode(backwards);
 }
-
 @include keyframes(pop) {
   0% {
     @include transform(scale(0));
@@ -500,45 +458,48 @@ hr {
     @include transform(scale(1));
   }
 }
-
 .tile-merged .tile-inner {
   z-index: 20;
   @include animation(pop 200ms ease $transition-speed);
   @include animation-fill-mode(backwards);
 }
-
 .above-game {
   @include clearfix;
 }
-
 .game-intro {
-  float: left;
-  line-height: 42px;
+  float:         left;
+  line-height:   42px;
   margin-bottom: 0;
 
   // Show intro and restart button side by side
   @include smaller($mobile-threshold) {
-    width: 55%;
-    display: block;
+    width:       55%;
+    display:     block;
     @include boxsize(border-box);
     line-height: 1.65;
   }
 }
-
 .restart-button {
   @include button;
-  display: block;
+  display:    block;
   text-align: center;
-  float: right;
+  float:      right;
   @include smaller($mobile-threshold) {
-    width: 42%;
-    padding: 0;
-    display: block;
+    width:      42%;
+    padding:    0;
+    display:    block;
     @include boxsize(border-box);
     margin-top: 2px;
   }
 }
-
 .game-explanation {
   margin-top: 50px;
 }
+.auto-move-container {
+  margin:    60px auto 0px auto;
+  width:     450px;
+  clear:     both;
+  font-size: 20px;
+  color:     #09f;
+}
+

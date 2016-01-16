@@ -13,9 +13,9 @@ window.fakeStorage = {
     return delete this._data[id];
   },
 
-  clear: function () {
-    return this._data = {};
-  }
+  //clear: function () {
+  //  return this._data = {};
+  //}
 };
 
 function LocalStorageManager() {
@@ -41,7 +41,7 @@ LocalStorageManager.prototype.localStorageSupported = function () {
 
 // Best score getters/setters
 LocalStorageManager.prototype.getBestScore = function () {
-  return this.storage.getItem(this.bestScoreKey) || 0;
+  return JSON.parse(this.storage.getItem(this.bestScoreKey)) || 0;
 };
 
 LocalStorageManager.prototype.setBestScore = function (score) {

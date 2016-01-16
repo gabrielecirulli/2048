@@ -1,6 +1,6 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
-$grid-row-cells: 10; // 4;
+$grid-row-cells: 16; // 4;
 $field-width: 1060px; // 500px;
 $field-width-smaller: 380px; // 280px;
 $grid-spacing: $field-width / $grid-row-cells / 8.33; // 15px;
@@ -340,9 +340,9 @@ hr {
     text-align:    center;
     font-weight:   bold;
     z-index:       10;
-    font-size:     $field-width / $grid-row-cells / 2.27; // 55px;
+    font-size:     $field-width / $grid-row-cells / 2.5; // 55px;
     @include smaller($mobile-threshold) {
-      font-size: $field-width-smaller / $grid-row-cells / 2.27; // 35px;
+      font-size: $field-width-smaller / $grid-row-cells / 2.5; // 35px;
     }
   }
 
@@ -351,40 +351,42 @@ hr {
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property:    -moz-transform;
   transition-property:         transform;
-  $base: 2;
   $exponent: 1;
-  $limit: 11;
-
-  // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #f33 true, // 32
-                   #f00 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+  $limit: 59; // ......... ... K .. M .. G .. T .. P .. E .. Z .. Y
+  $colors: #feeea3 false -0% -15% -30% -45% -51% -55% -90% -95% -99%,
+           #bedf95 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+           #8bdfcf false -0% -15% -35% -50% -60% -75% -90% -95% -99%,
+           #97d7e4 false -0% -15% -35% -45% -60% -75% -90% -95% -99%,
+           #8ec6e7 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+           #a0ace2 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+           #ad95d9 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+           #b77fce false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+           #e17dd0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+           #f77cb0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%;
+  $listlength: length($colors);
 
   // Build tile colors
   @while $exponent <= $limit {
-    $power: pow($base, $exponent);
 
-    &.tile-#{$power} .tile-inner {
+    &.tile-#{$exponent} .tile-inner {
       // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
-      $nth-color: nth($special-colors, $exponent);
-      $special-background: nth($nth-color, 1);
-      $bright-color: nth($nth-color, 2);
+      //$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+      //$mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+      //$list-entry: if($exponent <= length($special-colors), nth($special-colors, $exponent), false false);
+      $list-entry: nth($colors, ($exponent % $listlength) + 1);
+      $bg-color: nth($list-entry, 1);
+      $bright-text: nth($list-entry, 2);
+      $dark-col: ceil(($exponent + 1) / $listlength);
+      $dark-pct: nth($list-entry, $dark-col + 2);
+      //$bright-text: false;
 
-      @if $special-background {
-        $mixed-background: mix($special-background, $mixed-background, 55%);
-      }
+      //@if $bg-color {
+      //$mixed-background: mix($bg-color, $mixed-background, 55%);
+      //$mixed-background: mix($bg-color, $tile-color, 55%);
+      $mixed-background: scale-color($bg-color, $lightness: $dark-pct);
+      //}
 
-      @if $bright-color {
+      @if $bright-text {
         color: $bright-text-color;
       }
 
@@ -393,11 +395,8 @@ hr {
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-
-      @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
+      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
+                  inset 0 0 0 1px rgba(white, $glow-opacity / 3);
     }
 
     $exponent: $exponent + 1;

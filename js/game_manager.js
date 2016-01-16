@@ -27,7 +27,7 @@ GameManager.prototype.displayCells = function() {
     }
     gridContainer.appendChild(row);
   }
-}
+};
 
 // Restart the game
 GameManager.prototype.restart = function () {

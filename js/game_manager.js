@@ -202,10 +202,12 @@ GameManager.prototype.move = function (direction) {
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!
+      stop_auto_move();
     }
 
     this.actuate();
   }
+  return moved;
 };
 
 // Get the vector representing the chosen direction

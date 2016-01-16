@@ -1,10 +1,10 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
-$field-width: 500px;
-$field-width-smaller: 280px;
-$grid-spacing: 15px;
-$grid-spacing-smaller: 10px;
-$grid-row-cells: 4;
+$grid-row-cells: 16; // 4;
+$field-width: 1060px; // 500px;
+$field-width-smaller: 380px; // 280px;
+$grid-spacing: $field-width / $grid-row-cells / 8.33; // 15px;
+$grid-spacing-smaller: $field-width-smaller / $grid-row-cells / 8.33; // 10px;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-size-smaller: ($field-width-smaller - $grid-spacing-smaller * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
@@ -340,9 +340,9 @@ hr {
     text-align:    center;
     font-weight:   bold;
     z-index:       10;
-    font-size:     55px;
+    font-size:     $field-width / $grid-row-cells / 2.27; // 55px;
     @include smaller($mobile-threshold) {
-      font-size: 35px;
+      font-size: $field-width-smaller / $grid-row-cells / 2.27; // 35px;
     }
   }
 
@@ -398,22 +398,6 @@ hr {
         box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
                     inset 0 0 0 1px rgba(white, $glow-opacity / 3);
       }
-
-      // Adjust font size for bigger numbers
-      @if $power >= 100 and $power < 1000 {
-        font-size: 45px;
-
-        // Media queries placed here to avoid carrying over the rest of the logic
-        @include smaller($mobile-threshold) {
-          font-size: 25px;
-        }
-      } @else if $power >= 1000 {
-        font-size: 35px;
-
-        @include smaller($mobile-threshold) {
-          font-size: 15px;
-        }
-      }
     }
 
     $exponent: $exponent + 1;
@@ -423,11 +407,6 @@ hr {
   &.tile-super .tile-inner {
     color:      $bright-text-color;
     background: mix(#333, $tile-gold-color, 95%);
-    font-size:  30px;
-
-    @include smaller($mobile-threshold) {
-      font-size: 10px;
-    }
   }
 }
 @include keyframes(appear) {
@@ -496,12 +475,17 @@ hr {
   margin-top: 50px;
 }
 .auto-move-container {
-  margin:     60px auto 0 auto;
-  width:      450px;
+  margin:     10px auto; // 60px auto 0 auto;
+  width:      $field-width; // 450px;
+  @include smaller($mobile-threshold) {
+    width: $field-width-smaller
+  }
   clear:      both;
-  font-size:  20px;
   color:      #09f;
   text-align: center;
+  input {
+    text-align: right;
+  }
 }
 .sr-only {
   position: absolute;

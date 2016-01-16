@@ -1,6 +1,6 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
-$grid-row-cells: 16; // 4;
+$grid-row-cells: 10; // 4;
 $field-width: 1060px; // 500px;
 $field-width-smaller: 380px; // 280px;
 $grid-spacing: $field-width / $grid-row-cells / 8.33; // 15px;
@@ -401,12 +401,6 @@ hr {
     }
 
     $exponent: $exponent + 1;
-  }
-
-  // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-    color:      $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
   }
 }
 @include keyframes(appear) {

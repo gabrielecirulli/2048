@@ -78,8 +78,23 @@ GameManager.prototype.setup = function () {
 
 // Set up the initial tiles to start the game with
 GameManager.prototype.addStartTiles = function () {
+  this.addSequentialTiles();
   for (var i = 0; i < this.startTiles; i++) {
     this.addRandomTile();
+  }
+};
+
+// Populates all available tiles with increasing values
+GameManager.prototype.addSequentialTiles = function () {
+  var power = 0;
+  var cells = this.grid.availableCells();
+  while (cells.length > 0 && power < 86) {
+    power += 1;
+    var value = Math.pow(2, power);
+    var tile = new Tile(cells[1], value);
+
+    this.grid.insertTile(tile);
+    cells = this.grid.availableCells();
   }
 };
 

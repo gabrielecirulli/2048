@@ -386,6 +386,7 @@ hr {
       $mixed-background: scale-color($bg-color, $lightness: $dark-pct);
       //}
 
+      $bright-text: 65 > lightness($mixed-background);
       @if $bright-text {
         color: $bright-text-color;
       }

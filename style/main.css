@@ -34,7 +34,9 @@ h1.title {
   @media screen and (max-width: 1080px) {
     h1.title {
       font-size: 27px;
-      margin-top: 15px; } }
+      margin-top: 15px;
+      float: none;
+      text-align: center; } }
 
 @-webkit-keyframes move-up {
   0% {
@@ -58,8 +60,12 @@ h1.title {
     top: -50px;
     opacity: 0; } }
 .scores-container {
-  float: right;
-  text-align: right; }
+  text-align: right;
+  float: right; }
+  @media screen and (max-width: 1080px) {
+    .scores-container {
+      text-align: center;
+      float: none; } }
 
 .score-container, .best-container {
   position: relative;
@@ -78,6 +84,7 @@ h1.title {
     .score-container, .best-container {
       margin-top: 0;
       padding: 15px 10px;
+      width: 44%;
       min-width: 40px; } }
   .score-container:after, .best-container:after {
     position: absolute;

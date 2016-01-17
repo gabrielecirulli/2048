@@ -57,6 +57,8 @@ h1.title {
   @include smaller($mobile-threshold) {
     font-size:  27px;
     margin-top: 15px;
+    float:      none;
+    text-align: center;
   }
 }
 @include keyframes(move-up) {
@@ -71,8 +73,12 @@ h1.title {
   }
 }
 .scores-container {
-  float:      right;
   text-align: right;
+  float: right;
+  @include smaller($mobile-threshold) {
+    text-align: center;
+    float: none;
+  }
 }
 .score-container, .best-container {
   $height: 25px;
@@ -92,6 +98,7 @@ h1.title {
   @include smaller($mobile-threshold) {
     margin-top: 0;
     padding:    15px 10px;
+    width:      44%;
     min-width:  40px;
   }
 

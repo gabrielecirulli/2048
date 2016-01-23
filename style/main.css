@@ -139,7 +139,7 @@ hr {
   margin-bottom: 30px; }
 
 .container {
-  width: 1060px;
+  width: 1484px;
   margin: 0 auto; }
   @media screen and (max-width: 1080px) {
     .container {
@@ -160,7 +160,27 @@ hr {
     opacity: 0; }
   100% {
     opacity: 1; } }
+.stats-container {
+  display: inline-block;
+  margin-top: 40px;
+  position: relative;
+  padding: 7.95318px;
+  background: #bbada0;
+  border-radius: 6px;
+  width: 265px;
+  height: 1060px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media screen and (max-width: 1080px) {
+    .stats-container {
+      margin-top: 17px;
+      padding: 2.85114px;
+      width: 95px;
+      height: 380px; } }
+
 .game-container {
+  display: inline-block;
   margin-top: 40px;
   position: relative;
   padding: 7.95318px;

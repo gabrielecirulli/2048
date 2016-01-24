@@ -2,7 +2,7 @@
 @import "fonts/clear-sans.css";
 
 $grid-row-cells: 16; // 4;
-$field-width: 1060px; // 500px;
+$field-width: 940px; // 1060px; // 500px;
 $field-width-smaller: 380px; // 280px;
 $grid-spacing: $field-width / $grid-row-cells / 8.33; // 15px;
 $grid-spacing-smaller: $field-width-smaller / $grid-row-cells / 8.33; // 10px;
@@ -170,7 +170,7 @@ hr {
 }
 
 .container {
-  width: $field-width * 1.4;
+  width: $field-width * 1.75 + $grid-spacing;
   @include smaller($mobile-threshold) {
     width: $field-width-smaller
   }
@@ -200,25 +200,52 @@ hr {
 }
 
 .stats-container {
-  display: inline-block;
+  font-size: 0.85em;
+  float: left;
+  //display: inline;
   margin-top: $game-container-margin-top;
-  position: relative;
+  margin-left: $grid-spacing;
   padding: $grid-spacing;
   background: $game-container-background;
   border-radius: $tile-border-radius * 2;
-  width: $field-width / 4;
+  width: $field-width * 0.75;
   height: $field-width;
   @include smaller($mobile-threshold) {
     margin-top: $game-container-margin-top-smaller;
     padding: $grid-spacing-smaller;
-    width: $field-width-smaller / 4;
+    width: $field-width-smaller * 0.75;
     height: $field-width-smaller;
   }
   @include boxsize (border-box);
+
+  th {
+    text-align: center;
+    vertical-align: baseline;
+    &.right {
+      text-align: right;
+    }
+  }
+  td {
+    text-align: right;
+    vertical-align: baseline;
+    padding-left: $grid-spacing;
+    &.left {
+      text-align: left;
+    }
+  }
+
+  .predict {
+    color: gainsboro;
+  }
+
+  //small, sub, sup { font-size: .83em }
+  //sub             { vertical-align: sub }
+  //sup             { vertical-align: super }
 }
 
 .game-container {
-  display: inline-block;
+  float: left;
+  //display: inline;
   margin-top: $game-container-margin-top;
   position: relative;
   padding: $grid-spacing;
@@ -400,57 +427,58 @@ hr {
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform;
-  $exponent: 1;
-  $limit: 59; // ......... ... K .. M .. G .. T .. P .. E .. Z .. Y
-  $colors: #feeea3 false -0% -15% -30% -45% -51% -55% -90% -95% -99%,
-  #bedf95 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-  #8bdfcf false -0% -15% -35% -50% -60% -75% -90% -95% -99%,
-  #97d7e4 false -0% -15% -35% -45% -60% -75% -90% -95% -99%,
-  #8ec6e7 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-  #a0ace2 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-  #ad95d9 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-  #b77fce false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-  #e17dd0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-  #f77cb0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%;
-  $listlength: length($colors);
+}
 
-  // Build tile colors
-  @while $exponent <= $limit {
+$exponent: 1;
+$limit: 59; // ......... ... K .. M .. G .. T .. P .. E .. Z .. Y
+$colors: #feeea3 false -0% -15% -30% -45% -51% -55% -90% -95% -99%,
+#bedf95 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+#8bdfcf false -0% -15% -35% -50% -60% -75% -90% -95% -99%,
+#97d7e4 false -0% -15% -35% -45% -60% -75% -90% -95% -99%,
+#8ec6e7 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+#a0ace2 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+#ad95d9 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+#b77fce false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+#e17dd0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+#f77cb0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%;
+$listlength: length($colors);
 
-    &.tile-#{$exponent} .tile-inner {
-      // Calculate base background color
-      //$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      //$mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
-      //$list-entry: if($exponent <= length($special-colors), nth($special-colors, $exponent), false false);
-      $list-entry: nth($colors, ($exponent % $listlength) + 1);
-      $bg-color: nth($list-entry, 1);
-      $bright-text: nth($list-entry, 2);
-      $dark-col: ceil(($exponent + 1) / $listlength);
-      $dark-pct: nth($list-entry, $dark-col + 2);
-      //$bright-text: false;
+// Build tile colors
+@while $exponent <= $limit {
 
-      //@if $bg-color {
-      //$mixed-background: mix($bg-color, $mixed-background, 55%);
-      //$mixed-background: mix($bg-color, $tile-color, 55%);
-      $mixed-background: scale-color($bg-color, $lightness: $dark-pct);
-      //}
+  .tile-#{$exponent} .tile-inner, .tile-#{$exponent} {
+    // Calculate base background color
+    //$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+    //$mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+    //$list-entry: if($exponent <= length($special-colors), nth($special-colors, $exponent), false false);
+    $list-entry: nth($colors, ($exponent % $listlength) + 1);
+    $bg-color: nth($list-entry, 1);
+    $bright-text: nth($list-entry, 2);
+    $dark-col: ceil(($exponent + 1) / $listlength);
+    $dark-pct: nth($list-entry, $dark-col + 2);
+    //$bright-text: false;
 
-      $bright-text: 65 > lightness($mixed-background);
-      @if $bright-text {
-        color: $bright-text-color;
-      }
+    //@if $bg-color {
+    //$mixed-background: mix($bg-color, $mixed-background, 55%);
+    //$mixed-background: mix($bg-color, $tile-color, 55%);
+    $mixed-background: scale-color($bg-color, $lightness: $dark-pct);
+    //}
 
-      // Set background
-      background: $mixed-background;
-
-      // Add glow
-      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-      inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+    $bright-text: 65 > lightness($mixed-background);
+    @if $bright-text {
+      color: $bright-text-color;
     }
 
-    $exponent: $exponent + 1;
+    // Set background
+    background: $mixed-background;
+
+    // Add glow
+    $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+    box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
+    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
   }
+
+  $exponent: $exponent + 1;
 }
 
 @include keyframes(appear) {

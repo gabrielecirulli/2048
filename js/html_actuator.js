@@ -1,14 +1,124 @@
 function HTMLActuator() {
-  this.tileContainer = document.querySelector(".tile-container");
-  this.scoreContainer = document.querySelector(".score-container");
-  this.bestContainer = document.querySelector(".best-container");
+  this.tileContainer    = document.querySelector(".tile-container");
+  this.scoreContainer   = document.querySelector(".score-container");
+  this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.firstMove        = document.querySelector("#first-move");
+  this.numMoves         = document.querySelector("#num-moves");
+  //this.lastMoveNum = 0; // might be interesting if we get to permitting multiple moves between display updates
+  //this.lastExponent = 1;
+  this.mergeHist = document.querySelector("#stats-table");
 
   this.score = 0;
+  // Need to provide a way for the user to select a locale they like.
+  this.dtf = new Intl.DateTimeFormat("en-US", {
+    weekday: 'short',
+    year   : 'numeric',
+    month  : 'short',
+    day    : 'numeric',
+    hour   : 'numeric',
+    minute : 'numeric',
+    second : 'numeric'
+  });
+}
+
+HTMLActuator.prototype.display = function (mergeData, exponent, map) {
+  var self = this.GM.actuator;
+
+  var mergeDate = mergeData[0];
+  var numMoves  = mergeData[1];
+  var predict   = mergeData[2] || false;
+  var vlu       = Math.pow(2, exponent);
+  var value     = self.translateValue(vlu);
+
+  var row       = document.createElement("tr");
+  row.className = "merge-row";
+  if (predict) row.classList.add("predict");
+
+  // Tile-like display, e.g. 1/4G
+  var th       = document.createElement("th");
+  th.className = "tile-" + exponent;
+  th.appendChild(document.createTextNode(value.v + value.c));
+  row.appendChild(th);
+
+  // Two to the power of whatever
+  var td       = document.createElement("td");
+  td.className = "left";
+  td.appendChild(document.createTextNode("2"));
+  var sup = document.createElement("sup");
+  sup.appendChild(document.createTextNode(exponent));
+  td.appendChild(sup);
+  row.appendChild(td);
+
+  // Value
+  td = document.createElement("td");
+  td.appendChild(document.createTextNode(vlu.toLocaleString()));
+  row.appendChild(td);
+
+  // Timestamp of this merge
+  td = document.createElement("td");
+  td.appendChild(document.createTextNode(self.dtf.format(mergeDate)));
+  row.appendChild(td);
+
+  // Difference from start to this timestamp
+  td           = document.createElement("td");
+  td.className = "left";
+  td.appendChild(document.createTextNode(self.formatDateDiff(mergeDate - self.firstMoveDate)));
+  row.appendChild(td);
+
+  // Number of moves
+  td = document.createElement("td");
+  td.appendChild(document.createTextNode(numMoves.toLocaleString()));
+  row.appendChild(td);
+
+  self.mergeHist.appendChild(row);
+};
+
+HTMLActuator.prototype.formatDateDiff = function (diff) {
+  var d = diff;
+  if (d <= 900) return '≈ ' + d.toLocaleString() + ' millisecond' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000);
+  if (d <= 54) return '≈ ' + d.toLocaleString() + ' second' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000 / 60);
+  if (d <= 54) return '≈ ' + d.toLocaleString() + ' minute' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000 / 60 / 60);
+  if (d <= 21) return '≈ ' + d.toLocaleString() + ' hour' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000 / 60 / 60 / 24);
+  if (d <= 7) return '≈ ' + d.toLocaleString() + ' day' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000 / 60 / 60 / 24 / 7);
+  if (d <= 3) return '≈ ' + d.toLocaleString() + ' week' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000 / 60 / 60 / 24 / 30);
+  if (d <= 11) return '≈ ' + d.toLocaleString() + ' month' + (d > 1 ? 's' : '');
+  d = Math.round(diff / 1000 / 60 / 60 / 24 / 365);
+  return '≈ ' + d.toLocaleString() + ' year' + (d > 1 ? 's' : '');
+};
+
+HTMLActuator.prototype.clearMergeHistoryDisplay = function () {
+  var list = document.querySelectorAll('.merge-row');
+  for (var i = 0; i < list.length; ++i) {
+    this.mergeHist.removeChild(list[i]);
+  }
+};
+
+function predictTimes(mergeHistory) {
+  if (mergeHistory.size == 0) return mergeHistory;
+  var self      = this.GM.actuator;
+  var result    = new Map(mergeHistory);
+  var lastExp   = [...result.keys()][result.size - 1];
+  var lastDate  = result.get(lastExp)[0];
+  var lastMove  = result.get(lastExp)[1];
+  var timeDelta = lastDate - self.firstMoveDate;
+  for (var i = lastExp + 1; i <= 32; i++) {
+    lastMove *= 2;
+    timeDelta *= 2;
+    result.set(i, [lastDate + timeDelta, lastMove, true]);
+  }
+  return result;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
-  var self = this;
+  var self           = this;
+  self.firstMoveDate = metadata.firstMove;
 
   window.requestAnimationFrame(function () {
     self.clearContainer(self.tileContainer);
@@ -22,7 +132,11 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     });
 
     self.updateScore(metadata.score);
-    self.updateBestScore(metadata.bestScore);
+    self.bestContainer.textContent = metadata.bestScore.toLocaleString();
+    self.numMoves.textContent      = metadata.numMoves.toLocaleString();
+    self.firstMove.textContent     = metadata.numMoves > 0 ? self.dtf.format(metadata.firstMove) : "";
+    self.clearMergeHistoryDisplay();
+    predictTimes(metadata.mergeHistory).forEach(self.display);
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -87,9 +201,9 @@ HTMLActuator.prototype.translateValue = function (value) {
 HTMLActuator.prototype.addTile = function (tile) {
   var self = this;
 
-  var wrapper = document.createElement("div");
-  var inner = document.createElement("div");
-  var position = tile.previousPosition || {x: tile.x, y: tile.y};
+  var wrapper       = document.createElement("div");
+  var inner         = document.createElement("div");
+  var position      = tile.previousPosition || {x: tile.x, y: tile.y};
   var positionClass = this.positionClass(position);
 
   // We can't use classlist because it somehow glitches when replacing classes
@@ -98,7 +212,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  textVal = self.translateValue(tile.value);
+  textVal           = self.translateValue(tile.value);
   inner.textContent = textVal.v + textVal.c;
 
   if (tile.previousPosition) {
@@ -144,7 +258,7 @@ HTMLActuator.prototype.updateScore = function (score) {
   this.clearContainer(this.scoreContainer);
 
   var difference = score - this.score;
-  this.score = score;
+  this.score     = score;
 
   this.scoreContainer.textContent = this.score.toLocaleString();
 
@@ -157,12 +271,9 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 };
 
-HTMLActuator.prototype.updateBestScore = function (bestScore) {
-  this.bestContainer.textContent = bestScore.toLocaleString();
-};
 
 HTMLActuator.prototype.message = function (won) {
-  var type = won ? "game-won" : "game-over";
+  var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
 
   this.messageContainer.classList.add(type);

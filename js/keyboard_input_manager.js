@@ -3,13 +3,13 @@ function KeyboardInputManager() {
 
   if (window.navigator.msPointerEnabled) {
     //Internet Explorer 10 style
-    this.eventTouchstart    = "MSPointerDown";
-    this.eventTouchmove     = "MSPointerMove";
-    this.eventTouchend      = "MSPointerUp";
+    this.eventTouchstart = "MSPointerDown";
+    this.eventTouchmove  = "MSPointerMove";
+    this.eventTouchend   = "MSPointerUp";
   } else {
-    this.eventTouchstart    = "touchstart";
-    this.eventTouchmove     = "touchmove";
-    this.eventTouchend      = "touchend";
+    this.eventTouchstart = "touchstart";
+    this.eventTouchmove  = "touchmove";
+    this.eventTouchend   = "touchend";
   }
 
   this.listen();
@@ -119,10 +119,10 @@ KeyboardInputManager.prototype.listen = function () {
       touchEndClientY = event.changedTouches[0].clientY;
     }
 
-    var dx = touchEndClientX - touchStartClientX;
+    var dx    = touchEndClientX - touchStartClientX;
     var absDx = Math.abs(dx);
 
-    var dy = touchEndClientY - touchStartClientY;
+    var dy    = touchEndClientY - touchStartClientY;
     var absDy = Math.abs(dy);
 
     if (Math.max(absDx, absDy) > 10) {

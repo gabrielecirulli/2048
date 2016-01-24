@@ -32,7 +32,8 @@
   </div>
 
   <div class="above-game">
-    <p class="game-intro">Join the numbers and get to the <strong><strike>2048 tile</strike> highest tile you can!</strong></p>
+    <p class="game-intro">Join the numbers and get to the <strong><strike>2048 tile</strike> highest tile you
+      can!</strong></p>
     <a class="restart-button">New Game</a>
   </div>
 
@@ -48,6 +49,20 @@
     <div class="grid-container"></div>
 
     <div class="tile-container"></div>
+
+  </div><div class="stats-container">
+    <table>
+      <tbody id="stats-table">
+      <tr>
+        <th colspan="3" class="right">Number of moves:</th>
+        <td colspan="3" id="num-moves"></td>
+      </tr>
+      <tr>
+        <th colspan="3" class="right">First move:</th>
+        <td colspan="1" id="first-move"></td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="auto-move-container">
@@ -58,7 +73,7 @@
                                                                                                    value="Run"
                                                                                                    id="auto-move-run"
                                                                                                    class="auto-move-button"><label
-          for="auto-move-input-time" class="sr-only">Toggle AutoMove</label>
+      for="auto-move-input-time" class="sr-only">Toggle AutoMove</label>
   </div>
 
   <p class="game-explanation">
@@ -73,7 +88,7 @@
   <hr>
   <p>
     Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a
-          href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and
+      href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and
     conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
   </p>
 </div>

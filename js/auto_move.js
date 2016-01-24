@@ -1,4 +1,4 @@
-var auto_move_flag = false;
+var auto_move_flag      = false;
 var auto_move_time;
 var auto_move_direction = 0;
 // 0: up, 1: right, 2:down, 3: left
@@ -13,7 +13,7 @@ function auto_move() {
 
   var rn = Math.random();
   // 50% right, 35% down, 15% up, 0% left
-  direction = rn < 0.5 ? 1 : rn < 0.85 ? 2 : 0;
+  var direction = rn < 0.5 ? 1 : rn < 0.85 ? 2 : 0;
 
   if (!GM.move(direction)) {
     if (!GM.move(1)) {     // right
@@ -52,7 +52,7 @@ function auto_move() {
 }
 
 function toggle_auto_move() {
-  auto_move_flag = !auto_move_flag;
+  auto_move_flag                                 = !auto_move_flag;
   document.getElementById("auto-move-run").value = auto_move_flag ? "Stop" : "Run";
   getMoveTime();
   auto_move();

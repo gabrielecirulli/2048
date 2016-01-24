@@ -1,5 +1,5 @@
 function Grid(size, previousState) {
-  this.size = size;
+  this.size  = size;
   this.cells = previousState ? this.fromState(previousState) : this.empty();
 }
 
@@ -47,7 +47,7 @@ Grid.prototype.availableCells = function () {
 
   this.eachCell(function (x, y, tile) {
     if (!tile) {
-      cells.push({ x: x, y: y });
+      cells.push({x: x, y: y});
     }
   });
 
@@ -111,7 +111,7 @@ Grid.prototype.serialize = function () {
   }
 
   return {
-    size: this.size,
+    size : this.size,
     cells: cellState
   };
 };

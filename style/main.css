@@ -3154,288 +3154,480 @@ hr {
         font-size: 9.5px; } }
 
 .tile-1 .tile-inner, .tile-1 {
-  background: #bedf95;
+  background: #7fcede;
   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
 
 .tile-2 .tile-inner, .tile-2 {
-  background: #8bdfcf;
+  color: #f9f6f2;
+  background: #67c4d8;
   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
 
 .tile-3 .tile-inner, .tile-3 {
-  background: #97d7e4;
+  color: #f9f6f2;
+  background: #4fbbd1;
   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
 
 .tile-4 .tile-inner, .tile-4 {
-  background: #8ec6e7;
+  color: #f9f6f2;
+  background: #37b2cb;
   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
 
 .tile-5 .tile-inner, .tile-5 {
-  background: #a0ace2;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.0101), inset 0 0 0 1px rgba(255, 255, 255, 0.00606); }
+  color: #f9f6f2;
+  background: #2f9eb5;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.00585), inset 0 0 0 1px rgba(255, 255, 255, 0.00351); }
 
 .tile-6 .tile-inner, .tile-6 {
-  background: #ad95d9;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.0202), inset 0 0 0 1px rgba(255, 255, 255, 0.01212); }
+  color: #f9f6f2;
+  background: #29899c;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.0117), inset 0 0 0 1px rgba(255, 255, 255, 0.00702); }
 
 .tile-7 .tile-inner, .tile-7 {
-  background: #b77fce;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.0303), inset 0 0 0 1px rgba(255, 255, 255, 0.01818); }
+  color: #f9f6f2;
+  background: #227484;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.01754), inset 0 0 0 1px rgba(255, 255, 255, 0.01053); }
 
 .tile-8 .tile-inner, .tile-8 {
-  background: #e17dd0;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.0404), inset 0 0 0 1px rgba(255, 255, 255, 0.02424); }
+  color: #f9f6f2;
+  background: #1c5f6c;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.02339), inset 0 0 0 1px rgba(255, 255, 255, 0.01404); }
 
 .tile-9 .tile-inner, .tile-9 {
-  background: #f77cb0;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.05051), inset 0 0 0 1px rgba(255, 255, 255, 0.0303); }
+  color: #f9f6f2;
+  background: #164a54;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.02924), inset 0 0 0 1px rgba(255, 255, 255, 0.01754); }
 
 .tile-10 .tile-inner, .tile-10 {
-  background: #fde365;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.06061), inset 0 0 0 1px rgba(255, 255, 255, 0.03636); }
+  background: #f77cb0;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.03509), inset 0 0 0 1px rgba(255, 255, 255, 0.02105); }
 
 .tile-11 .tile-inner, .tile-11 {
-  color: #f9f6f2;
-  background: #a4d26a;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.07071), inset 0 0 0 1px rgba(255, 255, 255, 0.04242); }
+  background: #f5609f;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.04094), inset 0 0 0 1px rgba(255, 255, 255, 0.02456); }
 
 .tile-12 .tile-inner, .tile-12 {
   color: #f9f6f2;
-  background: #60d3bd;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.08081), inset 0 0 0 1px rgba(255, 255, 255, 0.04848); }
+  background: #f4448e;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.04678), inset 0 0 0 1px rgba(255, 255, 255, 0.02807); }
 
 .tile-13 .tile-inner, .tile-13 {
   color: #f9f6f2;
-  background: #6ac6d8;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.09091), inset 0 0 0 1px rgba(255, 255, 255, 0.05455); }
+  background: #f2287d;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.05263), inset 0 0 0 1px rgba(255, 255, 255, 0.03158); }
 
 .tile-14 .tile-inner, .tile-14 {
   color: #f9f6f2;
-  background: #60afdd;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.10101), inset 0 0 0 1px rgba(255, 255, 255, 0.06061); }
+  background: #ee0f6d;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.05848), inset 0 0 0 1px rgba(255, 255, 255, 0.03509); }
 
 .tile-15 .tile-inner, .tile-15 {
   color: #f9f6f2;
-  background: #7485d4;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.11111), inset 0 0 0 1px rgba(255, 255, 255, 0.06667); }
+  background: #d20d60;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.06433), inset 0 0 0 1px rgba(255, 255, 255, 0.0386); }
 
 .tile-16 .tile-inner, .tile-16 {
   color: #f9f6f2;
-  background: #8e6dcb;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.12121), inset 0 0 0 1px rgba(255, 255, 255, 0.07273); }
+  background: #b60b53;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.07018), inset 0 0 0 1px rgba(255, 255, 255, 0.04211); }
 
 .tile-17 .tile-inner, .tile-17 {
   color: #f9f6f2;
-  background: #a35bc0;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.13131), inset 0 0 0 1px rgba(255, 255, 255, 0.07879); }
+  background: #9a0946;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.07602), inset 0 0 0 1px rgba(255, 255, 255, 0.04561); }
 
 .tile-18 .tile-inner, .tile-18 {
   color: #f9f6f2;
-  background: #d752c1;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.14141), inset 0 0 0 1px rgba(255, 255, 255, 0.08485); }
+  background: #7e083a;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.08187), inset 0 0 0 1px rgba(255, 255, 255, 0.04912); }
 
 .tile-19 .tile-inner, .tile-19 {
   color: #f9f6f2;
-  background: #f44890;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.15152), inset 0 0 0 1px rgba(255, 255, 255, 0.09091); }
+  background: #62062d;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.08772), inset 0 0 0 1px rgba(255, 255, 255, 0.05263); }
 
 .tile-20 .tile-inner, .tile-20 {
-  color: #f9f6f2;
-  background: #fdd727;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.16162), inset 0 0 0 1px rgba(255, 255, 255, 0.09697); }
+  background: #8bdfcf;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.09357), inset 0 0 0 1px rgba(255, 255, 255, 0.05614); }
 
 .tile-21 .tile-inner, .tile-21 {
-  color: #f9f6f2;
-  background: #89c53f;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.17172), inset 0 0 0 1px rgba(255, 255, 255, 0.10303); }
+  background: #74d9c6;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.09942), inset 0 0 0 1px rgba(255, 255, 255, 0.05965); }
 
 .tile-22 .tile-inner, .tile-22 {
   color: #f9f6f2;
-  background: #33b89f;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.18182), inset 0 0 0 1px rgba(255, 255, 255, 0.10909); }
+  background: #5ed2bc;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.10526), inset 0 0 0 1px rgba(255, 255, 255, 0.06316); }
 
 .tile-23 .tile-inner, .tile-23 {
   color: #f9f6f2;
-  background: #33abc4;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.19192), inset 0 0 0 1px rgba(255, 255, 255, 0.11515); }
+  background: #47ccb3;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.11111), inset 0 0 0 1px rgba(255, 255, 255, 0.06667); }
 
 .tile-24 .tile-inner, .tile-24 {
   color: #f9f6f2;
-  background: #3297d3;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.20202), inset 0 0 0 1px rgba(255, 255, 255, 0.12121); }
+  background: #35c1a6;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.11696), inset 0 0 0 1px rgba(255, 255, 255, 0.07018); }
 
 .tile-25 .tile-inner, .tile-25 {
   color: #f9f6f2;
-  background: #475ec7;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.21212), inset 0 0 0 1px rgba(255, 255, 255, 0.12727); }
+  background: #2faa93;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.12281), inset 0 0 0 1px rgba(255, 255, 255, 0.07368); }
 
 .tile-26 .tile-inner, .tile-26 {
   color: #f9f6f2;
-  background: #6e44bc;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.22222), inset 0 0 0 1px rgba(255, 255, 255, 0.13333); }
+  background: #29947f;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.12865), inset 0 0 0 1px rgba(255, 255, 255, 0.07719); }
 
 .tile-27 .tile-inner, .tile-27 {
   color: #f9f6f2;
-  background: #8a41a9;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.23232), inset 0 0 0 1px rgba(255, 255, 255, 0.13939); }
+  background: #227d6c;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.1345), inset 0 0 0 1px rgba(255, 255, 255, 0.0807); }
 
 .tile-28 .tile-inner, .tile-28 {
   color: #f9f6f2;
-  background: #c72ead;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.24242), inset 0 0 0 1px rgba(255, 255, 255, 0.14545); }
+  background: #1c6658;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.14035), inset 0 0 0 1px rgba(255, 255, 255, 0.08421); }
 
 .tile-29 .tile-inner, .tile-29 {
   color: #f9f6f2;
-  background: #f11371;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.25253), inset 0 0 0 1px rgba(255, 255, 255, 0.15152); }
+  background: #164f44;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.1462), inset 0 0 0 1px rgba(255, 255, 255, 0.08772); }
 
 .tile-30 .tile-inner, .tile-30 {
-  color: #f9f6f2;
-  background: #e3bb02;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.26263), inset 0 0 0 1px rgba(255, 255, 255, 0.15758); }
+  background: #b77fce;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.15205), inset 0 0 0 1px rgba(255, 255, 255, 0.09123); }
 
 .tile-31 .tile-inner, .tile-31 {
   color: #f9f6f2;
-  background: #6c9d2f;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.27273), inset 0 0 0 1px rgba(255, 255, 255, 0.16364); }
+  background: #ac6cc7;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.15789), inset 0 0 0 1px rgba(255, 255, 255, 0.09474); }
 
 .tile-32 .tile-inner, .tile-32 {
   color: #f9f6f2;
-  background: #278e7a;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.28283), inset 0 0 0 1px rgba(255, 255, 255, 0.1697); }
+  background: #a158bf;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.16374), inset 0 0 0 1px rgba(255, 255, 255, 0.09825); }
 
 .tile-33 .tile-inner, .tile-33 {
   color: #f9f6f2;
-  background: #2b91a5;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.29293), inset 0 0 0 1px rgba(255, 255, 255, 0.17576); }
+  background: #9646b7;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.16959), inset 0 0 0 1px rgba(255, 255, 255, 0.10175); }
 
 .tile-34 .tile-inner, .tile-34 {
   color: #f9f6f2;
-  background: #2478a9;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.30303), inset 0 0 0 1px rgba(255, 255, 255, 0.18182); }
+  background: #863fa4;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.17544), inset 0 0 0 1px rgba(255, 255, 255, 0.10526); }
 
 .tile-35 .tile-inner, .tile-35 {
   color: #f9f6f2;
-  background: #3246a3;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31313), inset 0 0 0 1px rgba(255, 255, 255, 0.18788); }
+  background: #773790;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.18129), inset 0 0 0 1px rgba(255, 255, 255, 0.10877); }
 
 .tile-36 .tile-inner, .tile-36 {
   color: #f9f6f2;
-  background: #573594;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.32323), inset 0 0 0 1px rgba(255, 255, 255, 0.19394); }
+  background: #67307d;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.18713), inset 0 0 0 1px rgba(255, 255, 255, 0.11228); }
 
 .tile-37 .tile-inner, .tile-37 {
   color: #f9f6f2;
-  background: #6d3384;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.33333), inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+  background: #57296a;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.19298), inset 0 0 0 1px rgba(255, 255, 255, 0.11579); }
 
 .tile-38 .tile-inner, .tile-38 {
   color: #f9f6f2;
-  background: #9c2488;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.34343), inset 0 0 0 1px rgba(255, 255, 255, 0.20606); }
+  background: #472157;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.19883), inset 0 0 0 1px rgba(255, 255, 255, 0.1193); }
 
 .tile-39 .tile-inner, .tile-39 {
   color: #f9f6f2;
-  background: #c00c58;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.35354), inset 0 0 0 1px rgba(255, 255, 255, 0.21212); }
+  background: #371a43;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.20468), inset 0 0 0 1px rgba(255, 255, 255, 0.12281); }
 
 .tile-40 .tile-inner, .tile-40 {
-  color: #f9f6f2;
-  background: #caa702;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.36364), inset 0 0 0 1px rgba(255, 255, 255, 0.21818); }
+  background: #feeea3;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.21053), inset 0 0 0 1px rgba(255, 255, 255, 0.12632); }
 
 .tile-41 .tile-inner, .tile-41 {
-  color: #f9f6f2;
-  background: #4f7223;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.37374), inset 0 0 0 1px rgba(255, 255, 255, 0.22424); }
+  background: #fee882;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.21637), inset 0 0 0 1px rgba(255, 255, 255, 0.12982); }
 
 .tile-42 .tile-inner, .tile-42 {
-  color: #f9f6f2;
-  background: #1f7162;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.38384), inset 0 0 0 1px rgba(255, 255, 255, 0.2303); }
+  background: #fde261;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.22222), inset 0 0 0 1px rgba(255, 255, 255, 0.13333); }
 
 .tile-43 .tile-inner, .tile-43 {
   color: #f9f6f2;
-  background: #1f6978;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39394), inset 0 0 0 1px rgba(255, 255, 255, 0.23636); }
+  background: #fddc40;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.22807), inset 0 0 0 1px rgba(255, 255, 255, 0.13684); }
 
 .tile-44 .tile-inner, .tile-44 {
   color: #f9f6f2;
-  background: #1a577b;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.40404), inset 0 0 0 1px rgba(255, 255, 255, 0.24242); }
+  background: #fdd61f;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.23392), inset 0 0 0 1px rgba(255, 255, 255, 0.14035); }
 
 .tile-45 .tile-inner, .tile-45 {
   color: #f9f6f2;
-  background: #243376;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.41414), inset 0 0 0 1px rgba(255, 255, 255, 0.24848); }
+  background: #f8cc03;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.23977), inset 0 0 0 1px rgba(255, 255, 255, 0.14386); }
 
 .tile-46 .tile-inner, .tile-46 {
   color: #f9f6f2;
-  background: #3f276c;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.42424), inset 0 0 0 1px rgba(255, 255, 255, 0.25455); }
+  background: #d7b102;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.24561), inset 0 0 0 1px rgba(255, 255, 255, 0.14737); }
 
 .tile-47 .tile-inner, .tile-47 {
   color: #f9f6f2;
-  background: #4f2560;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.43434), inset 0 0 0 1px rgba(255, 255, 255, 0.26061); }
+  background: #b69602;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.25146), inset 0 0 0 1px rgba(255, 255, 255, 0.15088); }
 
 .tile-48 .tile-inner, .tile-48 {
   color: #f9f6f2;
-  background: #721a63;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.44444), inset 0 0 0 1px rgba(255, 255, 255, 0.26667); }
+  background: #957b02;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.25731), inset 0 0 0 1px rgba(255, 255, 255, 0.15439); }
 
 .tile-49 .tile-inner, .tile-49 {
   color: #f9f6f2;
-  background: #8c0940;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.45455), inset 0 0 0 1px rgba(255, 255, 255, 0.27273); }
+  background: #745f01;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.26316), inset 0 0 0 1px rgba(255, 255, 255, 0.15789); }
 
 .tile-50 .tile-inner, .tile-50 {
-  color: #f9f6f2;
-  background: #ba9902;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.46465), inset 0 0 0 1px rgba(255, 255, 255, 0.27879); }
+  background: #bedf95;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.26901), inset 0 0 0 1px rgba(255, 255, 255, 0.1614); }
 
 .tile-51 .tile-inner, .tile-51 {
-  color: #f9f6f2;
-  background: #314716;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47475), inset 0 0 0 1px rgba(255, 255, 255, 0.28485); }
+  background: #b0d87e;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.27485), inset 0 0 0 1px rgba(255, 255, 255, 0.16491); }
 
 .tile-52 .tile-inner, .tile-52 {
   color: #f9f6f2;
-  background: #14473d;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.48485), inset 0 0 0 1px rgba(255, 255, 255, 0.29091); }
+  background: #a2d167;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2807), inset 0 0 0 1px rgba(255, 255, 255, 0.16842); }
 
 .tile-53 .tile-inner, .tile-53 {
   color: #f9f6f2;
-  background: #14424b;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.49495), inset 0 0 0 1px rgba(255, 255, 255, 0.29697); }
+  background: #94ca50;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.28655), inset 0 0 0 1px rgba(255, 255, 255, 0.17193); }
 
 .tile-54 .tile-inner, .tile-54 {
   color: #f9f6f2;
-  background: #10364d;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.50505), inset 0 0 0 1px rgba(255, 255, 255, 0.30303); }
+  background: #86c23b;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2924), inset 0 0 0 1px rgba(255, 255, 255, 0.17544); }
 
 .tile-55 .tile-inner, .tile-55 {
   color: #f9f6f2;
-  background: #17204a;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.51515), inset 0 0 0 1px rgba(255, 255, 255, 0.30909); }
+  background: #76ab34;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.29825), inset 0 0 0 1px rgba(255, 255, 255, 0.17895); }
 
 .tile-56 .tile-inner, .tile-56 {
   color: #f9f6f2;
-  background: #271843;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.52525), inset 0 0 0 1px rgba(255, 255, 255, 0.31515); }
+  background: #66952d;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.30409), inset 0 0 0 1px rgba(255, 255, 255, 0.18246); }
 
 .tile-57 .tile-inner, .tile-57 {
   color: #f9f6f2;
-  background: #31173c;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.53535), inset 0 0 0 1px rgba(255, 255, 255, 0.32121); }
+  background: #577e26;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.30994), inset 0 0 0 1px rgba(255, 255, 255, 0.18596); }
 
 .tile-58 .tile-inner, .tile-58 {
   color: #f9f6f2;
-  background: #47103e;
-  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.54545), inset 0 0 0 1px rgba(255, 255, 255, 0.32727); }
+  background: #47671f;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31579), inset 0 0 0 1px rgba(255, 255, 255, 0.18947); }
 
 .tile-59 .tile-inner, .tile-59 {
   color: #f9f6f2;
-  background: #570528;
+  background: #375018;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.32164), inset 0 0 0 1px rgba(255, 255, 255, 0.19298); }
+
+.tile-60 .tile-inner, .tile-60 {
+  background: #8ec6e7;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.32749), inset 0 0 0 1px rgba(255, 255, 255, 0.19649); }
+
+.tile-61 .tile-inner, .tile-61 {
+  background: #75bae2;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.33333), inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+
+.tile-62 .tile-inner, .tile-62 {
+  color: #f9f6f2;
+  background: #5daddd;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.33918), inset 0 0 0 1px rgba(255, 255, 255, 0.20351); }
+
+.tile-63 .tile-inner, .tile-63 {
+  color: #f9f6f2;
+  background: #44a1d7;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.34503), inset 0 0 0 1px rgba(255, 255, 255, 0.20702); }
+
+.tile-64 .tile-inner, .tile-64 {
+  color: #f9f6f2;
+  background: #2c94d1;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.35088), inset 0 0 0 1px rgba(255, 255, 255, 0.21053); }
+
+.tile-65 .tile-inner, .tile-65 {
+  color: #f9f6f2;
+  background: #2783b9;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.35673), inset 0 0 0 1px rgba(255, 255, 255, 0.21404); }
+
+.tile-66 .tile-inner, .tile-66 {
+  color: #f9f6f2;
+  background: #2271a0;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.36257), inset 0 0 0 1px rgba(255, 255, 255, 0.21754); }
+
+.tile-67 .tile-inner, .tile-67 {
+  color: #f9f6f2;
+  background: #1d6087;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.36842), inset 0 0 0 1px rgba(255, 255, 255, 0.22105); }
+
+.tile-68 .tile-inner, .tile-68 {
+  color: #f9f6f2;
+  background: #184e6f;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.37427), inset 0 0 0 1px rgba(255, 255, 255, 0.22456); }
+
+.tile-69 .tile-inner, .tile-69 {
+  color: #f9f6f2;
+  background: #123d56;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.38012), inset 0 0 0 1px rgba(255, 255, 255, 0.22807); }
+
+.tile-70 .tile-inner, .tile-70 {
+  background: #a0ace2;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.38596), inset 0 0 0 1px rgba(255, 255, 255, 0.23158); }
+
+.tile-71 .tile-inner, .tile-71 {
+  background: #8897db;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39181), inset 0 0 0 1px rgba(255, 255, 255, 0.23509); }
+
+.tile-72 .tile-inner, .tile-72 {
+  color: #f9f6f2;
+  background: #7183d4;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39766), inset 0 0 0 1px rgba(255, 255, 255, 0.2386); }
+
+.tile-73 .tile-inner, .tile-73 {
+  color: #f9f6f2;
+  background: #596ecc;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.40351), inset 0 0 0 1px rgba(255, 255, 255, 0.24211); }
+
+.tile-74 .tile-inner, .tile-74 {
+  color: #f9f6f2;
+  background: #4159c5;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.40936), inset 0 0 0 1px rgba(255, 255, 255, 0.24561); }
+
+.tile-75 .tile-inner, .tile-75 {
+  color: #f9f6f2;
+  background: #364db1;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.4152), inset 0 0 0 1px rgba(255, 255, 255, 0.24912); }
+
+.tile-76 .tile-inner, .tile-76 {
+  color: #f9f6f2;
+  background: #2f429a;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.42105), inset 0 0 0 1px rgba(255, 255, 255, 0.25263); }
+
+.tile-77 .tile-inner, .tile-77 {
+  color: #f9f6f2;
+  background: #283882;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.4269), inset 0 0 0 1px rgba(255, 255, 255, 0.25614); }
+
+.tile-78 .tile-inner, .tile-78 {
+  color: #f9f6f2;
+  background: #202e6a;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.43275), inset 0 0 0 1px rgba(255, 255, 255, 0.25965); }
+
+.tile-79 .tile-inner, .tile-79 {
+  color: #f9f6f2;
+  background: #192453;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.4386), inset 0 0 0 1px rgba(255, 255, 255, 0.26316); }
+
+.tile-80 .tile-inner, .tile-80 {
+  background: #ad95d9;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.44444), inset 0 0 0 1px rgba(255, 255, 255, 0.26667); }
+
+.tile-81 .tile-inner, .tile-81 {
+  background: #9c7fd1;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.45029), inset 0 0 0 1px rgba(255, 255, 255, 0.27018); }
+
+.tile-82 .tile-inner, .tile-82 {
+  color: #f9f6f2;
+  background: #8c6aca;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.45614), inset 0 0 0 1px rgba(255, 255, 255, 0.27368); }
+
+.tile-83 .tile-inner, .tile-83 {
+  color: #f9f6f2;
+  background: #7b54c2;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.46199), inset 0 0 0 1px rgba(255, 255, 255, 0.27719); }
+
+.tile-84 .tile-inner, .tile-84 {
+  color: #f9f6f2;
+  background: #6b42b7;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.46784), inset 0 0 0 1px rgba(255, 255, 255, 0.2807); }
+
+.tile-85 .tile-inner, .tile-85 {
+  color: #f9f6f2;
+  background: #5f3aa2;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47368), inset 0 0 0 1px rgba(255, 255, 255, 0.28421); }
+
+.tile-86 .tile-inner, .tile-86 {
+  color: #f9f6f2;
+  background: #52328c;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47953), inset 0 0 0 1px rgba(255, 255, 255, 0.28772); }
+
+.tile-87 .tile-inner, .tile-87 {
+  color: #f9f6f2;
+  background: #452a77;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.48538), inset 0 0 0 1px rgba(255, 255, 255, 0.29123); }
+
+.tile-88 .tile-inner, .tile-88 {
+  color: #f9f6f2;
+  background: #392361;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.49123), inset 0 0 0 1px rgba(255, 255, 255, 0.29474); }
+
+.tile-89 .tile-inner, .tile-89 {
+  color: #f9f6f2;
+  background: #2c1b4b;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.49708), inset 0 0 0 1px rgba(255, 255, 255, 0.29825); }
+
+.tile-90 .tile-inner, .tile-90 {
+  background: #e17dd0;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.50292), inset 0 0 0 1px rgba(255, 255, 255, 0.30175); }
+
+.tile-91 .tile-inner, .tile-91 {
+  color: #f9f6f2;
+  background: #dc66c8;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.50877), inset 0 0 0 1px rgba(255, 255, 255, 0.30526); }
+
+.tile-92 .tile-inner, .tile-92 {
+  color: #f9f6f2;
+  background: #d750c0;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.51462), inset 0 0 0 1px rgba(255, 255, 255, 0.30877); }
+
+.tile-93 .tile-inner, .tile-93 {
+  color: #f9f6f2;
+  background: #d139b7;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.52047), inset 0 0 0 1px rgba(255, 255, 255, 0.31228); }
+
+.tile-94 .tile-inner, .tile-94 {
+  color: #f9f6f2;
+  background: #c12da8;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.52632), inset 0 0 0 1px rgba(255, 255, 255, 0.31579); }
+
+.tile-95 .tile-inner, .tile-95 {
+  color: #f9f6f2;
+  background: #ab2794;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.53216), inset 0 0 0 1px rgba(255, 255, 255, 0.3193); }
+
+.tile-96 .tile-inner, .tile-96 {
+  color: #f9f6f2;
+  background: #942281;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.53801), inset 0 0 0 1px rgba(255, 255, 255, 0.32281); }
+
+.tile-97 .tile-inner, .tile-97 {
+  color: #f9f6f2;
+  background: #7d1d6d;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.54386), inset 0 0 0 1px rgba(255, 255, 255, 0.32632); }
+
+.tile-98 .tile-inner, .tile-98 {
+  color: #f9f6f2;
+  background: #661859;
+  box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.54971), inset 0 0 0 1px rgba(255, 255, 255, 0.32982); }
+
+.tile-99 .tile-inner, .tile-99 {
+  color: #f9f6f2;
+  background: #501245;
   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333); }
 
 @-webkit-keyframes appear {

@@ -96,7 +96,7 @@ GameManager.prototype.addStartTiles = function () {
 GameManager.prototype.addSequentialTiles = function () {
   var power = 0;
   var cells = this.grid.availableCells();
-  while (cells.length > 0 && power < 86) {
+  while (cells.length > 0 && power < 99) {
     power += 1;
     var value = Math.pow(2, power);
     var tile  = new Tile(cells[1], value);
@@ -110,6 +110,7 @@ GameManager.prototype.addSequentialTiles = function () {
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
     var value = Math.random() < 0.9 ? 2 : 4;
+    //var tile = new Tile(this.grid.availableCells[0], 2);
     var tile  = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);

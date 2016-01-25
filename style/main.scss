@@ -430,18 +430,19 @@ hr {
 }
 
 $exponent: 1;
-$limit: 59; // ......... ... K .. M .. G .. T .. P .. E .. Z .. Y
-$colors: #feeea3 false -0% -15% -30% -45% -51% -55% -90% -95% -99%,
-#bedf95 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-#8bdfcf false -0% -15% -35% -50% -60% -75% -90% -95% -99%,
-#97d7e4 false -0% -15% -35% -45% -60% -75% -90% -95% -99%,
-#8ec6e7 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-#a0ace2 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-#ad95d9 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-#b77fce false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-#e17dd0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
-#f77cb0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%;
-$listlength: length($colors);
+$limit: 99; // ......... ... K .. M .. G .. T .. P .. E .. Z .. Y
+$colors: #97d7e4 false -0% -15% -35% -45% -60% -75% -90% -95% -99%,
+         #f77cb0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #8bdfcf false -0% -15% -35% -50% -60% -75% -90% -95% -99%,
+         #b77fce false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #feeea3 false -0% -15% -30% -45% -51% -55% -90% -95% -99%,
+         #bedf95 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #8ec6e7 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #a0ace2 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #ad95d9 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #e17dd0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%;
+$listLength: length($colors);
+$numCols: 9;
 
 // Build tile colors
 @while $exponent <= $limit {
@@ -451,11 +452,12 @@ $listlength: length($colors);
     //$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
     //$mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
     //$list-entry: if($exponent <= length($special-colors), nth($special-colors, $exponent), false false);
-    $list-entry: nth($colors, ($exponent % $listlength) + 1);
+    $list-entry: nth($colors, ceil(($exponent + 1) / $listLength));
     $bg-color: nth($list-entry, 1);
     $bright-text: nth($list-entry, 2);
-    $dark-col: ceil(($exponent + 1) / $listlength);
-    $dark-pct: nth($list-entry, $dark-col + 2);
+    $dark-col: ($exponent) % 10;
+    //$dark-pct: nth($list-entry, $dark-col + 3);
+    $dark-pct: percentage(0 - $dark-col * 0.08);
     //$bright-text: false;
 
     //@if $bg-color {

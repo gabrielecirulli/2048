@@ -538,6 +538,10 @@ $numCols: 9;
   }
 }
 
+#restart-explanation {
+  float: right;
+  width: 30%;
+}
 .restart-button {
   @include button;
   display: block;

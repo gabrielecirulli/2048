@@ -3752,6 +3752,10 @@ hr {
       box-sizing: border-box;
       line-height: 1.65; } }
 
+#restart-explanation {
+  float: right;
+  width: 30%; }
+
 .restart-button {
   display: inline-block;
   background: #8f7a66;

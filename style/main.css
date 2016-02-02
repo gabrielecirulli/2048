@@ -139,7 +139,7 @@ hr {
   margin-bottom: 30px; }
 
 .container {
-  width: 1652.05282px;
+  width: 1699.05282px;
   margin: 0 auto; }
   @media screen and (max-width: 960px) {
     .container {
@@ -161,6 +161,7 @@ hr {
   100% {
     opacity: 1; } }
 .stats-container {
+  overflow: hidden;
   font-size: 0.85em;
   float: left;
   margin-top: 40px;
@@ -168,7 +169,7 @@ hr {
   padding: 7.05282px;
   background: #bbada0;
   border-radius: 6px;
-  width: 705px;
+  width: 752px;
   height: 940px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

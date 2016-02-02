@@ -108,7 +108,7 @@ function predictTimes(mergeHistory) {
   var lastDate  = result.get(lastExp)[0];
   var lastMove  = result.get(lastExp)[1];
   var timeDelta = lastDate - self.firstMoveDate;
-  for (var i = lastExp + 1; i <= 32; i++) {
+  for (var i = lastExp + 1; i <= 38; i++) {
     lastMove *= 2;
     timeDelta *= 2;
     result.set(i, [self.firstMoveDate + timeDelta, lastMove, true]);

@@ -13,9 +13,9 @@ function auto_move() {
 
   var rn = Math.random();
   // 50% right, 35% down, 15% up, 0% left
-  var direction = rn < 0.01 ? 3 :
-                  rn < 0.5 ? 1 :
-                  rn < 0.85 ? 2 :
+  var direction = rn < 0.03 ? 3 :
+                  rn < 0.53 ? 1 :
+                  rn < 0.88 ? 2 :
                   0;
 
   if (!GM.move(direction)) {

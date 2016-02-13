@@ -211,6 +211,7 @@ GameManager.prototype.move = function (direction) {
           self.grid.removeTile(tile);
 
           // Converge the two tiles' positions
+          // Necessary to display movement/animation on merge
           tile.updatePosition(positions.next);
 
           // Update the score

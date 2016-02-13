@@ -170,7 +170,7 @@ hr {
 }
 
 .container {
-  width: $field-width * 1.8 + $grid-spacing;
+  width: $field-width * 2 + $grid-spacing;
   @include smaller($mobile-threshold) {
     width: $field-width-smaller
   }
@@ -209,7 +209,7 @@ hr {
   padding: $grid-spacing;
   background: $game-container-background;
   border-radius: $tile-border-radius * 2;
-  width: $field-width * 0.8;
+  width: $field-width * 1;
   height: $field-width;
   @include smaller($mobile-threshold) {
     margin-top: $game-container-margin-top-smaller;

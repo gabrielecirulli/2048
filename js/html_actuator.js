@@ -124,11 +124,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.clearContainer(self.tileContainer);
 
     grid.cells.forEach(function (column) {
-      column.forEach(function (cell) {
-        if (cell) {
-          self.addTile(cell);
-        }
-      });
+      column.filter(function (cell) { return cell; }).forEach(function (cell) { self.addTile(cell); });
     });
 
     self.updateScore(metadata.score);

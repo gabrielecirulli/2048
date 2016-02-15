@@ -8,6 +8,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("undo", this.undo.bind(this));  /* CHANGES UNDO*/
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.setup();
@@ -15,10 +16,22 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
 // Restart the game
 GameManager.prototype.restart = function () {
+  this.storageManager.clearLastMoves(); // CHANGES UNDO
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
 };
+
+// CHANGES Undo move
+GameManager.prototype.undo = function () {
+  var data = this.storageManager.getLastMove(true);
+  if (data !== null) {
+    this.storageManager.setGameState(data);
+    this.actuator.continueGame();
+    this.setup();
+  }
+};  /* END CHANGES*/
+
 
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.keepPlaying = function () {
@@ -88,6 +101,15 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setGameState(this.serialize());
   }
 
+  // CHANGES Handle Undo Button
+  var data = this.storageManager.getLastMove(false);
+  if (data !== null) {
+    document.getElementsByClassName("undo-button")[0].classList.remove("disabled");
+  } else {
+    document.getElementsByClassName("undo-button")[0].classList.add("disabled");
+  } /* END CHANGES*/
+
+
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,
@@ -139,6 +161,8 @@ GameManager.prototype.move = function (direction) {
   var traversals = this.buildTraversals(vector);
   var moved      = false;
 
+  var dat = this.serialize(); /* CHANGES UNDO*/
+
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
@@ -180,6 +204,9 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
+
+    this.storageManager.setLastMove(dat); /* CHANGES UNDO*/
+
     this.addRandomTile();
 
     if (!this.movesAvailable()) {

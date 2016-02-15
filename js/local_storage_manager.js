@@ -22,6 +22,9 @@ function LocalStorageManager() {
   this.bestScoreKey     = "bestScore";
   this.gameStateKey     = "gameState";
 
+  this.totalMovesKey    = "totalMoves";   /* Changes*/
+  this.lastMoveKey      = "move#";        /* Changes*/
+
   var supported = this.localStorageSupported();
   this.storage = supported ? window.localStorage : window.fakeStorage;
 }
@@ -61,3 +64,37 @@ LocalStorageManager.prototype.setGameState = function (gameState) {
 LocalStorageManager.prototype.clearGameState = function () {
   this.storage.removeItem(this.gameStateKey);
 };
+
+
+// Changes (implementacao do UNDO)
+LocalStorageManager.prototype.getLastMove = function (willUse) {
+  var i=this.getTotalMoves();
+  var stateJSON = this.storage.getItem(this.lastMoveKey+i.toString());
+  if (willUse && JSON.parse(stateJSON)) {
+    this.storage.removeItem(this.lastMoveKey+i.toString());
+    this.setTotalMoves(--i);
+  }
+  return stateJSON ? JSON.parse(stateJSON) : null;
+};
+
+LocalStorageManager.prototype.setLastMove = function (lastMove) {
+  var i=this.getTotalMoves();
+  this.storage.setItem(this.lastMoveKey+(++i).toString(), JSON.stringify(lastMove));
+  this.setTotalMoves(i);
+};
+
+LocalStorageManager.prototype.clearLastMoves = function () {
+  for (var i=this.getTotalMoves(); i > 0; i--) {
+    this.storage.removeItem(this.lastMoveKey+i.toString());
+  };
+  this.storage.removeItem(this.totalMovesKey);
+};
+
+LocalStorageManager.prototype.getTotalMoves = function () {
+  return this.storage.getItem(this.totalMovesKey) || 0;
+};
+
+LocalStorageManager.prototype.setTotalMoves = function (moves) {
+  this.storage.setItem(this.totalMovesKey, moves);
+};
+// End CHANGES

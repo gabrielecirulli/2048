@@ -66,12 +66,20 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers && event.which === 82) {
       self.restart.call(self, event);
     }
+
+   // CHANGES -  U key undo the game
+    else if (!modifiers && event.which === 85) {
+      self.undo.call(self, event);
+    }
+
   });
 
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
+
+  this.bindButtonPress(".undo-button", this.undo); /*CHANGES*/
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
@@ -141,4 +149,10 @@ KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {
   var button = document.querySelector(selector);
   button.addEventListener("click", fn.bind(this));
   button.addEventListener(this.eventTouchend, fn.bind(this));
+};
+
+// CHANGES
+KeyboardInputManager.prototype.undo = function (event) {
+  event.preventDefault();
+  this.emit("undo");
 };

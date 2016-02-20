@@ -25,18 +25,25 @@ function HTMLActuator() {
 HTMLActuator.prototype.display = function (mergeData, exponent, map) {
   var self = this.GM.actuator;
 
-  var mergeDate = mergeData[0];
-  var numMoves  = mergeData[1];
-  var predict   = mergeData[2] || false;
-  var vlu       = Math.pow(2, exponent);
-  var value     = self.translateValue(vlu);
+  var mergeDate   = mergeData[0];
+  var numMoves    = mergeData[1];
+  var predict     = mergeData[2] || false;
+  var numThisTile = mergeData[3] || '';
+  var vlu         = Math.pow(2, exponent);
+  var value       = self.translateValue(vlu);
 
   var row       = document.createElement("tr");
   row.className = "merge-row";
   if (predict) row.classList.add("predict");
 
+  // Number of each tile visible on the board
+  var th = document.createElement("th");
+  th.className = "numTiles right";
+  th.appendChild(document.createTextNode(numThisTile));
+  row.appendChild(th);
+
   // Tile-like display, e.g. 1/4G
-  var th       = document.createElement("th");
+  th           = document.createElement("th");
   th.className = "tile-" + exponent;
   th.appendChild(document.createTextNode(value.v + value.c));
   row.appendChild(th);
@@ -100,10 +107,15 @@ HTMLActuator.prototype.clearMergeHistoryDisplay = function () {
   }
 };
 
-function predictTimes(mergeHistory) {
+function predictTimes(mergeHistory, numTiles) {
   if (mergeHistory.size == 0) return mergeHistory;
-  var self      = this.GM.actuator;
-  var result    = new Map(mergeHistory);
+  var self   = this.GM.actuator;
+  var result = new Map(mergeHistory);
+  mergeHistory.forEach(function (val, key, map) {
+    val[2] = false;
+    val[3] = numTiles[key];
+    result.set(key, val);
+  })
   var lastExp   = [...result.keys()][result.size - 1];
   var lastDate  = result.get(lastExp)[0];
   var lastMove  = result.get(lastExp)[1];
@@ -123,8 +135,15 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
   window.requestAnimationFrame(function () {
     self.clearContainer(self.tileContainer);
 
+    var numTiles = [];
+    var cellExp  = 0;
+
     grid.cells.forEach(function (column) {
-      column.filter(function (cell) { return cell; }).forEach(function (cell) { self.addTile(cell); });
+      column.filter(function (cell) { return cell; }).forEach(function (cell) {
+        self.addTile(cell);
+        cellExp           = Math.log2(cell.value);
+        numTiles[cellExp] = (numTiles[cellExp] || 0) + 1;
+      });
     });
 
     self.updateScore(metadata.score);
@@ -132,7 +151,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.numMoves.textContent      = metadata.numMoves.toLocaleString();
     self.firstMove.textContent     = metadata.numMoves > 0 ? self.dtf.format(metadata.firstMove) : "";
     self.clearMergeHistoryDisplay();
-    predictTimes(metadata.mergeHistory).forEach(self.display);
+    predictTimes(metadata.mergeHistory, numTiles).forEach(self.display);
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -204,7 +223,6 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + Math.log2(tile.value), positionClass];
-
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");

@@ -31,7 +31,6 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         self.message(true); // You win!
       }
     }
-
   });
 };
 

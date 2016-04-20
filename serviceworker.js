@@ -2,23 +2,25 @@ const VERSION = '1';
 
 const CACHE_URLS = [
   '/',
-  '/style/main.css',
-  '/js/bind_polyfill.js',
-  '/js/classlist_polyfill.js',
-  '/js/animframe_polyfill.js',
-  '/js/keyboard_input_manager.js',
-  '/js/html_actuator.js',
-  '/js/grid.js',
-  '/js/tile.js',
-  '/js/local_storage_manager.js',
-  '/js/game_manager.js',
-  '/js/application.js',
+  'style/main.css',
+  'js/bind_polyfill.js',
+  'js/classlist_polyfill.js',
+  'js/animframe_polyfill.js',
+  'js/keyboard_input_manager.js',
+  'js/html_actuator.js',
+  'js/grid.js',
+  'js/tile.js',
+  'js/local_storage_manager.js',
+  'js/game_manager.js',
+  'js/application.js',
 ];
 
 const OPTIONAL_CACHE_URLS = [
-  '/style/fonts/clear-sans.css',
-  '/style/fonts/ClearSans-Regular-webfont.woff',
-  '/style/fonts/ClearSans-Bold-webfont.woff'
+  'style/fonts/clear-sans.css',
+  'style/fonts/ClearSans-Regular-webfont.woff',
+  'style/fonts/ClearSans-Bold-webfont.woff',
+  'icon_pp.svg',
+  'icon_bitcoin.svg'
 ];
 
 function deleteOldCaches(keys) {
@@ -26,8 +28,7 @@ function deleteOldCaches(keys) {
     keys
       .filter(key => key !== VERSION)
       .map(key => caches.delete(key))
-  )
-  .catch(console.log);
+  );
 }
 
 self.addEventListener('install', event => {
@@ -36,7 +37,6 @@ self.addEventListener('install', event => {
       cache.addAll(OPTIONAL_CACHE_URLS);
       return cache.addAll(CACHE_URLS);
     })
-    .catch(console.log)
   );
 });
 

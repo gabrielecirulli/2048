@@ -9,6 +9,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("restart_with_time", this.restart_with_time.bind(this));
 
   this.setup();
 }
@@ -18,6 +19,15 @@ GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
+};
+
+// Restart the game with time trial
+GameManager.prototype.restart_with_time = function () {
+  this.storageManager.clearGameState();
+  this.actuator.continueGame(); // Clear the game won/lost message
+  this.setup();
+  this.actuator.startCountdown();
+  
 };
 
 // Keep playing after winning (allows going over 2048)

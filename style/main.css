@@ -95,6 +95,42 @@ h1.title {
 .best-container:after {
   content: "Best"; }
 
+.stopwatch-container:before {
+  content: ""; } 
+
+
+stopwatch-container::after {
+    color: #eee4da;
+    font-size: 13px;
+    left: 0;
+    line-height: 13px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 10px;
+    width: 100%;
+}
+.stopwatch-container {
+    background: #bbada0 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 47px;
+    margin-top: 8px;
+    padding: 15px 25px;
+    position: relative;
+    text-align: center;
+}
+
+  .stopwatch-container {
+    margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px; }
+
+
 p {
   margin-top: 0;
   margin-bottom: 10px;
@@ -529,6 +565,19 @@ hr {
   display: block;
   text-align: center;
   float: right; }
+  
+ .restart-button-time {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
+  float: right; }
 
 .game-explanation {
   margin-top: 50px; }
@@ -564,6 +613,13 @@ hr {
     line-height: 1.65; }
 
   .restart-button {
+    width: 42%;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 2px; }
+    
+    .restart-button-time {
     width: 42%;
     padding: 0;
     display: block;

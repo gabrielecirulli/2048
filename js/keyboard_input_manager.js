@@ -182,11 +182,11 @@ KeyboardInputManager.prototype.listen = function () {
       var pad = gamepads[i];
 
       if (pad) {
-        if (pad.buttons[self.buttons.A].pressed) {
+        if (!!pad.buttons[self.buttons.A] && pad.buttons[self.buttons.A].pressed) {
           self.keepPlaying();
         }
 
-        if (pad.buttons[self.buttons.SELECT].pressed) {
+        if (!!pad.buttons[self.buttons.SELECT] && pad.buttons[self.buttons.SELECT].pressed) {
           self.restart();
         }
 
@@ -209,7 +209,7 @@ KeyboardInputManager.prototype.listen = function () {
     if (!self.pressedBefore[buttonId] && gamepadButton && gamepadButton.pressed) {
       self.emit("move", direction);
     }
-    self.pressedBefore[buttonId] = pad.buttons[buttonId].pressed;
+    self.pressedBefore[buttonId] = !!pad.buttons[buttonId] && pad.buttons[buttonId].pressed;
   }
 
   function checkAxis(pad, axisId, negativeDirection, positiveDirection) {

@@ -50,7 +50,7 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+.score-container, .best-container, .best-time-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -63,7 +63,7 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center; }
-  .score-container:after, .best-container:after {
+  .score-container:after, .best-container:after, .best-time-container:after {
     position: absolute;
     width: 100%;
     top: 10px;
@@ -73,7 +73,7 @@ h1.title {
     line-height: 13px;
     text-align: center;
     color: #eee4da; }
-  .score-container .score-addition, .best-container .score-addition {
+  .score-container .score-addition, .best-container .score-addition .best-time-container {
     position: absolute;
     right: 30px;
     color: red;
@@ -97,6 +97,9 @@ h1.title {
 
 .stopwatch-container:before {
   content: ""; } 
+
+.best-time-container:after {
+  content: "Fastest time:"; } 
 
 
 stopwatch-container::after {
@@ -598,7 +601,7 @@ hr {
     width: 280px;
     margin: 0 auto; }
 
-  .score-container, .best-container {
+  .score-container, .best-container, .best-time-container {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px; }

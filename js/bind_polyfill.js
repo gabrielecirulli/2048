@@ -1,9 +1,10 @@
-Function.prototype.bind = Function.prototype.bind || function (target) {
+Function.prototype.bind = Function.prototype.bind || function(target) {
   var self = this;
-  return function (args) {
+  return function(args) {
     if (!(args instanceof Array)) {
-      args = [args];
+      args = [args];;
+
     }
-    self.apply(target, args);
-  };
+    self.apply(target, args)
+  }
 };

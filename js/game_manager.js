@@ -56,6 +56,7 @@ GameManager.prototype.setup = function () {
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
+    this.time        = "00:00:00";
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
@@ -91,6 +92,8 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
+  // this.storageManager.setBestTime("00:01:00");
+
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
     this.storageManager.clearGameState();
@@ -103,7 +106,8 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+    bestTime:   this.storageManager.getBestTime()
   });
 
 };
@@ -113,8 +117,10 @@ GameManager.prototype.serialize = function () {
   return {
     grid:        this.grid.serialize(),
     score:       this.score,
+    time:         this.time,
     over:        this.over,
     won:         this.won,
+    time:        this.time,
     keepPlaying: this.keepPlaying
   };
 };

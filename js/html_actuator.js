@@ -4,12 +4,13 @@ function HTMLActuator() {
   this.bestContainer    = document.querySelector(".best-container");
   this.bestTimeContainer = document.querySelector(".best-time-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.stopwatchContainer = document.querySelector("#stopwatch");
 
   seconds       = 0;
   minutes       = 0;
   hours         = 0;
   score         = 0;
-  timeHighscore = 0;
+  time          = 0;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -27,7 +28,11 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     });
 
     self.updateScore(metadata.score);
+    // if game has ended, check if higher and update score
+    console.log("besttime: " + metadata);
+    // debugger;
     self.updateBestScore(metadata.bestScore);
+    self.updateBestTime(metadata.bestTime, metadata.terminated);
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -148,6 +153,12 @@ HTMLActuator.prototype.updateScore = function (score) {
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
+};
+
+HTMLActuator.prototype.updateBestTime = function (bestTime, terminated) {
+  if (metadata.terminated && this.stopwatchContainer.textContent < bestTime) {
+    this.bestTimeContainer.textContent = bestTime;
+  }
 };
 
 HTMLActuator.prototype.message = function (won) {

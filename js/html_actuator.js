@@ -28,13 +28,13 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     });
 
     self.updateScore(metadata.score);
-    // if game has ended, check if higher and update score
-    console.log("besttime: " + metadata);
-    // debugger;
     self.updateBestScore(metadata.bestScore);
     self.updateBestTime(metadata.bestTime, metadata.terminated);
 
     if (metadata.terminated) {
+      if (window.intervalId !== "undefined") {
+        clearInterval(window.intervalId);        
+      }
       if (metadata.over) {
         self.message(false); // You lose
       } else if (metadata.won) {
@@ -57,7 +57,7 @@ HTMLActuator.prototype.clearContainer = function (container) {
 };
 
 HTMLActuator.prototype.startCountdown = function (container) {
-	setInterval(this.updateTime, 1000);
+	window.intervalId = setInterval(this.updateTime, 1000);
 };
 
 HTMLActuator.prototype.updateTime = function () {
@@ -71,9 +71,9 @@ HTMLActuator.prototype.updateTime = function () {
 		}
 	}
 	
-	var timer = document.getElementById("stopwatch");
+	var stopwatch = document.getElementById("stopwatch");
 
-	timer.textContent = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
+	stopwatch.textContent = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
 
 };
 
@@ -156,9 +156,12 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.updateBestTime = function (bestTime, terminated) {
-  if (metadata.terminated && this.stopwatchContainer.textContent < bestTime) {
-    this.bestTimeContainer.textContent = bestTime;
-  }
+  var stopwatchContainerValue = this.stopwatchContainer.textContent
+  if (true) {
+    if (stopwatchContainerValue < bestTime) {
+     this.bestTimeContainer.textContent = stopwatchContainerValue;
+   }
+ }
 };
 
 HTMLActuator.prototype.message = function (won) {

@@ -44,6 +44,7 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
+  // console.log(previousState.bestTime);
 
   // Reload the game from a previous game if present
   if (previousState) {
@@ -52,6 +53,7 @@ GameManager.prototype.setup = function () {
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
+    this.time        = previousState.bestTime;
     this.keepPlaying = previousState.keepPlaying;
   } else {
     this.grid        = new Grid(this.size);
@@ -92,6 +94,8 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
+  this.storageManager.setBest
+
   // this.storageManager.setBestTime("00:01:00");
 
   // Clear the state when the game is over (game over only, not win)
@@ -120,7 +124,6 @@ GameManager.prototype.serialize = function () {
     time:         this.time,
     over:        this.over,
     won:         this.won,
-    time:        this.time,
     keepPlaying: this.keepPlaying
   };
 };

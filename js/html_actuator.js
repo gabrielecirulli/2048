@@ -5,6 +5,7 @@ function HTMLActuator() {
   this.bestTimeContainer = document.querySelector(".best-time-container");
   this.messageContainer = document.querySelector(".game-message");
   this.stopwatchContainer = document.querySelector("#stopwatch");
+  window.stopwatchTimer    = new Stopwatch(HTMLActuator.prototype.updateTime,1000);
 
   seconds       = 0;
   minutes       = 0;
@@ -32,9 +33,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateBestTime(metadata.bestTime, metadata.terminated);
 
     if (metadata.terminated) {
-      if (window.intervalId !== "undefined") {
-        clearInterval(window.intervalId);        
-      }
+      window.stopwatchTimer.stop();
+      
       if (metadata.over) {
         self.message(false); // You lose
       } else if (metadata.won) {
@@ -57,7 +57,9 @@ HTMLActuator.prototype.clearContainer = function (container) {
 };
 
 HTMLActuator.prototype.startCountdown = function (container) {
-	window.intervalId = setInterval(this.updateTime, 1000);
+	// window.intervalId = setInterval(this.updateTime, 1000);
+  window.stopwatchTimer.reset();
+  window.stopwatchTimer.start();
 };
 
 HTMLActuator.prototype.updateTime = function () {
@@ -73,8 +75,9 @@ HTMLActuator.prototype.updateTime = function () {
 	
 	var stopwatch = document.getElementById("stopwatch");
 
-	stopwatch.textContent = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
-
+	// stopwatch.textContent = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
+     stopwatch.textContent = window.stopwatchTimer.toString();
+     // updateBestTime(stopwatch.textContent, false);
 };
 
 HTMLActuator.prototype.addTile = function (tile) {
@@ -158,9 +161,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 HTMLActuator.prototype.updateBestTime = function (bestTime, terminated) {
   var stopwatchContainerValue = this.stopwatchContainer.textContent
   if (true) {
-    if (stopwatchContainerValue < bestTime) {
      this.bestTimeContainer.textContent = stopwatchContainerValue;
-   }
  }
 };
 

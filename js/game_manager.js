@@ -125,6 +125,10 @@ GameManager.prototype.actuate = function () {
     console.log(this.actuator.getBestTimeContainerText());
 
 
+  if (this.won && window.timedGame) {
+   this.storageManager.setBestTime(this.actuator.getBestTimeContainerText());
+  }
+
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,

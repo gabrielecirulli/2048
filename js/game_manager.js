@@ -3,8 +3,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
-
   this.startTiles     = 2;
+  this.initialRun     = true;
+  window.timedGame      = false;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -18,12 +19,19 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
+  // Handle the scenario of starting a timed game and then
+  // regreting it and beginning a classic game
+  window.stopwatchTimer.stop();
+  window.stopwatchTimer.reset();
+  window.timedGame = false;
+
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
 };
 
 // Restart the game with time trial
 GameManager.prototype.restart_with_time = function () {
+  window.timedGame = true;
   this.storageManager.clearGameState();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
@@ -53,12 +61,14 @@ GameManager.prototype.setup = function () {
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
-    this.time        = previousState.bestTime;
+    this.bestTime    = previousState.bestTime;
     this.keepPlaying = previousState.keepPlaying;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
-    this.time        = "00:00:00";
+    this.bestTime    = this.storageManager.getBestTime();
+    // console.log(this.actuator.bestTimeContainer.textContent);
+    // this.bestTime    = "01:02:03";
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
@@ -94,9 +104,16 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
-  this.storageManager.setBestTime("00:01:00");
-
-  // this.storageManager.setBestTime("00:01:00");
+  // this.actuator.bestTimeContainer.textContent = this.storageManager.getBestTime();
+  // When the game first starts we pass the best time value stored value
+  // But when thats not the case we set it from the frontend element
+  if (this.initialRun && window.timedGame) {
+   // this.storageManager.setBestTime(this.storageManager.getBestTime());
+   this.initialRun = false;
+   this.actuator.bestTimeContainer.textContent = this.storageManager.getBestTime();
+  } else if (window.timedGame) {
+    this.storageManager.setBestTime(this.actuator.getBestTimeContainerText());
+  }
 
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
@@ -104,6 +121,9 @@ GameManager.prototype.actuate = function () {
   } else {
     this.storageManager.setGameState(this.serialize());
   }
+
+    console.log(this.actuator.getBestTimeContainerText());
+
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
@@ -121,7 +141,7 @@ GameManager.prototype.serialize = function () {
   return {
     grid:        this.grid.serialize(),
     score:       this.score,
-    time:         this.time,
+    bestTime:    this.bestTime,
     over:        this.over,
     won:         this.won,
     keepPlaying: this.keepPlaying

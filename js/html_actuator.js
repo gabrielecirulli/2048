@@ -1,17 +1,11 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
-  this.scoreContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
-  this.bestTimeContainer = document.querySelector(".best-time-container");
-  this.messageContainer = document.querySelector(".game-message");
+  this.tileContainer      = document.querySelector(".tile-container");
+  this.scoreContainer     = document.querySelector(".score-container");
+  this.bestContainer      = document.querySelector(".best-container");
+  this.bestTimeContainer  = document.querySelector(".best-time-container");
+  this.messageContainer   = document.querySelector(".game-message");
   this.stopwatchContainer = document.querySelector("#stopwatch");
-  window.stopwatchTimer    = new Stopwatch(HTMLActuator.prototype.updateTime,1000);
-
-  seconds       = 0;
-  minutes       = 0;
-  hours         = 0;
-  score         = 0;
-  time          = 0;
+  window.stopwatchTimer   = new Stopwatch(HTMLActuator.prototype.updateTime,1000);
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -30,7 +24,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
-    self.updateBestTime(metadata.bestTime, metadata.terminated);
+    self.updateBestTime(metadata.bestTime, metadata.won);
 
     if (metadata.terminated) {
       window.stopwatchTimer.stop();
@@ -63,21 +57,9 @@ HTMLActuator.prototype.startCountdown = function (container) {
 };
 
 HTMLActuator.prototype.updateTime = function () {
-	this.seconds++;
-	if (this.seconds >= 60) {
-		this.seconds = 0;
-		this.minutes++;
-		if (this.minutes >= 60) {
-			this.minutes = 0;
-			this.hours++;
-		}
-	}
-	
 	var stopwatch = document.getElementById("stopwatch");
-
-	// stopwatch.textContent = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
-     stopwatch.textContent = window.stopwatchTimer.toString();
-     // updateBestTime(stopwatch.textContent, false);
+  stopwatch.textContent = window.stopwatchTimer.toString();
+  // updateBestTime(stopwatch.textContent, false);
 };
 
 HTMLActuator.prototype.addTile = function (tile) {
@@ -158,11 +140,29 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
 };
 
-HTMLActuator.prototype.updateBestTime = function (bestTime, terminated) {
-  var stopwatchContainerValue = this.stopwatchContainer.textContent
-  if (true) {
+HTMLActuator.prototype.updateBestTime = function (bestTime, won) {
+
+  this.bestTimeContainer.textContent = bestTime;
+
+  if (!window.timedGame) {
+    this.bestTimeContainer.textContent = bestTime;
+    return;
+  }
+
+  // Update best time only if the game is won
+  // Everyone can lose the game in a couple of seconds :) 
+  if (won) {
+    var stopwatchContainerValue = this.stopwatchContainer.textContent;
+    var stopwatchTimestamp = Date.parse("1970-01-01 ".concat(stopwatchContainerValue));
+    var bestTimeTimestamp  = Date.parse("1970-01-01 ".concat(bestTime));
+
+    // Compare the two timestamps and decide if the player has broken his/her record time.
+    // But if the timestamp is 00:00:00 then this means the user has no record till now
+    // so there is no point of restricting the update
+    if (stopwatchTimestamp <= bestTimeTimestamp || bestTime === "00:00:00") {
      this.bestTimeContainer.textContent = stopwatchContainerValue;
- }
+    } 
+  }
 };
 
 HTMLActuator.prototype.message = function (won) {
@@ -178,3 +178,7 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
 };
+
+HTMLActuator.prototype.getBestTimeContainerText = function() {
+  return this.bestTimeContainer.textContent;
+}

@@ -50,11 +50,11 @@ LocalStorageManager.prototype.setBestScore = function (score) {
 };
 
 LocalStorageManager.prototype.getBestTime = function () {
-  return this.storage.getItem(this.bestTimeKey) || 0;
+  return this.storage.getItem(this.bestTimeKey) || "00:00:00";
 };
 
-LocalStorageManager.prototype.setBestTime = function (time) {
-  this.storage.setItem(this.bestTimeKey, time);
+LocalStorageManager.prototype.setBestTime = function (bestTime) {
+  this.storage.setItem(this.bestTimeKey, bestTime);
 };
 
 // Game state getters/setters and clearing

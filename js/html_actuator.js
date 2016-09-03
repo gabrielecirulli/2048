@@ -27,8 +27,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateBestTime(metadata.bestTime, metadata.won);
 
     if (metadata.terminated) {
-      window.stopwatchTimer.stop();
-      
+      window.stopwatchTimer.stop(); 
       if (metadata.over) {
         self.message(false); // You lose
       } else if (metadata.won) {

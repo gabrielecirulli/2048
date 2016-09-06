@@ -537,7 +537,7 @@ color: rgba(0,0,0,0);
 
 .restart-button {
   display: inline-block;
-  background: green;
+  background: fuchsia;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;
@@ -565,8 +565,7 @@ color: rgba(0,0,0,0);
 
   .container {
     width: 280px;
-    margin: 0 auto;
-    }
+    margin: 0 auto; }
 
   .score-container, .best-container {
     margin-top: 0;

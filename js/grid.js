@@ -84,7 +84,7 @@ Grid.prototype.cellContent = function (cell) {
     return null;
   }
 };
-
+// Hello, world!
 // Inserts a tile at its position
 Grid.prototype.insertTile = function (tile) {
   this.cells[tile.x][tile.y] = tile;

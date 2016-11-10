@@ -65,9 +65,15 @@ KeyboardInputManager.prototype.listen = function () {
       }
     }
 
-    // R key restarts the game
-    if (!modifiers && event.which === 82) {
+    // Z key restarts the game
+    if (!modifiers && event.which === 90) {
       self.restart.call(self, event);
+    }
+
+    // T key restores the game state before last move
+    if (!modifiers && event.which === 84) {
+      console.log("pressing T");
+      self.setup.call(self, event);
     }
   });
 
@@ -135,6 +141,12 @@ KeyboardInputManager.prototype.listen = function () {
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
+};
+
+KeyboardInputManager.prototype.setup = function (event) {
+  event.preventDefault();
+  console.log("emitting restoring request");
+  this.emit("setup");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {

@@ -20,7 +20,7 @@ GameManager.prototype.restart = function () {
   this.setup();
 };
 
-// Keep playing after winning (allows going over 2048)
+// Keep playing after winning (allows going over 512)
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
@@ -60,6 +60,8 @@ GameManager.prototype.setup = function () {
 
 // Set up the initial tiles to start the game with
 GameManager.prototype.addStartTiles = function () {
+  this.grid.insertTile(new Tile(this.grid.randomAvailableCell(), -1));
+  this.grid.insertTile(new Tile(this.grid.randomAvailableCell(), -1));  
   for (var i = 0; i < this.startTiles; i++) {
     this.addRandomTile();
   }
@@ -148,7 +150,7 @@ GameManager.prototype.move = function (direction) {
       cell = { x: x, y: y };
       tile = self.grid.cellContent(cell);
 
-      if (tile) {
+      if (tile && tile.value > 0) {
         var positions = self.findFarthestPosition(cell, vector);
         var next      = self.grid.cellContent(positions.next);
 
@@ -166,8 +168,8 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-          // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          // The mighty 512 tile
+          if (merged.value === 512) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }

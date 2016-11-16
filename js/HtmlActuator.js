@@ -14,7 +14,6 @@
             this.scoreContainer = document.querySelector(".score-container");
             this.bestContainer = document.querySelector(".best-container");
             this.messageContainer = document.querySelector(".game-message");
-            console.log(this);
         }
         HTMLActuator.prototype.actuate = function (grid, state) {
             var _this = this;
@@ -81,7 +80,6 @@
             this.tileContainer.appendChild(wrapper);
         };
         HTMLActuator.prototype.updateScore = function (score) {
-            console.log(score);
             clearContainer(this.scoreContainer);
             var difference = score - this.score;
             this.score = score;

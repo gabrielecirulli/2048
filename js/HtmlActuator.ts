@@ -34,7 +34,6 @@ export class HTMLActuator implements IHTMLActuator
 		this.scoreContainer = document.querySelector(".score-container");
 		this.bestContainer = document.querySelector(".best-container");
 		this.messageContainer = document.querySelector(".game-message");
-		console.log(this);
 	}
 
 	actuate(grid:IGrid, state:IGameState):void
@@ -131,7 +130,6 @@ export class HTMLActuator implements IHTMLActuator
 
 	updateScore(score:number):void
 	{
-		console.log(score);
 		clearContainer(this.scoreContainer);
 
 		let difference = score - this.score;

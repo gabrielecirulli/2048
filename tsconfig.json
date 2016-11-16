@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "umd",
+    "target": "es5",
+    "sourceMap": true,
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

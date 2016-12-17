@@ -1,1 +1,8 @@
 .sass-cache/
+*.wgt
+*.tmp
+author-signature.xml
+signature*.xml
+*.prefs
+*.container
+*.name

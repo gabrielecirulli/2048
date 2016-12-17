@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
+		<attributes>
+			<attribute name="hide" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="">
+		<attributes>
+			<attribute name="provider" value="org.eclipse.wst.jsdt.web.core.internal.project.ModuleSourcePathProvider"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.tizen.web.project.initializer.WebLibraryInitializer"/>
+	<classpathentry kind="con" path="org.eclipselabs.jsdt.jquery.core.CoflictLibrary_2.0"/>
+	<classpathentry kind="con" path="org.tizen.web.project.initializer.TizenLibraryInitializer"/>
+	<classpathentry kind="con" path="org.tizen.web.project.initializer.HTML5LibraryInitializer"/>
+	<classpathentry kind="con" path="org.tizen.web.project.initializer.W3CLibraryInitializer"/>
+	<classpathentry kind="con" path="org.tizen.web.project.initializer.ext.RESTSupport"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

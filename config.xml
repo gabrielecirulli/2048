@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/Tizen2048" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="fq8hRuXQHg.Tizen2048" package="fq8hRuXQHg" required_version="2.4"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="icon.png"/>
+    <name>Tizen2048</name>
+    <tizen:profile name="mobile"/>
+</widget>

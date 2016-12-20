@@ -6,3 +6,4 @@ signature*.xml
 *.prefs
 *.container
 *.name
+.sdk_delta.info

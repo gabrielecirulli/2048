@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/Tizen2048" version="1.0.0" viewmodes="maximized">
-    <tizen:application id="fq8hRuXQHg.Tizen2048" package="fq8hRuXQHg" required_version="2.4"/>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://vyomkesh.io/Tizen2048" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="fq8hRuXQHg.Tizen2048" package="fq8hRuXQHg" required_version="2.4" launch_mode="single"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="icon.png"/>
-    <name>Tizen2048</name>
+    <license href="https://github.com/mukul-git/2048/blob/32de41e73cbfb8a4dcc42558684356de36120d0b/LICENSE.txt">MIT License</license>
+    <name>2048</name>
+    <tizen:privilege name="http://tizen.org/privilege/unlimitedstorage"/>
     <tizen:profile name="mobile"/>
+    <tizen:setting screen-orientation="portrait" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>

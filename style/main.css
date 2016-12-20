@@ -406,25 +406,25 @@ hr {
     text-align: center;
     font-weight: bold;
     z-index: 10;
-    font-size: 55px; }
+    font-size: 0px; }
   .tile.tile-2 .tile-inner {
-    background: #eee4da;
+    background: url('../tile-sets/cats/uj/2.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 .tile-inner {
-    background: #ede0c8;
+    background: url('../tile-sets/cats/uj/4.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
-  .tile.tile-8 .tile-inner {
-    color: #f9f6f2;
-    background: #f2b179; }
+   .tile.tile-8 .tile-inner {
+  background: url('../tile-sets/cats/uj/8.jpg'); 
+   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-16 .tile-inner {
-    color: #f9f6f2;
-    background: #f59563; }
+    background: url('../tile-sets/cats/uj/16.jpg'); 
+   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-32 .tile-inner {
-    color: #f9f6f2;
-    background: #f67c5f; }
+    background: url('../tile-sets/cats/uj/32.jpg'); 
+   box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-64 .tile-inner {
-    color: #f9f6f2;
-    background: #f65e3b; }
+   
+    background: url('../tile-sets/cats/uj/64.jpg'); }
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
     background: #edcf72;

@@ -1,3 +1,18 @@
+# AI2K
+An AI that plays 2048 on it's own.
+
+At the moment this is an undocumented approach to automatically play 2048. It uses alpha beta pruning with a scoring heuristic that tries to play into the lower right corner. 
+
+Enter "fnPlayLoop(mvAlphaBeta)" into the development console to start the AI.
+
+Currently, it adapts the search depth according to the highest cell and the number of free cells on the board.
+
+So far it has solved the puzzle (up to the 2048 cell) a number of times, reaching the 4096 block once (search depth of 7).
+
+TODOs:
+ - Add button to start AI
+ - Improve AI
+
 # 2048
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 

@@ -62,8 +62,8 @@ KeyboardInputManager.prototype.listen = function () {
       }
     }
 
-    // R key restarts the game
-    if (!modifiers && event.which === 82) {
+    // R || F2 key restarts the game
+    if (!modifiers && ((event.which === 82) || (event.which === 113))) {
       self.restart.call(self, event);
     }
   });

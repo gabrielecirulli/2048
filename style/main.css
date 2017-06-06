@@ -61,7 +61,7 @@ h1.title {
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px;
+  margin-top: 32.5px;
   text-align: center; }
   .score-container:after, .best-container:after {
     position: absolute;

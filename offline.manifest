@@ -1,0 +1,42 @@
+CACHE MANIFEST
+
+#
+# ApplicationCache is a douchebag... Update the manifest version if you make any resource changes.
+# http://alistapart.com/article/application-cache-is-a-douchebag
+#
+# Manifest version: 2014-03-12:v1
+#
+
+CACHE:
+offline.html
+
+# icon
+meta/apple-touch-icon.png
+favicon.ico
+
+# javascript
+js/offline.js
+js/animframe_polyfill.js
+js/application.js
+js/game_manager.js
+js/grid.js
+js/html_actuator.js
+js/keyboard_input_manager.js
+js/local_score_manager.js
+js/tile.js
+
+# css and fonts
+style/main.css
+style/fonts/clear-sans.css
+style/fonts/ClearSans-Bold-webfont.eot
+style/fonts/ClearSans-Bold-webfont.svg
+style/fonts/ClearSans-Bold-webfont.woff
+style/fonts/ClearSans-Light-webfont.eot
+style/fonts/ClearSans-Light-webfont.svg
+style/fonts/ClearSans-Light-webfont.woff
+style/fonts/ClearSans-Regular-webfont.eot
+style/fonts/ClearSans-Regular-webfont.svg
+style/fonts/ClearSans-Regular-webfont.woff
+
+NETWORK:
+*

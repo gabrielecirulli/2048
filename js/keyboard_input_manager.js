@@ -72,6 +72,7 @@ KeyboardInputManager.prototype.listen = function () {
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
+  this.bindAllButtonPress(".grid-cell", this.place);
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
@@ -137,8 +138,48 @@ KeyboardInputManager.prototype.keepPlaying = function (event) {
   this.emit("keepPlaying");
 };
 
+KeyboardInputManager.prototype.place = function (event) {
+	event.preventDefault();
+	var gridCell = event.target;
+	var gridRow = gridCell.parentNode;
+	var gridContainer = gridRow.parentNode;
+	
+	for(i=0; i<gridContainer.childNodes.length; i++){
+		if(gridContainer.childNodes[i] == gridRow ){
+			var y = i;
+			break;
+		}
+	}
+	for(i=0; i< gridRow.childNodes.length; i++){
+		if(gridRow.childNodes[i] == gridCell ){
+			var x = i;
+			break;
+		}
+	}
+	if(x >= 1){
+		x = (x-1)/2;
+	}
+	if(y >= 1){
+		y = (y-1)/2;
+	}
+	var position =	{
+      x: x,
+      y: y
+    };
+	this.emit("placeTile", position);
+};
+
 KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {
   var button = document.querySelector(selector);
   button.addEventListener("click", fn.bind(this));
   button.addEventListener(this.eventTouchend, fn.bind(this));
+};
+
+KeyboardInputManager.prototype.bindAllButtonPress = function (selector, fn) {
+	var buttons = document.querySelectorAll(selector);
+	for(var i = 0; i < buttons.length; ++i) {
+		var button = buttons[i];
+		button.addEventListener("click", fn.bind(this));
+		button.addEventListener(this.eventTouchend, fn.bind(this));
+	}
 };

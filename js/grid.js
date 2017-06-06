@@ -80,9 +80,9 @@ Grid.prototype.cellOccupied = function (cell) {
 Grid.prototype.cellContent = function (cell) {
   if (this.withinBounds(cell)) {
     return this.cells[cell.x][cell.y];
-  } else {
-    return null;
   }
+
+  return null;
 };
 
 // Inserts a tile at its position

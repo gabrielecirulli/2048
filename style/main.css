@@ -756,3 +756,53 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+
+/* Arrows */
+.arrow-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.arrow {
+  width: 93px;
+  height: 70px;
+  float: left;
+  background-color: #eee4da;
+  text-decoration: none;
+  line-height: 70px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.arrow-up {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-left: 93px;
+  margin-right: 93px;
+  width: 94px;
+}
+
+.arrow-down {
+    width: 94px;
+}
+
+.arrow-left {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.arrow-right {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+@media (max-width: 480px) {
+  .arrow-container {
+    display: block;
+  }
+
+  .game-intro, .game-explanation, hr {
+    display: none;
+  }
+}

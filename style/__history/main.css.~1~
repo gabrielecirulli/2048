@@ -53,7 +53,7 @@ h1.title {
 .score-container, .best-container {
   position: relative;
   display: inline-block;
-  background: olive;
+  background: #bbada0;
   padding: 15px 25px;
   font-size: 25px;
   height: 25px;
@@ -537,7 +537,7 @@ color: rgba(0,0,0,0);
 
 .restart-button {
   display: inline-block;
-  background: green;
+  background: #8f7a66;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;
@@ -565,8 +565,7 @@ color: rgba(0,0,0,0);
 
   .container {
     width: 280px;
-    margin: 0 auto;
-    }
+    margin: 0 auto; }
 
   .score-container, .best-container {
     margin-top: 0;
@@ -578,7 +577,6 @@ color: rgba(0,0,0,0);
 
   .game-intro {
     width: 55%;
-
     display: block;
     box-sizing: border-box;
     line-height: 1.65; }

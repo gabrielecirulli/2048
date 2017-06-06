@@ -276,7 +276,8 @@ hr {
 
     border-radius: $tile-border-radius;
 
-    background: rgba($tile-color, .35);
+    background: rgba($tile-color, .35) url(images/staff.svg) center center no-repeat;
+    background-size: cover;
 
     &:last-child {
       margin-right: 0;

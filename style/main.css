@@ -1,3 +1,4 @@
+
 @import url(fonts/clear-sans.css);
 html, body {
   margin: 0;
@@ -8,7 +9,7 @@ html, body {
   font-size: 18px; }
 
 body {
-  margin: 80px 0; }
+  margin: 5px 0; }
 
 .heading:after {
   content: "";
@@ -16,7 +17,7 @@ body {
   clear: both; }
 
 h1.title {
-  font-size: 80px;
+  font-size: 50px;
   font-weight: bold;
   margin: 0;
   display: block;
@@ -61,12 +62,12 @@ h1.title {
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px;
+  margin-top: 5px;
   text-align: center; }
   .score-container:after, .best-container:after {
     position: absolute;
     width: 100%;
-    top: 10px;
+    top: 5px;
     left: 0;
     text-transform: uppercase;
     font-size: 13px;
@@ -90,14 +91,14 @@ h1.title {
     animation-fill-mode: both; }
 
 .score-container:after {
-  content: "Score"; }
+  content: "Pontos"; }
 
 .best-container:after {
-  content: "Best"; }
+  content: "Melhor"; }
 
 p {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   line-height: 1.65; }
 
 a {
@@ -138,7 +139,7 @@ hr {
   100% {
     opacity: 1; } }
 .game-container {
-  margin-top: 40px;
+  margin-top: 5px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -231,7 +232,7 @@ hr {
 .tile, .tile .tile-inner {
   width: 107px;
   height: 107px;
-  line-height: 107px; }
+  line-height: 30px; }
 .tile.tile-position-1-1 {
   -webkit-transform: translate(0px, 0px);
   -moz-transform: translate(0px, 0px);
@@ -324,65 +325,78 @@ hr {
   .tile .tile-inner {
     border-radius: 3px;
     background: #eee4da;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     z-index: 10;
-    font-size: 55px; }
+    font-size: 20px; }
   .tile.tile-2 .tile-inner {
+    color: #f9f6f2;
     background: #eee4da;
+    background: url('../tile-sets/futebolPT/2.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 .tile-inner {
+    color: #f9f6f2;
     background: #ede0c8;
+    background: url('../tile-sets/futebolPT/4.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-8 .tile-inner {
     color: #f9f6f2;
-    background: #f2b179; }
+    background: #f2b179;
+    background: url('../tile-sets/futebolPT/8.jpg'); }
   .tile.tile-16 .tile-inner {
     color: #f9f6f2;
-    background: #f59563; }
+    background: #f59563;
+    background: url('../tile-sets/futebolPT/16.jpg'); }
   .tile.tile-32 .tile-inner {
     color: #f9f6f2;
-    background: #f67c5f; }
+    background: #f67c5f; 
+    background: url('../tile-sets/futebolPT/32.jpg');}
   .tile.tile-64 .tile-inner {
     color: #f9f6f2;
-    background: #f65e3b; }
+    background: #f65e3b;
+    background: url('../tile-sets/futebolPT/64.jpg'); }
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
     background: #edcf72;
+    background: url('../tile-sets/futebolPT/128.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
-    font-size: 45px; }
+    /*font-size: 45px;*/ }
     @media screen and (max-width: 520px) {
       .tile.tile-128 .tile-inner {
         font-size: 25px; } }
   .tile.tile-256 .tile-inner {
     color: #f9f6f2;
     background: #edcc61;
+    background: url('../tile-sets/futebolPT/256.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
-    font-size: 45px; }
+    /*font-size: 45px;*/ }
     @media screen and (max-width: 520px) {
       .tile.tile-256 .tile-inner {
         font-size: 25px; } }
   .tile.tile-512 .tile-inner {
     color: #f9f6f2;
     background: #edc850;
+    background: url('../tile-sets/futebolPT/512.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
-    font-size: 45px; }
+    /*font-size: 45px;*/ }
     @media screen and (max-width: 520px) {
       .tile.tile-512 .tile-inner {
         font-size: 25px; } }
   .tile.tile-1024 .tile-inner {
     color: #f9f6f2;
     background: #edc53f;
+    background: url('../tile-sets/futebolPT/1024.jpeg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
-    font-size: 35px; }
+    /*font-size: 35px; */}
     @media screen and (max-width: 520px) {
       .tile.tile-1024 .tile-inner {
         font-size: 15px; } }
   .tile.tile-2048 .tile-inner {
     color: #f9f6f2;
     background: #edc22e;
+    background: url('../tile-sets/futebolPT/2048.jpg');
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
-    font-size: 35px; }
+    /*font-size: 35px; */}
     @media screen and (max-width: 520px) {
       .tile.tile-2048 .tile-inner {
         font-size: 15px; } }
@@ -514,7 +528,7 @@ hr {
 
 .game-intro {
   float: left;
-  line-height: 42px;
+  line-height: 25px;
   margin-bottom: 0; }
 
 .restart-button {
@@ -528,10 +542,22 @@ hr {
   line-height: 42px;
   display: block;
   text-align: center;
-  float: right; }
+  float: right; 
+
+  margin-right: 5px; }      /*CHANGES*/
+
+.undo-button {              /*CHANGES*/
+  margin-right: 5px; }      /*CHANGES*/
+
+.disabled {                 /*CHANGES*/
+  background: #bbada0; }    /*CHANGES*/
+
+
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 10px;
+  text-align: justify;
+   }
 
 @media screen and (max-width: 520px) {
   html, body {

@@ -25,7 +25,17 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateBestScore(metadata.bestScore);
 
     if (metadata.terminated) {
+        // https://github.com/gabrielecirulli/2048/issues/180
+        // when last move create a 2048 tile and couldn't find next move,
+        // metadata.over and metadata.won are both set to true
+
       if (metadata.over) {
+        //edge case ;
+        if (metadata.won && !metadata.keepPlaying){
+        // last move won , and no more move ;
+          self.message(true);
+          return;
+        }
         self.message(false); // You lose
       } else if (metadata.won) {
         self.message(true); // You win!

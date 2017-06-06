@@ -24,6 +24,8 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
+  this.actuate();// add this line to fix https://github.com/gabrielecirulli/2048/issues/180
+
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -93,7 +95,8 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+    keepPlaying: this.keepPlaying // add to fix https://github.com/gabrielecirulli/2048/issues/180
   });
 
 };

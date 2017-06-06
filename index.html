@@ -23,12 +23,15 @@
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
+        <div class="best-time-container"></div>
       </div>
     </div>
 
     <div class="above-game">
       <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
       <a class="restart-button">New Game</a>
+      <a class="restart-button-time">Timed Game</a>
+      <div class="stopwatch-container" id="stopwatch">00:00:00</div>
     </div>
 
     <div class="game-container">
@@ -37,6 +40,7 @@
         <div class="lower">
 	        <a class="keep-playing-button">Keep going</a>
           <a class="retry-button">Try again</a>
+          <a class="retry-button-time">Try again(timed game)</a>
         </div>
       </div>
 
@@ -85,6 +89,8 @@
     </p>
   </div>
 
+  <script src="js/lib/stopwatch.js">
+  </script>
   <script src="js/bind_polyfill.js"></script>
   <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>

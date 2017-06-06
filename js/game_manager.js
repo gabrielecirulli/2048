@@ -3,12 +3,15 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
-
   this.startTiles     = 2;
+  this.initialRun     = true;
+  window.timedGame      = false;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("restart_with_time", this.restart_with_time.bind(this));
+  this.stopwatchTimer = window.stopwatchTimer;
 
   this.setup();
 }
@@ -16,8 +19,23 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
+  // Handle the scenario of starting a timed game and then
+  // regreting it and beginning a classic game
+  window.stopwatchTimer.stop();
+  window.stopwatchTimer.reset();
+  window.timedGame = false;
+
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
+};
+
+// Restart the game with time trial
+GameManager.prototype.restart_with_time = function () {
+  window.timedGame = true;
+  this.storageManager.clearGameState();
+  this.actuator.continueGame(); // Clear the game won/lost message
+  this.setup();
+  this.actuator.startCountdown();  
 };
 
 // Keep playing after winning (allows going over 2048)
@@ -42,10 +60,12 @@ GameManager.prototype.setup = function () {
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
+    this.bestTime    = previousState.bestTime;
     this.keepPlaying = previousState.keepPlaying;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
+    this.bestTime    = this.storageManager.getBestTime();
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
@@ -81,6 +101,15 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
+  // When the game first starts we pass the best time value stored value
+  // But when thats not the case we set it from the frontend element
+  if (this.initialRun && window.timedGame) {
+   this.initialRun = false;
+   this.actuator.bestTimeContainer.textContent = this.storageManager.getBestTime();
+  } else if (window.timedGame) {
+    this.storageManager.setBestTime(this.actuator.getBestTimeContainerText());
+  }
+
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
     this.storageManager.clearGameState();
@@ -88,12 +117,17 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setGameState(this.serialize());
   }
 
+  if (this.won && window.timedGame) {
+   this.storageManager.setBestTime(this.actuator.getBestTimeContainerText());
+  }
+
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+    bestTime:   this.storageManager.getBestTime()
   });
 
 };
@@ -103,6 +137,7 @@ GameManager.prototype.serialize = function () {
   return {
     grid:        this.grid.serialize(),
     score:       this.score,
+    bestTime:    this.bestTime,
     over:        this.over,
     won:         this.won,
     keepPlaying: this.keepPlaying

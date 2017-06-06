@@ -50,7 +50,7 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+.score-container, .best-container, .best-time-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -63,7 +63,7 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center; }
-  .score-container:after, .best-container:after {
+  .score-container:after, .best-container:after, .best-time-container:after {
     position: absolute;
     width: 100%;
     top: 10px;
@@ -73,7 +73,7 @@ h1.title {
     line-height: 13px;
     text-align: center;
     color: #eee4da; }
-  .score-container .score-addition, .best-container .score-addition {
+  .score-container .score-addition, .best-container .score-addition .best-time-container {
     position: absolute;
     right: 30px;
     color: red;
@@ -94,6 +94,44 @@ h1.title {
 
 .best-container:after {
   content: "Best"; }
+
+.stopwatch-container:before {
+  content: ""; } 
+
+.best-time-container:after {
+  content: "Fastest time:"; } 
+
+
+stopwatch-container::after {
+    color: #eee4da;
+    font-size: 13px;
+    left: 0;
+    line-height: 13px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 10px;
+    width: 100%;
+}
+.stopwatch-container {
+    background: #bbada0 none repeat scroll 0 0;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 47px;
+    margin-top: 8px;
+    padding: 15px 25px;
+    position: relative;
+    text-align: center;
+}
+
+  .stopwatch-container {
+    margin-top: 0;
+    padding: 15px 10px;
+    min-width: 40px; }
 
 p {
   margin-top: 0;
@@ -528,6 +566,22 @@ hr {
   line-height: 42px;
   display: block;
   text-align: center;
+  float: right;
+  margin-top: 5px;
+  }
+  
+ .restart-button-time {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 11px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
+  margin-top: 5px;
   float: right; }
 
 .game-explanation {
@@ -549,7 +603,7 @@ hr {
     width: 280px;
     margin: 0 auto; }
 
-  .score-container, .best-container {
+  .score-container, .best-container, .best-time-container {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px; }
@@ -564,6 +618,13 @@ hr {
     line-height: 1.65; }
 
   .restart-button {
+    width: 42%;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 2px; }
+    
+    .restart-button-time {
     width: 42%;
     padding: 0;
     display: block;

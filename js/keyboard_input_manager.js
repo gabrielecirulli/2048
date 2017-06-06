@@ -1,5 +1,6 @@
 function KeyboardInputManager() {
   this.events = {};
+  this.actuator = new HTMLActuator();
 
   if (window.navigator.msPointerEnabled) {
     //Internet Explorer 10 style
@@ -71,6 +72,8 @@ KeyboardInputManager.prototype.listen = function () {
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
+  this.bindButtonPress(".restart-button-time", this.restart_with_time);
+  this.bindButtonPress(".retry-button-time", this.restart_with_time);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
 
   // Respond to swipe events
@@ -121,16 +124,26 @@ KeyboardInputManager.prototype.listen = function () {
     var absDy = Math.abs(dy);
 
     if (Math.max(absDx, absDy) > 10) {
-      // (right : left) : (down : up)
-      self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
-    }
-  });
-};
+        // (right : left) : (down : up)
+        self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
+      }
+    });
+  };
 
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
 };
+
+KeyboardInputManager.prototype.restart_with_time = function (event) {
+  event.preventDefault();
+  this.actuator.stopwatchContainer.textContent = "00:00:00";
+  if (window.intervalId !== "undefined") {
+    clearInterval(window.intervalId);        
+  }
+  this.emit("restart_with_time");
+};
+
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();

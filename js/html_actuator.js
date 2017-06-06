@@ -1,10 +1,11 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
-  this.scoreContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
-  this.messageContainer = document.querySelector(".game-message");
-
-  this.score = 0;
+  this.tileContainer      = document.querySelector(".tile-container");
+  this.scoreContainer     = document.querySelector(".score-container");
+  this.bestContainer      = document.querySelector(".best-container");
+  this.bestTimeContainer  = document.querySelector(".best-time-container");
+  this.messageContainer   = document.querySelector(".game-message");
+  this.stopwatchContainer = document.querySelector("#stopwatch");
+  window.stopwatchTimer   = new Stopwatch(HTMLActuator.prototype.updateTime,1000);
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -23,8 +24,10 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
+    self.updateBestTime(metadata.bestTime, metadata.won);
 
     if (metadata.terminated) {
+      window.stopwatchTimer.stop(); 
       if (metadata.over) {
         self.message(false); // You lose
       } else if (metadata.won) {
@@ -44,6 +47,18 @@ HTMLActuator.prototype.clearContainer = function (container) {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+};
+
+HTMLActuator.prototype.startCountdown = function (container) {
+	// window.intervalId = setInterval(this.updateTime, 1000);
+  window.stopwatchTimer.reset();
+  window.stopwatchTimer.start();
+};
+
+HTMLActuator.prototype.updateTime = function () {
+	var stopwatch = document.getElementById("stopwatch");
+  stopwatch.textContent = window.stopwatchTimer.toString();
+  // updateBestTime(stopwatch.textContent, false);
 };
 
 HTMLActuator.prototype.addTile = function (tile) {
@@ -124,6 +139,31 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
 };
 
+HTMLActuator.prototype.updateBestTime = function (bestTime, won) {
+
+  this.bestTimeContainer.textContent = bestTime;
+
+  if (!window.timedGame) {
+    this.bestTimeContainer.textContent = bestTime;
+    return;
+  }
+
+  // Update best time only if the game is won
+  // Everyone can lose the game in a couple of seconds :) 
+  if (won) {
+    var stopwatchContainerValue = this.stopwatchContainer.textContent;
+    var stopwatchTimestamp = Date.parse("1970-01-01 ".concat(stopwatchContainerValue));
+    var bestTimeTimestamp  = Date.parse("1970-01-01 ".concat(bestTime));
+
+    // Compare the two timestamps and decide if the player has broken his/her record time.
+    // But if the timestamp is 00:00:00 then this means the user has no record till now
+    // so there is no point of restricting the update
+    if (stopwatchTimestamp <= bestTimeTimestamp || bestTime === "00:00:00") {
+     this.bestTimeContainer.textContent = stopwatchContainerValue;
+    } 
+  }
+};
+
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
@@ -137,3 +177,7 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
 };
+
+HTMLActuator.prototype.getBestTimeContainerText = function() {
+  return this.bestTimeContainer.textContent;
+}

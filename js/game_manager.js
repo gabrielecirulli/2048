@@ -126,6 +126,11 @@ GameManager.prototype.moveTile = function (tile, cell) {
   tile.updatePosition(cell);
 };
 
+GameManager.prototype.resultOfMerging = function (from, to) {
+  if (from.value !== to.value) return null;
+  return new Tile(null, from.value * 2);
+};
+
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2: down, 3: left
@@ -152,9 +157,13 @@ GameManager.prototype.move = function (direction) {
         var positions = self.findFarthestPosition(cell, vector);
         var next      = self.grid.cellContent(positions.next);
 
-        // Only one merger per row traversal?
-        if (next && next.value === tile.value && !next.mergedFrom) {
-          var merged = new Tile(positions.next, tile.value * 2);
+        var merged =
+          !next ? null :
+          next.mergedFrom ? null : // Only one merger per row traversal
+          self.resultOfMerging(tile, next);
+
+        if (merged) {
+          merged.updatePosition(positions.next);
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
@@ -256,7 +265,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
           var other  = self.grid.cellContent(cell);
 
-          if (other && other.value === tile.value) {
+          if (other && self.resultOfMerging(tile, other)) {
             return true; // These two tiles can be merged
           }
         }

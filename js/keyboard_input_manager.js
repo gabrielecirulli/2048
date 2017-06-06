@@ -68,6 +68,24 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
+  // Respond to events from the page
+  document.addEventListener("move", function (event) {
+    switch (event.detail.direction) {
+      case "up":
+        self.emit("move", 0);
+        break;
+      case "right":
+        self.emit("move", 1);
+        break;
+      case "down":
+        self.emit("move", 2);
+        break;
+      case "left":
+        self.emit("move", 3);
+        break;
+    }
+  }, false);
+
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);

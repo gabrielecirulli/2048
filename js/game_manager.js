@@ -81,6 +81,12 @@ GameManager.prototype.actuate = function () {
     this.storageManager.setBestScore(this.score);
   }
 
+//I play here
+var gbScore = (this.storageManager.getBestScore());
+localStorage.setItem('gbStorage', gbScore);
+var getGbScore = JSON.parse(localStorage.getItem('gbStorage'));
+//End of games
+
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
     this.storageManager.clearGameState();

@@ -530,6 +530,22 @@ hr {
   text-align: center;
   float: right; }
 
+.undo-button {
+  box-shadow:0 0 5px #444;
+  cursor :pointer;
+  background: #DAB500;
+  border-radius: 3px;
+  padding: 10px 10px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: inline;
+  text-align: center;
+  width: 20px;
+  margin-right: 10px;
+}
+
 .game-explanation {
   margin-top: 50px; }
 

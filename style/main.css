@@ -2,8 +2,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #faf8ef;
-  color: #776e65;
+  background: #56A0D3;/*THIS IS WHERE CHANGED TO CAROLINA BLUE*/
+  color: white;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
@@ -54,6 +54,7 @@ h1.title {
   position: relative;
   display: inline-block;
   background: #bbada0;
+
   padding: 15px 25px;
   font-size: 25px;
   height: 25px;
@@ -72,7 +73,8 @@ h1.title {
     font-size: 13px;
     line-height: 13px;
     text-align: center;
-    color: #eee4da; }
+    /*color: #eee4da; */
+    color: white;}
   .score-container .score-addition, .best-container .score-addition {
     position: absolute;
     right: 30px;
@@ -101,7 +103,8 @@ p {
   line-height: 1.65; }
 
 a {
-  color: #776e65;
+  /*color: #776e65;*/
+  color: white;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer; }
@@ -163,7 +166,8 @@ hr {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(238, 228, 218, 0.5);
+    /*background: rgba(238, 228, 218, 0.5);*/
+    backgournd: white;
     z-index: 100;
     text-align: center;
     -webkit-animation: fade-in 800ms ease 1200ms;
@@ -183,7 +187,8 @@ hr {
       margin-top: 59px; }
     .game-container .game-message a {
       display: inline-block;
-      background: #8f7a66;
+      /*background: #8f7a66;*/
+      background: white;
       border-radius: 3px;
       padding: 0 20px;
       text-decoration: none;
@@ -203,7 +208,8 @@ hr {
 
 .grid-container {
   position: absolute;
-  z-index: 1; }
+  z-index: 1; 
+  }
 
 .grid-row {
   margin-bottom: 15px; }
@@ -217,10 +223,15 @@ hr {
 .grid-cell {
   width: 106.25px;
   height: 106.25px;
+
   margin-right: 15px;
   float: left;
   border-radius: 3px;
-  background: rgba(238, 228, 218, 0.35); }
+  /*background: rgba(238, 228, 218, 0.35);*/
+  background: #C0D9D9;
+  /*background: #4A708B;*/
+   }
+
   .grid-cell:last-child {
     margin-right: 0; }
 
@@ -323,66 +334,90 @@ hr {
   transition-property: transform; }
   .tile .tile-inner {
     border-radius: 3px;
-    background: #eee4da;
+    /*background: #eee4da;*/
+    background: white;
     text-align: center;
     font-weight: bold;
     z-index: 10;
-    font-size: 55px; }
+    font-size: 0px; }
   .tile.tile-2 .tile-inner {
     background: #eee4da;
+    background: url('../IconPics/Graham.jpeg');
+    background-size: 100%;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 .tile-inner {
     background: #ede0c8;
+    background: url('../IconPics/Dillon.jpg');
+    background-size: 100%;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-8 .tile-inner {
-    color: #f9f6f2;
-    background: #f2b179; }
+    /*color: #f9f6f2;*/
+    background: url('../IconPics/Doug.PNG');
+    background-size: 100%;
+
+    /*background: #f2b179;*/ }
   .tile.tile-16 .tile-inner {
     color: #f9f6f2;
-    background: #f59563; }
+    background: url('../IconPics/Alexa.jpg');
+    background-size: 100%;
+    /*background: #f59563;*/ }
   .tile.tile-32 .tile-inner {
     color: #f9f6f2;
-    background: #f67c5f; }
+    background: url('../IconPics/Hayle.jpg');
+    background-size: 100%;
+    /*background: #f67c5f;*/ }
   .tile.tile-64 .tile-inner {
     color: #f9f6f2;
-    background: #f65e3b; }
+    background: url('../IconPics/Dylan.jpg');
+    background-size: 100%;
+    /*background: #f65e3b;*/ }
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
-    background: #edcf72;
+    background: url('../IconPics/Ashley.jpg');
+    background-size: 100%;
+    /*background: #edcf72;*/
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
-    font-size: 45px; }
+    font-size: 0px; }
     @media screen and (max-width: 520px) {
       .tile.tile-128 .tile-inner {
         font-size: 25px; } }
   .tile.tile-256 .tile-inner {
     color: #f9f6f2;
     background: #edcc61;
+    background: url('../IconPics/South.jpg');
+    background-size: 100%;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
-    font-size: 45px; }
+    font-size: 0px; }
     @media screen and (max-width: 520px) {
       .tile.tile-256 .tile-inner {
         font-size: 25px; } }
   .tile.tile-512 .tile-inner {
     color: #f9f6f2;
     background: #edc850;
+    background: url('../IconPics/Christina.jpeg');
+    background-size: 100%;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
-    font-size: 45px; }
+    font-size: 0px; }
     @media screen and (max-width: 520px) {
       .tile.tile-512 .tile-inner {
         font-size: 25px; } }
   .tile.tile-1024 .tile-inner {
     color: #f9f6f2;
     background: #edc53f;
+    background: url('../IconPics/Blake.jpg');
+    background-size: 100%;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
-    font-size: 35px; }
+    font-size: 0px; }
     @media screen and (max-width: 520px) {
       .tile.tile-1024 .tile-inner {
         font-size: 15px; } }
   .tile.tile-2048 .tile-inner {
     color: #f9f6f2;
     background: #edc22e;
+    background: url('../IconPics/Rob.jpg');
+    background-size: 100%;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
-    font-size: 35px; }
+    font-size: 0px; }
     @media screen and (max-width: 520px) {
       .tile.tile-2048 .tile-inner {
         font-size: 15px; } }
@@ -519,7 +554,8 @@ hr {
 
 .restart-button {
   display: inline-block;
-  background: #8f7a66;
+  /*background: #8f7a66;*/
+  background: #4A708B;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;
@@ -582,7 +618,8 @@ hr {
     -ms-user-select: none;
     -ms-touch-action: none;
     touch-action: none;
-    background: #bbada0;
+    /*background: #bbada0;*/
+    background: #4A708B;
     border-radius: 6px;
     width: 280px;
     height: 280px;
@@ -596,7 +633,8 @@ hr {
       right: 0;
       bottom: 0;
       left: 0;
-      background: rgba(238, 228, 218, 0.5);
+      /*background: rgba(238, 228, 218, 0.5);*/
+      background: #4A708B;
       z-index: 100;
       text-align: center;
       -webkit-animation: fade-in 800ms ease 1200ms;
@@ -653,7 +691,9 @@ hr {
     margin-right: 10px;
     float: left;
     border-radius: 3px;
-    background: rgba(238, 228, 218, 0.35); }
+    /*background: rgba(238, 228, 218, 0.35); */
+    background: #4A708B;
+  }
     .grid-cell:last-child {
       margin-right: 0; }
 

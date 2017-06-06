@@ -1,3 +1,11 @@
+@font-face
+{
+font-family: "Play";
+src: url("Play-Sans.woff");
+font-weight: 700;
+font-style: normal;
+}
+
 @font-face {
     font-family: "Clear Sans";
     src: url("ClearSans-Light-webfont.eot");

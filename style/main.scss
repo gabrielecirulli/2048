@@ -292,7 +292,7 @@ hr {
     &, .tile-inner {
       width: ceil($tile-size);
       height: ceil($tile-size);
-      line-height: ceil($tile-size);
+      line-height: $tile-size + 10px;
     }
 
     // Build position classes

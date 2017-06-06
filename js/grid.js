@@ -22,15 +22,26 @@ Grid.prototype.fromState = function (state) {
   var cells = [];
 
   for (var x = 0; x < this.size; x++) {
-    var row = cells[x] = [];
-
+    //Modifing cells[x] by reference when we push tiles to row
+    var row = [];
+      //cells[x] has a reference of row
+    cells[x] = row;
     for (var y = 0; y < this.size; y++) {
       var tile = state[x][y];
-      row.push(tile ? new Tile(tile.position, tile.value) : null);
+      row.push(this.checkTileObjectFromState(tile));
     }
   }
 
   return cells;
+};
+
+//Create a new Tile from a simple tile Object saved in state
+Grid.prototype.checkTileObjectFromState = function (simpleTileObject) {
+    return (simpleTileObject ? this.createTile(simpleTileObject) : null)
+};
+
+Grid.prototype.createTile = function (simpleTileObject) {
+    return new Tile(simpleTileObject.position, simpleTileObject.value)
 };
 
 // Find the first available random position

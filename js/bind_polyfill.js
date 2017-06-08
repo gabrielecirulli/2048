@@ -1,5 +1,5 @@
 Function.prototype.bind = Function.prototype.bind || function (target) {
-  var self = this;
+  var self = this; // assign object to self variable
   return function (args) {
     if (!(args instanceof Array)) {
       args = [args];

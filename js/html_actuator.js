@@ -47,10 +47,27 @@ HTMLActuator.prototype.clearContainer = function (container) {
 };
 
 HTMLActuator.prototype.addTile = function (tile) {
+
+    var valueMap = {/*add by helen*/
+        2 :    '出生',
+        4 :    '幼儿园',
+        8 :    "小学",
+        16 :   "初中",
+        32 :   '高中',
+        64 :   '大学',
+        128 :  '蜂鸟学院',
+        256 :  '前端工程师',
+        512 :  '前端架构师',
+        1024 : '出任CEO',
+        2048 : '迎娶白富美',
+        4096 : '人生巅峰'
+    }
+
   var self = this;
 
   var wrapper   = document.createElement("div");
   var inner     = document.createElement("div");
+
   var position  = tile.previousPosition || { x: tile.x, y: tile.y };
   var positionClass = this.positionClass(position);
 
@@ -62,7 +79,12 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+    if(tile.value > 2 && tile.value != 128){//add by helen
+        //inner.textContent = tile.value;/*common by helen*/
+        inner.textContent = valueMap[tile.value];//add by helen
+    }
+
+
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first

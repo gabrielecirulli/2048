@@ -1,0 +1,1175 @@
+[33mcommit 1638cf8de43a4ebede94690d3b29398b77ffa17e[m
+Author: ProgX <king2sairos2013@gmail.com>
+Date:   Fri Apr 7 14:37:42 2017 +0200
+
+    Revert "Revert ":boom::camel: Added .gitattributes""
+    
+    This reverts commit 1706f0630b780b31d985a587d0f7e32d358fd886.
+
+[33mcommit 1706f0630b780b31d985a587d0f7e32d358fd886[m
+Author: ProgX <king2sairos2013@gmail.com>
+Date:   Fri Apr 7 12:44:53 2017 +0200
+
+    Revert ":boom::camel: Added .gitattributes"
+    
+    This reverts commit 8021d8afda78e1959d0a885824969bb9b6e663a2.
+
+[33mcommit f1b805f7cb39cc64335ad809560a5161997da68c[m
+Author: ProgX <king2sairos2013@gmail.com>
+Date:   Fri Apr 7 12:28:03 2017 +0200
+
+    :boom::camel: Added .gitattributes
+
+[33mcommit 837ca51b6f254c416cb74b6a1baa1bb7cc7e6fd1[m
+Merge: 0ce1da5 cbd3055
+Author: sigod <sigod@users.noreply.github.com>
+Date:   Tue Oct 20 21:43:34 2015 +0300
+
+    Merge pull request #233 from sigod/ie9-styles
+    
+    fix styles for IE9: add -ms-transform
+
+[33mcommit 0ce1da5e691edcf6b677b2a3dc53e9678bf1a254[m
+Merge: 76336e8 450ddd0
+Author: sigod <sigod@users.noreply.github.com>
+Date:   Mon Sep 28 23:37:23 2015 +0300
+
+    Merge pull request #372 from Gitgiddy/master
+    
+    fixes type error surrounding `event.targetTouches`
+
+[33mcommit 450ddd02826d58b60d896148de2fb241d0e42323[m
+Author: jkleban <jkleban@costargroup.com>
+Date:   Mon Sep 28 11:58:11 2015 -0400
+
+    fixes type error surrounding `event.targetTouches`
+
+[33mcommit 76336e86ee9975976141677bc36d6e2332e256bc[m
+Author: sigod <sigod@users.noreply.github.com>
+Date:   Fri Jul 10 10:52:10 2015 +0300
+
+    README.md: store screenshot on github (close #358)
+
+[33mcommit caef60a9a947ba107d83903d4f0dd72ba22f789f[m
+Merge: 999bea3 845ee40
+Author: Anna Harren <iirelu@users.noreply.github.com>
+Date:   Sat Mar 21 00:51:29 2015 +0000
+
+    Merge pull request #328 from marcingajda/patch-1
+    
+    Updated contributors username.
+
+[33mcommit 845ee40d2aae6c7a5046952d81c5a758ef9f6e1e[m
+Author: Marcin Gajda <elektryk91@gmail.com>
+Date:   Sat Mar 21 01:25:01 2015 +0100
+
+    Updated contributors username.
+    
+    I changed my GitHub username and the old link doesn't work anymore.
+
+[33mcommit 999bea39a77c0dfad2bb148bf55b22479d4a0a19[m
+Merge: 5297877 ecd91f7
+Author: sigod <sigod@users.noreply.github.com>
+Date:   Sat Dec 13 15:28:22 2014 +0300
+
+    Merge pull request #234 from sigod/contributing
+    
+    CONTRIBUTING.md: sass --unix-newlines
+
+[33mcommit 52978771ac57e8d482b52c893542796c7d4cfe91[m
+Merge: f927cc5 d02e499
+Author: sigod <sigod@users.noreply.github.com>
+Date:   Wed Dec 10 17:42:50 2014 +0300
+
+    Merge pull request #258 from harimohanraj89/documentation
+    
+    CONTRIBUTING.md typo fix
+
+[33mcommit f927cc556de72fc0aaa299997d16c77e9676f0d5[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Dec 7 19:54:43 2014 +0100
+
+    Add maintainers to README
+
+[33mcommit c36ad21655397eda059ca1d1c621b0c0c68a5836[m
+Merge: 5385464 c1a02dc
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Dec 7 19:40:58 2014 +0100
+
+    Merge pull request #279 from sigod/numbers-positions
+    
+    fix positions of tile numbers
+
+[33mcommit c1a02dc232bcb9d0abed065edf37fdf5309480e2[m
+Author: Mikhail Novikov <sigod.mail@gmail.com>
+Date:   Wed Nov 26 01:21:39 2014 +0300
+
+    fix positions of tile numbers
+
+[33mcommit d02e499b593b90214d2c81cb014aa05891794025[m
+Author: harimohanraj89 <hari.mohanraj89@gmail.com>
+Date:   Thu Jul 24 11:42:55 2014 -0400
+
+    fixed typo in contributing doc
+
+[33mcommit ecd91f7e104241c054347a9b1277c22d5b0bad31[m
+Author: Mikhail Novikov <sigod.mail@gmail.com>
+Date:   Sun Jun 15 16:04:13 2014 +0300
+
+    CONTRIBUTING.md: sass --unix-newlines
+
+[33mcommit cbd3055a5f77bafe8ea08172cbde272375980a81[m
+Author: Mikhail Novikov <sigod.mail@gmail.com>
+Date:   Sun Jun 15 15:36:11 2014 +0300
+
+    fix styles for IE9: add -ms-transform
+
+[33mcommit 538546423f9321a57d8081254cfbaf512e33f82a[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue May 6 18:49:46 2014 +0200
+
+    Update README.md
+
+[33mcommit f30cde505da256082a8013a205fa129184f3997b[m
+Merge: 6141e30 0656e4c
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue May 6 18:48:43 2014 +0200
+
+    Merge pull request #188 from zzatkin/patch-1
+    
+    Update README.md
+
+[33mcommit 0656e4c7124abd9a376ceddb337b9252c20e710b[m
+Author: Zack Gold <zzatkin@gmail.com>
+Date:   Tue May 6 12:45:07 2014 -0400
+
+    Update README.md
+    
+    Spelling fix.
+
+[33mcommit 6141e302b7860c920a9ab4b85ff39d6404214e9b[m
+Merge: 542208d 3b86903
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Apr 16 22:05:13 2014 +0200
+
+    Merge pull request #158 from janschoenherr/patch-1
+    
+    code cleanup
+
+[33mcommit 3b86903e65383e30ffc836b733dcaf094c33ff10[m
+Author: janschoenherr <jan@yootheme.com>
+Date:   Wed Apr 16 10:54:51 2014 +0200
+
+    code cleanup
+
+[33mcommit 542208d94ac562ff573d697039a493cafcc7f014[m
+Merge: 2798bb0 1264d9b
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Apr 6 23:05:12 2014 +0200
+
+    Merge pull request #112 from Josso/startup-image
+    
+    Add startup-images for the iPhone
+
+[33mcommit 2798bb0b1e2da578c91f69496508673a05e7a160[m
+Merge: 878098f 82834df
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 27 19:11:49 2014 +0100
+
+    Merge pull request #115 from iirelu/jshint-compliance
+    
+    Made animframe_polyfill.js JSHint compliant
+
+[33mcommit 82834dfc5bf2740418063c1b644e606dd8e46dd0[m
+Author: iirelu <totallymyrealemail@hush.ai>
+Date:   Thu Mar 27 17:52:07 2014 +0000
+
+    Made animframe_polyfill.js JSHint compliant
+    
+    Reformatted a bunch to make JSHint happy.
+
+[33mcommit 1264d9b3f02ea27dbddbf6f71fc4f3a8c6ebf355[m
+Author: Johan K. Jensen <jj@johanjensen.dk>
+Date:   Thu Mar 27 14:20:32 2014 +0100
+
+    Add startup-images for the iPhone.
+
+[33mcommit 878098f855e734a9ac47ef1d1832664abb5e0454[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 23 20:21:58 2014 +0100
+
+    apply changes from #43
+
+[33mcommit b08fa8d6a48efbf7018bc1812f3de2c7d550877c[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 23 20:17:22 2014 +0100
+
+    apply css improvements from #68
+
+[33mcommit 71baa9d3d708a3cac419fa2df59af0ec78ede312[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 23 20:12:53 2014 +0100
+
+    Update CONTRIBUTING.md
+
+[33mcommit 7dcbe282844bd44c3ce18f32f58a026c0a6d7dd4[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 23 20:09:19 2014 +0100
+
+    #98 improve contributing guide
+
+[33mcommit d403f84d7de6ab91782e47157fb7cfbcb3b296ce[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 23 19:56:08 2014 +0100
+
+    add https://github.com/mgarciaisaia mention to readme
+
+[33mcommit cf01ca7e8bf670822c55b0a4b04cd5c2b0271b3e[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 23 19:51:29 2014 +0100
+
+    manually apply #81
+
+[33mcommit 2f912471322c62cdc3b4628010330e42541ab11f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 18:45:48 2014 +0100
+
+    improve comments in game manager
+
+[33mcommit 6cb3d71a40f1f030efe67263a43673882ba60523[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 18:41:47 2014 +0100
+
+    improve comments in game manager
+
+[33mcommit af683a7856485d8be156c3e070fdb7c9baff0145[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 18:33:24 2014 +0100
+
+    clear game state on game over
+
+[33mcommit bf1ba513c1a717c52f110ef30237397093ba0bfb[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:40:57 2014 +0100
+
+    update css
+
+[33mcommit 156ef6e50d4ac6a4b008c71b59e60ed4ef347603[m
+Merge: 3cfdcca 17f0f57
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:39:02 2014 +0100
+
+    Merge pull request #96 from jimminning/patch-3
+    
+    Update main.scss for -ms-user-select (IE)
+
+[33mcommit 3cfdcca0d238bf1d69a7618ae4fe88fd0c8d0588[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:31:55 2014 +0100
+
+    increase margin above game field
+
+[33mcommit e729f7457f23c5e2ddf7c323fca21a9027eadee7[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:28:14 2014 +0100
+
+    bring container margin top into variable and reduce it on mobile
+
+[33mcommit 17fe360df1ab312c9988324f56d5eeb960da4bde[m
+Merge: 8ad8318 6c12037
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:09:08 2014 +0100
+
+    Merge branch 'master' of https://github.com/gabrielecirulli/2048
+
+[33mcommit 8ad8318c7ce84298b17dcf0aa15f357926cb2ffa[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:06:37 2014 +0100
+
+    align assignments
+
+[33mcommit 88e084a0d731f138a017e62400d364bcdb682e22[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:06:32 2014 +0100
+
+    remove irrelevant size property on serialized game
+
+[33mcommit 4fa41a045be4e3654eca43cc9a6852a5fd56d3d3[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:01:36 2014 +0100
+
+    reintroduce "to" in intro
+
+[33mcommit 560859fcd9af9b4280e32d48806d91057702e0b0[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 17:00:50 2014 +0100
+
+    restyle new game button to put it on the right side of the introduction
+
+[33mcommit 4ad15d4cbd224fd36d4f1139ebb28c6b4af1ad6d[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 16:35:47 2014 +0100
+
+    add R key to restart game
+
+[33mcommit a6531b08bdf7cea4e402dda078e8016563cce401[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 16:29:23 2014 +0100
+
+    add getter comments
+
+[33mcommit c48b92689dd232656b669e13c982e1d74bf753bf[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 16:24:11 2014 +0100
+
+    refactor grid, gamemanager, tile
+
+[33mcommit 4d294cf9b93056a3f8910fcc061f1dad18b67398[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 16:11:19 2014 +0100
+
+    remove space to restart game, refactor code slightly
+
+[33mcommit 08c50df9386e4003a76a5fb03a3941516531403f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 15:38:52 2014 +0100
+
+    rename LocalScoreManager to LocalStorageManager
+
+[33mcommit bd7f8963d0672f12e286a37943c5e5d5765401d9[m
+Merge: a875a3a 02a24c0
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 22 15:35:51 2014 +0100
+
+    Merge branch 'resume-game' of github.com:mfrederiksen/2048 into mfrederiksen-resume-game
+
+[33mcommit 17f0f57b98e47f2dd08a4ae1e6f7fc365731fe60[m
+Author: Jim Minning <jim.minning@gmail.com>
+Date:   Sat Mar 22 07:28:51 2014 -0400
+
+    Update main.scss
+    
+    Added IE specific user select none, to prevent text selection on IE swiping.
+
+[33mcommit 6c12037b2a090ed0f1bd7ab1738637810f98da46[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 21 15:33:51 2014 +0100
+
+    Update README.md
+
+[33mcommit 03052c9a2788abec334c778bd72278536b9baaa3[m
+Merge: a875a3a 9ca6e3c
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 21 15:33:08 2014 +0100
+
+    Merge pull request #85 from MaciejCzyzewski/patch-2
+    
+    Update README.md, centered screenshot!
+
+[33mcommit a875a3ab96c6d818d27f194b7a9319eb29ae095b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 20 22:59:00 2014 +0100
+
+    match and replace the "Updated" comment
+
+[33mcommit 9ca6e3c788174701a9c423261049fa0f5e7914be[m
+Author: Maciej A. Czyzewski <maciejanthonyczyzewski@gmail.com>
+Date:   Thu Mar 20 22:01:34 2014 +0100
+
+    Update README.md, centered screenshot!
+    
+    I think screenshot is better when it is centered.
+
+[33mcommit 6a4b3ec322f41c9bb69e40ec0cc14a69b9425594[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 20 19:57:48 2014 +0100
+
+    add basic rake file with appcache:update task
+
+[33mcommit 95ca6686764c7757cc329d51430023fdff1f2695[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 19 19:17:32 2014 +0100
+
+    Update README.md
+
+[33mcommit 40fc9014eba511ed24efeac06e46b8ffd095a506[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 19 15:11:20 2014 +0100
+
+    credit elektryk
+
+[33mcommit b6e48e2f24badf8cc0dfdb8c9be566702362a71f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 19 14:45:54 2014 +0100
+
+    update scss
+
+[33mcommit 2056ed480d744ff3949107bea02cd5a3dfc5da81[m
+Merge: 01264c3 7f18725
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 19 14:42:12 2014 +0100
+
+    Merge branch 'WP_touch_events' of github.com:elektryk/2048 into elektryk-WP_touch_events
+
+[33mcommit 02a24c0610c56da8a3e7e0ed3790f252a760e9c9[m
+Author: Mark Frederiksen <mfrederiksen@gmail.com>
+Date:   Tue Mar 18 14:48:55 2014 -0400
+
+    Added persistence of game state to localstorage after each move
+    Added rebuilding of game state from localstoage on page load
+    Added New Game button to allow game restarts now that refreshes resume the game
+
+[33mcommit 01264c3252c3e0311c8b79b2c88f0902ec81b8f4[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 18:31:04 2014 +0100
+
+    set mobile threshold slightly wider than the board size
+
+[33mcommit f732d4f54713ec716d96754e1301bdf7fe6f1ef3[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:56:38 2014 +0100
+
+    remove debug logging
+
+[33mcommit db0dc7eae1af7a4bccd186c5933ae019635b3bc1[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:50:57 2014 +0100
+
+    rename keep playing to keep going
+
+[33mcommit f663e17a4b70dbc1b89ca9757094ccdf6019e068[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:50:49 2014 +0100
+
+    add styling for super tiles
+
+[33mcommit 10c72a76b3c8e2aa496cdf1400b305d1ae960dba[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:35:42 2014 +0100
+
+    rename tile-gold to tile-super
+
+[33mcommit 5392893cd6f6f2e2fe461481729d18b870c311e3[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:34:05 2014 +0100
+
+    rename GameOver to GameTerminated to avoid ambiguity
+
+[33mcommit cfbf74905fa44e72a39d50701f96b614660ba445[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:27:57 2014 +0100
+
+    refactor code
+
+[33mcommit a831baed58e56e660757856f03cff07128b813b0[m
+Merge: 2bf48ef c329f35
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 13:22:29 2014 +0100
+
+    merge infinite game
+
+[33mcommit 2bf48efe6845d55896f0a6650562d9c1273e8103[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 12:33:32 2014 +0100
+
+    change local storage support check
+
+[33mcommit 15057fd625e5175a4c1331843dc800f78a1755d2[m
+Merge: 8772e1a 9274840
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 12:29:05 2014 +0100
+
+    Merge pull request #50 from codeKonami/master
+    
+    adding a test to verify the localStorage is supported
+
+[33mcommit 8772e1aee9f1be0b72ca06f4bb0c2ccc5e26462b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 11:47:54 2014 +0100
+
+    fix fill mode helper
+
+[33mcommit 9274840cede00b810bf45a92f7c6b128659cf98f[m
+Author: codeKonami <thomas.foricher@gmail.com>
+Date:   Fri Mar 14 14:25:26 2014 +1300
+
+    adding a test to verify the localStorage is supported fixing a bug on private browsing on safari
+
+[33mcommit f943d2a7455fca1c44c75fa3349fd13221f964de[m
+Merge: 7c6fd1b 472e30c
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Fri Mar 14 00:03:59 2014 +0100
+
+    Merge pull request #42 from david-risney/fix-try-again-bug
+    
+    Ensure the Try Again button actually disappears when selected in IE
+
+[33mcommit 7c6fd1b2a4acbd7d5fc58f76ee7ba139535e2fe7[m
+Merge: 9239941 74494bb
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 13 23:14:06 2014 +0100
+
+    Merge pull request #28 from gabrielecirulli/use-transforms
+    
+    Use transforms for tile positions
+
+[33mcommit 74494bb5f512265f913272e7b0748bf1958c1cbf[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 13 23:11:02 2014 +0100
+
+    modify the game to allow using transforms
+
+[33mcommit 92399414eb8fa4907621a9de530169063fdfc619[m
+Merge: d7ef12e 7f1a82e
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 13 23:04:20 2014 +0100
+
+    Merge pull request #48 from iharosi/master
+    
+    minimal-ui added to allow fullscreen on iOS 7.1
+
+[33mcommit ca5762310a4a16ee278e79047f288368f9fd056c[m
+Merge: 886712c d7ef12e
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 13 22:53:06 2014 +0100
+
+    Merge branch 'master' into use-transforms
+
+[33mcommit 7f1a82e41e38a7b369ca1f3556012fdb4066ab88[m
+Author: Gergely Iharosi <iharosi@gmail.com>
+Date:   Thu Mar 13 22:52:25 2014 +0100
+
+    minimal-ui added to allow fullscreen on iOS 7.1
+    
+    More details on the iOS dev site: http://goo.gl/H6RILo
+
+[33mcommit 7f187251a87ce0e34ce7055b1eeb3a71a2072aea[m
+Author: Marcin Gajda <elektryk91@gmail.com>
+Date:   Thu Mar 13 20:27:09 2014 +0100
+
+    Windows Phone touch events
+
+[33mcommit d7ef12e41c44dab6a3966d28fd6050f44fcec65c[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 13 17:10:14 2014 +0100
+
+    change site note
+
+[33mcommit 425076c759f131c98cb1bbd78b14ee5368a50d77[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Thu Mar 13 16:51:55 2014 +0100
+
+    add official site note
+
+[33mcommit c329f35796ee1f5036c61bd0f635491bf96eb15d[m
+Merge: bd62716 7b4c2c1
+Author: Laurent Margirier <laurent.margirier@gmail.com>
+Date:   Thu Mar 13 10:40:59 2014 +0100
+
+    Update refs
+
+[33mcommit bd62716d604fd30fe3e0ffa015161279afa47461[m
+Author: Laurent Margirier <laurent.margirier@gmail.com>
+Date:   Thu Mar 13 10:17:57 2014 +0100
+
+    add touchend event (see PR #32)
+
+[33mcommit e7be14d65a173a19065784fa3de80d93384754d5[m
+Author: Laurent Margirier <laurent.margirier@gmail.com>
+Date:   Wed Mar 12 13:37:08 2014 +0100
+
+    compile main.css
+
+[33mcommit 9626e2b060485b69d944a70ad670e251ba014aa4[m
+Author: Laurent Margirier <laurent.margirier@gmail.com>
+Date:   Wed Mar 12 12:27:27 2014 +0100
+
+    Endless Game. Allow user to continue the game.
+    
+    - main.css isn't compiled
+    - a special class `.tile-gold` is added to tiles above 2048
+
+[33mcommit 472e30cd35e439b24bd402f1b3e623fed6de1e36[m
+Author: Dave Risney <dave@deletethis.net>
+Date:   Tue Mar 11 22:59:47 2014 -0700
+
+    Ensure the Try Again button actually disappears when selected in Internet Explorer
+
+[33mcommit da75b7a44ecf714dffae7bdd348649e7740b2f22[m
+Merge: bd8516a fc6206a
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 21:56:13 2014 +0100
+
+    Merge pull request #32 from coding46/patch-1
+    
+    [BUGFIX] Add touch event handler for retry button
+
+[33mcommit bd8516ac7dd77545648a09145650d603d988ef95[m
+Merge: 7723697 ffcb772
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 18:04:16 2014 +0100
+
+    Merge pull request #29 from TimPetricola/fix-readme
+    
+    Fix README
+
+[33mcommit fc6206ab395d32dafd2fff70df9bf246f7453647[m
+Author: G. Bodenschatz <coding@46halbe.de>
+Date:   Wed Mar 12 18:03:11 2014 +0100
+
+    [BUGFIX] Add touch event handler for retry button
+
+[33mcommit ffcb77293741ce1a3cd484a2f330180bf2079197[m
+Author: Tim Petricola <tim.petricola@gmail.com>
+Date:   Wed Mar 12 10:56:54 2014 -0400
+
+    Fix README
+
+[33mcommit 886712cc8e1126fd14b1342ea71e70400aa8b3b4[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 15:40:49 2014 +0100
+
+    add basic css transform positions
+
+[33mcommit 772369787377c7eb3158ee1afc5ff0ee5e3ebadd[m
+Merge: 608ca28 4010bbb
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 13:39:04 2014 +0100
+
+    Merge pull request #20 from leereilly/ios-launch-icon
+    
+    Some tweaks for iOS devices
+
+[33mcommit 7b4c2c171fd9b4dbc52d8c53f6db8fe12c4e7eca[m
+Author: Laurent Margirier <laurent.margirier@gmail.com>
+Date:   Wed Mar 12 13:37:08 2014 +0100
+
+    compile main.css
+
+[33mcommit 608ca2844b1493604a5715f4bbdaf09cb049bc25[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 13:35:42 2014 +0100
+
+    improve code structure in localscoremanager
+
+[33mcommit 88278792be80739c303968d2e4ff31a4eba317b6[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 13:30:50 2014 +0100
+
+    small change in scoremanager
+
+[33mcommit a862d448490316bc0dd7e86359e2b5ff4dd9a88a[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 13:15:38 2014 +0100
+
+    add screnshot section
+
+[33mcommit 0c771c88f03103d0427d76123c030a29bd4ba513[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 13:15:10 2014 +0100
+
+    add mentions to readme
+
+[33mcommit e61ef188242658ae97da139571e87195f69f2543[m
+Author: Laurent Margirier <laurent.margirier@gmail.com>
+Date:   Wed Mar 12 12:27:27 2014 +0100
+
+    Endless Game. Allow user to continue the game.
+    
+    - main.css isn't compiled
+    - a special class `.tile-gold` is added to tiles above 2048
+
+[33mcommit d9fef6095f0b510d84c0eb01958b8f145828b337[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 13:04:16 2014 +0100
+
+    remove analytics from master branch
+
+[33mcommit 385b65d086d910a7cd02625aaa2dd96d32acd37c[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 12:55:40 2014 +0100
+
+    mobile tweaks for best score
+
+[33mcommit b080e5300db93f1ade4308b4c2ff6b064bfcc101[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 12:15:57 2014 +0100
+
+    add small code tweaks
+
+[33mcommit 39ebf51ce2b79a68850d611b485b6dee33e39b72[m
+Merge: 3dd8f3e 7765445
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 11:23:22 2014 +0100
+
+    fix merge conflict
+
+[33mcommit 3dd8f3e5271a6e090b44b65f1eac6615320ef6bb[m
+Merge: 29e4b85 95a2676
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 12 10:48:18 2014 +0100
+
+    Merge pull request #22 from ghoullier/master
+    
+    Use querySelector instead of getElementsByClassName
+
+[33mcommit 95a2676b3b5e00cfae2e9e84e7b49ae3fb51b24b[m
+Author: Grégory HOULLIER <gregory.houllier@gmail.com>
+Date:   Wed Mar 12 08:59:12 2014 +0100
+
+    Use querySelector instead of getElementsByClassName
+
+[33mcommit 4010bbb46caf30143c0484b7ca1ec5877e0aabf2[m
+Author: Lee Reilly <lee@leereilly.net>
+Date:   Tue Mar 11 22:42:59 2014 -0700
+
+    Fix relative path issue - github.io vs. CNAME
+
+[33mcommit d990b3a56f89e63e14695177d1b9b3a230c33dbf[m
+Author: Lee Reilly <lee@leereilly.net>
+Date:   Tue Mar 11 22:40:10 2014 -0700
+
+    Add metadata images to meta folder for consistency
+
+[33mcommit f071712a721d15c3631d9f72938c80f0a7fc40b4[m
+Author: Lee Reilly <lee@leereilly.net>
+Date:   Tue Mar 11 22:33:56 2014 -0700
+
+    Hide the browser UI on :iphone:
+
+[33mcommit 350e673835c8074a7a249858c9ccf91ceba56d04[m
+Author: Lee Reilly <lee@leereilly.net>
+Date:   Tue Mar 11 22:32:12 2014 -0700
+
+    Add launcher icon for :apple: devices
+
+[33mcommit 29e4b85f3278f6257dfcacd221b8823356f6ce87[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 22:21:34 2014 +0100
+
+    update css
+
+[33mcommit f251f5c898b1b98a1bdc8eafe8429ade63560d34[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 22:18:56 2014 +0100
+
+    remove hammer, small js changes
+
+[33mcommit db82cf4952a6cd9357837a3b082d37ee3213c491[m
+Merge: 39ba3a9 cf4087e
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 22:15:19 2014 +0100
+
+    Merge pull request #16 from chrisprice/master
+    
+    Replace hammer with touch event handling
+
+[33mcommit cf4087e87d7e87f60c7424220173b8859bc203fb[m
+Author: Chris Price <price.c@gmail.com>
+Date:   Tue Mar 11 20:34:47 2014 +0000
+
+    Replace hammer with touch event handling
+
+[33mcommit 77654452a7e70a249cba0a22a3f3ac06ca2296ec[m
+Merge: d6da8d9 39ba3a9
+Author: Tim Petricola <tim.petricola@gmail.com>
+Date:   Tue Mar 11 12:05:42 2014 -0400
+
+    Merge remote-tracking branch 'upstream/master' into best-score
+    
+    Conflicts:
+            index.html
+            js/application.js
+            js/html_actuator.js
+
+[33mcommit d6da8d99251266445beaead0da79f0085756c054[m
+Author: Tim Petricola <tim.petricola@gmail.com>
+Date:   Tue Mar 11 11:52:02 2014 -0400
+
+    localStorage fallback
+
+[33mcommit 39ba3a986f2b67c615a5c92355c04a5450873c94[m
+Merge: 5c6327f 988d71f
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 16:41:28 2014 +0100
+
+    Merge pull request #13 from remram44/readme-fixes
+    
+    Minor fixes to README
+
+[33mcommit 5c6327f390309e446eb3a98f1389333af0d3905e[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 16:31:39 2014 +0100
+
+    add WASD controls (closes #10)
+
+[33mcommit 988d71f7a031c6dfa1b3f626014e177eaa83e0d6[m
+Author: Remi Rampin <remirampin@gmail.com>
+Date:   Tue Mar 11 11:26:18 2014 -0400
+
+    Minor fixes to README
+
+[33mcommit 92fda72cf54691a29ef81c1f93a1e9dd75d99a52[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 15:18:20 2014 +0100
+
+    move button styles to mixin
+
+[33mcommit d2315af2ec3332d319c8ba7839707d5d7ad1691b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 14:48:42 2014 +0100
+
+    add requestanimationframe polyfill
+
+[33mcommit 5fb74faf5d221475ef008329f7e9a22fcaf46fcb[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 14:38:38 2014 +0100
+
+    add favicon meta tag
+
+[33mcommit 53b0bd2e17d2f23bea498d90de1900877e321bfd[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 14:30:09 2014 +0100
+
+    move scripts to bottom of body
+
+[33mcommit 2e5ab789c1db8ee89af64b3926e2eb6a33a0ca4b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 12:29:16 2014 +0100
+
+    add favicon
+
+[33mcommit 84dbf492330e131132191bcc1fa6742f9be1d4bb[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 12:16:43 2014 +0100
+
+    update address
+
+[33mcommit c9906c87fceb087bbc8ab98f2c6ea037dc5b0b61[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 12:04:55 2014 +0100
+
+    Update README.md
+
+[33mcommit bc2a710ea9c2348394550a919670b751e55c6080[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Tue Mar 11 10:45:15 2014 +0100
+
+    add threes reference. closes #7
+
+[33mcommit fda0e8405fbc912241279fafda59cb03c98f4a48[m
+Author: Tim Petricola <tim.petricola@gmail.com>
+Date:   Mon Mar 10 17:18:54 2014 -0400
+
+    Fix win/over in local
+
+[33mcommit 5a49a0ef91217f3e03299972ef363e456ddd9d1b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 21:31:41 2014 +0100
+
+    add basic iphone support
+
+[33mcommit 664546ef9a44a3cf99a7fd4ae491a98695d16693[m
+Author: Tim Petricola <tim.petricola@gmail.com>
+Date:   Mon Mar 10 16:02:16 2014 -0400
+
+    Store best score in localStorage
+    
+    Dependency injection and hide best score for incompatible browsers
+
+[33mcommit e4476b44e042071aef49ccc1243753b472f4afb1[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 20:45:43 2014 +0100
+
+    remove debug printing
+
+[33mcommit c0ca375c3a7991a98092b664ea05d075ecc548e6[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 20:42:03 2014 +0100
+
+    properly ignore meta keys
+
+[33mcommit 57deb5d998a6f20334259efe98bd6a7bdded80eb[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 19:38:46 2014 +0100
+
+    move event send after type definition
+
+[33mcommit a42279948144b86ec4dc472ab7a458d4727b7527[m
+Merge: b3c822c 96e9290
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:58:36 2014 +0100
+
+    Merge pull request #2 from rayhaanj/master
+    
+    Add vim keybindings
+
+[33mcommit b3c822c7d5e1b153e7cfa925ab35b1491aa74559[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:47:10 2014 +0100
+
+    add swipe gesture support
+
+[33mcommit 96e9290af374e214326096f699d48f03490f9a30[m
+Merge: fb8eabe 29c4bea
+Author: rayhaanj <github@rayhaan.me>
+Date:   Mon Mar 10 17:34:43 2014 +0000
+
+    Added vim keybindings
+
+[33mcommit fb8eabe9b01d686e4cf35909461dfa79f9734514[m
+Author: rayhaanj <github@rayhaan.me>
+Date:   Mon Mar 10 17:33:58 2014 +0000
+
+    Added vim keybindings
+
+[33mcommit 29c4bea1722d5867b9701a0e232c11214c911615[m
+Author: rayhaanj <github@rayhaan.me>
+Date:   Mon Mar 10 17:30:53 2014 +0000
+
+    Added vim keybindings
+
+[33mcommit a44433df03e9769fad7ab1487ecf3318735dfd3e[m
+Merge: 4ab265f 914fdd0
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:23:33 2014 +0100
+
+    Merge pull request #1 from Mechazawa/patch-1
+    
+    forgot the http://
+
+[33mcommit 914fdd0eac80482b559a445e9499dfe9f76ccc5b[m
+Author: Mechazawa <BasBieling@gmail.com>
+Date:   Mon Mar 10 18:21:49 2014 +0100
+
+    forgot the http://
+    
+    Gotta properly link to saming his site bro
+
+[33mcommit 4ab265f0fb9e960051668775b0996014982b209f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:13:08 2014 +0100
+
+    update contributing link
+
+[33mcommit 40f2df84148cd94d260e43768d83648be75a6451[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:12:33 2014 +0100
+
+    add contributing guide
+
+[33mcommit e3554394e5eeb8dd7445c70bd3da0118f5346064[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:11:31 2014 +0100
+
+    Update README.md
+
+[33mcommit 32de41e73cbfb8a4dcc42558684356de36120d0b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:07:22 2014 +0100
+
+    add license
+
+[33mcommit 433127cd9382be90bf6567211b8047c4bc5bdb2f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 18:03:43 2014 +0100
+
+    remove use of class list in actuator, fix animations for firefox
+
+[33mcommit a1e98e0d86ec1c991471bcee09ecc1f288bd8574[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 12:29:35 2014 +0100
+
+    press space to restart
+
+[33mcommit d24c67a458a33c3ee4993b0b4f7c8ffd5d483d0e[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 12:08:10 2014 +0100
+
+    update rendered stylesheet
+
+[33mcommit 46813070acb9695a3eb4e1021597134662183b62[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 12:07:11 2014 +0100
+
+    add container around sharing functionality
+
+[33mcommit ce33401d050d22e1b7ded0cbaf256a4a886d4c0f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 11:32:04 2014 +0100
+
+    remove analytics from master
+
+[33mcommit 02b66ccb9b22580165492e99dd7053d23bd799c5[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 11:31:10 2014 +0100
+
+    add retry button
+
+[33mcommit 2c066a55fc0f49ec0a3f3a4b9120e8b6c441d829[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Mon Mar 10 00:13:50 2014 +0100
+
+    Update README.md
+
+[33mcommit 378ca283f276779fbdbd24bfe5d29be62c30af1c[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 23:59:53 2014 +0100
+
+    increase padding on score
+
+[33mcommit e65111f13ba8ebc6d72094c5497ec81b95084ff0[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 23:43:56 2014 +0100
+
+    add win condition
+
+[33mcommit 4b3055fcd0b88b52769574e3183434fa43922b8e[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 23:24:17 2014 +0100
+
+    add movement check, score addition
+
+[33mcommit f18f7cee2268de6189f3129b7e68faa9df43862c[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 23:03:13 2014 +0100
+
+    add score and endgame
+
+[33mcommit 53e08722e0f926c902a879c467765fbb197c07eb[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 20:03:04 2014 +0100
+
+    add tile merging
+
+[33mcommit efa2af59a240612fd4f8f2ccfcc9186cdd662783[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 17:32:02 2014 +0100
+
+    remove debug logging
+
+[33mcommit b20e26e3bd5940355846a1308120e2d3adc40acd[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sun Mar 9 14:32:30 2014 +0100
+
+    implement tile movement
+
+[33mcommit b7476f1f62f9e7c5ff6d32c14617cfa5ecab51af[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 8 13:32:37 2014 +0100
+
+    make actuator properly create html elements
+
+[33mcommit dca5207fa4f48dfae9f0ac15a845f1d32311355f[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 8 13:10:54 2014 +0100
+
+    extract the grid to its own class
+
+[33mcommit cf31e146aad692a8fed02a3aa3c80af183502de8[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Sat Mar 8 12:50:45 2014 +0100
+
+    basic grid implementation with initial setup
+
+[33mcommit 0970a722ba3a6fba1c43c392e5d386bbb8f9414b[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 23:16:18 2014 +0100
+
+    update screenshot in README
+
+[33mcommit fd2927c37c699e4fa8965d0cb77168f3868d5793[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 23:15:57 2014 +0100
+
+    add game explanation, remove test tiles
+
+[33mcommit 43aaf123a0776eb4d5087b7ec406de8e60bcc970[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 18:50:32 2014 +0100
+
+    mix colors with optional predefined colors for each tile
+
+[33mcommit 71122e1f64993a029fc1c1cade0334fde30c91e8[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 17:35:55 2014 +0100
+
+    reduce glow opacity
+
+[33mcommit 3f6f06e2df9c26927f985fe2f88024fb3a2f23fe[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 17:34:04 2014 +0100
+
+    fade tile text to white
+
+[33mcommit 7c4d6d03ee91c86ccc11dccf6ac5a2634bc49b3e[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 17:08:12 2014 +0100
+
+    fix screenshot markdown
+
+[33mcommit 39f3871e7ae925f7060d41a846263015552bff58[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 17:07:23 2014 +0100
+
+    add screenshot to readme
+
+[33mcommit 9945d0268d39435025bdd14306f68be7dda93173[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 17:05:24 2014 +0100
+
+    add README
+
+[33mcommit 61f20acec6774d4bba03a9b8d163822d8b71fc3d[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 17:02:54 2014 +0100
+
+    adjust font sizes, add transition and cursor states
+
+[33mcommit 5e41f41a69c8890dcac35ac191ef6c93cb2828c6[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 16:33:31 2014 +0100
+
+    generate tile colors automatically
+
+[33mcommit e3a548bd404d7c890f888dcaceb3e5b24ab3c9db[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 16:15:11 2014 +0100
+
+    add sass helpers
+
+[33mcommit a26e1c6bbdaea2062cfb8740aef178abe1f610f4[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 16:10:54 2014 +0100
+
+    rename style.scss to main.scss
+
+[33mcommit c45115f9ae21447b745d4022770b1f79cd88d9ff[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 16:09:11 2014 +0100
+
+    move fonts to style
+
+[33mcommit 22ef3be645a4998b4e0b955224b811f25c996322[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 16:08:17 2014 +0100
+
+    move css to style dir
+
+[33mcommit b0bf6c5e20d72d2679d4c46adc5c193c7ed41752[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 16:07:40 2014 +0100
+
+    basic tile styling
+
+[33mcommit 3403e78c4b621e9a37ff6b5f008603a49dc32cf4[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 15:38:29 2014 +0100
+
+    basic styling
+
+[33mcommit f4d95b66723cd2a3f3bc9db6956320a8db4703df[m
+Author: Gabriele Cirulli <gabrycir@gmail.com>
+Date:   Wed Mar 5 15:20:56 2014 +0100
+
+    initial commit

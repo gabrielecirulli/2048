@@ -25,3 +25,5 @@ Tile.prototype.serialize = function () {
     value: this.value
   };
 };
+
+//测试用注释

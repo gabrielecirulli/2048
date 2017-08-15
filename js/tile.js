@@ -26,4 +26,5 @@ Tile.prototype.serialize = function () {
   };
 };
 
-//测试用注释
+//测试用注释1
+//测试用注释2

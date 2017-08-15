@@ -25,6 +25,3 @@ Tile.prototype.serialize = function () {
     value: this.value
   };
 };
-
-//测试用注释1
-//测试用注释2

@@ -1097,3 +1097,10 @@ hr {
       animation: pop-in-small 700ms ease 2s both;
       margin-top: 10px;
       height: 76px; } }
+
+.links {
+  text-align: center;
+  margin-top: 20px; }
+
+.privacy {
+  word-wrap: break-word; }

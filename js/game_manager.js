@@ -68,8 +68,18 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
-    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    var block;
+    var value = Math.random();
+
+    if (value < 0.25) {
+      block = 2; // 3
+    } else if (value < 0.625) {
+      block = 4; // 1
+    } else {
+      block = 8; // 3
+    }
+
+    var tile = new Tile(this.grid.randomAvailableCell(), block);
 
     this.grid.insertTile(tile);
   }
@@ -153,8 +163,12 @@ GameManager.prototype.move = function (direction) {
         var next      = self.grid.cellContent(positions.next);
 
         // Only one merger per row traversal?
-        if (next && next.value === tile.value && !next.mergedFrom) {
-          var merged = new Tile(positions.next, tile.value * 2);
+        if (isMergeable(tile, next)) {
+          if ((tile.value === 1 && next && next.value === 2 && !next.mergedFrom) || (tile.value === 2 && next && next.value === 1 && !next.mergedFrom)) {
+            var merged = new Tile(positions.next, 3);
+          } else {
+            var merged = new Tile(positions.next, tile.value * 2);
+          }
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
@@ -188,6 +202,13 @@ GameManager.prototype.move = function (direction) {
 
     this.actuate();
   }
+};
+
+const isMergeable = (tile, next) => {
+  if ((tile.value === 1 && next && next.value === 2 && !next.mergedFrom) || (tile.value === 2 && next && next.value === 1 && !next.mergedFrom)) {
+    return true
+  }
+  return next && next.value === tile.value && !next.mergedFrom
 };
 
 // Get the vector representing the chosen direction

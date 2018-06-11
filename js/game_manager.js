@@ -208,7 +208,7 @@ GameManager.prototype.move = function (direction) {
       tile = self.grid.cellContent(cell);
 
       if (tile) {
-        var positions = self.findFarthestPosition(cell, vector);
+        var positions = self.findNextPosition(cell, vector);
         var next      = self.grid.cellContent(positions.next);
 
         // Only one merger per row traversal?
@@ -225,6 +225,7 @@ GameManager.prototype.move = function (direction) {
 
           // Converge the two tiles' positions
           tile.updatePosition(positions.next);
+          console.log('merging', tile.value, next.value, 'to', positions.next);
 
           // Update the score
           self.score += merged.value;
@@ -291,15 +292,17 @@ GameManager.prototype.buildTraversals = function (vector) {
   return traversals;
 };
 
-GameManager.prototype.findFarthestPosition = function (cell, vector) {
+GameManager.prototype.findNextPosition = function (cell, vector) {
   var previous;
 
   // Progress towards the vector direction until an obstacle is found
+  var i = 0;
   do {
+    i++;
     previous = cell;
-    cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
+    cell = { x: previous.x + vector.x, y: previous.y + vector.y };
   } while (this.grid.withinBounds(cell) &&
-           this.grid.cellAvailable(cell));
+           this.grid.cellAvailable(cell) && i <= 1);
 
   return {
     farthest: previous,

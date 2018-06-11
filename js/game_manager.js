@@ -65,8 +65,7 @@ GameManager.prototype.addStartTiles = function () {
   }
 };
 
-// Adds a tile in a random position
-GameManager.prototype.addRandomTile = function () {
+GameManager.prototype.randomTile = function () {
   if (this.grid.cellsAvailable()) {
     var block;
     var value = Math.random();
@@ -80,6 +79,15 @@ GameManager.prototype.addRandomTile = function () {
     }
 
     var tile = new Tile(this.grid.randomAvailableCell(), block);
+
+    return tile;
+  }
+}
+
+// Adds a tile in a random position
+GameManager.prototype.addRandomTile = function () {
+  if (this.grid.cellsAvailable()) {
+    var tile = this.randomTile();
 
     this.grid.insertTile(tile);
   }
@@ -105,7 +113,6 @@ GameManager.prototype.actuate = function () {
     bestScore:  this.storageManager.getBestScore(),
     terminated: this.isGameTerminated()
   });
-
 };
 
 // Represent the current game as an object
@@ -180,8 +187,8 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-          // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          // The mighty 3072 tile
+          if (merged.value === 3072) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }
@@ -194,7 +201,9 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
+    // add old preview tile
     this.addRandomTile();
+    // get new preview tile
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!

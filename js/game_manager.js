@@ -71,12 +71,12 @@ GameManager.prototype.addRandomTile = function () {
     var block;
     var value = Math.random();
 
-    if (value < 0.25) {
-      block = 2; // 3
-    } else if (value < 0.625) {
-      block = 4; // 1
+    if (value <= 0.25) {
+      block = 3;
+    } else if (value <= 0.625) {
+      block = 1;
     } else {
-      block = 8; // 3
+      block = 2;
     }
 
     var tile = new Tile(this.grid.randomAvailableCell(), block);
@@ -208,7 +208,7 @@ const isMergeable = (tile, next) => {
   if ((tile.value === 1 && next && next.value === 2 && !next.mergedFrom) || (tile.value === 2 && next && next.value === 1 && !next.mergedFrom)) {
     return true
   }
-  return next && next.value === tile.value && !next.mergedFrom
+  return tile.value !== 1 && tile.value !== 2 && next && next.value === tile.value && !next.mergedFrom
 };
 
 // Get the vector representing the chosen direction
@@ -277,7 +277,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
           var other  = self.grid.cellContent(cell);
 
-          if (other && other.value === tile.value) {
+          if (other && isMergeable(other, tile)) {
             return true; // These two tiles can be merged
           }
         }

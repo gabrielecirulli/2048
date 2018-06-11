@@ -68,14 +68,18 @@ GameManager.prototype.addStartTiles = function () {
 GameManager.prototype.randomTile = function () {
   if (this.grid.cellsAvailable()) {
     var block;
-    var value = Math.random();
+    var chanceOneOrTwo = 0.75
+    var rand = Math.random();
 
-    if (value <= 0.25) {
+    var counts = this.onesVsTwos();
+    var weights = this.OneVsTwoPercentage(counts.one, counts.two);
+
+    if (rand <= 0.25) {
       block = 3;
-    } else if (value <= 0.625) {
-      block = 1;
+    } else if (rand <= ((1 - chanceOneOrTwo) + chanceOneOrTwo*weights.percent)) {
+      block = weights.superior;
     } else {
-      block = 2;
+      block = weights.lagging;
     }
 
     var tile = new Tile(this.grid.randomAvailableCell(), block);
@@ -83,6 +87,44 @@ GameManager.prototype.randomTile = function () {
     return tile;
   }
 }
+
+// Counts the grid for ones vs. twos.
+GameManager.prototype.onesVsTwos = function () {
+  var ones = 0;
+  var twos = 0;
+  this.grid.eachCell(function (x, y, tile) {
+    if (tile) {
+      if (tile.value === 1) {
+        ones++;
+      } else if (tile.value === 2) {
+        twos++;
+      }
+    }
+  });
+
+  return {
+    one: ones,
+    two: twos
+  };
+};
+
+GameManager.prototype.OneVsTwoPercentage = function (ones, twos) {
+  var eq = Math.max(0, 0.5 - 0.05*Math.abs(ones - twos));
+
+  if (ones < twos) {
+    return {
+      superior: 2,
+      percent: eq,
+      lagging: 1
+    }
+  } else {
+    return {
+      superior: 1,
+      percent: eq,
+      lagging: 2
+    }    
+  }
+};
 
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {

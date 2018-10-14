@@ -70,8 +70,11 @@ GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
     var value = Math.random() < 0.9 ? 2 : 4;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
+    var xTileLocation = tile.serialize()["position"]["x"];
+    var yTileLocation = tile.serialize()["position"]["y"];
 
     this.grid.insertTile(tile);
+    console.log("Added random tile with value of " + value + " at (x, y): " + xTileLocation + ", " + yTileLocation)
   }
 };
 
@@ -101,7 +104,7 @@ GameManager.prototype.actuate = function () {
 // Represent the current game as an object
 GameManager.prototype.serialize = function () {
   return {
-    grid:        this.grid.serialize(),
+    //grid:        this.grid.serialize(),
     score:       this.score,
     over:        this.over,
     won:         this.won,

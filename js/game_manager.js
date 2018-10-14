@@ -104,7 +104,7 @@ GameManager.prototype.actuate = function () {
 // Represent the current game as an object
 GameManager.prototype.serialize = function () {
   return {
-    //grid:        this.grid.serialize(),
+    grid:        this.grid.serialize(),
     score:       this.score,
     over:        this.over,
     won:         this.won,

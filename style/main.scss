@@ -31,6 +31,11 @@ html, body {
   font-size: 18px;
 }
 
+html {
+  // Disable pull-to-refresh or other possible swipe side effects
+  overscroll-behavior: contain;
+}
+
 body {
   margin: 80px 0;
 }

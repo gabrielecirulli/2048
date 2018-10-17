@@ -33,7 +33,7 @@ html, body {
 
 html {
   // Disable pull-to-refresh or other possible swipe side effects
-  overscroll-behavior: contain;
+  overscroll-behavior: none;
 }
 
 body {

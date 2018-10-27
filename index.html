@@ -40,15 +40,6 @@
   <meta name="twitter:app:name:googleplay" content="2048">
   <meta name="twitter:app:id:googleplay" content="com.gabrielecirulli.app2048">
   <meta name="twitter:app:url:googleplay" content="https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42620757-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-42620757-2');
-  </script>
-
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
      (adsbygoogle = window.adsbygoogle || []).push({
@@ -180,5 +171,15 @@
   <script src="js/local_storage_manager.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+    ga("create", "UA-42620757-2", "gabrielecirulli.github.io");
+    ga("send", "pageview");
+  </script>
 </body>
 </html>

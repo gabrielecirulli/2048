@@ -4,6 +4,6 @@ Function.prototype.bind = Function.prototype.bind || function (target) {
     if (!(args instanceof Array)) {
       args = [args];
     }
-    self.apply(target, args);
+    return self.apply(target, args);
   };
 };

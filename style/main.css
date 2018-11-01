@@ -5,7 +5,8 @@ html, body {
   background: #faf8ef;
   color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px; }
+  font-size: 18px;
+  overscroll-behavior: none; }
 
 body {
   margin: 80px 0; }

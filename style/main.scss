@@ -29,6 +29,9 @@ html, body {
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
+
+  // Disable pull-to-refresh or other possible swipe side effects
+  overscroll-behavior: none;
 }
 
 body {

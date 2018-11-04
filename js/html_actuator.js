@@ -54,10 +54,10 @@ HTMLActuator.prototype.addTile = function (tile) {
   var position  = tile.previousPosition || { x: tile.x, y: tile.y };
   var positionClass = this.positionClass(position);
 
-  // We can't use classlist because it somehow glitches when replacing classes
-  var classes = ["tile", "tile-" + tile.value, positionClass];
+  var appearanceClasses = this.appearanceClasses(tile);
 
-  if (tile.value > 2048) classes.push("tile-super");
+  // We can't use classlist because it somehow glitches when replacing classes
+  var classes = ["tile", positionClass].concat(appearanceClasses);
 
   this.applyClasses(wrapper, classes);
 
@@ -67,7 +67,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
     window.requestAnimationFrame(function () {
-      classes[2] = self.positionClass({ x: tile.x, y: tile.y });
+      classes[1] = self.positionClass({ x: tile.x, y: tile.y });
       self.applyClasses(wrapper, classes); // Update the position
     });
   } else if (tile.mergedFrom) {
@@ -101,6 +101,21 @@ HTMLActuator.prototype.normalizePosition = function (position) {
 HTMLActuator.prototype.positionClass = function (position) {
   position = this.normalizePosition(position);
   return "tile-position-" + position.x + "-" + position.y;
+};
+
+HTMLActuator.prototype.appearanceClasses = function (tile) {
+  if (tile.value > 2048) {
+    return ["tile-super"];
+  } else if (tile.value == 2048) {
+    return ["tile-2048"];
+  } else if (tile.value >= 1000) {
+    // The only such tile in this version is 1024, but the default styling
+    // doesn't work for four-digit numbers, so give all four-digit numbers
+    // this style in order to help people writing their own mods.
+    return ["tile-1024"];
+  } else {
+    return ["tile-" + tile.value];
+  }
 };
 
 HTMLActuator.prototype.updateScore = function (score) {

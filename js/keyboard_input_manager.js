@@ -68,6 +68,41 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 
+  // Respond to Leap Motion Controller swipe gestures
+
+    var ctl = new Leap.Controller({enableGestures: true});//initialize leap motion controller
+    var swiper = ctl.gesture('swipe');//watch for swipe gestures
+    var tolerance = 50;//change of more than 50 mm
+    var cooloff = 50; //wait .1 seconds between gestures
+
+    var slider = _.debounce(function(xDir, yDir) {
+        var mapped = -1
+        if(yDir==-1)mapped=0;//Up
+        else if(yDir==1)mapped=2;//Down
+        else if(xDir==-1)mapped=3;//Left
+        else if(xDir==1)mapped=1;//Right
+        if (mapped != -1) {
+          self.emit("move", mapped);//exectutes move
+        }
+      }, 
+    cooloff);//wait cooloff time
+
+    swiper.update(function(g) {
+      console.log(g.translation()[0]+"   "+g.translation()[1]);
+      if (Math.abs(g.translation()[0]) > tolerance || Math.abs(g.translation()[1]) > tolerance) {
+        var xDir = Math.abs(g.translation()[0]) > tolerance ? (g.translation()[0] > 0 ? -1 : 1) : 0;//left or right or center
+        var yDir = Math.abs(g.translation()[1]) > tolerance ? (g.translation()[1] < 0 ? -1 : 1) : 0;//up or down or center
+        if(Math.abs(g.translation()[0])>=Math.abs(g.translation()[1])){//only choose most drastic gesture direction
+          yDir=0;
+        }else{
+          xDir=0;
+        }
+        slider(xDir, yDir);//use change
+      }
+    });
+
+    ctl.connect();
+
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);

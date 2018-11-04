@@ -4,6 +4,16 @@
   <meta charset="utf-8">
   <title>2048</title>
 
+  <script>
+    if (typeof window !== undefined && typeof window.location !== undefined && window.location.hostname === "gabrielecirulli.github.io") {
+      if (typeof window.location.replace === "function") {
+        window.location.replace("https://play2048.co/");
+      } else {
+        window.location = "https://play2048.co/"
+      }
+    }
+  </script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42620757-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];

@@ -853,3 +853,70 @@ hr {
 .privacy {
   word-wrap: break-word;
 }
+
+// Ads & Cookie Notice
+
+/* extras */
+
+.sidebar {
+  width: 180px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 880px) {
+  .sidebar,
+  .sidebar .adsbygoogle {
+    display: none;
+  }
+}
+
+.cookie-notice {
+  position: fixed;
+  font-size: 15px;
+  z-index: 999;
+  right: 20px;
+  bottom: 20px;
+  width: 20%;
+  min-width: 460px;
+  background: #e8e5db;
+  padding: 10px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include smaller($mobile-threshold) {
+    width: auto;
+    left: 20px;
+    min-width: auto;
+  }
+  
+  &, p a {
+    color: #a09488;
+  }
+
+  p {
+    margin-bottom: 0;
+   flex: 1;
+  }
+
+  &, p {
+    line-height: 20px;
+  }
+}
+
+.cookie-notice-dismiss-button {
+  @include button;
+  flex: 0 0 auto;
+  margin-left: 20px;
+}
+

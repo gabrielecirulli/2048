@@ -3,9 +3,12 @@ window.requestAnimationFrame(function () {
   new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
 
   // TODO: This code is in need of a refactor (along with the rest)
-  var storage     = new LocalStorageManager;
-  var noticeClose = document.querySelector(".notice-close-button");
-  var notice      = document.querySelector(".app-notice");
+  var storage           = new LocalStorageManager;
+  var noticeClose       = document.querySelector(".notice-close-button");
+  var notice            = document.querySelector(".app-notice");
+  var cookieNotice      = document.querySelector(".cookie-notice");
+  var cookieNoticeClose = document.querySelector(".cookie-notice-dismiss-button");
+  
   if (storage.getNoticeClosed()) {
     notice.parentNode.removeChild(notice);
   } else {
@@ -18,5 +21,19 @@ window.requestAnimationFrame(function () {
         });
       }
     });
+  }
+
+  if (storage.getCookieNoticeClosed()) {
+    cookieNotice.parentNode.removeChild(cookieNotice);
+  } else {
+    cookieNoticeClose.addEventListener("click", function () {
+      cookieNotice.parentNode.removeChild(cookieNotice);
+      storage.setCookieNoticeClosed(true);
+      if (typeof gtag !== undefined){
+        gtag("event", "closed", {
+          event_category: "cookie-notice",
+        });
+      }
+    })
   }
 });

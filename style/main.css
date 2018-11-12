@@ -1104,3 +1104,61 @@ hr {
 
 .privacy {
   word-wrap: break-word; }
+
+/* extras */
+.sidebar {
+  width: 180px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+@media (max-width: 880px) {
+  .sidebar,
+  .sidebar .adsbygoogle {
+    display: none; } }
+
+.cookie-notice {
+  position: fixed;
+  font-size: 15px;
+  z-index: 999;
+  right: 20px;
+  bottom: 20px;
+  width: 20%;
+  min-width: 460px;
+  background: #e8e5db;
+  padding: 10px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media screen and (max-width: 520px) {
+    .cookie-notice {
+      width: auto;
+      left: 20px;
+      min-width: auto; } }
+  .cookie-notice, .cookie-notice p a {
+    color: #a09488; }
+  .cookie-notice p {
+    margin-bottom: 0;
+    flex: 1; }
+  .cookie-notice, .cookie-notice p {
+    line-height: 20px; }
+
+.cookie-notice-dismiss-button {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-left: 20px; }

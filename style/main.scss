@@ -1,15 +1,18 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 500px;
-$grid-spacing: 15px;
-$grid-row-cells: 4;
+$grid-row-cells: 16; // 4;
+$field-width: 940px; // 1060px; // 500px;
+$field-width-smaller: 380px; // 280px;
+$grid-spacing: $field-width / $grid-row-cells / 8.33; // 15px;
+$grid-spacing-smaller: $field-width-smaller / $grid-row-cells / 8.33; // 10px;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+$tile-size-smaller: ($field-width-smaller - $grid-spacing-smaller * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
-$text-color: #776E65;
+$text-color: #776e65;
 $bright-text-color: #f9f6f2;
 
 $tile-color: #eee4da;
@@ -17,6 +20,7 @@ $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 $game-container-margin-top: 40px;
+$game-container-margin-top-smaller: 17px;
 $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
@@ -24,19 +28,28 @@ $transition-speed: 100ms;
 html, body {
   margin: 0;
   padding: 0;
-
   background: #faf8ef;
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
+  @include smaller($mobile-threshold) {
+    font-size: 15px;
+  }
 }
 
 body {
   margin: 80px 0;
+  @include smaller($mobile-threshold) {
+    margin: 20px 0;
+    padding: 0 20px;
+  }
 }
 
 .heading {
   @include clearfix;
+  @include smaller($mobile-threshold) {
+    margin-bottom: 10px;
+  }
 }
 
 h1.title {
@@ -45,6 +58,12 @@ h1.title {
   margin: 0;
   display: block;
   float: left;
+  @include smaller($mobile-threshold) {
+    font-size: 27px;
+    margin-top: 15px;
+    float: none;
+    text-align: center;
+  }
 }
 
 @include keyframes(move-up) {
@@ -60,13 +79,16 @@ h1.title {
 }
 
 .scores-container {
-  float: right;
   text-align: right;
+  float: right;
+  @include smaller($mobile-threshold) {
+    text-align: center;
+    float: none;
+  }
 }
 
 .score-container, .best-container {
   $height: 25px;
-
   position: relative;
   display: inline-block;
   background: $game-container-background;
@@ -79,6 +101,13 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center;
+
+  @include smaller($mobile-threshold) {
+    margin-top: 0;
+    padding: 15px 10px;
+    width: 44%;
+    min-width: 40px;
+  }
 
   &:after {
     position: absolute;
@@ -141,7 +170,10 @@ hr {
 }
 
 .container {
-  width: $field-width;
+  width: $field-width * 2 + $grid-spacing;
+  @include smaller($mobile-threshold) {
+    width: $field-width-smaller
+  }
   margin: 0 auto;
 }
 
@@ -167,162 +199,228 @@ hr {
   line-height: 42px;
 }
 
-// Game field mixin used to render CSS at different width
-@mixin game-field {
-  .game-container {
-    margin-top: $game-container-margin-top;
-    position: relative;
-    padding: $grid-spacing;
+.stats-container {
+  overflow: hidden;
+  font-size: 0.85em;
+  float: left;
+  //display: inline;
+  margin-top: $game-container-margin-top;
+  margin-left: $grid-spacing;
+  padding: $grid-spacing;
+  background: $game-container-background;
+  border-radius: $tile-border-radius * 2;
+  width: $field-width * 1;
+  height: $field-width;
+  @include smaller($mobile-threshold) {
+    margin-top: $game-container-margin-top-smaller;
+    padding: $grid-spacing-smaller;
+    width: $field-width-smaller * 0.75;
+    height: $field-width-smaller;
+  }
+  @include boxsize (border-box);
 
-    cursor: default;
-    -webkit-touch-callout: none;
-    -ms-touch-callout: none;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-
-    -ms-touch-action: none;
-    touch-action: none;
-
-    background: $game-container-background;
-    border-radius: $tile-border-radius * 2;
-    width: $field-width;
-    height: $field-width;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    .game-message {
-      display: none;
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($tile-color, .5);
-      z-index: 100;
-
-      text-align: center;
-
-      p {
-        font-size: 60px;
-        font-weight: bold;
-        height: 60px;
-        line-height: 60px;
-        margin-top: 222px;
-        // height: $field-width;
-        // line-height: $field-width;
-      }
-
-      .lower {
-        display: block;
-        margin-top: 59px;
-      }
-
-      a {
-        @include button;
-        margin-left: 9px;
-        // margin-top: 59px;
-
-	&.keep-playing-button {
-	  display: none;
-	}
-      }
-
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
-
-      &.game-won {
-        background: rgba($tile-gold-color, .5);
-        color: $bright-text-color;
-
-	a.keep-playing-button {
-	  display: inline-block;
-	}
-      }
-
-      &.game-won, &.game-over {
-        display: block;
-      }
+  th {
+    text-align: center;
+    vertical-align: baseline;
+    &.right {
+      text-align: right;
+    }
+  }
+  td {
+    text-align: right;
+    vertical-align: baseline;
+    padding-left: $grid-spacing;
+    &.left {
+      text-align: left;
     }
   }
 
-  .grid-container {
+  .predict {
+    color: gainsboro;
+  }
+
+  //small, sub, sup { font-size: .83em }
+  //sub             { vertical-align: sub }
+  //sup             { vertical-align: super }
+}
+
+.game-container {
+  float: left;
+  //display: inline;
+  margin-top: $game-container-margin-top;
+  position: relative;
+  padding: $grid-spacing;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -ms-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  background: $game-container-background;
+  border-radius: $tile-border-radius * 2;
+  width: $field-width;
+  height: $field-width;
+  @include smaller($mobile-threshold) {
+    margin-top: $game-container-margin-top-smaller;
+    padding: $grid-spacing-smaller;
+    width: $field-width-smaller;
+    height: $field-width-smaller;
+  }
+  @include boxsize (border-box);
+
+  .game-message {
+    display: none;
     position: absolute;
-    z-index: 1;
-  }
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($tile-color, .5);
+    z-index: 100;
+    text-align: center;
 
-  .grid-row {
-    margin-bottom: $grid-spacing;
+    p {
+      font-size: 60px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      margin-top: 222px;
+      // height: $field-width;
+      // line-height: $field-width;
 
-    &:last-child {
-      margin-bottom: 0;
+      @include smaller($mobile-threshold) {
+        font-size: 30px !important;
+        height: 30px !important;
+        line-height: 30px !important;
+        margin-top: 90px !important;
+      }
     }
 
-    &:after {
-      content: "";
+    .lower {
       display: block;
-      clear: both;
+      margin-top: 59px;
+      @include smaller($mobile-threshold) {
+        margin-top: 30px !important;
+      }
+    }
+
+    a {
+      @include button;
+      margin-left: 9px;
+      // margin-top: 59px;
+
+      &.keep-playing-button {
+        display: none;
+      }
+    }
+
+    @include animation(fade-in 800ms ease $transition-speed * 12);
+    @include animation-fill-mode(both);
+
+    &.game-won {
+      background: rgba($tile-gold-color, .5);
+      color: $bright-text-color;
+
+      a.keep-playing-button {
+        display: inline-block;
+      }
+    }
+
+    &.game-won, &.game-over {
+      display: block;
+    }
+  }
+}
+
+.grid-container {
+  position: absolute;
+  z-index: 1;
+}
+
+.grid-row {
+  margin-bottom: $grid-spacing;
+  @include smaller($mobile-threshold) {
+    margin-bottom: $grid-spacing-smaller;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.grid-cell {
+  width: $tile-size;
+  height: $tile-size;
+  margin-right: $grid-spacing;
+  @include smaller($mobile-threshold) {
+    width: $tile-size-smaller;
+    height: $tile-size-smaller;
+    margin-right: $grid-spacing-smaller;
+  }
+  float: left;
+  border-radius: $tile-border-radius;
+  background: rgba($tile-color, .35);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tile-container {
+  position: absolute;
+  z-index: 2;
+}
+
+.tile {
+  &, .tile-inner {
+    width: ceil($tile-size);
+    height: ceil($tile-size);
+    line-height: ceil($tile-size);
+    @include smaller($mobile-threshold) {
+      width: ceil($tile-size-smaller);
+      height: ceil($tile-size-smaller);
+      line-height: ceil($tile-size-smaller);
     }
   }
 
-  .grid-cell {
-    width: $tile-size;
-    height: $tile-size;
-    margin-right: $grid-spacing;
-    float: left;
-
-    border-radius: $tile-border-radius;
-
-    background: rgba($tile-color, .35);
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .tile-container {
-    position: absolute;
-    z-index: 2;
-  }
-
-  .tile {
-    &, .tile-inner {
-      width: ceil($tile-size);
-      height: ceil($tile-size);
-      line-height: ceil($tile-size);
-    }
-
-    // Build position classes
-    @for $x from 1 through $grid-row-cells {
-      @for $y from 1 through $grid-row-cells {
-        &.tile-position-#{$x}-#{$y} {
-          $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
-          $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
-          @include transform(translate($xPos, $yPos));
+  // Build position classes
+  @for $x from 1 through $grid-row-cells {
+    @for $y from 1 through $grid-row-cells {
+      &.tile-position-#{$x}-#{$y} {
+        $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
+        $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
+        @include transform(translate($xPos, $yPos));
+        @include smaller($mobile-threshold) {
+          $xPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($x - 1));
+          $yPos-smaller: floor(($tile-size-smaller + $grid-spacing-smaller) * ($y - 1));
+          @include transform(translate($xPos-smaller, $yPos-smaller));
         }
       }
     }
   }
 }
 
-// End of game-field mixin
-@include game-field;
-
 .tile {
   position: absolute; // Makes transforms relative to the top-left corner
 
   .tile-inner {
     border-radius: $tile-border-radius;
-
     background: $tile-color;
     text-align: center;
     font-weight: bold;
     z-index: 10;
-
-    font-size: 55px;
+    font-size: $field-width / $grid-row-cells / 2.5; // 55px;
+    @include smaller($mobile-threshold) {
+      font-size: $field-width-smaller / $grid-row-cells / 2.5; // 35px;
+    }
   }
 
   // Movement transition
@@ -330,88 +428,60 @@ hr {
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform;
+}
 
-  $base: 2;
-  $exponent: 1;
-  $limit: 11;
+$exponent: 1;
+$limit: 99; // ......... ... K .. M .. G .. T .. P .. E .. Z .. Y
+$colors: #97d7e4 false -0% -15% -35% -45% -60% -75% -90% -95% -99%,
+         #f77cb0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #8bdfcf false -0% -15% -35% -50% -60% -75% -90% -95% -99%,
+         #b77fce false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #feeea3 false -0% -15% -30% -45% -51% -55% -90% -95% -99%,
+         #bedf95 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #8ec6e7 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #a0ace2 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #ad95d9 false -0% -15% -30% -45% -60% -75% -90% -95% -99%,
+         #e17dd0 false -0% -15% -30% -45% -60% -75% -90% -95% -99%;
+$listLength: length($colors);
+$numCols: 9;
 
-  // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+// Build tile colors
+@while $exponent <= $limit {
 
-  // Build tile colors
-  @while $exponent <= $limit {
-    $power: pow($base, $exponent);
+  .tile-#{$exponent} .tile-inner, .tile-#{$exponent} {
+    // Calculate base background color
+    //$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+    //$mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+    //$list-entry: if($exponent <= length($special-colors), nth($special-colors, $exponent), false false);
+    $list-entry: nth($colors, ceil(($exponent + 1) / $listLength));
+    $bg-color: nth($list-entry, 1);
+    $bright-text: nth($list-entry, 2);
+    $dark-col: ($exponent) % 10;
+    //$dark-pct: nth($list-entry, $dark-col + 3);
+    $dark-pct: percentage(0 - $dark-col * 0.08);
+    //$bright-text: false;
 
-    &.tile-#{$power} .tile-inner {
-      // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+    //@if $bg-color {
+    //$mixed-background: mix($bg-color, $mixed-background, 55%);
+    //$mixed-background: mix($bg-color, $tile-color, 55%);
+    $mixed-background: scale-color($bg-color, $lightness: $dark-pct);
+    //}
 
-      $nth-color: nth($special-colors, $exponent);
-
-      $special-background: nth($nth-color, 1);
-      $bright-color: nth($nth-color, 2);
-
-      @if $special-background {
-        $mixed-background: mix($special-background, $mixed-background, 55%);
-      }
-
-      @if $bright-color {
-        color: $bright-text-color;
-      }
-
-      // Set background
-      background: $mixed-background;
-
-      // Add glow
-      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-
-      @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
-
-      // Adjust font size for bigger numbers
-      @if $power >= 100 and $power < 1000 {
-        font-size: 45px;
-
-        // Media queries placed here to avoid carrying over the rest of the logic
-        @include smaller($mobile-threshold) {
-          font-size: 25px;
-        }
-      } @else if $power >= 1000 {
-        font-size: 35px;
-
-        @include smaller($mobile-threshold) {
-          font-size: 15px;
-        }
-      }
+    $bright-text: 65 > lightness($mixed-background);
+    @if $bright-text {
+      color: $bright-text-color;
     }
 
-    $exponent: $exponent + 1;
+    // Set background
+    background: $mixed-background;
+
+    // Add glow
+    $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+    box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
+    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
   }
 
-  // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-    color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
-
-    font-size: 30px;
-
-    @include smaller($mobile-threshold) {
-      font-size: 10px;
-    }
-  }
+  $exponent: $exponent + 1;
 }
 
 @include keyframes(appear) {
@@ -459,91 +529,64 @@ hr {
   float: left;
   line-height: 42px;
   margin-bottom: 0;
+
+  // Show intro and restart button side by side
+  @include smaller($mobile-threshold) {
+    width: 55%;
+    display: block;
+    @include boxsize(border-box);
+    line-height: 1.65;
+  }
 }
 
+#restart-explanation {
+  float: right;
+  width: 30%;
+}
 .restart-button {
   @include button;
   display: block;
   text-align: center;
   float: right;
+  @include smaller($mobile-threshold) {
+    width: 42%;
+    padding: 0;
+    display: block;
+    @include boxsize(border-box);
+    margin-top: 2px;
+  }
 }
 
 .game-explanation {
   margin-top: 50px;
 }
 
-@include smaller($mobile-threshold) {
-  // Redefine variables for smaller screens
-  $field-width: 280px;
-  $grid-spacing: 10px;
-  $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-  $tile-border-radius: 3px;
-  $game-container-margin-top: 17px;
-
-  html, body {
-    font-size: 15px;
+.auto-move-container {
+  margin: 10px auto; // 60px auto 0 auto;
+  width: $field-width; // 450px;
+  @include smaller($mobile-threshold) {
+    width: $field-width-smaller
   }
-
-  body {
-    margin: 20px 0;
-    padding: 0 20px;
+  clear: both;
+  color: #09f;
+  text-align: center;
+  input {
+    text-align: right;
   }
+}
 
-  h1.title {
-    font-size: 27px;
-    margin-top: 15px;
-  }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
-  .container {
-    width: $field-width;
-    margin: 0 auto;
-  }
-
-  .score-container, .best-container {
-    margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px;
-  }
-
-  .heading {
-    margin-bottom: 10px;
-  }
-
-  // Show intro and restart button side by side
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65;
-  }
-
-  .restart-button {
-    width: 42%;
-    padding: 0;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 2px;
-  }
-
-  // Render the game field at the right width
-  @include game-field;
-
-  // Rest of the font-size adjustments in the tile class
-  .tile .tile-inner {
-    font-size: 35px;
-  }
-
-  .game-message {
-    p {
-      font-size: 30px !important;
-      height: 30px !important;
-      line-height: 30px !important;
-      margin-top: 90px !important;
-    }
-
-    .lower {
-      margin-top: 30px !important;
-    }
-  }
+.numTiles {
+  min-width: 2em;
+  padding-right: 0.5em;
 }

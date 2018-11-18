@@ -3,13 +3,13 @@ function KeyboardInputManager() {
 
   if (window.navigator.msPointerEnabled) {
     //Internet Explorer 10 style
-    this.eventTouchstart    = "MSPointerDown";
-    this.eventTouchmove     = "MSPointerMove";
-    this.eventTouchend      = "MSPointerUp";
+    this.eventTouchstart = "MSPointerDown";
+    this.eventTouchmove  = "MSPointerMove";
+    this.eventTouchend   = "MSPointerUp";
   } else {
-    this.eventTouchstart    = "touchstart";
-    this.eventTouchmove     = "touchmove";
-    this.eventTouchend      = "touchend";
+    this.eventTouchstart = "touchstart";
+    this.eventTouchmove  = "touchmove";
+    this.eventTouchend   = "touchend";
   }
 
   this.listen();
@@ -60,17 +60,22 @@ KeyboardInputManager.prototype.listen = function () {
         event.preventDefault();
         self.emit("move", mapped);
       }
+
+      if (event.which === 32) {
+        toggle_auto_move();
+        event.preventDefault();
+      }
     }
 
     // R key restarts the game
-    if (!modifiers && event.which === 82) {
-      self.restart.call(self, event);
-    }
+    //if (!modifiers && event.which === 82) {
+    //  self.restart.call(self, event);
+    //}
   });
 
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
-  this.bindButtonPress(".restart-button", this.restart);
+  //this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
 
   // Respond to swipe events
@@ -114,10 +119,10 @@ KeyboardInputManager.prototype.listen = function () {
       touchEndClientY = event.changedTouches[0].clientY;
     }
 
-    var dx = touchEndClientX - touchStartClientX;
+    var dx    = touchEndClientX - touchStartClientX;
     var absDx = Math.abs(dx);
 
-    var dy = touchEndClientY - touchStartClientY;
+    var dy    = touchEndClientY - touchStartClientY;
     var absDy = Math.abs(dy);
 
     if (Math.max(absDx, absDy) > 10) {
@@ -129,7 +134,7 @@ KeyboardInputManager.prototype.listen = function () {
 
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
-  this.emit("restart");
+  //this.emit("restart");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {

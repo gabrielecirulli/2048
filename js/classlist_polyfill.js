@@ -5,9 +5,9 @@
   }
 
   var prototype = Array.prototype,
-      push = prototype.push,
-      splice = prototype.splice,
-      join = prototype.join;
+      push      = prototype.push,
+      splice    = prototype.splice,
+      join      = prototype.join;
 
   function DOMTokenList(el) {
     this.el = el;
@@ -20,7 +20,7 @@
   }
 
   DOMTokenList.prototype = {
-    add: function (token) {
+    add     : function (token) {
       if (this.contains(token)) return;
       push.call(this, token);
       this.el.className = this.toString();
@@ -28,10 +28,10 @@
     contains: function (token) {
       return this.el.className.indexOf(token) != -1;
     },
-    item: function (index) {
+    item    : function (index) {
       return this[index] || null;
     },
-    remove: function (token) {
+    remove  : function (token) {
       if (!this.contains(token)) return;
       for (var i = 0; i < this.length; i++) {
         if (this[i] == token) break;
@@ -42,7 +42,7 @@
     toString: function () {
       return join.call(this, ' ');
     },
-    toggle: function (token) {
+    toggle  : function (token) {
       if (!this.contains(token)) {
         this.add(token);
       } else {

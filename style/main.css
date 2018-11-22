@@ -10,6 +10,17 @@ html, body {
 body {
   margin: 80px 0; }
 
+body::-webkit-scrollbar {
+  width: 12px; }
+
+body::-webkit-scrollbar-track {
+  background: #faf8ef;
+  border-radius: 6px; }
+
+body::-webkit-scrollbar-thumb {
+  background: #bbada0;
+  border-radius: 6px; }
+
 .heading:after {
   content: "";
   display: block;

@@ -1,0 +1,8 @@
+twentyfortyeight:
+  image: heyawhite/twentyfortyeight:latest
+  ports:
+    - 80
+  labels:
+    - triton.cns.services=twentyfortyeight
+  mem_limit: 128m
+

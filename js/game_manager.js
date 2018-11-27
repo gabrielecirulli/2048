@@ -7,6 +7,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
+  this.inputManager.on("rotate", this.rotate.bind(this));
+  this.inputManager.on("flipX", this.flipX.bind(this));
+  this.inputManager.on("flipY", this.flipY.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
@@ -269,4 +272,25 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
 GameManager.prototype.positionsEqual = function (first, second) {
   return first.x === second.x && first.y === second.y;
+};
+
+GameManager.prototype.rotate = function (n) {
+  if (this.over) { return; }
+  this.prepareTiles();
+  this.grid.rotate(n);
+  this.actuate();
+};
+
+GameManager.prototype.flipX = function () {
+  if (this.over) { return; }
+  this.prepareTiles();
+  this.grid.flipX();
+  this.actuate();
+};
+
+GameManager.prototype.flipY = function () {
+  if (this.over) { return; }
+  this.prepareTiles();
+  this.grid.flipY();
+  this.actuate();
 };

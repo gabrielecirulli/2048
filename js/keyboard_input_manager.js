@@ -46,7 +46,11 @@ KeyboardInputManager.prototype.listen = function () {
     87: 0, // W
     68: 1, // D
     83: 2, // S
-    65: 3  // A
+    65: 3, // A
+    73: 0, // Key I is added for UP
+    74: 3, // Key J is added for LEFT
+    75: 2, // Key K is added for DOWN
+    76: 1  // Key L is added for RIGHT
   };
 
   // Respond to direction keys

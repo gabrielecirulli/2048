@@ -390,9 +390,14 @@ hr {
     color: #f9f6f2;
     background: #3c3a32;
     font-size: 30px; }
-    @media screen and (max-width: 520px) {
+
+.tile.tile-16384 .tile-inner { background: #BF5FFF; }
+.tile.tile-32768 .tile-inner { background: #8A2BE2; }
+.tile.tile-65536 .tile-inner { background: #2E0854; }
+
+@media screen and (max-width: 520px) {
       .tile.tile-super .tile-inner {
-        font-size: 10px; } }
+        font-size: 17px; } }
 
 @-webkit-keyframes appear {
   0% {

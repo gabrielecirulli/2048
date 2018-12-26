@@ -608,6 +608,9 @@
      text-align: center;
      float: right;
 }
+ .restart-button:hover {
+     background: #B1A091;
+}
  .game-explanation {
      margin-top: 50px;
 }

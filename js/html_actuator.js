@@ -128,7 +128,12 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
   
+  var a = querySelectorAll(".scoresmalltxt");
+  for(var i = 0; i < a; i ++){
+    a[i].parentElement.removeChild(a[i]);
+  }
   var score = document.createElement("SPAN");
+  score.innerHTML = "";
   score.innerHTML = "<span class = 'scoresmalltxt'>Your score: "+this.score+"</span>";
   this.messageContainer.appendChild(score);
   this.messageContainer.classList.add(type);

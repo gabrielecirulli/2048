@@ -26,13 +26,9 @@ GameManager.prototype.Restart = function () {
 };
 //No alerts in this one
 GameManager.prototype.restart = function () {
-  if(a){
     this.storageManager.clearGameState();
     this.actuator.continueGame(); // Clear the game won/lost message
     this.setup();
-  }else{
-     return;
-  }
 };
 
 // Keep playing after winning (allows going over 2048)

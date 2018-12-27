@@ -400,17 +400,35 @@
      color: #f9f6f2;
      background: #a7cfe8;
 }
+ .tile.tile-16 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #9bc2db;
+}
  .tile.tile-32 .tile-inner {
      color: #f9f6f2;
      background: #99d6fc;
+}
+ .tile.tile-32 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #84b8d8;
 }
  .tile.tile-64 .tile-inner {
      color: #f9f6f2;
      background: #65bff7;
 }
+ .tile.tile-64 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #57a8db;
+}
  .tile.tile-128 .tile-inner {
      color: #f9f6f2;
      background: #3db4ff;
+     box-shadow: 0 0 30px 10px rgba(0, 89, 255, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+     font-size: 45px;
+}
+ .tile.tile-128 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #34a1e5;
      box-shadow: 0 0 30px 10px rgba(0, 89, 255, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
      font-size: 45px;
 }
@@ -425,6 +443,12 @@
      box-shadow: 0 0 30px 10px rgba(0, 104, 183, 0.4135), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
      font-size: 45px;
 }
+ .tile.tile-256 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #0081d3;
+     box-shadow: 0 0 30px 10px rgba(0, 104, 183, 0.4135), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+     font-size: 45px;
+}
  @media screen and (max-width: 520px) {
      .tile.tile-256 .tile-inner {
          font-size: 25px;
@@ -433,6 +457,12 @@
  .tile.tile-512 .tile-inner {
      color: #f9f6f2;
      background: #006eff;
+     box-shadow: 0 0 30px 10px rgba(0, 55, 255, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+     font-size: 45px;
+}
+ .tile.tile-512 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #0058cc;
      box-shadow: 0 0 30px 10px rgba(0, 55, 255, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
      font-size: 45px;
 }
@@ -447,6 +477,12 @@
      box-shadow: 0 0 30px 10px rgba(0, 85, 175, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
      font-size: 35px;
 }
+ .tile.tile-1024 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #0046a5;
+     box-shadow: 0 0 30px 10px rgba(0, 85, 175, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+     font-size: 35px;
+}
  @media screen and (max-width: 520px) {
      .tile.tile-1024 .tile-inner {
          font-size: 15px;
@@ -458,6 +494,12 @@
      box-shadow: 0 0 30px 10px rgba(0, 85, 175, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
      font-size: 35px;
 }
+ .tile.tile-2048 .tile-inner:hover {
+     color: #f9f6f2;
+     background: #01b200;
+     box-shadow: 0 0 30px 10px rgba(0, 85, 175, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+     font-size: 35px;
+}
  @media screen and (max-width: 520px) {
      .tile.tile-2048 .tile-inner {
          font-size: 15px;
@@ -466,6 +508,11 @@
  .tile.tile-super .tile-inner {
      color: #f9f6f2;
      background: #3c3a32;
+     font-size: 30px;
+}
+ .tile.tile-super .tile-inner:hover {
+     color: #f9f6f2;
+     background: #59564a;
      font-size: 30px;
 }
  @media screen and (max-width: 520px) {

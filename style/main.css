@@ -197,7 +197,7 @@
 }
  .game-container .game-message .lower {
      display: block;
-     margin-top: 59px;
+     margin-top: 5px;
 }
  .game-container .game-message a {
      display: inline-block;

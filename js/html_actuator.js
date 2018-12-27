@@ -129,7 +129,7 @@ HTMLActuator.prototype.message = function (won) {
   var message = won ? "You win!" : "Game over!";
   
   var a = querySelectorAll(".scoresmalltxt");
-  for(var i = 0; i < a; i ++){
+  for(var i = 0; i < a.length; i ++){
     a[i].parentElement.removeChild(a[i]);
   }
   var score = document.createElement("SPAN");

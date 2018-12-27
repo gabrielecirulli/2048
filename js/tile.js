@@ -1,7 +1,8 @@
 function Tile(position, value) {
+  var nums = [2, 4, 8, 16, 32];
   this.x                = position.x;
   this.y                = position.y;
-  this.value            = value || 2;
+  this.value            = value || nums[Math.abs(Math.round(Math.random()*nums.length-1))];
 
   this.previousPosition = null;
   this.mergedFrom       = null; // Tracks tiles that merged together

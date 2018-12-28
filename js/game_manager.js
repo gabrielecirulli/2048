@@ -14,7 +14,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 }
 
 // Restart the game
-GameManager.prototype.Restart = function () {
+GameManager.prototype.restart = function () {
   var a = confirm("Are you sure you want to restart?");
   if(a){
     this.storageManager.clearGameState();
@@ -25,7 +25,7 @@ GameManager.prototype.Restart = function () {
   }
 };
 //No alerts in this one
-GameManager.prototype.restart = function () {
+GameManager.prototype.Restart = function () {
     this.storageManager.clearGameState();
     this.actuator.continueGame(); // Clear the game won/lost message
     this.setup();

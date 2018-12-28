@@ -134,7 +134,12 @@ KeyboardInputManager.prototype.restart = function (event) {
 
 KeyboardInputManager.prototype.Restart = function (event) {
   event.preventDefault();
-  this.emit("Restart");
+  var a = confirm("Are you sure you want to restart?");
+  if(a){
+    this.emit("restart");
+  }else{
+    return;
+  }
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {

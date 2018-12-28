@@ -128,7 +128,7 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
   
-  var a = querySelectorAll(".scoresmalltxt");
+  var a = document.querySelectorAll(".scoresmalltxt");
   for(var i = 0; i < a.length; i ++){
     a[i].parentElement.removeChild(a[i]);
   }

@@ -930,6 +930,9 @@
  .scoresmalltxt{
     font-size:20px;
 }
+.retry-button{
+    background:#8f7a66 !important;
+}
  .retry-button:hover{
-	background:#B1A091;
+    background:#B1A091 !important;
 }

@@ -1,4 +1,4 @@
-## ![2048](/favicon.ico)
+# ![2048](/favicon.ico)
 This is a fun spin-off made by me! Have fun!
 
 ## Edit 1:

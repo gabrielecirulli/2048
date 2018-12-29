@@ -334,6 +334,7 @@ hr {
   $base: 2;
   $exponent: 1;
   $limit: 11;
+  $super-limit: 17;
 
   // Colors for all 11 states, false = no special color
   $special-colors: false false, // 2
@@ -346,15 +347,21 @@ hr {
                    false true, // 256
                    false true, // 512
                    false true, // 1024
-                   false true; // 2048
+                   false true, // 2048
+                   #48f78e true, // 4096
+                   #2efc5e true, // 8192
+                   #33ff33 true, // 16384
+                   #00ff00 true, // 32768
+                   #007a7a true, //65536
+                   #0000ff true; //131072
 
   // Build tile colors
-  @while $exponent <= $limit {
+  @while $exponent <= $super-limit {
     $power: pow($base, $exponent);
 
     &.tile-#{$power} .tile-inner {
       // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+      $gold-percent: min(100, ($exponent - 1) / ($limit - 1) * 100);
       $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
 
       $nth-color: nth($special-colors, $exponent);
@@ -374,12 +381,10 @@ hr {
       background: $mixed-background;
 
       // Add glow
-      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+      $glow-opacity: min(max($exponent - 4, 0) / ($limit - 4), 1);
 
-      @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
+      box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
+                  inset 0 0 0 1px rgba(white, $glow-opacity / 3);
 
       // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
@@ -399,18 +404,6 @@ hr {
     }
 
     $exponent: $exponent + 1;
-  }
-
-  // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-    color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
-
-    font-size: 30px;
-
-    @include smaller($mobile-threshold) {
-      font-size: 10px;
-    }
   }
 }
 

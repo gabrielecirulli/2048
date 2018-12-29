@@ -21,3 +21,4 @@ This is a fun spin-off made by me! Have fun!
 - [x] Hovering css
 - [ ] Settings screen
 - [ ] Confirm modal instead of confirm alert
+- [ ] More css!

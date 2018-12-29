@@ -4,7 +4,11 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
-  this.startTiles     = 2;
+  this.startTiles     = Math.ceil(Math.random()*3);
+  
+  if(this.startTiles == 0){
+    this.startTiles = 2;
+  }
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));

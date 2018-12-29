@@ -15,4 +15,3 @@ Hovering css
 
 ..._There's more to come!_
 
-<small>Read our releases to find out more!</small>

@@ -781,6 +781,17 @@
          line-height: 42px;
          margin-left: 9px;
     }
+     .game-container .game-message a:hover {
+         display: inline-block;
+         background: #B1A091;
+         border-radius: 3px;
+         padding: 0 20px;
+         text-decoration: none;
+         color: #f9f6f2;
+         height: 40px;
+         line-height: 42px;
+         margin-left: 9px;
+    }
      .game-container .game-message a.keep-playing-button {
          display: none;
     }

@@ -4,9 +4,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
-  this.startTiles     = Math.ceil(Math.random()*3);
+  this.startTiles     = Math.floor((Math.random() * 4) + 1) || 2;
   
-  if(this.startTiles == 0){
+  if(this.startTiles <= 0){
     this.startTiles = 2;
   }
 

@@ -11,6 +11,8 @@ This is a fun spin-off made by me! Have fun!
 
 1. **Edit 4:** Hovering css
 
+1. **Edit 5:** jQuery installed
+
 1. ..._There's more to come!_
 
 ## Our checklist

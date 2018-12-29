@@ -930,3 +930,6 @@
  .scoresmalltxt{
     font-size:20px;
 }
+ .retry-button:hover{
+	background:#B1A091;
+}

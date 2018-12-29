@@ -1,17 +1,23 @@
 # ![2048](/favicon.ico)
 This is a fun spin-off made by me! Have fun!
 
-## Edit 1:
-Changed color theme
+## Edits
 
-## Edit 2:
-Confirm restart
+1. **Edit 1:** Changed color theme
 
-## Edit 3:
-Score shows up on retry screen
+1. **Edit 2:** Confirm restart
 
-## Edit 4:
-Hovering css
+1. **Edit 3:** Score shows up on retry screen
 
-..._There's more to come!_
+1. **Edit 4:** Hovering css
 
+1. ..._There's more to come!_
+
+## Our checklist
+
+- [x] Change color theme
+- [x] Confirm restart
+- [x] Score shows up on retry screen
+- [x] Hovering css
+- [ ] Settings screen
+- [ ] Confirm modal instead of confirm alert

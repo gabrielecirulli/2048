@@ -70,6 +70,7 @@
      color: white;
      margin-top: 8px;
      text-align: center;
+     user-select:none;
 }
  .score-container:after, .best-container:after {
      position: absolute;
@@ -721,6 +722,7 @@
          margin-top: 0;
          padding: 15px 10px;
          min-width: 40px;
+         user-select:none;
     }
      .heading {
          margin-bottom: 10px;

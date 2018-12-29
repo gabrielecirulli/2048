@@ -114,12 +114,6 @@
      text-decoration: underline;
      cursor: pointer;
 }
- a:hover {
-     color: #9D948C;
-     font-weight: bold;
-     text-decoration: underline;
-     cursor: pointer;
-}
  strong.important {
      text-transform: uppercase;
 }
@@ -674,7 +668,7 @@
 }
  .restart-button {
      display: inline-block;
-     background: #8f7a66;
+     background: #8f7a66 !important;
      border-radius: 3px;
      padding: 0 20px;
      text-decoration: none;
@@ -686,7 +680,7 @@
      float: right;
 }
  .restart-button:hover {
-     background: #B1A091;
+     background: #B1A091 !important;
 }
  .game-explanation {
      margin-top: 50px;

@@ -21,6 +21,9 @@ This is a fun spin-off made by me! Have fun!
 - [x] Confirm restart
 - [x] Score shows up on retry screen
 - [x] Hovering css
+- [x] jQuery installed
 - [ ] Settings screen
+- [ ] Sad trumpet sound when you lose
+- [ ] Sound effect when you win
 - [ ] Confirm modal instead of confirm alert
 - [ ] More css!

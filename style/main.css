@@ -55,6 +55,7 @@
  .scores-container {
      float: right;
      text-align: right;
+     user-select: none;
 }
  .score-container, .best-container {
      position: relative;

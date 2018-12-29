@@ -684,6 +684,13 @@
      display: block;
      text-align: center;
      float: right;
+     -webkit-touch-callout: none;
+     -ms-touch-callout: none;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     -ms-touch-action: none;
+     touch-action: none;
 }
  .restart-button:hover {
      background: #B1A091 !important;

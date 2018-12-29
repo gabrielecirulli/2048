@@ -114,6 +114,12 @@
      text-decoration: underline;
      cursor: pointer;
 }
+ a:hover {
+     color: #5C554E;
+     font-weight: bold;
+     text-decoration: underline;
+     cursor: pointer;
+}
  strong.important {
      text-transform: uppercase;
 }

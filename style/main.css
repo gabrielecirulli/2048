@@ -70,6 +70,48 @@
      margin-top: 8px;
      text-align: center;
 }
+ .score-container, .best-container {
+     position: relative;
+     display: inline-block;
+     background: #bbada0;
+     padding: 15px 25px;
+     font-size: 25px;
+     height: 25px;
+     line-height: 47px;
+     font-weight: bold;
+     border-radius: 3px;
+     color: white;
+     margin-top: 8px;
+     text-align: center;
+}
+ .best-container:hover {
+     position: relative;
+     display: inline-block;
+     background: #A8998B !important;
+     padding: 15px 25px;
+     font-size: 25px;
+     height: 25px;
+     line-height: 47px;
+     font-weight: bold;
+     border-radius: 3px;
+     color: white;
+     margin-top: 8px;
+     text-align: center;
+}
+ .score-container:hover {
+     position: relative;
+     display: inline-block;
+     background: #A8998B !important;
+     padding: 15px 25px;
+     font-size: 25px;
+     height: 25px;
+     line-height: 47px;
+     font-weight: bold;
+     border-radius: 3px;
+     color: white;
+     margin-top: 8px;
+     text-align: center;
+}
  .score-container:after, .best-container:after {
      position: absolute;
      width: 100%;

@@ -1,0 +1,22 @@
+{
+  "name": "2048",
+  "version": "1.0.0",
+  "description": "A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caraballofrank/2048.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caraballofrank/2048/issues"
+  },
+  "homepage": "https://github.com/caraballofrank/2048#readme",
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  }
+}

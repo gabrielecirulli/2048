@@ -18,5 +18,9 @@
   "homepage": "https://github.com/caraballofrank/2048#readme",
   "devDependencies": {
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "express": "^4.16.4"
   }
 }

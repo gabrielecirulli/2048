@@ -17,47 +17,55 @@ window.fakeStorage = {
     return this._data = {};
   }
 };
-
-function LocalStorageManager(this:any) {
-  this.bestScoreKey     = "bestScore";
-  this.gameStateKey     = "gameState";
-
-  let supported:any = this.localStorageSupported();
-  this.storage = supported ? window.localStorage : window.fakeStorage;
+//Todo Make interface global
+interface LocalStorageManager {
+  bestScoreKey: any
+  gameStateKey: any
+  storage: any
 }
 
-LocalStorageManager.prototype.localStorageSupported = function () {
-  let testKey = "test";
+class LocalStorageManager {
 
-  try {
-    let storage = window.localStorage;
-    storage.setItem(testKey, "1");
-    storage.removeItem(testKey);
-    return true;
-  } catch (error) {
-    return false;
+  constructor(){
+    this.bestScoreKey     = "bestScore";
+    this.gameStateKey     = "gameState";
+    let supported:any     = this.localStorageSupported();
+    this.storage          = supported ? window.localStorage : window.fakeStorage;
   }
-};
 
-// Best score getters/setters
-LocalStorageManager.prototype.getBestScore = function () {
-  return this.storage.getItem(this.bestScoreKey) || 0;
-};
+  localStorageSupported () {
+    let testKey = "test";
 
-LocalStorageManager.prototype.setBestScore = function (score:number) {
-  this.storage.setItem(this.bestScoreKey, score);
-};
+    try {
+      let storage = window.localStorage;
+      storage.setItem(testKey, "1");
+      storage.removeItem(testKey);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
 
-// Game state getters/setters and clearing
-LocalStorageManager.prototype.getGameState = function () {
-  var stateJSON = this.storage.getItem(this.gameStateKey);
-  return stateJSON ? JSON.parse(stateJSON) : null;
-};
+  // Best score getters/setters
+  getBestScore = function () {
+    return this.storage.getItem(this.bestScoreKey) || 0;
+  };
 
-LocalStorageManager.prototype.setGameState = function (gameState:number) {
-  this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
-};
+  setBestScore = function (score:number) {
+    this.storage.setItem(this.bestScoreKey, score);
+  };
 
-LocalStorageManager.prototype.clearGameState = function () {
-  this.storage.removeItem(this.gameStateKey);
-};
+  // Game state getters/setters and clearing
+  getGameState = function () {
+    var stateJSON = this.storage.getItem(this.gameStateKey);
+    return stateJSON ? JSON.parse(stateJSON) : null;
+  };
+
+  setGameState = function (gameState:number) {
+    this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
+  };
+
+  clearGameState = function () {
+    this.storage.removeItem(this.gameStateKey);
+  };
+}

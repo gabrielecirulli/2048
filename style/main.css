@@ -611,7 +611,7 @@ hr {
   float: right; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 30px; }
 
 .sharing {
   margin-top: 20px;
@@ -984,7 +984,7 @@ hr {
     -moz-transform: scale(0) translateZ(0);
     transform: scale(0) translateZ(0);
     opacity: 0;
-    margin-top: -56px; }
+    margin-top: -40px; }
 
   100% {
     -webkit-transform: scale(1) translateZ(0);
@@ -998,7 +998,7 @@ hr {
     -moz-transform: scale(0) translateZ(0);
     transform: scale(0) translateZ(0);
     opacity: 0;
-    margin-top: -56px; }
+    margin-top: -40px; }
 
   100% {
     -webkit-transform: scale(1) translateZ(0);
@@ -1012,7 +1012,7 @@ hr {
     -moz-transform: scale(0) translateZ(0);
     transform: scale(0) translateZ(0);
     opacity: 0;
-    margin-top: -56px; }
+    margin-top: -40px; }
 
   100% {
     -webkit-transform: scale(1) translateZ(0);
@@ -1026,7 +1026,7 @@ hr {
     -moz-transform: scale(0) translateZ(0);
     transform: scale(0) translateZ(0);
     opacity: 0;
-    margin-top: -76px; }
+    margin-top: -40px; }
 
   100% {
     -webkit-transform: scale(1) translateZ(0);
@@ -1040,7 +1040,7 @@ hr {
     -moz-transform: scale(0) translateZ(0);
     transform: scale(0) translateZ(0);
     opacity: 0;
-    margin-top: -76px; }
+    margin-top: -40px; }
 
   100% {
     -webkit-transform: scale(1) translateZ(0);
@@ -1054,7 +1054,7 @@ hr {
     -moz-transform: scale(0) translateZ(0);
     transform: scale(0) translateZ(0);
     opacity: 0;
-    margin-top: -76px; }
+    margin-top: -40px; }
 
   100% {
     -webkit-transform: scale(1) translateZ(0);
@@ -1069,9 +1069,9 @@ hr {
   animation: pop-in-big 700ms ease 2s both;
   background: #edc53f;
   color: white;
-  padding: 18px;
+  padding: 10px;
   margin-top: 30px;
-  height: 56px;
+  height: 40px;
   box-sizing: border-box;
   border-radius: 3px; }
   .app-notice:after {
@@ -1096,7 +1096,7 @@ hr {
       -moz-animation: pop-in-small 700ms ease 2s both;
       animation: pop-in-small 700ms ease 2s both;
       margin-top: 10px;
-      height: 76px; } }
+      height: 40px; } }
 
 .links {
   text-align: center;
@@ -1120,6 +1120,21 @@ hr {
   .sidebar,
   .sidebar .adsbygoogle {
     display: none; } }
+
+
+.under-board-container {
+  height: 50px;
+  margin-top: 38px; }
+    
+
+.under-board-container,
+.under-board-container .adsbygoogle {
+  display: none; }
+
+@media (max-width: 880px) {
+  .under-board-container,
+  .under-board-container .adsbygoogle {
+    display: block; } }
 
 .cookie-notice {
   position: fixed;

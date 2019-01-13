@@ -551,7 +551,7 @@ hr {
 }
 
 .game-explanation {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .sharing {
@@ -776,7 +776,7 @@ hr {
   0% {
     @include transform(scale(0) translateZ(0));
     opacity: 0;
-    margin-top: -56px;
+    margin-top: -40px;
   }
 
   100% {
@@ -790,7 +790,7 @@ hr {
   0% {
     @include transform(scale(0) translateZ(0));
     opacity: 0;
-    margin-top: -76px;
+    margin-top: -40px;
   }
 
   100% {
@@ -805,9 +805,9 @@ hr {
   @include animation(pop-in-big 700ms ease 2s both);
   background: #edc53f;
   color: white;
-  padding: 18px;
+  padding: 10px;
   margin-top: 30px;
-  height: 56px;
+  height: 40px;
   box-sizing: border-box;
   border-radius: $tile-border-radius;
 
@@ -841,7 +841,7 @@ hr {
   @include smaller($mobile-threshold) {
     @include animation(pop-in-small 700ms ease 2s both);
     margin-top: 10px;
-    height: 76px;
+    height: 40px;
   }
 }
 
@@ -873,6 +873,23 @@ hr {
   .sidebar,
   .sidebar .adsbygoogle {
     display: none;
+  }
+}
+
+.under-board-container {
+  height: 50px;
+  margin-top: 38px;
+}
+
+.under-board-container,
+.under-board-container .adsbygoogle {
+  display: none;
+}
+
+@media (max-width: 880px) {
+  .under-board-container,
+  .under-board-container .adsbygoogle {
+    display: block;
   }
 }
 

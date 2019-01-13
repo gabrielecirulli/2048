@@ -1127,6 +1127,7 @@ hr {
 
 .under-board-container,
 .under-board-container .adsbygoogle {
+  width: 100%;
   height: 80px;
   display: none; }
 

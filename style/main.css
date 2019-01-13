@@ -1123,12 +1123,11 @@ hr {
 
 
 .under-board-container {
-  height: 50px;
   margin-top: 38px; }
-    
 
 .under-board-container,
 .under-board-container .adsbygoogle {
+  height: 80px;
   display: none; }
 
 @media (max-width: 880px) {

@@ -1,12 +1,9 @@
-//Todo: Make interface global
-interface KeyboardInputManager {
+export class KeyboardInputManager {
   events: any
   eventTouchstart: any
   eventTouchmove: any
   eventTouchend: any
-}
 
-class KeyboardInputManager {
   constructor() {
     this.events = {};
 
@@ -22,7 +19,6 @@ class KeyboardInputManager {
     }
     this.listen();
     }
-
 
     on (event:any, callback:Function) {
       if (!this.events[event]) {
@@ -152,15 +148,3 @@ class KeyboardInputManager {
       button.addEventListener(this.eventTouchend, fn.bind(this));
     };
 }
-
-
-
-
-
-
-
-
-
-
-
-

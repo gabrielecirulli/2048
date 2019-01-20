@@ -104,7 +104,8 @@ a {
   color: #776e65;
   font-weight: bold;
   text-decoration: underline;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
 
 strong.important {
   text-transform: uppercase; }

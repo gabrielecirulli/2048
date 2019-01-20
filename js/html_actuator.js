@@ -66,10 +66,13 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
-    window.requestAnimationFrame(function () {
-      classes[2] = self.positionClass({ x: tile.x, y: tile.y });
-      self.applyClasses(wrapper, classes); // Update the position
-    });
+    var newPosClass = self.positionClass({ x: tile.x, y: tile.y });
+    if(newPosClass !== classes[2]){
+      window.requestAnimationFrame(function () {
+        classes[2] = newPosClass;
+        self.applyClasses(wrapper, classes); // Update the position
+      });
+    }
   } else if (tile.mergedFrom) {
     classes.push("tile-merged");
     this.applyClasses(wrapper, classes);

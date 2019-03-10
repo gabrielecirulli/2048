@@ -119,11 +119,15 @@ hr {
   width: 500px;
   margin: 0 auto; }
 
+.board-container {
+  margin: 0 auto;
+  width: 1530px;
+}
+
 .board {
   display: inline-grid;
   grid-template-columns: auto auto auto;
   justify-content: center;
-  width: 1660px;
 }
 
 .board-item {

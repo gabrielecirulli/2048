@@ -9,3 +9,10 @@ namespace :appcache do
     File.write("cache.appcache", appcache.sub(/^# Updated:.*$/, updated))
   end
 end
+
+task :web do
+  require "webrick"
+  s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd)
+  trap('INT') { s.shutdown }
+  s.start
+end

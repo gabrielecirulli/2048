@@ -119,6 +119,17 @@ hr {
   width: 500px;
   margin: 0 auto; }
 
+.board {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  width: 1660px;
+}
+
+.board-item {
+ margin: 5px;
+}
+
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0; }

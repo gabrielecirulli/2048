@@ -1,27 +1,29 @@
-export default function Tile(position, value) {
-  this.x                = position.x;
-  this.y                = position.y;
-  this.value            = value || 2;
+export default class Tile {
+  constructor(pos, value) {
+    this.x                = pos.x;
+    this.y                = pos.y;
+    this.value            = value || 2;
 
-  this.previousPosition = null;
-  this.mergedFrom       = null; // Tracks tiles that merged together
+    this.previousPosition = null;
+    this.mergedFrom       = null; // Tracks tiles that merged together
+  }
+
+  savePosition() {
+    this.previousPosition = { x: this.x, y: this.y };
+  }
+
+  updatePosition(pos) {
+    this.x = pos.x;
+    this.y = pos.y;
+  }
+
+  serialize() {
+    return {
+      position: {
+        x: this.x,
+        y: this.y
+      },
+      value: this.value
+    };
+  }
 }
-
-Tile.prototype.savePosition = function () {
-  this.previousPosition = { x: this.x, y: this.y };
-};
-
-Tile.prototype.updatePosition = function (position) {
-  this.x = position.x;
-  this.y = position.y;
-};
-
-Tile.prototype.serialize = function () {
-  return {
-    position: {
-      x: this.x,
-      y: this.y
-    },
-    value: this.value
-  };
-};

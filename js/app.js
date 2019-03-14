@@ -10,5 +10,8 @@ const boardSize = 4; // 4x4
 const startTiles = 3;
 
 boot(() => {
-  new GameManager(boardSize, startTiles, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+  const input = new KeyboardInputManager();
+  const render = new HTMLActuator();
+  const storage = new LocalStorageManager();
+  new GameManager(boardSize, startTiles, input, render, storage);
 });

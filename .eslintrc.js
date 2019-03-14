@@ -16,5 +16,10 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
+    "import/extensions": ["js", "off"],
+    "no-multi-spaces": "off",
+    "comma-dangle": "off",
+    "key-spacing": "off",
+    "one-var": "off"
   }
 };

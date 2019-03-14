@@ -2,13 +2,13 @@ import Grid from "./grid.js";
 import Tile from "./tile.js";
 
 export default class GameManager {
-  constructor(size, start_tiles, InputManager, Actuator, StorageManager) {
+  constructor(size, startTiles, input, render, storage) {
     this.size           = size;
-    this.startTiles     = start_tiles;
+    this.startTiles     = startTiles;
 
-    this.inputManager   = new InputManager;
-    this.storageManager = new StorageManager;
-    this.actuator       = new Actuator;
+    this.inputManager   = input;
+    this.storageManager = storage;
+    this.actuator       = render;
 
     this.inputManager.on("move", this.move.bind(this));
     this.inputManager.on("restart", this.restart.bind(this));
@@ -37,12 +37,14 @@ export default class GameManager {
 
   // Set up the game
   setup() {
-    var previousState = this.storageManager.getGameState();
+    const previousState = this.storageManager.getGameState();
 
     // Reload the game from a previous game if present
     if (previousState) {
-      this.grid        = new Grid(previousState.grid.size,
-                                  previousState.grid.cells); // Reload grid
+      this.grid        = new Grid(
+        previousState.grid.size,
+        previousState.grid.cells
+      ); // Reload grid
       this.score       = previousState.score;
       this.over        = previousState.over;
       this.won         = previousState.won;
@@ -64,7 +66,7 @@ export default class GameManager {
 
   // Set up the initial tiles to start the game with
   addStartTiles() {
-    for (var i = 0; i < this.startTiles; i++) {
+    for (let i = 0; i < this.startTiles; i += 1) {
       this.addRandomTile();
     }
   }
@@ -72,8 +74,8 @@ export default class GameManager {
   // Adds a tile in a random position
   addRandomTile() {
     if (this.grid.cellsAvailable()) {
-      var value = Math.random() < 0.9 ? 2 : 4;
-      var tile = new Tile(this.grid.randomAvailableCell(), value);
+      const value = Math.random() < 0.9 ? 2 : 4;
+      const tile = new Tile(this.grid.randomAvailableCell(), value);
 
       this.grid.insertTile(tile);
     }
@@ -99,7 +101,6 @@ export default class GameManager {
       bestScore:  this.storageManager.getBestScore(),
       terminated: this.isGameTerminated()
     });
-
   }
 
   // Represent the current game as an object
@@ -110,12 +111,12 @@ export default class GameManager {
       over:        this.over,
       won:         this.won,
       keepPlaying: this.keepPlaying
-    }
+    };
   }
 
   // Save all tile positions and remove merger info
   prepareTiles() {
-    this.grid.eachCell(function (x, y, tile) {
+    this.grid.eachCell((x, y, tile) => {
       if (tile) {
         tile.mergedFrom = null;
         tile.savePosition();
@@ -133,32 +134,30 @@ export default class GameManager {
   // Move tiles on the grid in the specified direction
   move(direction) {
     // 0: up, 1: right, 2: down, 3: left
-    var self = this;
+    const self = this;
 
     if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
-    var cell, tile;
-
-    var vector     = this.getVector(direction);
-    var traversals = this.buildTraversals(vector);
-    var moved      = false;
+    const vector     = GameManager.getVector(direction);
+    const traversals = this.buildTraversals(vector);
+    let moved      = false;
 
     // Save the current tile positions and remove merger information
     this.prepareTiles();
 
     // Traverse the grid in the right direction and move tiles
-    traversals.x.forEach(function (x) {
-      traversals.y.forEach(function (y) {
-        cell = { x: x, y: y }
-        tile = self.grid.cellContent(cell);
+    traversals.x.forEach((x) => {
+      traversals.y.forEach((y) => {
+        const cell = { x: x, y: y }
+        const tile = self.grid.cellContent(cell);
 
         if (tile) {
-          var positions = self.findFarthestPosition(cell, vector);
-          var next      = self.grid.cellContent(positions.next);
+          const positions = self.findFarthestPosition(cell, vector);
+          const next      = self.grid.cellContent(positions.next);
 
           // Only one merger per row traversal?
           if (next && next.value === tile.value && !next.mergedFrom) {
-            var merged = new Tile(positions.next, tile.value * 2);
+            const merged = new Tile(positions.next, tile.value * 2);
             merged.mergedFrom = [tile, next];
 
             self.grid.insertTile(merged);
@@ -176,7 +175,7 @@ export default class GameManager {
             self.moveTile(tile, positions.farthest);
           }
 
-          if (!self.positionsEqual(cell, tile)) {
+          if (!GameManager.positionsEqual(cell, tile)) {
             moved = true; // The tile moved from its original cell!
           }
         }
@@ -195,23 +194,23 @@ export default class GameManager {
   }
 
   // Get the vector representing the chosen direction
-  getVector(direction) {
+  static getVector(direction) {
     // Vectors representing tile movement
-    var map = {
+    const map = {
       0: { x: 0,  y: -1 }, // Up
       1: { x: 1,  y: 0 },  // Right
       2: { x: 0,  y: 1 },  // Down
       3: { x: -1, y: 0 }   // Left
-    }
+    };
 
     return map[direction];
   }
 
   // Build a list of positions to traverse in the right order
   buildTraversals(vector) {
-    var traversals = { x: [], y: [] }
+    const traversals = { x: [], y: [] };
 
-    for (var pos = 0; pos < this.size; pos++) {
+    for (let pos = 0; pos < this.size; pos += 1) {
       traversals.x.push(pos);
       traversals.y.push(pos);
     }
@@ -224,19 +223,18 @@ export default class GameManager {
   }
 
   findFarthestPosition(cell, vector) {
-    var previous;
+    let previous;
 
     // Progress towards the vector direction until an obstacle is found
     do {
       previous = cell;
-      cell     = { x: previous.x + vector.x, y: previous.y + vector.y }
-    } while (this.grid.withinBounds(cell) &&
-            this.grid.cellAvailable(cell));
+      cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
+    } while (this.grid.withinBounds(cell) && this.grid.cellAvailable(cell));
 
     return {
       farthest: previous,
       next: cell // Used to check if a merge is required
-    }
+    };
   }
 
   movesAvailable() {
@@ -245,20 +243,18 @@ export default class GameManager {
 
   // Check for available matches between tiles (more expensive check)
   tileMatchesAvailable() {
-    var self = this;
+    let tile;
 
-    var tile;
-
-    for (var x = 0; x < this.size; x++) {
-      for (var y = 0; y < this.size; y++) {
+    for (let x = 0; x < this.size; x += 1) {
+      for (let y = 0; y < this.size; y += 1) {
         tile = this.grid.cellContent({ x: x, y: y });
 
         if (tile) {
-          for (var direction = 0; direction < 4; direction++) {
-            var vector = self.getVector(direction);
-            var cell   = { x: x + vector.x, y: y + vector.y }
+          for (let direction = 0; direction < 4; direction += 1) {
+            const vector = GameManager.getVector(direction);
+            const cell   = { x: x + vector.x, y: y + vector.y };
 
-            var other  = self.grid.cellContent(cell);
+            const other  = this.grid.cellContent(cell);
 
             if (other && other.value === tile.value) {
               return true; // These two tiles can be merged
@@ -271,7 +267,7 @@ export default class GameManager {
     return false;
   }
 
-  positionsEqual(first, second) {
+  static positionsEqual(first, second) {
     return first.x === second.x && first.y === second.y;
   }
 }

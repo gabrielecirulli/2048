@@ -1,4 +1,6 @@
-function Grid(size, previousState) {
+import Tile from "./tile.js";
+
+export default function Grid(size, previousState) {
   this.size = size;
   this.cells = previousState ? this.fromState(previousState) : this.empty();
 }

@@ -1,10 +1,13 @@
-function GameManager(size, InputManager, Actuator, StorageManager) {
-  this.size           = size; // Size of the grid
+import Grid from "./grid.js";
+import Tile from "./tile.js";
+
+export default function GameManager(size, start_tiles, InputManager, Actuator, StorageManager) {
+  this.size           = size;
+  this.startTiles     = start_tiles;
+
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
-
-  this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));

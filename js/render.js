@@ -1,4 +1,4 @@
-export class HTMLActuator {
+export default class Render {
   constructor() {
     this.tileContainer    = document.querySelectorAll(".tile-container");
     this.scoreContainer   = document.querySelector(".score-container");
@@ -8,33 +8,30 @@ export class HTMLActuator {
     this.score = 0;
   }
 
-  actuate(grid, metadata) {
-    var self = this;
-
-    window.requestAnimationFrame(function () {
-      self.tileContainer.forEach(function (container) {
-        self.clearContainer(container);
+  draw(grid, metadata) {
+    window.requestAnimationFrame(() => {
+      this.tileContainer.forEach((container) => {
+        Render.clearContainer(container);
       });
 
-      grid.cells.forEach(function (column) {
-        column.forEach(function (cell) {
+      grid.cells.forEach((column) => {
+        column.forEach((cell) => {
           if (cell) {
-            self.addTile(cell);
+            this.addTile(cell);
           }
         });
       });
 
-      self.updateScore(metadata.score);
-      self.updateBestScore(metadata.bestScore);
+      this.updateScore(metadata.score);
+      this.updateBestScore(metadata.bestScore);
 
       if (metadata.terminated) {
         if (metadata.over) {
-          self.message(false); // You lose
+          this.message(false); // You lose
         } else if (metadata.won) {
-          self.message(true); // You win!
+          this.message(true); // You win!
         }
       }
-
     });
   }
 
@@ -43,48 +40,46 @@ export class HTMLActuator {
     this.clearMessage();
   }
 
-  clearContainer(container) {
+  static clearContainer(container) {
     while (container.firstChild) {
       container.removeChild(container.firstChild);
     }
   }
 
   addTile(tile) {
-    var self = this;
-
-    this.tileContainer.forEach(function (container) {
-      var wrapper   = document.createElement("div");
-      var inner     = document.createElement("div");
-      var position  = tile.previousPosition || { x: tile.x, y: tile.y }
-      var positionClass = self.positionClass(position);
+    this.tileContainer.forEach((container) => {
+      const wrapper   = document.createElement("div");
+      const inner     = document.createElement("div");
+      const position  = tile.previousPosition || { x: tile.x, y: tile.y };
+      const positionClass = Render.positionClass(position);
 
       // We can't use classlist because it somehow glitches when replacing classes
-      var classes = ["tile", "tile-" + tile.value, positionClass];
+      const classes = ["tile", `tile-${tile.value}`, positionClass];
 
       if (tile.value > 2048) classes.push("tile-super");
 
-      self.applyClasses(wrapper, classes);
+      Render.applyClasses(wrapper, classes);
 
       inner.classList.add("tile-inner");
       inner.textContent = tile.value;
 
       if (tile.previousPosition) {
         // Make sure that the tile gets rendered in the previous position first
-        window.requestAnimationFrame(function () {
-          classes[2] = self.positionClass({ x: tile.x, y: tile.y });
-          self.applyClasses(wrapper, classes); // Update the position
+        window.requestAnimationFrame(() => {
+          classes[2] = Render.positionClass({ x: tile.x, y: tile.y });
+          Render.applyClasses(wrapper, classes); // Update the position
         });
       } else if (tile.mergedFrom) {
         classes.push("tile-merged");
-        self.applyClasses(wrapper, classes);
+        Render.applyClasses(wrapper, classes);
 
         // Render the tiles that merged
-        tile.mergedFrom.forEach(function (merged) {
-          self.addTile(merged);
+        tile.mergedFrom.forEach((merged) => {
+          this.addTile(merged);
         });
       } else {
         classes.push("tile-new");
-        self.applyClasses(wrapper, classes);
+        Render.applyClasses(wrapper, classes);
       }
 
       // Add the inner part of the tile to the wrapper
@@ -95,31 +90,31 @@ export class HTMLActuator {
     });
   }
 
-  applyClasses(element, classes) {
+  static applyClasses(element, classes) {
     element.setAttribute("class", classes.join(" "));
   }
 
-  normalizePosition(position) {
-    return { x: position.x + 1, y: position.y + 1 }
+  static normalizePosition(position) {
+    return { x: position.x + 1, y: position.y + 1 };
   }
 
-  positionClass(position) {
-    position = this.normalizePosition(position);
-    return "tile-position-" + position.x + "-" + position.y;
+  static positionClass(pos) {
+    const n = this.normalizePosition(pos);
+    return `tile-position-${n.x}-${n.y}`;
   }
 
   updateScore(score) {
-    this.clearContainer(this.scoreContainer);
+    Render.clearContainer(this.scoreContainer);
 
-    var difference = score - this.score;
+    const difference = score - this.score;
     this.score = score;
 
     this.scoreContainer.textContent = this.score;
 
     if (difference > 0) {
-      var addition = document.createElement("div");
+      const addition = document.createElement("div");
       addition.classList.add("score-addition");
-      addition.textContent = "+" + difference;
+      addition.textContent = `+${difference}`;
 
       this.scoreContainer.appendChild(addition);
     }
@@ -130,8 +125,8 @@ export class HTMLActuator {
   }
 
   message(won) {
-    var type    = won ? "game-won" : "game-over";
-    var message = won ? "You win!" : "Game over!";
+    const type    = won ? "game-won" : "game-over";
+    const message = won ? "You win!" : "Game over!";
 
     this.messageContainer.classList.add(type);
     this.messageContainer.getElementsByTagName("p")[0].textContent = message;

@@ -8,7 +8,7 @@ export default class GameManager {
 
     this.inputManager   = input;
     this.storageManager = storage;
-    this.actuator       = render;
+    this.render         = render;
 
     this.inputManager.on("move", this.move.bind(this));
     this.inputManager.on("restart", this.restart.bind(this));
@@ -20,14 +20,14 @@ export default class GameManager {
   // Restart the game
   restart() {
     this.storageManager.clearGameState();
-    this.actuator.continueGame(); // Clear the game won/lost message
+    this.render.continueGame(); // Clear the game won/lost message
     this.setup();
   }
 
   // Keep playing after winning (allows going over 2048)
   keepPlaying() {
     this.keepPlaying = true;
-    this.actuator.continueGame(); // Clear the game won/lost message
+    this.render.continueGame(); // Clear the game won/lost message
   }
 
   // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -60,8 +60,8 @@ export default class GameManager {
       this.addStartTiles();
     }
 
-    // Update the actuator
-    this.actuate();
+    // Update the render
+    this.draw();
   }
 
   // Set up the initial tiles to start the game with
@@ -81,8 +81,8 @@ export default class GameManager {
     }
   }
 
-  // Sends the updated grid to the actuator
-  actuate() {
+  // Sends the updated grid to the render
+  draw() {
     if (this.storageManager.getBestScore() < this.score) {
       this.storageManager.setBestScore(this.score);
     }
@@ -94,7 +94,7 @@ export default class GameManager {
       this.storageManager.setGameState(this.serialize());
     }
 
-    this.actuator.actuate(this.grid, {
+    this.render.draw(this.grid, {
       score:      this.score,
       over:       this.over,
       won:        this.won,
@@ -189,7 +189,7 @@ export default class GameManager {
         this.over = true; // Game over!
       }
 
-      this.actuate();
+      this.draw();
     }
   }
 

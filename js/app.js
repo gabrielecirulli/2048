@@ -4,7 +4,9 @@ import {KeyboardInputManager} from "./keyboard_input_manager.js"
 import {LocalStorageManager} from "./local_storage_manager.js"
 
 const boot = window.requestAnimationFrame;
+const boardSize = 4; // 4x4
+const startTiles = 2;
 
 boot(function () {
-  new GameManager(4, 2, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+  new GameManager(boardSize, startTiles, KeyboardInputManager, HTMLActuator, LocalStorageManager);
 });

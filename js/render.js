@@ -1,18 +1,23 @@
+const drawcall = window.requestAnimationFrame;
+
 export default class Render {
-  constructor() {
-    this.tileContainer    = document.querySelectorAll(".tile-container");
+  constructor(width, height) {
+    const board = Render.createBoard(width, height);
+
+    this.world = document.querySelector(".board");
+    this.world.appendChild(board.node);
+
+    this.tileContainer    = board.tile;
     this.scoreContainer   = document.querySelector(".score-container");
     this.bestContainer    = document.querySelector(".best-container");
-    this.messageContainer = document.querySelector(".game-message");
+    this.messageContainer = board.msg;
 
     this.score = 0;
   }
 
   draw(grid, metadata) {
-    window.requestAnimationFrame(() => {
-      this.tileContainer.forEach((container) => {
-        Render.clearContainer(container);
-      });
+    drawcall(() => {
+      Render.clearContainer(this.tileContainer);
 
       grid.cells.forEach((column) => {
         column.forEach((cell) => {
@@ -47,47 +52,45 @@ export default class Render {
   }
 
   addTile(tile) {
-    this.tileContainer.forEach((container) => {
-      const wrapper   = document.createElement("div");
-      const inner     = document.createElement("div");
-      const position  = tile.previousPosition || { x: tile.x, y: tile.y };
-      const positionClass = Render.positionClass(position);
+    const wrapper   = document.createElement("div");
+    const inner     = document.createElement("div");
+    const position  = tile.previousPosition || { x: tile.x, y: tile.y };
+    const positionClass = Render.positionClass(position);
 
-      // We can't use classlist because it somehow glitches when replacing classes
-      const classes = ["tile", `tile-${tile.value}`, positionClass];
+    // We can't use classlist because it somehow glitches when replacing classes
+    const classes = ["tile", `tile-${tile.value}`, positionClass];
 
-      if (tile.value > 2048) classes.push("tile-super");
+    if (tile.value > 2048) classes.push("tile-super");
 
+    Render.applyClasses(wrapper, classes);
+
+    inner.classList.add("tile-inner");
+    inner.textContent = tile.value;
+
+    if (tile.previousPosition) {
+      // Make sure that the tile gets rendered in the previous position first
+      drawcall(() => {
+        classes[2] = Render.positionClass({ x: tile.x, y: tile.y });
+        Render.applyClasses(wrapper, classes); // Update the position
+      });
+    } else if (tile.mergedFrom) {
+      classes.push("tile-merged");
       Render.applyClasses(wrapper, classes);
 
-      inner.classList.add("tile-inner");
-      inner.textContent = tile.value;
+      // Render the tiles that merged
+      tile.mergedFrom.forEach((merged) => {
+        this.addTile(merged);
+      });
+    } else {
+      classes.push("tile-new");
+      Render.applyClasses(wrapper, classes);
+    }
 
-      if (tile.previousPosition) {
-        // Make sure that the tile gets rendered in the previous position first
-        window.requestAnimationFrame(() => {
-          classes[2] = Render.positionClass({ x: tile.x, y: tile.y });
-          Render.applyClasses(wrapper, classes); // Update the position
-        });
-      } else if (tile.mergedFrom) {
-        classes.push("tile-merged");
-        Render.applyClasses(wrapper, classes);
+    // Add the inner part of the tile to the wrapper
+    wrapper.appendChild(inner);
 
-        // Render the tiles that merged
-        tile.mergedFrom.forEach((merged) => {
-          this.addTile(merged);
-        });
-      } else {
-        classes.push("tile-new");
-        Render.applyClasses(wrapper, classes);
-      }
-
-      // Add the inner part of the tile to the wrapper
-      wrapper.appendChild(inner);
-
-      // Put the tile on the board
-      container.appendChild(wrapper);
-    });
+    // Put the tile on the board
+    this.tileContainer.appendChild(wrapper);
   }
 
   static applyClasses(element, classes) {
@@ -136,5 +139,60 @@ export default class Render {
     // IE only takes one value to remove at a time.
     this.messageContainer.classList.remove("game-won");
     this.messageContainer.classList.remove("game-over");
+  }
+
+  static createBoard(width, height) {
+    const c = (name, ...classes) => {
+      const e = document.createElement(name);
+      // eslint-disable-next-line no-restricted-syntax
+      for (const cl of classes) {
+        e.classList.add(cl);
+      }
+      return e;
+    };
+
+    const board = c("div", "game-container", "board-items");
+    const gameMessage = c("div", "game-message");
+    const gridContainer = c("div", "grid-container");
+    const tileContainer = c("div", "tile-container");
+
+    const lower = c("div", "lower");
+    gameMessage.appendChild(lower);
+
+    const keepPlaying = c("a", "keep-playing-button");
+    keepPlaying.textContent = "Keep going";
+    lower.appendChild(keepPlaying);
+
+    const retryButton = c("a", "retry-button");
+    retryButton.textContent = "Try again";
+    lower.appendChild(retryButton);
+
+    for (let y = 0; y < height; y += 1) {
+      const row = c("div", "grid-row");
+      for (let x = 0; x < width; x += 1) {
+        const cell = c("div", "grid-cell");
+        row.appendChild(cell);
+      }
+      gridContainer.appendChild(row);
+    }
+
+    board.appendChild(gameMessage);
+    board.appendChild(gridContainer);
+    board.appendChild(tileContainer);
+
+    return {
+      node: board,
+      msg: gameMessage,
+      grid: gridContainer,
+      tile: tileContainer
+    };
+  }
+
+  static createView(boards, width, height) {
+    const view = [];
+    for (let i = 0; i < boards; i += 1) {
+      view.push(new Render(width, height));
+    }
+    return view;
   }
 }

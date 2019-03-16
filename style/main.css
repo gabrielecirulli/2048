@@ -121,13 +121,15 @@ hr {
 
 .board-container {
   margin: 0 auto;
-  width: 1530px;
+  width: 1540px;
 }
 
 .board {
   display: inline-grid;
   grid-template-columns: auto auto auto;
   justify-content: center;
+  column-gap: 20px;
+  row-gap: 20px;
 }
 
 .board-item {
@@ -153,7 +155,6 @@ hr {
   100% {
     opacity: 1; } }
 .game-container {
-  margin-top: 40px;
   position: relative;
   padding: 15px;
   cursor: default;

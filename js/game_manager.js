@@ -277,7 +277,13 @@ export class GameManager {
   }
 
   move(direction) {
+    // 0: up, 1: right, 2: down, 3: left
     this.games[this.controlIndex].move(direction);
+    this.games.forEach((g, i) => {
+      if (this.controlIndex !== i) {
+        g.move((direction + i) % 4);
+      }
+    });
   }
 
   restart() {

@@ -1,17 +1,18 @@
-export class LocalStorageManager { 
-  constructor() {
-    this.bestScoreKey     = "bestScore";
-    this.gameStateKey     = "gameState";
+/* eslint-disable no-underscore-dangle */
+export default class LocalStorageManager {
+  constructor(db) {
+    this.bestScoreKey = `${db}_best_score`;
+    this.gameStateKey = `${db}_game_state`;
 
-    var supported = this.localStorageSupported();
+    const supported = LocalStorageManager.localStorageSupported();
     this.storage = supported ? window.localStorage : window.fakeStorage;
   }
 
-  localStorageSupported() {
-    var testKey = "test";
+  static localStorageSupported() {
+    const testKey = "test";
 
     try {
-      var storage = window.localStorage;
+      const storage = window.localStorage;
       storage.setItem(testKey, "1");
       storage.removeItem(testKey);
       return true;
@@ -31,7 +32,7 @@ export class LocalStorageManager {
 
   // Game state getters/setters and clearing
   getGameState() {
-    var stateJSON = this.storage.getItem(this.gameStateKey);
+    const stateJSON = this.storage.getItem(this.gameStateKey);
     return stateJSON ? JSON.parse(stateJSON) : null;
   }
 
@@ -47,19 +48,19 @@ export class LocalStorageManager {
 window.fakeStorage = {
   _data: {},
 
-  setItem: function (id, val) {
-    return this._data[id] = String(val);
+  setItem(id, val) {
+    this._data[id] = String(val);
   },
 
-  getItem: function (id) {
-    return this._data.hasOwnProperty(id) ? this._data[id] : undefined;
+  getItem(id) {
+    return Object.prototype.hasOwnProperty.call(this._data, id) ? this._data[id] : undefined;
   },
 
-  removeItem: function (id) {
-    return delete this._data[id];
+  removeItem(id) {
+    delete this._data[id];
   },
 
-  clear: function () {
-    return this._data = {}
+  clear() {
+    this._data = {};
   }
-}
+};

@@ -1,9 +1,9 @@
-export class KeyboardInputManager {
+export default class KeyboardInputManager {
   constructor() {
-    this.events = {}
+    this.events = {};
 
     if (window.navigator.msPointerEnabled) {
-      //Internet Explorer 10 style
+      // Internet Explorer 10 style
       this.eventTouchstart    = "MSPointerDown";
       this.eventTouchmove     = "MSPointerMove";
       this.eventTouchend      = "MSPointerUp";

@@ -1,11 +1,13 @@
 const drawcall = window.requestAnimationFrame;
 
 export default class Render {
-  constructor(width, height) {
-    const board = Render.createBoard(width, height);
+  constructor(size) {
+    const board = Render.createBoard(size, size);
 
     this.world = document.querySelector(".board");
     this.world.appendChild(board.node);
+
+    this.size  = size;
 
     this.tileContainer    = board.tile;
     this.scoreContainer   = document.querySelector(".score-container");
@@ -186,13 +188,5 @@ export default class Render {
       grid: gridContainer,
       tile: tileContainer
     };
-  }
-
-  static createView(boards, width, height) {
-    const view = [];
-    for (let i = 0; i < boards; i += 1) {
-      view.push(new Render(width, height));
-    }
-    return view;
   }
 }

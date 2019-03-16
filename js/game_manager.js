@@ -1,25 +1,19 @@
+/* eslint-disable no-param-reassign */
 import Grid from "./grid.js";
 import Tile from "./tile.js";
 
-export default class GameManager {
-  constructor(size, startTiles, input, render, storage) {
-    this.size           = size;
-    this.startTiles     = startTiles;
-
-    this.inputManager   = input;
-    this.storageManager = storage;
-    this.render         = render;
-
-    this.inputManager.on("move", this.move.bind(this));
-    this.inputManager.on("restart", this.restart.bind(this));
-    this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+export class Game {
+  constructor(render, storage, startTiles) {
+    this.render = render;
+    this.storage = storage;
+    this.startTiles = startTiles;
 
     this.setup();
   }
 
   // Restart the game
   restart() {
-    this.storageManager.clearGameState();
+    this.storage.clearGameState();
     this.render.continueGame(); // Clear the game won/lost message
     this.setup();
   }
@@ -37,7 +31,7 @@ export default class GameManager {
 
   // Set up the game
   setup() {
-    const previousState = this.storageManager.getGameState();
+    const previousState = this.storage.getGameState();
 
     // Reload the game from a previous game if present
     if (previousState) {
@@ -50,7 +44,7 @@ export default class GameManager {
       this.won         = previousState.won;
       this.keepPlaying = previousState.keepPlaying;
     } else {
-      this.grid        = new Grid(this.size);
+      this.grid        = new Grid(this.render.size);
       this.score       = 0;
       this.over        = false;
       this.won         = false;
@@ -83,22 +77,22 @@ export default class GameManager {
 
   // Sends the updated grid to the render
   draw() {
-    if (this.storageManager.getBestScore() < this.score) {
-      this.storageManager.setBestScore(this.score);
+    if (this.storage.getBestScore() < this.score) {
+      this.storage.setBestScore(this.score);
     }
 
     // Clear the state when the game is over (game over only, not win)
     if (this.over) {
-      this.storageManager.clearGameState();
+      this.storage.clearGameState();
     } else {
-      this.storageManager.setGameState(this.serialize());
+      this.storage.setGameState(this.serialize());
     }
 
     this.render.draw(this.grid, {
       score:      this.score,
       over:       this.over,
       won:        this.won,
-      bestScore:  this.storageManager.getBestScore(),
+      bestScore:  this.storage.getBestScore(),
       terminated: this.isGameTerminated()
     });
   }
@@ -118,6 +112,7 @@ export default class GameManager {
   prepareTiles() {
     this.grid.eachCell((x, y, tile) => {
       if (tile) {
+        // eslint-disable-next-line no-param-reassign
         tile.mergedFrom = null;
         tile.savePosition();
       }
@@ -134,12 +129,10 @@ export default class GameManager {
   // Move tiles on the grid in the specified direction
   move(direction) {
     // 0: up, 1: right, 2: down, 3: left
-    const self = this;
-
     if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
-    const vector     = GameManager.getVector(direction);
-    const traversals = this.buildTraversals(vector);
+    const vector     = Game.getVector(direction);
+    const traversals = Game.buildTraversals(vector, this.render.size);
     let moved      = false;
 
     // Save the current tile positions and remove merger information
@@ -149,33 +142,33 @@ export default class GameManager {
     traversals.x.forEach((x) => {
       traversals.y.forEach((y) => {
         const cell = { x, y };
-        const tile = self.grid.cellContent(cell);
+        const tile = this.grid.cellContent(cell);
 
         if (tile) {
-          const positions = self.findFarthestPosition(cell, vector);
-          const next      = self.grid.cellContent(positions.next);
+          const positions = this.findFarthestPosition(cell, vector);
+          const next      = this.grid.cellContent(positions.next);
 
           // Only one merger per row traversal?
           if (next && next.value === tile.value && !next.mergedFrom) {
             const merged = new Tile(positions.next, tile.value * 2);
             merged.mergedFrom = [tile, next];
 
-            self.grid.insertTile(merged);
-            self.grid.removeTile(tile);
+            this.grid.insertTile(merged);
+            this.grid.removeTile(tile);
 
             // Converge the two tiles' positions
             tile.updatePosition(positions.next);
 
             // Update the score
-            self.score += merged.value;
+            this.score += merged.value;
 
             // The mighty 2048 tile
-            if (merged.value === 2048) self.won = true;
+            if (merged.value === 2048) this.won = true;
           } else {
-            self.moveTile(tile, positions.farthest);
+            this.moveTile(tile, positions.farthest);
           }
 
-          if (!GameManager.positionsEqual(cell, tile)) {
+          if (!Game.positionsEqual(cell, tile)) {
             moved = true; // The tile moved from its original cell!
           }
         }
@@ -207,10 +200,10 @@ export default class GameManager {
   }
 
   // Build a list of positions to traverse in the right order
-  buildTraversals(vector) {
+  static buildTraversals(vector, size) {
     const traversals = { x: [], y: [] };
 
-    for (let pos = 0; pos < this.size; pos += 1) {
+    for (let pos = 0; pos < size; pos += 1) {
       traversals.x.push(pos);
       traversals.y.push(pos);
     }
@@ -251,7 +244,7 @@ export default class GameManager {
 
         if (tile) {
           for (let direction = 0; direction < 4; direction += 1) {
-            const vector = GameManager.getVector(direction);
+            const vector = Game.getVector(direction);
             const cell   = { x: x + vector.x, y: y + vector.y };
 
             const other  = this.grid.cellContent(cell);
@@ -269,5 +262,37 @@ export default class GameManager {
 
   static positionsEqual(first, second) {
     return first.x === second.x && first.y === second.y;
+  }
+}
+
+export class GameManager {
+  constructor(games, input, controlIndex) {
+    this.games        = games;
+    this.input        = input;
+    this.controlIndex = controlIndex;
+
+    this.input.on("move", this.move.bind(this));
+    this.input.on("restart", this.restart.bind(this));
+    this.input.on("keepPlaying", this.keepPlaying.bind(this));
+  }
+
+  move(direction) {
+    this.games[this.controlIndex].move(direction);
+  }
+
+  restart() {
+    this.games.forEach((g) => { g.restart(); });
+  }
+
+  keepPlaying() {
+    this.games.forEach((g) => { g.keepPlaying(); });
+  }
+
+  static createGames(Render, Storage, count, size, startTiles) {
+    const games = [];
+    for (let i = 0; i < count; i += 1) {
+      games.push(new Game(new Render(size), new Storage(`game${i + 1}`), startTiles));
+    }
+    return games;
   }
 }

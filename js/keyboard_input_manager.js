@@ -1,6 +1,8 @@
-export default class KeyboardInputManager {
+import EventSource from "./event.js";
+
+export default class KeyboardInputManager extends EventSource {
   constructor() {
-    this.events = {};
+    super();
 
     if (window.navigator.msPointerEnabled) {
       // Internet Explorer 10 style
@@ -16,26 +18,8 @@ export default class KeyboardInputManager {
     this.listen();
   }
 
-  on(event, callback) {
-    if (!this.events[event]) {
-      this.events[event] = [];
-    }
-    this.events[event].push(callback);
-  }
-
-  emit(event, data) {
-    var callbacks = this.events[event];
-    if (callbacks) {
-      callbacks.forEach(function (callback) {
-        callback(data);
-      });
-    }
-  }
-
   listen() {
-    var self = this;
-
-    var map = {
+    const map = {
       38: 0, // Up
       39: 1, // Right
       40: 2, // Down
@@ -48,24 +32,24 @@ export default class KeyboardInputManager {
       68: 1, // D
       83: 2, // S
       65: 3  // A
-    }
+    };
 
     // Respond to direction keys
-    document.addEventListener("keydown", function (event) {
-      var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
+    document.addEventListener("keydown", (event) => {
+      const modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                       event.shiftKey;
-      var mapped    = map[event.which];
+      const mapped    = map[event.which];
 
       if (!modifiers) {
         if (mapped !== undefined) {
           event.preventDefault();
-          self.emit("move", mapped);
+          this.emit("move", mapped);
         }
       }
 
       // R key restarts the game
       if (!modifiers && event.which === 82) {
-        self.restart.call(self, event);
+        this.restart.call(this, event);
       }
     });
 
@@ -75,10 +59,12 @@ export default class KeyboardInputManager {
     this.bindButtonPress(".keep-playing-button", this.keepPlaying);
 
     // Respond to swipe events
-    var touchStartClientX, touchStartClientY;
-    var gameContainer = document.getElementsByClassName("game-container")[0];
+    let
+      touchStartClientX,
+      touchStartClientY;
 
-    gameContainer.addEventListener(this.eventTouchstart, function (event) {
+    const gameContainer = document.getElementsByClassName("game-container")[0];
+    gameContainer.addEventListener(this.eventTouchstart, (event) => {
       if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
           event.targetTouches.length > 1) {
         return; // Ignore if touching with more than 1 finger
@@ -95,17 +81,17 @@ export default class KeyboardInputManager {
       event.preventDefault();
     });
 
-    gameContainer.addEventListener(this.eventTouchmove, function (event) {
-      event.preventDefault();
-    });
+    gameContainer.addEventListener(this.eventTouchmove, event => event.preventDefault());
 
-    gameContainer.addEventListener(this.eventTouchend, function (event) {
-      if ((!window.navigator.msPointerEnabled && event.touches.length > 0) ||
-          event.targetTouches.length > 0) {
+    gameContainer.addEventListener(this.eventTouchend, (event) => {
+      if ((!window.navigator.msPointerEnabled && event.touches.length > 0)
+           || event.targetTouches.length > 0) {
         return; // Ignore if still touching with one or more fingers
       }
 
-      var touchEndClientX, touchEndClientY;
+      let
+        touchEndClientX,
+        touchEndClientY;
 
       if (window.navigator.msPointerEnabled) {
         touchEndClientX = event.pageX;
@@ -115,15 +101,15 @@ export default class KeyboardInputManager {
         touchEndClientY = event.changedTouches[0].clientY;
       }
 
-      var dx = touchEndClientX - touchStartClientX;
-      var absDx = Math.abs(dx);
+      const dx = touchEndClientX - touchStartClientX;
+      const absDx = Math.abs(dx);
 
-      var dy = touchEndClientY - touchStartClientY;
-      var absDy = Math.abs(dy);
+      const dy = touchEndClientY - touchStartClientY;
+      const absDy = Math.abs(dy);
 
       if (Math.max(absDx, absDy) > 10) {
         // (right : left) : (down : up)
-        self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
+        this.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
       }
     });
   }
@@ -139,7 +125,7 @@ export default class KeyboardInputManager {
   }
 
   bindButtonPress(selector, fn) {
-    var button = document.querySelector(selector);
+    const button = document.querySelector(selector);
     button.addEventListener("click", fn.bind(this));
     button.addEventListener(this.eventTouchend, fn.bind(this));
   }

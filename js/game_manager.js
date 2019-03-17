@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import Grid from "./grid.js";
 import Tile from "./tile.js";
+import EventSource from "./event.js";
 
 export class Game {
   constructor(render, storage, startTiles) {
@@ -265,15 +266,20 @@ export class Game {
   }
 }
 
-export class GameManager {
+export class GameManager extends EventSource {
   constructor(games, input, controlIndex) {
+    super();
+
     this.games        = games;
     this.input        = input;
     this.controlIndex = controlIndex;
 
     this.input.on("move", this.move.bind(this));
-    this.input.on("restart", this.restart.bind(this));
-    this.input.on("keepPlaying", this.keepPlaying.bind(this));
+    this.input.bind("restart", this);
+    this.input.bind("keepPlaying", this);
+
+    this.on("restart", this.restart.bind(this));
+    this.on("keepPlaying", this.keepPlaying.bind(this));
   }
 
   move(direction) {

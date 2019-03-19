@@ -2,76 +2,47 @@
 import Grid from "./grid.js";
 import Tile from "./tile.js";
 
-export default class Game {
-  constructor(render, startTiles) {
+export class BoardState {
+  constructor() {
+    this.grid        = { size: 0, cells: [] };
+    this.score       = 0;
+    this.over        = false;
+    this.won         = false;
+    this.keepPlaying = false;
+  }
+
+  static newGame(size) {
+    const state = new BoardState();
+    state.grid = new Grid(size).serialize();
+    return state;
+  }
+}
+
+export default class Board {
+  constructor(state, render, startTiles) {
+    this.state = state;
     this.render = render;
     this.startTiles = startTiles;
 
-    this.setup();
+    this.draw();
   }
 
   // Restart the game
   restart() {
-    this.storage.clearGameState();
-    this.render.continueGame(); // Clear the game won/lost message
-    this.setup();
+    this.render.continueBoard(); // Clear the game won/lost message
+    this.state = this.newGameState();
+    this.draw();
   }
 
   // Keep playing after winning (allows going over 2048)
   keepPlaying() {
     this.keepPlaying = true;
-    this.render.continueGame(); // Clear the game won/lost message
+    this.render.continueBoard(); // Clear the game won/lost message
   }
 
   // Return true if the game is lost, or has won and the user hasn't kept playing
-  isGameTerminated() {
+  isBoardTerminated() {
     return this.over || (this.won && !this.keepPlaying);
-  }
-
-  // Set up the game
-  setup() {
-    const previousState = this.storage.getGameState();
-
-    // Reload the game from a previous game if present
-    if (previousState) {
-      this.grid        = new Grid(
-        previousState.grid.size,
-        previousState.grid.cells
-      ); // Reload grid
-      this.score       = previousState.score;
-      this.over        = previousState.over;
-      this.won         = previousState.won;
-      this.keepPlaying = previousState.keepPlaying;
-    } else {
-      this.grid        = new Grid(this.render.size);
-      this.score       = 0;
-      this.over        = false;
-      this.won         = false;
-      this.keepPlaying = false;
-
-      // Add the initial tiles
-      this.addStartTiles();
-    }
-
-    // Update the render
-    this.draw();
-  }
-
-  // Set up the initial tiles to start the game with
-  addStartTiles() {
-    for (let i = 0; i < this.startTiles; i += 1) {
-      this.addRandomTile();
-    }
-  }
-
-  // Adds a tile in a random position
-  addRandomTile() {
-    if (this.grid.cellsAvailable()) {
-      const value = Math.random() < 0.9 ? 2 : 4;
-      const tile = new Tile(this.grid.randomAvailableCell(), value);
-
-      this.grid.insertTile(tile);
-    }
   }
 
   // Sends the updated grid to the render
@@ -82,9 +53,9 @@ export default class Game {
 
     // Clear the state when the game is over (game over only, not win)
     if (this.over) {
-      this.storage.clearGameState();
+      this.storage.clearBoardState();
     } else {
-      this.storage.setGameState(this.serialize());
+      this.storage.setBoardState(this.serialize());
     }
 
     this.render.draw(this.grid, {
@@ -92,19 +63,27 @@ export default class Game {
       over:       this.over,
       won:        this.won,
       bestScore:  this.storage.getBestScore(),
-      terminated: this.isGameTerminated()
+      terminated: this.isBoardTerminated()
     });
   }
 
+  set state(s) {
+    this.grid        = new Grid(s.grid.size, s.grid.cells);
+    this.score       = s.score;
+    this.over        = s.over;
+    this.won         = s.won;
+    this.keepPlaying = s.keepPlaying;
+  }
+
   // Represent the current game as an object
-  serialize() {
-    return {
-      grid:        this.grid.serialize(),
-      score:       this.score,
-      over:        this.over,
-      won:         this.won,
-      keepPlaying: this.keepPlaying
-    };
+  get state() {
+    const state        = new BoardState();
+    state.grid         = this.grid.serialize();
+    state.score        = this.score;
+    state.over         = this.over;
+    state.won          = this.won;
+    state.keepPlaying  = this.keepPlaying;
+    return state;
   }
 
   // Save all tile positions and remove merger info
@@ -128,10 +107,10 @@ export default class Game {
   // Move tiles on the grid in the specified direction
   move(direction) {
     // 0: up, 1: right, 2: down, 3: left
-    if (this.isGameTerminated()) return; // Don't do anything if the game's over
+    if (this.isBoardTerminated()) return; // Don't do anything if the game's over
 
-    const vector     = Game.getVector(direction);
-    const traversals = Game.buildTraversals(vector, this.render.size);
+    const vector     = Board.getVector(direction);
+    const traversals = Board.buildTraversals(vector, this.render.size);
     let moved      = false;
 
     // Save the current tile positions and remove merger information
@@ -167,7 +146,7 @@ export default class Game {
             this.moveTile(tile, positions.farthest);
           }
 
-          if (!Game.positionsEqual(cell, tile)) {
+          if (!Board.positionsEqual(cell, tile)) {
             moved = true; // The tile moved from its original cell!
           }
         }
@@ -178,7 +157,7 @@ export default class Game {
       this.addRandomTile();
 
       if (!this.movesAvailable()) {
-        this.over = true; // Game over!
+        this.over = true; // Board over!
       }
 
       this.draw();
@@ -243,7 +222,7 @@ export default class Game {
 
         if (tile) {
           for (let direction = 0; direction < 4; direction += 1) {
-            const vector = Game.getVector(direction);
+            const vector = Board.getVector(direction);
             const cell   = { x: x + vector.x, y: y + vector.y };
 
             const other  = this.grid.cellContent(cell);
@@ -261,5 +240,31 @@ export default class Game {
 
   static positionsEqual(first, second) {
     return first.x === second.x && first.y === second.y;
+  }
+
+  // Create new game state
+  newGameState() {
+    const state = new BoardState();
+    const grid = new Grid(this.render.size);
+    Board.addStartTiles(grid, this.startTiles);
+    state.grid = grid.serialize();
+    return state;
+  }
+
+  // Set up the initial tiles to start the game with
+  static addStartTiles(grid, startTiles) {
+    for (let i = 0; i < startTiles; i += 1) {
+      Board.addRandomTile(grid);
+    }
+  }
+
+  // Adds a tile in a random position
+  static addRandomTile(grid) {
+    if (grid.cellsAvailable()) {
+      const value = Math.random() < 0.9 ? 2 : 4;
+      const tile = new Tile(grid.randomAvailableCell(), value);
+
+      grid.insertTile(tile);
+    }
   }
 }

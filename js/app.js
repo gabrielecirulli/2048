@@ -11,7 +11,7 @@ const boardSize  = 4; // 4x4
 const startTiles = 2;
 
 boot(() => {
-  const view    = GameManager.createGames(Render, Storage, boards, boardSize, startTiles);
+  const view = GameManager.createGames(Render, boards, boardSize, startTiles);
 
   new GameManager(view, new Input(), new Storage(), 4);
 });

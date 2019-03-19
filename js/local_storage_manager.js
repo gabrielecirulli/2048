@@ -2,6 +2,9 @@
 
 export default class LocalStorageManager {
   constructor() {
+    this.bestScoreKey     = "best_score";
+    this.gameStateKey     = "game_state";
+
     const supported = LocalStorageManager.localStorageSupported();
     this.storage = supported ? window.localStorage : window.fakeStorage;
   }

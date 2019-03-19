@@ -1,24 +1,34 @@
-import Board from "./board.js";
+import { Board, BoardState } from "./board.js";
 import EventSource from "./event.js";
 
 class GameState {
   constructor() {
     this.turn = 0;
-    this.games = {};
+    this.boards = [];
   }
 }
 
 export default class GameManager extends EventSource {
-  constructor(games, input, storage, controlIndex) {
+  constructor(Render, input, storage, boardsCount, boardsSize, startTiles) {
     super();
 
-    this.games        = games;
+    this.boards     = GameManager.createBoards(Render, boardsCount, boardsSize, startTiles);
+    this.boardsSize = boardsSize;
+    this.startTiles = startTiles;
+
     this.input        = input;
     this.storage      = storage;
-    this.controlIndex = controlIndex;
+    this.controlIndex = Math.floor(this.boards.length / 2);
 
     this.turn = 0;
     this.turnInput = {};
+
+    const state = storage.getGameState();
+    if (state == null) {
+      this.restart();
+    } else {
+      this.state = state;
+    }
 
     this.input.on("move", this.move.bind(this));
     this.input.bind("restart", this);
@@ -29,23 +39,22 @@ export default class GameManager extends EventSource {
   }
 
   move(direction) {
+    this.turn += 1;
+
     // 0: up, 1: right, 2: down, 3: left
-    this.games[this.controlIndex].move(direction);
-    this.games.forEach((g, i) => {
+    this.boards[this.controlIndex].move(direction);
+    this.boards.forEach((g, i) => {
       if (this.controlIndex !== i) {
         g.move((direction + i) % 4);
       }
     });
 
-    if (this.storage.getBestScore() < this.score) {
-      this.storage.setBestScore(this.score);
-    }
+    this.storage.setGameState(this.state);
 
-    // Clear the state when the game is over (game over only, not win)
-    if (this.over) {
-      this.storage.clearBoardState();
-    } else {
-      this.storage.setBoardState(this.serialize());
+    let score = 0;
+    this.boards.forEach((g) => { score = Math.max(score, g.score); });
+    if (this.storage.getBestScore() < score) {
+      this.storage.setBestScore(score);
     }
   }
 
@@ -53,25 +62,35 @@ export default class GameManager extends EventSource {
     this.storage.clearGameState();
     this.turn = 0;
     this.turnInput = {};
-    this.games.forEach((g) => { g.restart(); });
+    this.boards.forEach((g) => { g.restart(); });
   }
 
   keepPlaying() {
-    this.games.forEach((g) => { g.keepPlaying(); });
+    this.boards.forEach((g) => { g.keepPlaying(); });
   }
 
-  serialize() {
+  set state(s) {
+    this.turn = s.turn;
+    s.boards.forEach((boardState, id) => {
+      const board = this.boards[id];
+      board.state = boardState;
+      board.draw();
+    });
+  }
+
+  // Represent the current game as an object
+  get state() {
     const state = new GameState();
-    state.turn = this.turn;
-    this.games.forEach((g, i) => { state.turn[i] = g.serialize(); });
+    state.turn  = this.turn;
+    this.boards.forEach((g, i) => { state.boards[i] = g.state; });
     return state;
   }
 
-  static createGames(Render, count, size, startTiles) {
-    const games = [];
+  static createBoards(Render, count, size, startTiles) {
+    const boards = [];
     for (let i = 0; i < count; i += 1) {
-      games.push(new Board(new Render(size), startTiles));
+      boards.push(new Board(new BoardState(), new Render(size), startTiles));
     }
-    return games;
+    return boards;
   }
 }

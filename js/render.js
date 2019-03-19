@@ -161,14 +161,6 @@ export default class Render {
     const lower = c("div", "lower");
     gameMessage.appendChild(lower);
 
-    const keepPlaying = c("a", "keep-playing-button");
-    keepPlaying.textContent = "Keep going";
-    lower.appendChild(keepPlaying);
-
-    const retryButton = c("a", "retry-button");
-    retryButton.textContent = "Try again";
-    lower.appendChild(retryButton);
-
     for (let y = 0; y < height; y += 1) {
       const row = c("div", "grid-row");
       for (let x = 0; x < width; x += 1) {

@@ -18,7 +18,7 @@ export class BoardState {
   }
 }
 
-export default class Board {
+export class Board {
   constructor(state, render, startTiles) {
     this.state = state;
     this.render = render;
@@ -29,8 +29,8 @@ export default class Board {
 
   // Restart the game
   restart() {
-    this.render.continueBoard(); // Clear the game won/lost message
-    this.state = this.newGameState();
+    this.render.continueGame(); // Clear the game won/lost message
+    this.state = Board.newGameState(this.render.size, this.startTiles);
     this.draw();
   }
 
@@ -47,22 +47,11 @@ export default class Board {
 
   // Sends the updated grid to the render
   draw() {
-    if (this.storage.getBestScore() < this.score) {
-      this.storage.setBestScore(this.score);
-    }
-
-    // Clear the state when the game is over (game over only, not win)
-    if (this.over) {
-      this.storage.clearBoardState();
-    } else {
-      this.storage.setBoardState(this.serialize());
-    }
-
     this.render.draw(this.grid, {
       score:      this.score,
       over:       this.over,
       won:        this.won,
-      bestScore:  this.storage.getBestScore(),
+      bestScore:  0,
       terminated: this.isBoardTerminated()
     });
   }
@@ -154,7 +143,7 @@ export default class Board {
     });
 
     if (moved) {
-      this.addRandomTile();
+      Board.addRandomTile(this.grid);
 
       if (!this.movesAvailable()) {
         this.over = true; // Board over!
@@ -243,10 +232,10 @@ export default class Board {
   }
 
   // Create new game state
-  newGameState() {
+  static newGameState(gridSize, startTiles) {
     const state = new BoardState();
-    const grid = new Grid(this.render.size);
-    Board.addStartTiles(grid, this.startTiles);
+    const grid = new Grid(gridSize);
+    Board.addStartTiles(grid, startTiles);
     state.grid = grid.serialize();
     return state;
   }

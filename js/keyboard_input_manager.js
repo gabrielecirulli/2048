@@ -54,16 +54,14 @@ export default class KeyboardInputManager extends EventSource {
     });
 
     // Respond to button presses
-    this.bindButtonPress(".retry-button", this.restart);
     this.bindButtonPress(".restart-button", this.restart);
-    this.bindButtonPress(".keep-playing-button", this.keepPlaying);
 
     // Respond to swipe events
     let
       touchStartClientX,
       touchStartClientY;
 
-    const gameContainer = document.getElementsByClassName("game-container")[0];
+    const gameContainer = document.getElementsByClassName("board-container")[0];
     gameContainer.addEventListener(this.eventTouchstart, (event) => {
       if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
           event.targetTouches.length > 1) {

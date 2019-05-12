@@ -16,9 +16,9 @@ int main() {
 a:
 	for(i=0; i<16; i++)
 		*(q+i)=*(p+i);
-	do {
-		input=getchar();
-	} while(input=='\n');
+	input=getch();
+	if(input==-32)
+		input=getch();
 	move(p,input);
 	add(p,input);
 	move(p,input);

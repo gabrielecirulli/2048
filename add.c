@@ -1,8 +1,9 @@
 void add(int *p,char input) {
 	int i,j,*k;
 	switch(input) {
-		case 'w':
 		case 'W':
+		case 'w':
+		case 72:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
 					k=p+i+4*j;
@@ -12,8 +13,9 @@ void add(int *p,char input) {
 					}
 				}
 			break;
-		case 's':
 		case 'S':
+		case 's':
+		case 80:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {
 					k=p+i+4*j;
@@ -23,8 +25,9 @@ void add(int *p,char input) {
 					}
 				}
 			break;
-		case 'a':
 		case 'A':
+		case 'a':
+		case 75:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
 					k=p+i*4+j;
@@ -34,8 +37,9 @@ void add(int *p,char input) {
 					}
 				}
 			break;
-		case 'd':
 		case 'D':
+		case 'd':
+		case 77:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {
 					k=p+i*4+j;

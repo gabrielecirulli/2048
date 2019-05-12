@@ -1,8 +1,9 @@
 void move(int *p,char input) {
 	int i,j,*k;
 	switch(input) {
-		case 'w':
 		case 'W':
+		case 'w':
+		case 72:
 W:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
@@ -14,8 +15,9 @@ W:
 					}
 				}
 			break;
-		case 's':
 		case 'S':
+		case 's':
+		case 80:
 S:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {
@@ -29,6 +31,7 @@ S:
 			break;
 		case 'a':
 		case 'A':
+		case 75:
 A:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
@@ -40,8 +43,9 @@ A:
 					}
 				}
 			break;
-		case 'd':
 		case 'D':
+		case 'd':
+		case 77:
 D:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {

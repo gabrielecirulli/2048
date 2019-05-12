@@ -1,9 +1,10 @@
-void add(int *p,char input){
+void add(int *p,char input) {
 	int i,j;
-	switch(input){
-		case 72: //上 
-		case 80: //下 
-		case 75: //左 
-		case 77:break; //右 
+	switch(input) {
+		case 72: //上
+		case 80: //下
+		case 75: //左
+		case 77:
+			break; //右
 	}
-} 
+}

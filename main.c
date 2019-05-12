@@ -12,7 +12,7 @@ int main() {
 	*(p+rand()%16)=2;
 	printout(p);
 a:
-	getch(); 
+	getch();
 	input=getch();
 	move(p,input);
 	add(p,input);

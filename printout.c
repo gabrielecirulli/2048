@@ -1,13 +1,15 @@
 void printout(int *p) {
 	int i,j=0;
+	printf("\n-------------------------\n\n");
 	for(i=0; i<16; i++) {
 		if(*(p+i)!=0)
-			printf("%6d",*(p+i));
+			printf("%5d",*(p+i));
 		else
-			printf("      ");
+			printf("     ");
 		if(++j==4) {
-			printf("\n\n\n");
+			printf("\n\n");
 			j=0;
 		}
 	}
+	printf("-------------------------\n\n");
 }

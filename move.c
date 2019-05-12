@@ -3,11 +3,11 @@ void move(int *p,char input) {
 	switch(input) {
 		case 'w':
 		case 'W':
-		W:
-			for(i=0;i<4;i++)
-				for(j=0;j<3;j++){
+W:
+			for(i=0; i<4; i++)
+				for(j=0; j<3; j++) {
 					k=p+i+4*j;
-					if(*k==0&&*(k+4)!=0){
+					if(*k==0&&*(k+4)!=0) {
 						*k=*(k+4);
 						*(k+4)=0;
 						goto W;
@@ -16,11 +16,11 @@ void move(int *p,char input) {
 			break;
 		case 's':
 		case 'S':
-		S:
-			for(i=0;i<4;i++)
-				for(j=2;j>-1;j--){
+S:
+			for(i=0; i<4; i++)
+				for(j=2; j>-1; j--) {
 					k=p+i+4*j;
-					if(*k!=0&&*(k+4)==0){
+					if(*k!=0&&*(k+4)==0) {
 						*(k+4)=*k;
 						*k=0;
 						goto S;
@@ -29,11 +29,11 @@ void move(int *p,char input) {
 			break;
 		case 'a':
 		case 'A':
-		A:
-			for(i=0;i<4;i++)
-				for(j=0;j<3;j++){
+A:
+			for(i=0; i<4; i++)
+				for(j=0; j<3; j++) {
 					k=p+i*4+j;
-					if(*k==0&&*(k+1)!=0){
+					if(*k==0&&*(k+1)!=0) {
 						*k=*(k+1);
 						*(k+1)=0;
 						goto A;
@@ -42,11 +42,11 @@ void move(int *p,char input) {
 			break;
 		case 'd':
 		case 'D':
-		D:
-			for(i=0;i<4;i++)
-				for(j=2;j>-1;j--){
+D:
+			for(i=0; i<4; i++)
+				for(j=2; j>-1; j--) {
 					k=p+i*4+j;
-					if(*k!=0&&*(k+1)==0){
+					if(*k!=0&&*(k+1)==0) {
 						*(k+1)=*k;
 						*k=0;
 						goto D;

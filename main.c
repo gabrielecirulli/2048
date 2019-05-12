@@ -14,21 +14,21 @@ int main() {
 	*(p+rand()%16)=2;
 	printout(p);
 a:
-	for(i=0;i<16;i++)
+	for(i=0; i<16; i++)
 		*(q+i)=*(p+i);
-do{
-	input=getchar();
-	}while(input=='\n');
+	do {
+		input=getchar();
+	} while(input=='\n');
 	move(p,input);
 	add(p,input);
 	move(p,input);
-	for(j=0,i=0;i<16;i++)
+	for(j=0,i=0; i<16; i++)
 		if(*(q+i)==*(p+i))
 			j++;
-	if(j!=16){
+	if(j!=16) {
 		newnum(p);
 		printout(p);
-	}else
+	} else
 		printf("Invaild type\n");
 	goto a;
 }

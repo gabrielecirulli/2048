@@ -4,8 +4,8 @@ void newnum(int *p) {
 	do {
 		i=rand()%16;
 	} while(*(p+i)!=0);
-	if(rand()%2==0)
-		*(p+i)=2;
-	else
+	if(rand()%3==0)
 		*(p+i)=4;
+	else
+		*(p+i)=2;
 }

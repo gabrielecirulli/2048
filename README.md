@@ -14,3 +14,5 @@
 目前看来大概是没有bug
 
 这个项目是干啥的？当然只是用来实战做个2048。
+
+编译：使用 [Dev-Cpp](https://orwelldevcpp.blogspot.com/)

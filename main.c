@@ -8,7 +8,11 @@ void add(int *p,char input);
 void newnum(int *p);
 
 int main() {
-	int num[4][4]= {0},*p=num[0],i,j,num_[4][4],*q=num_[0];
+	register int i,j,*p=malloc(sizeof(int)*16),*q=malloc(sizeof(int)*16);
+	if(p==0||q==0)
+		return 1;
+	for(i=0; i<16; i++)
+		*(p+i)=0;
 	char input;
 a:
 	srand(time(0));
@@ -21,7 +25,7 @@ a:
 	printout(p);
 b:
 	for(i=0; i<16; i++)
-		*(q+i)=*(p+i);
+		*(q+i)=*(p+i)/2*3;
 	input=getch();
 	if(input==-32)
 		input=getch();
@@ -31,11 +35,18 @@ b:
 		goto a;
 	} else if(input=='Q'||input=='q')
 		return 0;
+	for(i=0; i<16; i++){
+		if(*(q+i)!=*(p+i)/2*3){
+			printf("DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
+			getch();
+			return 1;
+		}
+	}
 	move(p,input);
 	add(p,input);
 	move(p,input);
 	for(j=0,i=0; i<16; i++)
-		if(*(q+i)==*(p+i))
+		if(*(q+i)==*(p+i)/2*3)
 			j++;
 	if(j!=16) {
 		newnum(p);

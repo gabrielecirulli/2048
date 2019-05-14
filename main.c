@@ -51,7 +51,7 @@ void move(int *p,char input) {
 		case 'W':
 		case 'w':
 		case 72:
-W:
+		W:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
 					k=p+i+4*j;
@@ -65,7 +65,7 @@ W:
 		case 'S':
 		case 's':
 		case 80:
-S:
+		S:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {
 					k=p+i+4*j;
@@ -79,7 +79,7 @@ S:
 		case 'a':
 		case 'A':
 		case 75:
-A:
+		A:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
 					k=p+i*4+j;
@@ -93,7 +93,7 @@ A:
 		case 'D':
 		case 'd':
 		case 77:
-D:
+		D:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {
 					k=p+i*4+j;
@@ -176,7 +176,7 @@ void add(int *p,char input) {
 					}
 				}
 			break;
-defult:
+		defult:
 			printf("Invaild type\n");
 			break;
 	}

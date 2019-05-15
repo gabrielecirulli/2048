@@ -8,7 +8,7 @@ void add(int *p,char input);
 void newnum(int *p);
 
 int main() {
-	register int i,j,*p=malloc(sizeof(int)*16),*q=malloc(sizeof(int)*16);
+	register int i,j,*p=(int *)malloc(sizeof(int)*16),*q=malloc(sizeof(int)*16);
 	if(p==0||q==0)
 		return 1;
 	for(i=0; i<16; i++)

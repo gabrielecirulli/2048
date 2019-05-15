@@ -46,7 +46,7 @@ b:
 	add(p,input);
 	move(p,input);
 	for(j=0,i=0; i<16; i++)
-		if(*(q+i)==*(p+i)/2*3)
+		if(*(q+i)==~*(p+i))
 			j++;
 	if(j!=16) {
 		newnum(p);
@@ -184,9 +184,6 @@ void add(int *p,char input) {
 						*k=0;
 					}
 				}
-			break;
-		defult:
-			fprintf(stderr,"Invaild type\n");
 			break;
 	}
 }

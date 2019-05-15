@@ -10,8 +10,8 @@ A ICON "2048.ico"
 // TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
 //
 1 VERSIONINFO
-FILEVERSION 1,0,8,1
-PRODUCTVERSION 1,0,8,1
+FILEVERSION 1,0,9,2
+PRODUCTVERSION 1,0,9,2
 FILETYPE VFT_APP
 {
   BLOCK "StringFileInfo"
@@ -19,14 +19,14 @@ FILETYPE VFT_APP
     BLOCK "080404E4"
     {
       VALUE "CompanyName", ""
-      VALUE "FileVersion", "1.0.8.1"
+      VALUE "FileVersion", "1.0.9.2"
       VALUE "FileDescription", "Developed using the Dev-C++ IDE"
       VALUE "InternalName", ""
       VALUE "LegalCopyright", "poly000"
       VALUE "LegalTrademarks", ""
       VALUE "OriginalFilename", ""
       VALUE "ProductName", ""
-      VALUE "ProductVersion", "1.0.8.1"
+      VALUE "ProductVersion", "1.0.9.2"
     }
   }
   BLOCK "VarFileInfo"

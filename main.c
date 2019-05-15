@@ -37,7 +37,7 @@ b:
 		return 0;
 	for(i=0; i<16; i++){
 		if(*(q+i)!=*(p+i)/2*3){
-			printf("DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
+			fprintf(stderr,"DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
 			getch();
 			return 1;
 		}
@@ -52,7 +52,7 @@ b:
 		newnum(p);
 		printout(p);
 	} else
-		printf("Invaild type\n");
+		fprintf(stderr,"Invaild type\n");
 	goto b;
 }
 
@@ -120,9 +120,7 @@ void move(int *p,char input) {
 
 void printout(int *p) {
 	int i,j=0;
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nuse R to reset\n");
-	printf("use Q to exit\n\n");
-	printf("----------------------------\n\n");
+	fprintf(stderr,"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nuse R to reset\nuse Q to exit\n\n----------------------------\n\n");
 	for(i=0; i<16; i++) {
 		if(*(p+i)!=0)
 			printf(" %5d",*(p+i));
@@ -133,7 +131,7 @@ void printout(int *p) {
 			j=0;
 		}
 	}
-	printf("----------------------------\n\n");
+	fprintf(stderr,"----------------------------\n\n");
 }
 
 void add(int *p,char input) {
@@ -188,7 +186,7 @@ void add(int *p,char input) {
 				}
 			break;
 		defult:
-			printf("Invaild type\n");
+			fprintf(stderr,"Invaild type\n");
 			break;
 	}
 }

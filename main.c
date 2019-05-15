@@ -8,7 +8,7 @@ void add(int *p,char input);
 void newnum(int *p);
 
 int main() {
-	register int i,j,*p=(int *)malloc(sizeof(int)*16),*q=(int *)malloc(sizeof(int)*16);
+	register int i,j,k,*p=(int *)malloc(sizeof(int)*16),*q=(int *)malloc(sizeof(int)*16);
 	if(p==0||q==0)
 		return 1;  
 	for(i=0; i<16; i++)
@@ -24,8 +24,10 @@ a:
 	*(p+j)=2;
 	printout(p);
 b:
+	srand(time(0));
+	k=rand();
 	for(i=0; i<16; i++)
-		*(q+i)=~*(p+i);
+		*(q+i)=*(p+i)+k;
 	input=getch();
 	if(input==-32)
 		input=getch();
@@ -36,7 +38,7 @@ b:
 	} else if(input=='Q'||input=='q')
 		return 0;
 	for(i=0; i<16; i++){
-		if(*(q+i)!=~*(p+i)){
+		if(*(q+i)!=*(p+i)+k){
 			fprintf(stderr,"DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
 			getch();
 			return 1;
@@ -46,7 +48,7 @@ b:
 	add(p,input);
 	move(p,input);
 	for(j=0,i=0; i<16; i++)
-		if(*(q+i)==~*(p+i))
+		if(*(q+i)==*(p+i)+k)
 			j++;
 	if(j!=16) {
 		newnum(p);

@@ -49,7 +49,6 @@ b:
 				goto b;
 			}
 			fread(p,sizeof(int),16,fp);
-			fread(q,sizeof(int),16,fp);
 			fclose(fp);
 			printout(p);
 			goto b;
@@ -61,7 +60,6 @@ b:
 				goto b;
 			}
 			fwrite(p,sizeof(int),16,fp);
-			fwrite(q,sizeof(int),16,fp);
 			fclose(fp);
 			fprintf(stderr,"have saved.\n");
 			goto b;

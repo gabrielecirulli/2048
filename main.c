@@ -27,7 +27,7 @@ a:
 	k=rand();
 b:
 	for(i=0; i<16; i++)
-		*(q+i)=*(p+i)+k;
+		*(q+i)=*(p+i)&k;
 	input=getch();
 	switch(input) {
 		case -32:
@@ -67,7 +67,7 @@ b:
 			fprintf(stderr,"Invalid Type!\n");
 	}
 	for(i=0; i<16; i++) {
-		if(*(q+i)!=*(p+i)+k) {
+		if(*(q+i)!=*(p+i)&k) {
 			fprintf(stderr,"DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
 			getch();
 			return 1;

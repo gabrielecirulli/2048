@@ -9,8 +9,9 @@ void newnum(int *p);
 
 int main() {
 	register int i,j,k,*p=(int *)malloc(sizeof(int)*16),*q=(int *)malloc(sizeof(int)*16);
+	FILE *fp;
 	if(p==0||q==0)
-		return 1;  
+		return 1;
 	for(i=0; i<16; i++)
 		*(p+i)=0;
 	char input;
@@ -23,22 +24,52 @@ a:
 	while(j==i);
 	*(p+j)=2;
 	printout(p);
-b:
-	srand(time(0));
 	k=rand();
+b:
 	for(i=0; i<16; i++)
 		*(q+i)=*(p+i)+k;
 	input=getch();
-	if(input==-32)
-		input=getch();
-	else if(input=='r'||input=='R') {
-		for(i=0; i<16; i++)
-			*(p+i)=0;
-		goto a;
-	} else if(input=='Q'||input=='q')
-		return 0;
-	for(i=0; i<16; i++){
-		if(*(q+i)!=*(p+i)+k){
+	switch(input) {
+		case -32:
+			input=getch();
+			break;
+		case 'r':
+		case 'R':
+			for(i=0; i<16; i++)
+				*(p+i)=0;
+			goto a;
+		case 'q':
+		case 'Q':
+			return 0;
+		case 'l':
+		case 'L':
+			fp=fopen("save.onk","rb");
+			if(fp==0){
+				fprintf(stderr,"load failed!\nhave you already saved?\n");
+				goto b;
+			}
+			fread(p,sizeof(int),16,fp);
+			fread(q,sizeof(int),16,fp);
+			fclose(fp);
+			printout(p);
+			goto b;
+		case 'S':
+		case 's':
+			fp=fopen("save.onk","wb+");
+			if(fp==0){
+				fprintf(stderr,"save failed!\n");
+				goto b;
+			}
+			fwrite(p,sizeof(int),16,fp);
+			fwrite(q,sizeof(int),16,fp);
+			fclose(fp);
+			fprintf(stderr,"have saved.\n");
+			goto b;
+		default:
+			fprintf(stderr,"Invalid Type!\n");
+	}
+	for(i=0; i<16; i++) {
+		if(*(q+i)!=*(p+i)+k) {
 			fprintf(stderr,"DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
 			getch();
 			return 1;
@@ -53,8 +84,7 @@ b:
 	if(j!=16) {
 		newnum(p);
 		printout(p);
-	} else
-		fprintf(stderr,"Invaild type\n");
+	}
 	goto b;
 }
 
@@ -122,7 +152,8 @@ void move(int *p,char input) {
 
 void printout(int *p) {
 	int i,j=0;
-	fprintf(stderr,"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nuse R to reset\nuse Q to exit\n\n----------------------------\n\n");
+	fprintf(stderr,"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	fprintf(stderr,"use R to reset\nuse Q to exit\nuse L to load savedata\nuse S to save savedata\n----------------------------\n\n");
 	for(i=0; i<16; i++) {
 		if(*(p+i)!=0)
 			printf(" %5d",*(p+i));

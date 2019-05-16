@@ -34,19 +34,19 @@ UnitCount=1
 [VersionInfo]
 Major=1
 Minor=1
-Release=0
-Build=3
+Release=1
+Build=4
 LanguageID=2052
 CharsetID=1252
 CompanyName=
-FileVersion=1.1.0.3
+FileVersion=1.1.1.4
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=poly000
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=1.1.0.3
+ProductVersion=1.1.1.4
 AutoIncBuildNr=1
 SyncProduct=1
 

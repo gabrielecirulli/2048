@@ -152,7 +152,7 @@ void move(int *p,char input) {
 
 void printout(int *p) {
 	int i,j=0;
-	fprintf(stderr,"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	system("cls"); //or clear for linux
 	fprintf(stderr,"use R to reset\nuse Q to exit\nuse L to load savedata\nuse S to save savedata\n----------------------------\n\n");
 	for(i=0; i<16; i++) {
 		if(*(p+i)!=0)
@@ -164,7 +164,7 @@ void printout(int *p) {
 			j=0;
 		}
 	}
-	fprintf(stderr,"----------------------------\n\n");
+	fprintf(stderr,"----------------------------\n");
 }
 
 void add(int *p,char input) {

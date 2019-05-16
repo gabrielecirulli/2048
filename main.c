@@ -65,6 +65,7 @@ b:
 			goto b;
 		default:
 			fprintf(stderr,"Invalid Type!\n");
+			break; 
 	}
 	for(i=0; i<16; i++) {
 		if(*(q+i)!=*(p+i)&k) {
@@ -77,7 +78,7 @@ b:
 	add(p,input);
 	move(p,input);
 	for(j=0,i=0; i<16; i++)
-		if(*(q+i)==*(p+i)+k)
+		if(*(q+i)==*(p+i)&k)
 			j++;
 	if(j!=16) {
 		newnum(p);

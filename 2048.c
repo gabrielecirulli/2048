@@ -24,10 +24,11 @@ a:
 	while(j==i);
 	*(p+j)=2;
 	printout(p);
-	k=rand();
 b:
+	srand(time(0));
+	k=rand();
 	for(i=0; i<16; i++)
-		*(q+i)=*(p+i)&k;
+		*(q+i)=*(p+i)+k;
 	input=getch();
 	switch(input) {
 		case -32:
@@ -68,7 +69,7 @@ b:
 			break; 
 	}
 	for(i=0; i<16; i++) {
-		if(*(q+i)!=*(p+i)&k) {
+		if(*(q+i)!=*(p+i)+k) {
 			fprintf(stderr,"DO NOT CHEAT! (PRESS A KEY TO EXIT)\n");
 			getch();
 			return 1;
@@ -78,7 +79,7 @@ b:
 	add(p,input);
 	move(p,input);
 	for(j=0,i=0; i<16; i++)
-		if(*(q+i)==*(p+i)&k)
+		if(*(q+i)==*(p+i)+k)
 			j++;
 	if(j!=16) {
 		newnum(p);

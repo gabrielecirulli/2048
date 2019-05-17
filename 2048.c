@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-
+#include <conio.h> //#include <curses.h> on linux 
+ 
 void move(int *p,char input);
 void printout(int *p);
 void add(int *p,char input);

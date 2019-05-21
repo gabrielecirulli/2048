@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <ncurses.h> // https://bbs.csdn.net/topics/390395898
 #include "add.h
 #include "move.h"
 #include "newnum.h"
@@ -15,10 +14,6 @@ int main() {
 	for(i=0; i<16; i++)
 		*(p+i)=0;
 	char input;
-	initscr();
-	cbreak();
-	noecho();
-	keypad(stdscr, TRUE);
 a:
 	srand(time(0));
 	i=rand()%16;
@@ -42,7 +37,6 @@ b:
 			goto a;
 		case 'q':
 		case 'Q':
-			endwin();
 			return 0;
 		case 'l':
 		case 'L':

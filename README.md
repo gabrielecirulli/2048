@@ -5,7 +5,19 @@
 
 规则可能有些不同。
 
-操作方法：W A S D ↑ ← ↓ →   Q R
+操作方法：
+
+W A S D
+
+↑ ← ↓ → (linux不可用)
+
+Q quit
+
+R reset
+
+S save
+
+L load
 
 此游戏由于本人理念，无得分机制
 

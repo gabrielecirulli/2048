@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <conio.h>
-#include "add.h"
+#include <ncurses.h> // https://bbs.csdn.net/topics/390395898
+#include "add.h
 #include "move.h"
 #include "newnum.h"
 #include "printout.h"
@@ -15,6 +15,10 @@ int main() {
 	for(i=0; i<16; i++)
 		*(p+i)=0;
 	char input;
+	initscr();
+	cbreak();
+	noecho();
+	keypad(stdscr, TRUE);
 a:
 	srand(time(0));
 	i=rand()%16;
@@ -29,11 +33,8 @@ b:
 	k=rand();
 	for(i=0; i<16; i++)
 		*(q+i)=*(p+i)+k;
-	input=(char)getch();
+	input=(char)getchar();
 	switch(input) {
-		case -32:
-			input=(char)getch();
-			break;
 		case 'r':
 		case 'R':
 			for(i=0; i<16; i++)
@@ -41,11 +42,12 @@ b:
 			goto a;
 		case 'q':
 		case 'Q':
+			endwin();
 			return 0;
 		case 'l':
 		case 'L':
 			fp=fopen("save.onk","rb");
-			if(fp==0) {
+			if(fp==0){
 				fprintf(stderr,"load failed!\nhave you already saved?\n");
 				goto b;
 			}
@@ -56,7 +58,7 @@ b:
 		case 'S':
 		case 's':
 			fp=fopen("save.onk","wb+");
-			if(fp==0) {
+			if(fp==0){
 				fprintf(stderr,"save failed!\n");
 				goto b;
 			}
@@ -66,7 +68,7 @@ b:
 			goto b;
 		default:
 			fprintf(stderr,"Invalid Type!\n");
-			break;
+			break; 
 	}
 	for(i=0; i<16; i++) {
 		if(*(q+i)!=*(p+i)+k) {

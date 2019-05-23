@@ -3,7 +3,6 @@ void move(int *p,char input) {
 	switch(input) {
 		case 'W':
 		case 'w':
-		case 72:
 		W:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
@@ -17,7 +16,6 @@ void move(int *p,char input) {
 			break;
 		case 'S':
 		case 's':
-		case 80:
 		S:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {
@@ -31,7 +29,6 @@ void move(int *p,char input) {
 			break;
 		case 'a':
 		case 'A':
-		case 75:
 		A:
 			for(i=0; i<4; i++)
 				for(j=0; j<3; j++) {
@@ -45,7 +42,6 @@ void move(int *p,char input) {
 			break;
 		case 'D':
 		case 'd':
-		case 77:
 		D:
 			for(i=0; i<4; i++)
 				for(j=2; j>-1; j--) {

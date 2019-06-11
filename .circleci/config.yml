@@ -15,6 +15,6 @@ workflows:
           requires:
             - aws-ecr/build_and_push_image
           aws-region: ${AWS_DEFAULT_REGION}
-          family: "nginx-hello"
+          family: "nginx-hello-service"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
           container-image-name-updates: "container=nginx-hello-service,tag=${CIRCLE_SHA1}"

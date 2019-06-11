@@ -17,4 +17,5 @@ workflows:
           aws-region: ${AWS_DEFAULT_REGION}
           family: "nginx-hello-service"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
-          container-image-name-updates: "container=nginx-hello-service,image-and-tag=nginx-hello:${CIRCLE_SHA1}"
+          container-image-name-updates: "container=nginx-hello-service,image-and-tag=083584264446.dkr.ecr.ap-south-1.amazonaws.com/nginx-hello:${CIRCLE_SHA1}"
+          verify-revision-is-deployed: true

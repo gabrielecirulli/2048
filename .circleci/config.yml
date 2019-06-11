@@ -8,14 +8,13 @@ workflows:
       - aws-ecr/build_and_push_image:
           account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
           # repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          repo: "svc-hello"
+          repo: "game-2048"
           region: ${AWS_DEFAULT_REGION}
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build_and_push_image
           aws-region: ${AWS_DEFAULT_REGION}
-          family: "${AWS_RESOURCE_NAME_PREFIX}-service"
+          family: "nginx-hello"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
-          # container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
-          container-image-name-updates: "container=svc-hello,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=nginx-hello-service,tag=${CIRCLE_SHA1}"

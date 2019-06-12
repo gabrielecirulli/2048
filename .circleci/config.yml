@@ -4,6 +4,8 @@ orbs:
   aws-ecs: circleci/aws-ecs@0.0.8
 workflows:
   build-and-deploy:
+    environment:
+      REPO_NAME: 'tf-chesslang'
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
@@ -14,7 +16,7 @@ workflows:
           requires:
             - aws-ecr/build_and_push_image
           aws-region: ${AWS_DEFAULT_REGION}
-          family: "${REPO_NAME}"
+          family: "${REPO_NAME}-service"
           cluster-name: "${REPO_NAME}-cluster"
           container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=083584264446.dkr.ecr.ap-south-1.amazonaws.com/${REPO_NAME}:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true

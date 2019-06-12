@@ -7,15 +7,14 @@ workflows:
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-          # repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          repo: "nginx-hello"
+          repo: "${REPO_NAME}"
           region: ${AWS_DEFAULT_REGION}
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build_and_push_image
           aws-region: ${AWS_DEFAULT_REGION}
-          family: "nginx-hello-service"
+          family: "${REPO_NAME}"
           cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
-          container-image-name-updates: "container=nginx-hello-service,image-and-tag=083584264446.dkr.ecr.ap-south-1.amazonaws.com/nginx-hello:${CIRCLE_SHA1}"
+          container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=083584264446.dkr.ecr.ap-south-1.amazonaws.com/${REPO_NAME}:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true

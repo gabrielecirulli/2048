@@ -2,6 +2,21 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@0.0.2
   aws-ecs: circleci/aws-ecs@0.0.8
+jobs:
+  deploy-service-update:
+    steps: 
+      - run: "export param='container=tf-chesslang-service,image-and-tag=085433797729.dkr.ecr.ap-southeast-1.amazonaws.com/tf-chesslang:$CIRCLE_SHA1'"
+      - run: "echo $param"
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build_and_push_image
+          aws-region: "${AWS_DEFAULT_REGION}"
+          family: "${REPO_NAME}-service"
+          cluster-name: "${REPO_NAME}-cluster"
+          container-image-name-updates: 
+          verify-revision-is-deployed: true
+
+
 workflows:
   build-and-deploy:
     jobs:
@@ -10,16 +25,4 @@ workflows:
       #     repo: "${REPO_NAME}"
       #     region: "${AWS_DEFAULT_REGION}"
       #     tag: "${CIRCLE_SHA1}"
-      - deploy-service-update:
-          steps: 
-            - run: "export param='container=tf-chesslang-service,image-and-tag=085433797729.dkr.ecr.ap-southeast-1.amazonaws.com/tf-chesslang:$CIRCLE_SHA1'"
-            - run: "echo $param"
-            - aws-ecs/deploy-service-update:
-                requires:
-                  - aws-ecr/build_and_push_image
-                aws-region: "${AWS_DEFAULT_REGION}"
-                family: "${REPO_NAME}-service"
-                cluster-name: "${REPO_NAME}-cluster"
-                container-image-name-updates: 
-                verify-revision-is-deployed: true
-
+      - deploy-service-update

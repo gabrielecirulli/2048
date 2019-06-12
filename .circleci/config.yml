@@ -16,5 +16,5 @@ workflows:
           aws-region: ${AWS_DEFAULT_REGION}
           family: "${REPO_NAME}-service"
           cluster-name: "${REPO_NAME}-cluster"
-          container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=083584264446.dkr.ecr.ap-south-1.amazonaws.com/${REPO_NAME}:${CIRCLE_SHA1}"
+          container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag={AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REPO_NAME}:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true

@@ -4,6 +4,8 @@ orbs:
   aws-ecs: circleci/aws-ecs@0.0.8
 workflows:
   build-and-deploy:
+    environment:
+      REPO_NAME: 'tf-chesslang'
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"

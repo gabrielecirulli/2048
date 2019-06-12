@@ -15,6 +15,6 @@ workflows:
             - aws-ecr/build_and_push_image
           aws-region: ${AWS_DEFAULT_REGION}
           family: "${REPO_NAME}"
-          cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+          cluster-name: "${REPO_NAME}-cluster"
           container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=083584264446.dkr.ecr.ap-south-1.amazonaws.com/${REPO_NAME}:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true

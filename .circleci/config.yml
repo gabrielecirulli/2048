@@ -15,6 +15,6 @@ workflows:
             - aws-ecr/build_and_push_image
           aws-region: "${AWS_DEFAULT_REGION}"
           family: "${REPO_NAME}-service"
-          cluster-name: "${REPO_NAME}-cluster"
-          container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tf-chesslang:${CIRCLE_SHA1}"
+          cluster-name: "tf-chesslang-cluster"
+          container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REPO_NAME}:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true

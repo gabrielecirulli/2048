@@ -18,5 +18,3 @@ workflows:
           cluster-name: "${REPO_NAME}-cluster"
           container-image-name-updates: "container=${REPO_NAME}-service,image-and-tag=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/tf-chesslang:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true
-
-

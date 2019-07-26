@@ -191,15 +191,28 @@ hr {
       height: 40px;
       line-height: 42px;
       margin-left: 9px; }
-      .game-container .game-message a.keep-playing-button {
+      .game-container .game-message a.keep-playing-button, .game-container .game-message a.confirm-button, .game-container .game-message a.cancel-button {
         display: none; }
     .game-container .game-message.game-won {
       background: rgba(237, 194, 46, 0.5);
       color: #f9f6f2; }
       .game-container .game-message.game-won a.keep-playing-button {
         display: inline-block; }
-    .game-container .game-message.game-won, .game-container .game-message.game-over {
+    .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message.restart-game {
       display: block; }
+    .game-container .game-message.restart-game {
+      -webkit-animation: fade-in 400ms ease 100ms;
+      -moz-animation: fade-in 400ms ease 100ms;
+      animation: fade-in 400ms ease 100ms;
+      -webkit-animation-fill-mode: both;
+      -moz-animation-fill-mode: both;
+      animation-fill-mode: both; }
+      .game-container .game-message.restart-game .lower {
+        margin-top: 85px; }
+        .game-container .game-message.restart-game .lower a.confirm-button, .game-container .game-message.restart-game .lower a.cancel-button {
+          display: inline-block; }
+        .game-container .game-message.restart-game .lower a.retry-button {
+          display: none; }
 
 .grid-container {
   position: absolute;
@@ -624,15 +637,28 @@ hr {
         height: 40px;
         line-height: 42px;
         margin-left: 9px; }
-        .game-container .game-message a.keep-playing-button {
+        .game-container .game-message a.keep-playing-button, .game-container .game-message a.confirm-button, .game-container .game-message a.cancel-button {
           display: none; }
       .game-container .game-message.game-won {
         background: rgba(237, 194, 46, 0.5);
         color: #f9f6f2; }
         .game-container .game-message.game-won a.keep-playing-button {
           display: inline-block; }
-      .game-container .game-message.game-won, .game-container .game-message.game-over {
+      .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message.restart-game {
         display: block; }
+      .game-container .game-message.restart-game {
+        -webkit-animation: fade-in 400ms ease 100ms;
+        -moz-animation: fade-in 400ms ease 100ms;
+        animation: fade-in 400ms ease 100ms;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        animation-fill-mode: both; }
+        .game-container .game-message.restart-game .lower {
+          margin-top: 85px; }
+          .game-container .game-message.restart-game .lower a.confirm-button, .game-container .game-message.restart-game .lower a.cancel-button {
+            display: inline-block; }
+          .game-container .game-message.restart-game .lower a.retry-button {
+            display: none; }
 
   .grid-container {
     position: absolute;

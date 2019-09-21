@@ -131,16 +131,16 @@ GameManager.prototype.move = function (direction) {
   // 0: up, 1: right, 2: down, 3: left
   var self = this;
 
-  if (this.isGameTerminated()) return; // Don't do anything if the game's over
+  if (self.isGameTerminated()) return; // Don't do anything if the game's over
 
   var cell, tile;
 
-  var vector     = this.getVector(direction);
-  var traversals = this.buildTraversals(vector);
+  var vector     = self.getVector(direction);
+  var traversals = self.buildTraversals(vector);
   var moved      = false;
 
   // Save the current tile positions and remove merger information
-  this.prepareTiles();
+  self.prepareTiles();
 
   // Traverse the grid in the right direction and move tiles
   traversals.x.forEach(function (x) {
@@ -180,14 +180,16 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
-    this.addRandomTile();
+    self.addRandomTile();
 
-    if (!this.movesAvailable()) {
-      this.over = true; // Game over!
+    if (!self.movesAvailable()) {
+      self.over = true; // Game over!
     }
 
-    this.actuate();
+    self.actuate();
   }
+
+  return moved;
 };
 
 // Get the vector representing the chosen direction

@@ -49,22 +49,33 @@ KeyboardInputManager.prototype.listen = function () {
     65: 3  // A
   };
 
+  var rotMap = {
+    33: -1, // page up (rotate left)
+    34: 1   // page down (rotate right)
+  }
+
   // Respond to direction keys
   document.addEventListener("keydown", function (event) {
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];
+	var rotMapped = rotMap[event.which];
 
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
         self.emit("move", mapped);
       }
-    }
 
-    // R key restarts the game
-    if (!modifiers && event.which === 82) {
-      self.restart.call(self, event);
+      if (rotMapped !== undefined) {
+        event.preventDefault();
+        self.emit("rotate", rotMapped);
+      }    
+
+      // R key restarts the game
+      if (event.which === 82) {
+        self.restart.call(self, event);
+      }
     }
   });
 

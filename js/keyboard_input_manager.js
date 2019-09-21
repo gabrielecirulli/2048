@@ -44,9 +44,11 @@ KeyboardInputManager.prototype.listen = function () {
     74: 2, // Vim down
     72: 3, // Vim left
     87: 0, // W
+    90: 0, // Z
     68: 1, // D
     83: 2, // S
-    65: 3  // A
+    65: 3, // A
+    81: 3  // Q
   };
 
   // Respond to direction keys

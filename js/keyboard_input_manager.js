@@ -125,6 +125,31 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+
+  var ctl = new Leap.Controller({enableGestures: true});
+  var swiper = ctl.gesture('swipe');
+  var tolerance = 50, last = (new Date()).getTime();
+  swiper.update(function(g) {
+    var x = g.translation()[0], y = g.translation()[1];
+    var abs_x = Math.abs(x), abs_y = Math.abs(y), dx = 0, dy = 0;
+
+    if (abs_x > tolerance || abs_y > tolerance) {
+      dx = abs_x > tolerance ? (x > 0 ? -1 : 1) : 0;
+      dy = abs_y > tolerance ? (y < 0 ? -1 : 1) : 0;
+      if (abs_y > abs_x)
+        dx = 0;
+
+    var t = (new Date()).getTime();
+    if (t - last > 300) {
+      console.log(last);
+      console.log(g.translation()[0] + ' ' + g.translation()[1])
+      console.log('dx ' + dx + ' dy ' + dy + " " + (t - last));
+      self.emit("move", dx != 0 ? (dx == 1 ? 1: 3) : (dy == 1 ? 2 : 0));
+      last = t;
+    }
+    }
+  });
+  ctl.connect();
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

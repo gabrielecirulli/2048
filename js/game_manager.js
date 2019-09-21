@@ -1,14 +1,20 @@
-function GameManager(size, InputManager, Actuator, StorageManager) {
+function GameManager(size, InputManager, Actuator, StorageManager, EventApi) {
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
+  this.eventApi       = new EventApi(this.move.bind(this), this.restart.bind(this));
 
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+
+  // Forward events to api
+  this.inputManager.on("move", this.eventApi.move.bind(this));
+  this.inputManager.on("restart", this.eventApi.restart.bind(this));
+  this.inputManager.on("keepPlaying", this.eventApi.keepPlaying.bind(this));
 
   this.setup();
 }
@@ -22,6 +28,7 @@ GameManager.prototype.restart = function () {
 
 // Keep playing after winning (allows going over 2048)
 GameManager.prototype.keepPlaying = function () {
+  this.eventApi.gameOver(); // Send the keep playing event
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
 };
@@ -181,8 +188,8 @@ GameManager.prototype.move = function (direction) {
 
   if (moved) {
     this.addRandomTile();
-
     if (!this.movesAvailable()) {
+      this.eventApi.gameOver(); // Send the gameOver event
       this.over = true; // Game over!
     }
 

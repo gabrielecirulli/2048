@@ -1,3 +1,4 @@
+#  [![Run on Repl.it](https://repl.it/badge/github/cursorweb/2048)](https://repl.it/github/cursorweb/2048)
 # ![2048](/favicon.ico)
 This is a fun spin-off made by me! Have fun!
 

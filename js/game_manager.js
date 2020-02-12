@@ -6,9 +6,14 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.startTiles     = 2;
 
+  // the game-states to "undo" to
+  this.undoLimit      = 5;
+  this.stateHistory   = [];
+
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("undo", this.undo.bind(this));
 
   this.setup();
 }
@@ -26,6 +31,19 @@ GameManager.prototype.keepPlaying = function () {
   this.actuator.continueGame(); // Clear the game won/lost message
 };
 
+// Undo last move
+GameManager.prototype.undo = function () {
+  if (this.stateHistory && this.stateHistory.length) {
+    var targetState = this.stateHistory.splice(this.stateHistory.length - 1, 1)[0];
+    this.grid        = new Grid(targetState.grid.size, targetState.grid.cells);
+    this.score       = targetState.score;
+    this.over        = targetState.over;
+    this.won         = targetState.won;
+    this.keepPlaying = targetState.keepPlaying;
+    this.actuate();
+  }
+};
+
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
   return this.over || (this.won && !this.keepPlaying);
@@ -38,7 +56,7 @@ GameManager.prototype.setup = function () {
   // Reload the game from a previous game if present
   if (previousState) {
     this.grid        = new Grid(previousState.grid.size,
-                                previousState.grid.cells); // Reload grid
+        previousState.grid.cells); // Reload grid
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
@@ -139,6 +157,9 @@ GameManager.prototype.move = function (direction) {
   var traversals = this.buildTraversals(vector);
   var moved      = false;
 
+  // save current state
+  var currentState = this.storageManager.getGameState();
+
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
@@ -180,6 +201,16 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
+
+    // push "before-move" state to history
+    if(this.stateHistory.length === this.undoLimit) {
+      this.stateHistory.splice(0, 1);
+      this.stateHistory = this.stateHistory.filter(Boolean); // reset indices
+    }
+    if(this.stateHistory.length < this.undoLimit) {
+      this.stateHistory.push(currentState);
+    }
+
     this.addRandomTile();
 
     if (!this.movesAvailable()) {
@@ -227,7 +258,7 @@ GameManager.prototype.findFarthestPosition = function (cell, vector) {
     previous = cell;
     cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
   } while (this.grid.withinBounds(cell) &&
-           this.grid.cellAvailable(cell));
+  this.grid.cellAvailable(cell));
 
   return {
     farthest: previous,

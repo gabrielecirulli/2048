@@ -51,4 +51,6 @@ The game is won when a tile with a value of 2048 appears on the board, hence the
 
 ## Demonstration in French
 
-<div style="text-align:center"><img src="https://media.giphy.com/media/IAEKrWOkQSN7es6XIJ/giphy.gif" /></div>
+<p align="center">
+  <img src="https://media.giphy.com/media/IAEKrWOkQSN7es6XIJ/giphy.gif" />
+</p>

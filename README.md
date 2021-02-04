@@ -45,6 +45,10 @@ If a move causes three consecutive tiles of the same value to slide together, on
 
 The game is won when a tile with a value of 2048 appears on the board, hence the name of the game. After reaching the 2048 tile, players can continue to play (beyond the 2048 tile) to reach higher scores. When the player has no legal moves (there are no empty spaces and no adjacent tiles with the same value), the game ends.
 
-## Demo
+## Tutorial in French
 
-<img src="https://media.giphy.com/media/IAEKrWOkQSN7es6XIJ/giphy.gif" />
+<div style="text-align:center"><img src="layout_tutorial.jpg" /></div>
+
+## Demonstration in French
+
+<div style="text-align:center"><img src="https://media.giphy.com/media/IAEKrWOkQSN7es6XIJ/giphy.gif" /></div>

@@ -22,6 +22,13 @@ html, body {
   .retry-button{
     background: #84C7B0 !important;
   }
+  .game-code{
+    text-align: center;
+  }
+  input, button{
+    font-size: inherit;
+    font-family: inherit;
+  }
   .tile-text{
     font-size: 16px;
     min-width: 25%;

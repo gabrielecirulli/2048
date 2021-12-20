@@ -83,4 +83,3 @@ let gameCode = getCookie("gameCode");
 if (gameCode != "" && (gameCode in imageData)) {
     loadGame(gameCode)
 }
-else alert("Looks like you don't have the right cookie on you.")

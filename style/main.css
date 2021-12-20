@@ -2,10 +2,38 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #faf8ef;
-  color: #776e65;
+  background: #ffffff;
+  color: black;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
+
+  .color1{
+    color: #84C7B0;
+  }
+  .color2{
+    color: #DB1D1C;
+  }
+  .color3{
+    color: #d67c15;
+  }
+  .color4{
+    color: #b25dcc;
+  }
+  .tile-text{
+    height: 20%;
+    font-size: 16px;
+    min-width: 25%;
+    padding: 1px;
+    color: rgb(0, 0, 0) !important;  
+    text-align: center;
+    line-height: normal !important;
+    background: rgb(255, 255, 255);
+    border-radius: 3px;
+  }
+  .tile-inner{
+    display: flex;
+    align-items: flex-end;
+  }
 
 body {
   margin: 80px 0; }
@@ -16,7 +44,7 @@ body {
   clear: both; }
 
 h1.title {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bold;
   margin: 0;
   display: block;
@@ -660,6 +688,7 @@ hr {
   .tile-container {
     position: absolute;
     z-index: 2; }
+
 
   .tile, .tile .tile-inner {
     width: 58px;

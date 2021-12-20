@@ -19,8 +19,10 @@ html, body {
   .color4{
     color: #b25dcc;
   }
+  .retry-button{
+    background: #84C7B0 !important;
+  }
   .tile-text{
-    height: 20%;
     font-size: 16px;
     min-width: 25%;
     padding: 1px;
@@ -81,7 +83,7 @@ h1.title {
 .score-container, .best-container {
   position: relative;
   display: inline-block;
-  background: #bbada0;
+  background: #b25dcc;
   padding: 15px 25px;
   font-size: 25px;
   height: 25px;
@@ -177,7 +179,7 @@ hr {
   -ms-user-select: none;
   -ms-touch-action: none;
   touch-action: none;
-  background: #bbada0;
+  background: #c2c2c2;
   border-radius: 6px;
   width: 500px;
   height: 500px;
@@ -248,7 +250,7 @@ hr {
   margin-right: 15px;
   float: left;
   border-radius: 3px;
-  background: rgba(238, 228, 218, 0.35); }
+  background: rgb(255 255 255 / 35%); }
   .grid-cell:last-child {
     margin-right: 0; }
 
@@ -547,7 +549,7 @@ hr {
 
 .restart-button {
   display: inline-block;
-  background: #8f7a66;
+  background: #d67c15;
   border-radius: 3px;
   padding: 0 20px;
   text-decoration: none;

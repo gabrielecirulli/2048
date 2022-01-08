@@ -23,7 +23,7 @@ function LocalStorageManager() {
   this.gameStateKey     = "gameState";
 
   var supported = this.localStorageSupported();
-  this.storage = supported ? window.localStorage : window.fakeStorage;
+  this.storage = /* supported ? window.localStorage : */ window.fakeStorage;
 }
 
 LocalStorageManager.prototype.localStorageSupported = function () {

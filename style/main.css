@@ -8,7 +8,9 @@ html, body {
   font-size: 18px; }
 
 body {
-  margin: 80px 0; }
+  display: flex;
+  flex-direction: row;
+}
 
 .heading:after {
   content: "";
@@ -50,7 +52,7 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+.score-container, .best-container, .step-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -63,7 +65,7 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center; }
-  .score-container:after, .best-container:after {
+  .score-container:after, .best-container:after, .step-container:after {
     position: absolute;
     width: 100%;
     top: 10px;
@@ -91,9 +93,13 @@ h1.title {
 
 .score-container:after {
   content: "Score"; }
+  
+.step-container:after {
+  content: "Steps"; }
 
 .best-container:after {
   content: "Best"; }
+
 
 p {
   margin-top: 0;
@@ -114,10 +120,6 @@ hr {
   border-bottom: 1px solid #d8d4d0;
   margin-top: 20px;
   margin-bottom: 30px; }
-
-.container {
-  width: 500px;
-  margin: 0 auto; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -544,10 +546,6 @@ hr {
   h1.title {
     font-size: 27px;
     margin-top: 15px; }
-
-  .container {
-    width: 280px;
-    margin: 0 auto; }
 
   .score-container, .best-container {
     margin-top: 0;

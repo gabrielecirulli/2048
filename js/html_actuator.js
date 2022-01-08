@@ -1,13 +1,14 @@
 function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
+  this.stepContainer    = document.querySelector(".step-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
 
   this.score = 0;
 }
 
-HTMLActuator.prototype.actuate = function (grid, metadata) {
+HTMLActuator.prototype.actuate = function (grid, metadata) {  
   var self = this;
 
   window.requestAnimationFrame(function () {
@@ -21,8 +22,34 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
       });
     });
 
+    self.updateSteps(metadata.steps);
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
+
+    async function init() {
+      visualizer = document.getElementById('visualizer');
+  
+      let plot = await Plotly.newPlot( visualizer, [{
+        x: metadata.history.map((entry)=>entry.steps),
+        y: metadata.history.map((entry)=>entry.score),
+        line: {
+          shape: 'spline',
+        },
+      }], {
+        margin: { t: 0 },
+        title: 'Test',
+        xaxis: {
+          title: 'Step'
+        },
+        yaxis: {
+          title: 'Score',
+          min: 0,
+        }
+      });
+  
+      console.log(metadata.history);
+    }
+    init();
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -101,6 +128,24 @@ HTMLActuator.prototype.normalizePosition = function (position) {
 HTMLActuator.prototype.positionClass = function (position) {
   position = this.normalizePosition(position);
   return "tile-position-" + position.x + "-" + position.y;
+};
+
+HTMLActuator.prototype.updateSteps = function (steps) {
+  this.clearContainer(this.stepContainer);
+
+  var difference = 1;
+
+  this.stepContainer.textContent = steps;
+
+  /*
+  if (difference > 0) {
+    var addition = document.createElement("div");
+    addition.classList.add("score-addition");
+    addition.textContent = "+" + difference;
+
+    this.stepContainer.appendChild(addition);
+  }
+  */
 };
 
 HTMLActuator.prototype.updateScore = function (score) {

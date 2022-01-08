@@ -1,6 +1,6 @@
 function GameManager(size, InputManager, Actuator, StorageManager) {
   this.size           = size; // Size of the grid
-  this.inputManager   = new InputManager;
+  this.inputManager   = new InputManager(this);
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
@@ -40,15 +40,19 @@ GameManager.prototype.setup = function () {
     this.grid        = new Grid(previousState.grid.size,
                                 previousState.grid.cells); // Reload grid
     this.score       = previousState.score;
+    this.steps       = previousState.steps;
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
+    this.history     = previousState.history;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
+    this.steps       = 0;
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
+    this.history     = [];
 
     // Add the initial tiles
     this.addStartTiles();
@@ -90,8 +94,10 @@ GameManager.prototype.actuate = function () {
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
+    steps:      this.steps,
     over:       this.over,
     won:        this.won,
+    history:    this.history,
     bestScore:  this.storageManager.getBestScore(),
     terminated: this.isGameTerminated()
   });
@@ -181,6 +187,8 @@ GameManager.prototype.move = function (direction) {
 
   if (moved) {
     this.addRandomTile();
+    this.steps += 1;
+    this.history.push({steps: this.steps, score: this.score});
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!

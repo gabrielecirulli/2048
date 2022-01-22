@@ -76,7 +76,7 @@ h1.title {
   line-height: $height + 22px;
   font-weight: bold;
   border-radius: 3px;
-  color: white;
+  color: blue;
   margin-top: 8px;
   text-align: center;
 
@@ -95,7 +95,7 @@ h1.title {
   .score-addition {
     position: absolute;
     right: 30px;
-    color: red;
+    color: purple;
     font-size: $height;
     line-height: $height;
     font-weight: bold;
@@ -336,7 +336,7 @@ hr {
   $limit: 11;
 
   // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
+  $special-colors: false false, // 8192
                    false false, // 4
                    #f78e48 true, // 8
                    #fc5e2e true, // 16

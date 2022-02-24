@@ -90,10 +90,10 @@ h1.title {
     animation-fill-mode: both; }
 
 .score-container:after {
-  content: "Score"; }
+  content: "分数"; }
 
 .best-container:after {
-  content: "Best"; }
+  content: "最高分"; }
 
 p {
   margin-top: 0;

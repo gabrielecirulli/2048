@@ -20,7 +20,8 @@ h1.title {
   font-weight: bold;
   margin: 0;
   display: block;
-  float: left; }
+  float: left;
+  color: #8f7a66; }
 
 @-webkit-keyframes move-up {
   0% {

@@ -14,7 +14,7 @@
       var id = window.setTimeout(function () {
         callback(currTime + timeToCall);
       },
-      timeToCall);
+        timeToCall);
       lastTime = currTime + timeToCall;
       return id;
     };

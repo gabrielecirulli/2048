@@ -1,13 +1,13 @@
 (function () {
   if (typeof window.Element === "undefined" ||
-      "classList" in document.documentElement) {
+    "classList" in document.documentElement) {
     return;
   }
 
   var prototype = Array.prototype,
-      push = prototype.push,
-      splice = prototype.splice,
-      join = prototype.join;
+    push = prototype.push,
+    splice = prototype.splice,
+    join = prototype.join;
 
   function DOMTokenList(el) {
     this.el = el;

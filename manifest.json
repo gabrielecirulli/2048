@@ -12,7 +12,11 @@
         {
             "src": "/favicon.svg",
             "type": "image/svg+xml",
-            "sizes": "144x144"
+            "sizes": "32x32"
+        },{
+            "src": "/meta/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "152x152"
         }
     ]
 }

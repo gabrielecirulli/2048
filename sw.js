@@ -22,7 +22,7 @@ const urlsToCache = [
     "/mata/apple-touch-startup-image-640x1096.png",
     "/style/fonts/ClearSans-Bold-webfont.woff",
     "/style/fonts/ClearSans-Regular-webfont.woff",
-    "/style/fonts/clear-sans.css"
+    "/style/fonts/clear-sans.css",
 ];
 
 self.addEventListener("install", (event) => {
@@ -36,13 +36,11 @@ self.addEventListener("activate", (event) => {
     console.log("Service worker activated");
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", (event) => {
     event.respondWith(
-      caches.match(event.request)
-      .then(cachedResponse => {
-        // It can update the cache to serve updated content on the next request
-          return cachedResponse || fetch(event.request);
-      }
-    )
-   )
- });
+        caches.match(event.request).then((cachedResponse) => {
+            // It can update the cache to serve updated content on the next request
+            return cachedResponse || fetch(event.request);
+        })
+    );
+});

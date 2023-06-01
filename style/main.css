@@ -332,7 +332,7 @@ hr {
     background: #eee4da;
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 .tile-inner {
-    background: #ede0c8;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/0/09/%E6%96%B0%E5%8C%97%E5%B8%82%E9%95%B7%E4%BE%AF%E5%8F%8B%E5%AE%9C.png")
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-8 .tile-inner {
     color: #f9f6f2;

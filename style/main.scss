@@ -1,7 +1,7 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 350px;
+$field-width: 500px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
@@ -16,7 +16,7 @@ $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
-$game-container-margin-top: 40px;
+$game-container-margin-top: 30px;
 $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
@@ -36,7 +36,9 @@ body {
 }
 
 .heading {
-  @include clearfix;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1.title {
@@ -70,14 +72,13 @@ h1.title {
   position: relative;
   display: inline-block;
   background: $game-container-background;
-  padding: 15px 25px;
+  padding: 20px 30px;
   font-size: $height;
   height: $height;
   line-height: $height + 22px;
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px;
   text-align: center;
 
   &:after {
@@ -107,11 +108,11 @@ h1.title {
 }
 
 .score-container:after {
-  content: "分数";
+  content: "得分";
 }
 
 .best-container:after {
-  content: "Best";
+  content: "记录";
 }
 
 p {
@@ -452,7 +453,10 @@ hr {
 }
 
 .above-game {
-  @include clearfix;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
 }
 
 .game-intro {
@@ -470,80 +474,4 @@ hr {
 
 .game-explanation {
   margin-top: 50px;
-}
-
-@include smaller($mobile-threshold) {
-  // Redefine variables for smaller screens
-  $field-width: 280px;
-  $grid-spacing: 10px;
-  $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-  $tile-border-radius: 3px;
-  $game-container-margin-top: 17px;
-
-  html, body {
-    font-size: 15px;
-  }
-
-  body {
-    margin: 20px 0;
-    padding: 0 20px;
-  }
-
-  h1.title {
-    font-size: 27px;
-    margin-top: 15px;
-  }
-
-  .container {
-    width: $field-width;
-    margin: 0 auto;
-  }
-
-  .score-container, .best-container {
-    margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px;
-  }
-
-  .heading {
-    margin-bottom: 10px;
-  }
-
-  // Show intro and restart button side by side
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65;
-  }
-
-  .restart-button {
-    width: 42%;
-    padding: 0;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 2px;
-  }
-
-  // Render the game field at the right width
-  @include game-field;
-
-  // Rest of the font-size adjustments in the tile class
-  .tile .tile-inner {
-    font-size: 35px;
-  }
-
-  .game-message {
-    p {
-      font-size: 30px !important;
-      height: 30px !important;
-      line-height: 30px !important;
-      margin-top: 90px !important;
-    }
-
-    .lower {
-      margin-top: 30px !important;
-    }
-  }
 }

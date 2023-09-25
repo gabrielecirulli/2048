@@ -756,3 +756,25 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #222;
+    color: #ddd;
+  }
+  div.score-container,
+  div.score-container::after {
+    color: #222;
+  }
+  div.best-container,
+  div.best-container::after {
+    color: #222;
+  }
+  div.tile-inner {
+    color: #222;
+  }
+  .game-over p,
+  .game-won p {
+    color: #222;
+  } }

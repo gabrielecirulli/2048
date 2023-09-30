@@ -1,19 +1,32 @@
 pipeline {
-agent {
-docker {
-image 'maven:latest' // Use the Maven Docker image as the build environment
-}
-}
-}
-
-stages {
-    stage('Build and Test') {
-        steps {
-            script {
-                // Clone the repository and build the Java application
-                git '<https://github.com/callSyedOsman/2048>'
-                sh 'mvn clean install' // Assuming Maven is used for building the Java application
-            }
-        }
+  agent {
+    docker {
+      image 'abhishekf5/maven-abhishek-docker-agent:v1'
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
-}
+  }
+  stages {
+    stage('Checkout') {
+      steps {
+        sh 'echo passed'
+        //git branch: 'master', url: 'https://github.com/callSyedOsman/2048'
+      }
+    }
+    stage('Build and Test') {
+      steps {
+        sh 'ls -ltr'
+        // build the project and create a JAR file
+        sh 'cd js && mvn clean package'
+      }
+    }
+    stage('Static Code Analysis') {
+      environment {
+        SONAR_URL = "http://34.222.52.196/:9000"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+          sh 'cd js && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+        }
+      }
+    }
+

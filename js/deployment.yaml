@@ -13,7 +13,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: app-2048
-  replicas: 5
+  replicas: 3
   template:
     metadata:
       labels:

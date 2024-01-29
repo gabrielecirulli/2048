@@ -7,11 +7,15 @@
   // positive intergers get multiplied
   @if $exponent > 1 {
     @for $i from 2 through $exponent {
-      $value: $value * $base; } }
+      $value: $value * $base;
+    }
+  }
   // negitive intergers get divided. A number divided by itself is 1
   @if $exponent < 1 {
     @for $i from 0 through -$exponent {
-      $value: $value / $base; } }
+      $value: $value / $base;
+    }
+  }
   // return the last value written
   @return $value;
 }

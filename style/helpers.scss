@@ -52,7 +52,6 @@
 @mixin transform($args...) {
   -webkit-transform: $args;
   -moz-transform: $args;
-  -ms-transform: $args;
   transform: $args;
 }
 
@@ -73,14 +72,5 @@
 @mixin smaller($width) {
   @media screen and (max-width: $width) {
     @content;
-  }
-}
-
-// Clearfix
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: block;
-    clear: both;
   }
 }

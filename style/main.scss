@@ -65,6 +65,30 @@ h1.title {
 .scores-container {
   float: right;
   text-align: right;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Styles for buttons
+@mixin button {
+  display: inline-block;
+  background: darken($game-container-background, 20%);
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: $bright-text-color;
+  height: 40px;
+  line-height: 42px;
+}
+
+.restart-button {
+  @include button;
+  display: block;
+  text-align: center;
+  float: right;
 }
 
 .score-container,
@@ -464,7 +488,12 @@ hr {
   @include animation(pop 200ms ease $transition-speed);
   @include animation-fill-mode(backwards);
 }
-
+.above-game {
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .game-intro {
   margin-bottom: 0;
 }

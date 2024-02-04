@@ -508,6 +508,9 @@ hr {
 
   .heading {
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   // Render the game field at the right width

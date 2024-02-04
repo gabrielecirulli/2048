@@ -489,6 +489,9 @@ hr {
 
   .container {
     width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   h1.title {
@@ -683,6 +686,9 @@ hr {
 
   .container {
     width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   h1.title {

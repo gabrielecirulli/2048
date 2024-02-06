@@ -35,17 +35,20 @@
         <h1 class="title">2048: Way of the Cross</h1>
         <div class="scores-container">
           <a class="restart-button">Nová hra</a>
-          <div class="score-container">0</div>
-          <div class="best-container">0</div>
+          <div class="score-container">
+            496
+            <div class="score-addition">+496</div>
+          </div>
+          <div class="best-container">22812</div>
         </div>
       </div>
 
       <!-- <div class="above-game">
-        <p class="game-intro">
-          Objev všech 14 zastavení <strong>Ježíšovi cesty!</strong>
-        </p>
-        <a class="restart-button">Nová hra</a>
-      </div> -->
+       <p class="game-intro">
+         Objev všech 14 zastavení <strong>Ježíšovi cesty!</strong>
+       </p>
+       <a class="restart-button">Nová hra</a>
+     </div> -->
 
       <div class="game-container">
         <div class="game-message">
@@ -94,7 +97,50 @@
           </div>
         </div>
 
-        <div class="tile-container"></div>
+        <div class="tile-container">
+          <div class="tile tile-2 tile-position-1-1 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-4 tile-position-1-2 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-8 tile-position-1-3 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-16 tile-position-1-4 tile-new">
+            <div class="tile-inner">4</div>
+          </div>
+          <div class="tile tile-32 tile-position-1-5 tile-new">
+            <div class="tile-inner">16</div>
+          </div>
+          <div class="tile tile-64 tile-position-2-1 tile-new">
+            <div class="tile-inner">4</div>
+          </div>
+          <div class="tile tile-128 tile-position-2-2 tile-new">
+            <div class="tile-inner">4</div>
+          </div>
+          <div class="tile tile-256 tile-position-2-3 tile-new">
+            <div class="tile-inner">8</div>
+          </div>
+          <div class="tile tile-512 tile-position-2-4 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-1024 tile-position-2-5 tile-new">
+            <div class="tile-inner">8</div>
+          </div>
+          <div class="tile tile-2048 tile-position-3-1 tile-new">
+            <div class="tile-inner">16</div>
+          </div>
+          <div class="tile tile-4096 tile-position-3-2 tile-new">
+            <div class="tile-inner">16</div>
+          </div>
+          <div class="tile tile-8192 tile-position-3-3 tile-new">
+            <div class="tile-inner">32</div>
+          </div>
+          <div class="tile tile-16384 tile-position-3-4 tile-new">
+            <div class="tile-inner">32</div>
+          </div>
+        </div>
       </div>
 
       <p class="game-explanation">
@@ -117,16 +163,5 @@
         >
       </p>
     </div>
-
-    <script src="js/bind_polyfill.js"></script>
-    <script src="js/classlist_polyfill.js"></script>
-    <script src="js/animframe_polyfill.js"></script>
-    <script src="js/keyboard_input_manager.js"></script>
-    <script src="js/html_actuator.js"></script>
-    <script src="js/grid.js"></script>
-    <script src="js/tile.js"></script>
-    <script src="js/local_storage_manager.js"></script>
-    <script src="js/game_manager.js"></script>
-    <script src="js/application.js"></script>
   </body>
 </html>

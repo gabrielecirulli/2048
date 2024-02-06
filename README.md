@@ -6,7 +6,7 @@ Using new Way of the Cross aproved by Benedikt XVI.
 
 ## New way symbols
 
-| NO. | NAME                                               | ICON              | NOTION              |
+| NO. | NAME                                               | ICON              | CITATION            |
 | --- | -------------------------------------------------- | ----------------- | ------------------- |
 | 1.  | Jesus in the Garden of Olives                      | ![](icons/01.svg) | (Mk 14,32–36)       |
 | 2.  | Jesus is betrayed by Judas and arrested            | ![](icons/02.svg) | (Mk 14,43,45–46)    |

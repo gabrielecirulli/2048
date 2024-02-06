@@ -1,5 +1,6 @@
 @import "_helpers";
 @import "fonts/clear-sans.css";
+@import "_icons";
 
 $field-width: 500px;
 $grid-spacing: 15px;
@@ -353,7 +354,7 @@ hr {
 
   $base: 2;
   $exponent: 1;
-  $limit: 11;
+  $limit: 17;
 
   // Colors for all 11 states, false = no special color
   $special-colors:
@@ -377,7 +378,19 @@ hr {
     // 512
     false true,
     // 1024
-    false true; // 2048
+    false true,
+    // 2048
+    #48f78e true,
+    // 4096
+    #2efc5e true,
+    // 8192
+    #33ff33 true,
+    // 16384
+    #00ff00 true,
+    // 32768
+    #007a7a true,
+    //65536
+    #0000ff true; //131072
 
   // Build tile colors
   @while $exponent <= $limit {

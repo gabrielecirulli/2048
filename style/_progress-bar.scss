@@ -1,0 +1,24 @@
+.progress-icon {
+   margin: 0.4rem;
+   @include smaller($mobile-threshold) {
+      width: 2rem;
+   }
+
+   @include smaller($super-small-phones) {
+      width: 1.8rem;
+   }
+}
+
+.progress-not-open {
+   cursor: not-allowed;
+   touch-action: none;
+   opacity: 0.2;
+}
+
+.progress-bar {
+   margin-top: 1rem;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+}

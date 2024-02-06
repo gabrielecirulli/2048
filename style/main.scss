@@ -21,6 +21,8 @@ $game-container-background: #bbada0;
 
 $transition-speed: 200ms;
 
+@import "_progress-bar.scss";
+
 html,
 body {
   margin: 0;
@@ -89,6 +91,13 @@ h1.title {
   display: block;
   text-align: center;
   float: right;
+  @include smaller($mobile-threshold) {
+    font-size: 1rem;
+  }
+
+  @include smaller($super-small-phones) {
+    font-size: 0.8rem;
+  }
 }
 
 .score-container,
@@ -107,6 +116,14 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center;
+
+  @include smaller($mobile-threshold) {
+    font-size: 1.5rem;
+  }
+
+  @include smaller($super-small-phones) {
+    font-size: 1rem;
+  }
 
   &:after {
     position: absolute;

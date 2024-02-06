@@ -353,43 +353,25 @@ hr {
 
   $base: 2;
   $exponent: 1;
-  $limit: 17;
+  $limit: 14;
 
   // Colors for all 11 states, false = no special color
   $special-colors:
-    false false,
-    // 2
-    false false,
-    // 4
-    #f78e48 true,
-    // 8
-    #fc5e2e true,
-    // 16
-    #ff3333 true,
-    // 32
-    #ff0000 true,
-    // 64
-    false true,
-    // 128
-    false true,
-    // 256
-    false true,
-    // 512
-    false true,
-    // 1024
-    false true,
-    // 2048
-    #48f78e true,
-    // 4096
-    #2efc5e true,
-    // 8192
-    #33ff33 true,
-    // 16384
-    #00ff00 true,
-    // 32768
-    #007a7a true,
-    //65536
-    #0000ff true; //131072
+    #ede3d9 true,
+    #eed1b9 true,
+    #f0bf9b true,
+    #f2ab80 true,
+    #f49668 true,
+    #f67e54 true,
+    #f76345 true,
+    #fc7441 true,
+    #ff843d true,
+    #ff943a true,
+    #ffa439 true,
+    #ffb43b true,
+    #ffc440 true,
+    #ffd447 true;
+  // 16384
 
   // Build tile colors
   @while $exponent <= $limit {

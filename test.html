@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <title>2048: Way of the Cross</title>
+
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="meta/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-startup-image"
+      href="meta/apple-touch-startup-image-640x1096.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+    />
+    <!-- iPhone 5+ -->
+    <link
+      rel="apple-touch-startup-image"
+      href="meta/apple-touch-startup-image-640x920.png"
+      media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"
+    />
+    <!-- iPhone, retina -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="375" />
+    <meta
+      name="viewport"
+      content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">
+        <h1 class="title">2048: Way of the Cross</h1>
+        <div class="scores-container">
+          <a class="restart-button">Nová hra</a>
+          <div class="score-container">
+            496
+            <div class="score-addition">+496</div>
+          </div>
+          <div class="best-container">22812</div>
+        </div>
+      </div>
+
+      <!-- <div class="above-game">
+       <p class="game-intro">
+         Objev všech 14 zastavení <strong>Ježíšovi cesty!</strong>
+       </p>
+       <a class="restart-button">Nová hra</a>
+     </div> -->
+
+      <div class="game-container">
+        <div class="game-message">
+          <p></p>
+          <div class="lower">
+            <a class="keep-playing-button">Pokračovat ve hře</a>
+            <a class="retry-button">Zkusit znovu</a>
+          </div>
+        </div>
+
+        <div class="grid-container">
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+        </div>
+
+        <div class="tile-container">
+          <div class="tile tile-2 tile-position-1-1 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-4 tile-position-1-2 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-8 tile-position-1-3 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-16 tile-position-1-4 tile-new">
+            <div class="tile-inner">4</div>
+          </div>
+          <div class="tile tile-32 tile-position-1-5 tile-new">
+            <div class="tile-inner">16</div>
+          </div>
+          <div class="tile tile-64 tile-position-2-1 tile-new">
+            <div class="tile-inner">4</div>
+          </div>
+          <div class="tile tile-128 tile-position-2-2 tile-new">
+            <div class="tile-inner">4</div>
+          </div>
+          <div class="tile tile-256 tile-position-2-3 tile-new">
+            <div class="tile-inner">8</div>
+          </div>
+          <div class="tile tile-512 tile-position-2-4 tile-new">
+            <div class="tile-inner">2</div>
+          </div>
+          <div class="tile tile-1024 tile-position-2-5 tile-new">
+            <div class="tile-inner">8</div>
+          </div>
+          <div class="tile tile-2048 tile-position-3-1 tile-new">
+            <div class="tile-inner">16</div>
+          </div>
+          <div class="tile tile-4096 tile-position-3-2 tile-new">
+            <div class="tile-inner">16</div>
+          </div>
+          <div class="tile tile-8192 tile-position-3-3 tile-new">
+            <div class="tile-inner">32</div>
+          </div>
+          <div class="tile tile-16384 tile-position-3-4 tile-new">
+            <div class="tile-inner">32</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="game-explanation">
+        <strong class="important">Jak hrát:</strong> Použij
+        <strong>šipky na klávesnici</strong> k&nbsp;pohybování čtverečků. Pokud
+        spojíš dvě zastavení s&nbsp;stejnými symboly
+        <strong>vytvoří jeden nový!</strong>
+      </p>
+      <hr />
+      <p>
+        Vytvořeno
+        <a
+          href="https://www.bihk.cz/biskupstvi/diecezni-centrum-pro-mladez/"
+          target="_blank"
+          >DCM Hradec Králové</a
+        >
+        a&nbsp;vychází z&nbsp;projektu
+        <a href="https://github.com/gabrielecirulli/2048" target="_blank"
+          >2048.</a
+        >
+      </p>
+    </div>
+  </body>
+</html>

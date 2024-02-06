@@ -59,10 +59,12 @@
 .tile.tile-8192 .tile-inner {
    background-image: url("/icons/13.svg");
    @include image-background;
-   box-shadow: 0 0 5px #ffc440;
+   // box-shadow: 0 0 5px #ffc440;
+   background-color: #00e6f4;
 }
 .tile.tile-16384 .tile-inner {
    background-image: url("/icons/14.svg");
    @include image-background;
-   box-shadow: 0 0 10px #ffd447;
+   // box-shadow: 0 0 10px #47d3ff;
+   background-color: #47d3ff;
 }

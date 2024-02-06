@@ -358,19 +358,22 @@ hr {
   // Colors for all 11 states, false = no special color
   $special-colors:
     #ede3d9 true,
-    #eed1b9 true,
-    #f0bf9b true,
-    #f2ab80 true,
-    #f49668 true,
-    #f67e54 true,
+    #eed3bb true,
+    #f2b086 true,
     #f76345 true,
-    #fc7441 true,
-    #ff843d true,
-    #ff943a true,
-    #ffa439 true,
-    #ffb43b true,
-    #ffc440 true,
-    #ffd447 true;
+    // orange
+    #ff803e true,
+    #ff9c3a true,
+    #ffb83c true,
+    #ffd447 true,
+    // yellow
+    #d7e138 true,
+    #a2ed43 true,
+    #45f763 true,
+    // green
+    #00f2bd true,
+    #00e6f4 true,
+    #47d3ff true;
   // 16384
 
   // Build tile colors

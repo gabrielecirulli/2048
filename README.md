@@ -6,24 +6,32 @@ Using new Way of the Cross aproved by Benedikt XVI.
 
 ## New way symbols
 
-| NO. | NAME                                               | ICON              | CITATION            |
-| --- | -------------------------------------------------- | ----------------- | ------------------- |
-| 1.  | Jesus in the Garden of Olives                      | ![](icons/01.svg) | (Mk 14,32–36)       |
-| 2.  | Jesus is betrayed by Judas and arrested            | ![](icons/02.svg) | (Mk 14,43,45–46)    |
-| 3.  | Jesus is condemned by the Sanhedrin                | ![](icons/03.svg) | (Mk 14,55,60–62,64) |
-| 4.  | Jesus is denied by Peter                           | ![](icons/04.svg) | (Mk 14,72)          |
-| 5.  | Jesus is judged by Pilate                          | ![](icons/05.svg) | (Mk 15,14–15)       |
-| 6.  | Jesus is scourged and crowned with thorns          | ![](icons/06.svg) | (Mk 15,17–19)       |
-| 7.  | Jesus takes up his cross                           | ![](icons/07.svg) | (Mk 15,20–21a)      |
-| 8.  | Jesus is helped by the Cyrenean to carry his cross | ![](icons/08.svg) | (Mk 15,21)          |
-| 9.  | Jesus meets the women of Jerusalem                 | ![](icons/09.svg) | (Lk 23,27–28,31)    |
-| 10. | Jesus is crucified                                 | ![](icons/10.svg) | (Mk 15,24)          |
-| 11. | Jesus promises his Kingdom to the good thief       | ![](icons/11.svg) | (Lk 23,39–43)       |
-| 12. | The crucified Jesus, the Mother and the disciple   | ![](icons/12.svg) | (Jan, 19,26–27)     |
-| 13. | Jesus dies on the cross                            | ![](icons/13.svg) | (Mk 15,34,36–37)    |
-| 14. | Jesus is laid in the tomb                          | ![](icons/14.svg) | (Mk 15,46)          |
+| NO.                  | NAME                                                             | ICON              | CITATION            |
+| -------------------- | ---------------------------------------------------------------- | ----------------- | ------------------- |
+| 1.                   | Jesus in the Garden of Olives                                    | ![](icons/01.svg) | (Mk 14,32–36)       |
+| 2.                   | Jesus is betrayed by Judas and arrested                          | ![](icons/02.svg) | (Mk 14,43,45–46)    |
+| 3.                   | Jesus is condemned by the Sanhedrin                              | ![](icons/03.svg) | (Mk 14,55,60–62,64) |
+| 4.                   | Jesus is denied by Peter                                         | ![](icons/04.svg) | (Mk 14,72)          |
+| 5.                   | Jesus is judged by Pilate                                        | ![](icons/05.svg) | (Mk 15,14–15)       |
+| 6.                   | Jesus is scourged and crowned with thorns                        | ![](icons/06.svg) | (Mk 15,17–19)       |
+| 7.                   | Jesus takes up his cross                                         | ![](icons/07.svg) | (Mk 15,20–21a)      |
+| 8.                   | Jesus is helped by the Cyrenean to carry his cross               | ![](icons/08.svg) | (Mk 15,21)          |
+| 9.                   | Jesus meets the women of Jerusalem                               | ![](icons/09.svg) | (Lk 23,27–28,31)    |
+| 10.                  | Jesus is crucified                                               | ![](icons/10.svg) | (Mk 15,24)          |
+| 11.                  | Jesus promises his Kingdom to the good thief                     | ![](icons/11.svg) | (Lk 23,39–43)       |
+| 12.                  | The crucified Jesus, the Mother and the disciple                 | ![](icons/12.svg) | (Jan, 19,26–27)     |
+| 13.                  | Jesus dies on the cross                                          | ![](icons/13.svg) | (Mk 15,34,36–37)    |
+| 14.                  | Jesus is laid in the tomb                                        | ![](icons/14.svg) | (Mk 15,46)          |
+| **Way of the Light** |
+| 15.                  | Jesus Rises from the Dead                                        | ![](icons/15.svg) | (Mt 28,5-6)         |
+| 16.                  | The Disciples Discover the Empty Tomb                            | ![](icons/16.svg) | (Jan 20,6-8)        |
+| 17.                  | The Risen Lord Appears to Mary Magdalen, Apostle to the Apostles | ![](icons/17.svg) | (Jan 20,16.18)      |
+| 18.                  | The Risen Lord Appears on the Road to Emmaus                     | ![](icons/18.svg) | (Lk 24,13.15.25.27) |
 
-https://www.vatican.va/news_services/liturgy/2007/documents/ns_lit_doc_20070406_via-crucis_en.html
+### Sources
+
+- https://www.vatican.va/news_services/liturgy/2007/documents/ns_lit_doc_20070406_via-crucis_en.html
+- https://www.catholicnewsagency.com/resource/55486/via-lucis-way-of-the-light
 
 
 

@@ -15,6 +15,12 @@
    opacity: 0.2;
 }
 
+.progress-open {
+   cursor: pointer;
+   touch-action: auto;
+   opacity: 1;
+}
+
 .progress-bar {
    margin-top: 1rem;
    width: 100%;

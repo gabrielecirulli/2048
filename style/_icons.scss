@@ -1,0 +1,66 @@
+@mixin image-background {
+   background-position: center;
+   background-repeat: no-repeat;
+
+   /* Hide the text. */
+   text-indent: 100%;
+   white-space: nowrap;
+   overflow: hidden;
+}
+.tile.tile-2 .tile-inner {
+   background-image: url("/icons/01.svg");
+   @include image-background;
+}
+
+.tile.tile-4 .tile-inner {
+   background-image: url("/icons/02.svg");
+   @include image-background;
+}
+.tile.tile-8 .tile-inner {
+   background-image: url("/icons/03.svg");
+   @include image-background;
+}
+.tile.tile-16 .tile-inner {
+   background-image: url("/icons/04.svg");
+   @include image-background;
+}
+.tile.tile-32 .tile-inner {
+   background-image: url("/icons/05.svg");
+   @include image-background;
+}
+.tile.tile-64 .tile-inner {
+   background-image: url("/icons/06.svg");
+   @include image-background;
+}
+.tile.tile-128 .tile-inner {
+   background-image: url("/icons/07.svg");
+   @include image-background;
+}
+.tile.tile-256 .tile-inner {
+   background-image: url("/icons/08.svg");
+   @include image-background;
+}
+.tile.tile-512 .tile-inner {
+   background-image: url("/icons/09.svg");
+   @include image-background;
+}
+.tile.tile-1024 .tile-inner {
+   background-image: url("/icons/10.svg");
+   @include image-background;
+}
+.tile.tile-2048 .tile-inner {
+   background-image: url("/icons/11.svg");
+   @include image-background;
+}
+.tile.tile-4096 .tile-inner {
+   background-image: url("/icons/12.svg");
+   @include image-background;
+}
+.tile.tile-8192 .tile-inner {
+   background-image: url("/icons/13.svg");
+   @include image-background;
+}
+.tile.tile-16384 .tile-inner {
+   background-image: url("/icons/14.svg");
+   @include image-background;
+}

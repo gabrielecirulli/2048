@@ -1,6 +1,5 @@
 @import "_helpers";
 @import "fonts/clear-sans.css";
-@import "_icons";
 
 $field-width: 500px;
 $grid-spacing: 15px;
@@ -911,3 +910,5 @@ hr {
     }
   }
 }
+
+@import "_icons";

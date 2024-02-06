@@ -353,7 +353,7 @@ hr {
 
   $base: 2;
   $exponent: 1;
-  $limit: 14;
+  $limit: 18;
 
   // Colors for all 11 states, false = no special color
   $special-colors:
@@ -373,8 +373,11 @@ hr {
     // green
     #00f2bd true,
     #00e6f4 true,
-    #47d3ff true;
-  // 16384
+    #47d3ff true,
+    #00c3ff true,
+    #3ca9ff true,
+    #ac7eff true,
+    #fd12f5 true;
 
   // Build tile colors
   @while $exponent <= $limit {

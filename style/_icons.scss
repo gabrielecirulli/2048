@@ -6,7 +6,16 @@
    text-indent: 100%;
    white-space: nowrap;
    overflow: hidden;
+
+   @include smaller($mobile-threshold) {
+      background-size: 2rem;
+   }
+
+   @include smaller($super-small-phones) {
+      background-size: 1.6rem;
+   }
 }
+
 .tile.tile-2 .tile-inner {
    background-image: url("/icons/01.svg");
    @include image-background;

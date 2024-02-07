@@ -77,3 +77,31 @@
    // box-shadow: 0 0 10px #47d3ff;
    background-color: #47d3ff;
 }
+
+.tile.tile-32768 .tile-inner {
+   background-image: url("/icons/15.svg");
+   @include image-background;
+   // box-shadow: 0 0 10px #47d3ff;
+   background-color: #00c3ff;
+}
+
+.tile.tile-65536 .tile-inner {
+   background-image: url("/icons/16.svg");
+   @include image-background;
+   // box-shadow: 0 0 10px #47d3ff;
+   background-color: #3ca9ff;
+}
+
+.tile.tile-131072 .tile-inner {
+   background-image: url("/icons/17.svg");
+   @include image-background;
+   // box-shadow: 0 0 10px #47d3ff;
+   background-color: #ac7eff;
+}
+
+.tile.tile-262144 .tile-inner {
+   background-image: url("/icons/18.svg");
+   @include image-background;
+   // box-shadow: 0 0 10px #47d3ff;
+   background-color: #fd12f5;
+}

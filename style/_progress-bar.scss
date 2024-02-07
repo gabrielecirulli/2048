@@ -1,0 +1,62 @@
+.progress-icon {
+   margin: 0.4rem;
+   @include smaller($mobile-threshold) {
+      width: 2rem;
+   }
+
+   @include smaller($super-small-phones) {
+      width: 1.8rem;
+   }
+}
+
+.progress-not-open {
+   cursor: not-allowed;
+   touch-action: none;
+   opacity: 0.2;
+}
+
+.progress-open {
+   cursor: pointer;
+   touch-action: auto;
+   opacity: 1;
+}
+
+.progress-not-display {
+   display: none;
+}
+
+.progress-bar {
+   margin-top: 1rem;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+}
+
+.progress-text-box {
+   width: 100%;
+   margin-bottom: 2rem;
+   margin-top: 1rem;
+   padding-top: 0rem;
+   padding-bottom: 1rem;
+   border-top: 1px solid #776e652a;
+   border-bottom: 1px solid #776e652a;
+}
+
+.progress-icon-box {
+   display: flex;
+   flex-direction: row;
+   // align-items: self-start;
+}
+
+.progress-text-header {
+   width: 100%;
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content: space-between;
+   align-items: center;
+}
+.progress-text-close {
+   height: 2rem;
+   cursor: pointer;
+}

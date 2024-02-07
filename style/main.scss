@@ -1,5 +1,5 @@
 @import "_helpers";
-@import "fonts/clear-sans.css";
+@import "fonts/roboto.css";
 
 $field-width: 500px;
 $grid-spacing: 15px;
@@ -21,14 +21,17 @@ $game-container-background: #bbada0;
 
 $transition-speed: 200ms;
 
+@import "_progress-bar.scss";
+
 html,
 body {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
 
   background: #faf8ef;
   color: $text-color;
-  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
 }
 
@@ -48,6 +51,7 @@ h1.title {
   margin: 0;
   display: block;
   float: left;
+  margin-bottom: 0.5rem;
 }
 
 @include keyframes("move-up") {
@@ -89,6 +93,13 @@ h1.title {
   display: block;
   text-align: center;
   float: right;
+  @include smaller($mobile-threshold) {
+    font-size: 1rem;
+  }
+
+  @include smaller($super-small-phones) {
+    font-size: 0.8rem;
+  }
 }
 
 .score-container,
@@ -107,6 +118,14 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center;
+
+  @include smaller($mobile-threshold) {
+    font-size: 1.5rem;
+  }
+
+  @include smaller($super-small-phones) {
+    font-size: 1rem;
+  }
 
   &:after {
     position: absolute;
@@ -353,7 +372,7 @@ hr {
 
   $base: 2;
   $exponent: 1;
-  $limit: 14;
+  $limit: 18;
 
   // Colors for all 11 states, false = no special color
   $special-colors:
@@ -373,8 +392,11 @@ hr {
     // green
     #00f2bd true,
     #00e6f4 true,
-    #47d3ff true;
-  // 16384
+    #47d3ff true,
+    #00c3ff true,
+    #3ca9ff true,
+    #ac7eff true,
+    #fd12f5 true;
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -533,6 +555,7 @@ hr {
   }
 
   .heading {
+    width: 100%;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;

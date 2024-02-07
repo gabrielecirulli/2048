@@ -3,6 +3,43 @@ const numbers = [
   65536, 131072, 262144,
 ];
 
+const stations = [
+  "Ježíš v&nbsp;zahradě Getsemanské",
+  "Ježíš, zrazený Jidášem, je zatčen",
+  "Ježíš je odsouzen",
+  "Ježíš je zapřen Petrem",
+  "Ježíš je souzen Pilátem",
+  "Ježíš je zbičován a&nbsp;korunován trny",
+  "Ježíš přijímá svůj kříž",
+  "Šimon Kyrenský pomáhá Ježíši nést jeho kříž",
+  "Ježíš se setkal s&nbsp;jeruzalémskými ženami",
+  "Ježíš je ukřižován",
+  "Ježíš slibuje své království odsouzenému zločinci",
+  "Ježíš na kříži, jeho matka a&nbsp;učedník",
+  "Ježíš umírá na kříži",
+  "Ježíš je pohřben",
+  "Ježíš v&nbsp;zahradě Getsemanské",
+  "Ježíš byl vzkříšen",
+  "Petr a&nbsp;Jan u&nbsp;prázdného hrobu",
+  "Setkání s&nbsp;Máří Magdalenou",
+  "Na cestě do Emauz",
+];
+
+let lastMaxValue = 0;
+
+function informAboutNewStation(station) {
+  const el = document.querySelector("#new-station");
+  el.innerHTML = `<p class="new-station-title">Objeveno ${
+    numbers.indexOf(station) + 1
+  }. zastavení - ${stations[numbers.indexOf(station)]}</p>`;
+
+  el.classList.add("tile-merged");
+
+  setTimeout(() => {
+    el.innerHTML = "";
+  }, 5000);
+}
+
 function updateProgress(grid) {
   // console.log(grid);
   // get max value
@@ -20,6 +57,11 @@ function updateProgress(grid) {
     const el = document.querySelector(`#progress-${numbers[i]}`);
     el.classList.remove("progress-not-display", "progress-not-open");
     el.classList.add("progress-open");
+  }
+
+  if (lastMaxValue < maxValue) {
+    if (lastMaxValue !== 0) informAboutNewStation(maxValue);
+    lastMaxValue = maxValue;
   }
 }
 

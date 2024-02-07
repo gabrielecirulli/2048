@@ -66,6 +66,21 @@ h1.title {
   }
 }
 
+.new-station {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.new-station-title {
+  font-weight: 600;
+  // text-align: center;
+  margin: 0;
+  @include animation(pop 200ms ease $transition-speed);
+  @include animation-fill-mode(backwards);
+}
+
 .scores-container {
   float: right;
   text-align: right;

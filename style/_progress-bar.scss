@@ -19,6 +19,8 @@
    cursor: pointer;
    touch-action: auto;
    opacity: 1;
+   @include animation(pop 200ms ease $transition-speed);
+   @include animation-fill-mode(backwards);
 }
 
 .progress-not-display {

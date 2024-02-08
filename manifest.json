@@ -1,13 +1,13 @@
 {
   "background_color": "#faf8ef",
   "display": "fullscreen",
-  "name": "2048: Way of the Cross",
+  "name": "Křížová cesta",
   "orientation": "portrait",
   "scope": "/",
-  "short_name": "Way of the Cross",
+  "short_name": "Křížová cesta",
   "start_url": "/",
   "theme_color": "#776e65",
-  "description": "Klon hry 2048 na motivy křížové cesty a cesty světla na jarní královehradecké Diecézko.",
+  "description": "Merguj a objev celou křížovou! Inspirováno hrou 2048 a je vyvinuta pro účely jarního Diecézka 2024 v Královehradecké diecézi.",
   "dir": "auto",
   "lang": "cs",
   "categories": [

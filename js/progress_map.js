@@ -54,14 +54,6 @@ function informAboutNewStation(station) {
   }, 5000);
 }
 
-document.addEventListener("click", function (event) {
-  // Získání elementu, na který bylo kliknuto
-  var clickedElement = event.target;
-
-  // Vypsání názvu tagu tohoto elementu
-  console.log(clickedElement.tagName);
-});
-
 function updateProgress(grid) {
   // console.log(grid);
   // get max value

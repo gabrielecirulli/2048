@@ -1,7 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sword" width="44"
-   height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#776e65" fill="none"
-   stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-   <path d="M20 4v5l-9 7l-4 4l-3 -3l4 -4l7 -9z" />
-   <path d="M6.5 11.5l6 6" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="icon icon-tabler icon-tabler-crown"
+   width="44"
+   height="44"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="#776e65"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg1089"
+   sodipodi:docname="02.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1093" />
+  <sodipodi:namedview
+     id="namedview1091"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.7102273"
+     inkscape:cx="17.302774"
+     inkscape:cy="56.260555"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1089" />
+  <g
+     aria-label="II"
+     id="text301"
+     style="font-size:4.50242px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#776e65;stroke:none;stroke-width:13.2446;stroke-miterlimit:16.7;paint-order:markers fill stroke">
+    <path
+       d="M 0.9211494,0 V 3.0008805 H 0 V 0 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2072" />
+    <path
+       d="M 2.3655292,0 V 3.0008805 H 1.4443798 V 0 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2074" />
+  </g>
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     fill="none"
+     id="path1085" />
+  <path
+     d="m 12,8.2363178 2.509105,3.7636572 3.136382,-2.5091047 -1.254553,6.2727617 H 7.6090658 L 6.3545132,9.4908703 9.4908944,11.999975 Z"
+     id="path1087"
+     style="stroke-width:1.25455" />
 </svg>

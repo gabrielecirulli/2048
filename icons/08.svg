@@ -1,10 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-handshake"
-   width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none"
-   stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-   <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-   <path
-      d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
-   <path d="M12.5 15.5l2 2" />
-   <path d="M15 13l2 2" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="ionicon"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="08.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.57245266"
+     inkscape:cx="-95.204379"
+     inkscape:cy="274.25849"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <g
+     id="g12078"
+     transform="matrix(0.54992493,0,0,0.54992493,115.21908,115.21912)">
+    <path
+       d="m 416,128 c -18.9,4.25 -36.8,8.94 -53.7,13.95 -40.5,12 -75.5,27.15 -105.4,41.65 -19.3,9.37 -26.2,13.51 -51.5,28.23 C 147,245.52 112,289.23 112,354.64 112,428.55 167.6,480 256,480 344.4,480 400,424.19 400,350.28 400,276.37 339,225.24 416,128 Z"
+       fill="none"
+       stroke="currentColor"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="32"
+       id="path2"
+       style="stroke:#ffffff;stroke-width:42;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       d="M 264,180.19 C 244.31,153.19 225.8,141.5 211.3,133.6 162.6,107.1 96,96 96,96 c 41.5,43.7 37.2,90.1 32,128 0,0 -3.87,32.88 1.91,58.41"
+       fill="none"
+       stroke="currentColor"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="32"
+       id="path4"
+       style="stroke:#ffffff;stroke-width:42;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       d="M 372,139.15 C 356.55,102.6 336,64 336,64 c 0,0 -63.32,0 -135.69,64 M 253.48,87.57 C 221.25,45.81 176,32 176,32 160.7,52.8 147.21,83.58 141.13,106.17"
+       fill="none"
+       stroke="currentColor"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       stroke-width="32"
+       id="path6"
+       style="stroke:#ffffff;stroke-width:42;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <g
+     aria-label="VIII"
+     id="text301"
+     style="font-size:100.958px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ffffff;stroke-width:296.983;stroke-linecap:round;stroke-miterlimit:16.7;paint-order:markers fill stroke">
+    <path
+       d="M 63.739597,-9.8388642e-5 42.838136,67.288803 H 21.788788 L 5.4016709e-7,-9.8388642e-5 H 21.788788 L 32.387406,36.67605 q 1.08451,3.253529 1.92254,6.408467 L 46.732512,-9.8388642e-5 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2261" />
+    <path
+       d="M 90.605864,-9.8388642e-5 V 67.288803 H 69.950882 V -9.8388642e-5 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2263" />
+    <path
+       d="M 122.99327,-9.8388642e-5 V 67.288803 H 102.33829 V -9.8388642e-5 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2265" />
+    <path
+       d="M 155.38068,-9.8388642e-5 V 67.288803 H 134.7257 V -9.8388642e-5 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2267" />
+  </g>
 </svg>

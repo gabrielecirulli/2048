@@ -1,12 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wash-hand" width="44"
-   height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none"
-   stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-   <path
-      d="M3.486 8.965c.168 .02 .34 .033 .514 .035c.79 .009 1.539 -.178 2 -.5c.426 -.296 .777 -.5 1.5 -.5h1" />
-   <path
-      d="M16 8l.615 .034c.552 .067 1.046 .23 1.385 .466c.461 .322 1.21 .509 2 .5c.17 0 .339 -.014 .503 -.034" />
-   <path
-      d="M14 10.5l.586 .578a1.516 1.516 0 0 0 2 0c.476 -.433 .55 -1.112 .176 -1.622l-1.762 -2.456c-.37 -.506 -1.331 -1 -2 -1h-3.117a1 1 0 0 0 -.992 .876l-.499 3.986a3.857 3.857 0 0 0 2.608 4.138a2.28 2.28 0 0 0 3 -2.162v-2.338z" />
-   <path d="M3 6l1.721 10.329a2 2 0 0 0 1.973 1.671h10.612a2 2 0 0 0 1.973 -1.671l1.721 -10.329" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="icon icon-tabler icon-tabler-heart-handshake"
+   width="44"
+   height="44"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="#fff"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg9184"
+   sodipodi:docname="05.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9188" />
+  <sodipodi:namedview
+     id="namedview9186"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="6.6612673"
+     inkscape:cx="-32.20108"
+     inkscape:cy="27.622371"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9184" />
+  <g
+     id="g9312"
+     transform="matrix(0.56818182,0,0,0.56818182,5.1818182,5.1818182)">
+    <path
+       stroke="none"
+       d="M 0,0 H 24 V 24 H 0 Z"
+       fill="none"
+       id="path9174" />
+    <path
+       d="M 19.5,12.572 12,20 4.5,12.572 a 5,5 0 1 1 7.5,-6.566 5,5 0 1 1 7.5,6.572"
+       id="path9176" />
+    <path
+       d="M 12,6 8.707,9.293 a 1,1 0 0 0 0,1.414 L 9.25,11.25 c 0.69,0.69 1.81,0.69 2.5,0 l 1,-1 a 3.182,3.182 0 0 1 4.5,0 l 2.25,2.25"
+       id="path9178" />
+    <path
+       d="m 12.5,15.5 2,2"
+       id="path9180" />
+    <path
+       d="m 15,13 2,2"
+       id="path9182" />
+  </g>
+  <g
+     aria-label="V"
+     id="text301"
+     style="font-size:4.50242px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ffffff;stroke:none;stroke-width:13.2446;stroke-miterlimit:16.7;paint-order:markers fill stroke">
+    <path
+       d="M 2.8425923,0 1.9104507,3.0008805 H 0.97171368 L 0,0 H 0.97171368 L 1.4443798,1.6356447 q 0.048366,0.1450976 0.085739,0.2857982 L 2.084128,0 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2318" />
+  </g>
 </svg>

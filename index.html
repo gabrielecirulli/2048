@@ -25,8 +25,27 @@
         </div>
       </div>
       <div class="game-container">
-        <div class="game-message">
-          <p></p>
+        <div id="game-message" class="game-message">
+          <span class="welcome-info hidden" id="welcome-info">
+            <img
+              id="progress-text-close-welcome"
+              src="/icons/close.svg"
+              alt="Zavřít popis hry"
+              title="Zavřít popis hry"
+              class="progress-text-close-welcome"
+            />
+            <span>
+              <strong>Vítej ve hře Křížová cesta!</strong><br />Tvým úkolem je
+              <strong>objevit</strong> všech
+              <strong>14&nbsp;zastavení</strong> a&nbsp;kdo ví, třeba se
+              dostaneš i&nbsp;k&nbsp;bonusu. K&nbsp;dalšímu zastavení se
+              dostaneš vždy tak, že spojíš dvě stejná zastavení. Jakmile
+              zastavení objevíš, můžeš si přečíst další část Ježíšova příběhu.
+              Daná část se ti zobrazí vždy po kliknutí na daný symbol pod herní
+              mřížkou.</span
+            >
+          </span>
+          <p id="new-station"></p>
           <div class="lower">
             <a class="keep-playing-button">Pokračovat ve hře</a>
             <a class="retry-button">Zkusit znovu</a>
@@ -74,7 +93,7 @@
         <div class="tile-container"></div>
       </div>
       <div class="progress-bar">
-        <div id="new-station" class="new-station"></div>
+        <!-- <div id="new-station" class="new-station"></div> -->
         <div class="progress-icon-box">
           <img
             id="progress-2"
@@ -93,19 +112,21 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                1. zastavení - Ježíš v&nbsp;zahradě Getsemanské
+                1. zastavení - Pilát odsuzuje Ježíše k smrti
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Poncius Pilát byl člověk přísný a svéhlavý a přesto podléhá
+              veřejnému mínění. Nebyl schopen učinit to, co považoval za
+              správné... Nejsem tu však proto, abych soudil Piláta. Mohl bych se
+              ptát sám sebe: Proč radši pluji s proudem, než abych udělal
+              správnou věc? Proč si radši umyji ruce a dělám, že se mě dění
+              kolem netýká? … To však dnes řešit nechci. Pojďme projevit kapku
+              soucitu k Pilátovi, který musel vybrat ze dvou špatných variant.
+              Respektujme špatná rozhodnutí druhých, protože asi každý z nás by
+              něco vzal zpět a nemůže.
             </p>
-            <span class="progress-text-source">(Mk 14,32–36)</span>
+            <!-- <span class="progress-text-source">(Mk 14,32–36)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -126,18 +147,20 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                2. zastavení - Ježíš, zrazený Jidášem, je zatčen
+                2. zastavení - Ježíš bere na sebe kříž
               </h2>
             </div>
             <p class="progress-text-content">
-              Ještě ani nedomluvil a přišel Jidáš, jeden z Dvanácti. Velekněží,
-              zákoníci a starší s ním poslali zástup, ozbrojený meči a holemi.
-              Jeho zrádce s nimi domluvil znamení. Řekl: „Kterého políbím, ten
-              to je; toho zatkněte a pod dozorem odveďte.“ Když Jidáš přišel,
-              hned k Ježíšovi přistoupil a řekl: „Mistře!“ a políbil ho. Oni pak
-              na něho vztáhli ruce a zmocnili se ho.
+              Bez urážky, náš život je snadný. Žijeme ve svobodné zemi, v bohaté
+              části světa, můžeme studovat a užíváme života tak, jak sami
+              chceme... Jistěže neseme nějaké kříže, těžkosti a nesnáze. Vznesu
+              však jednu pochybnost. Jsem v tom materiálním dostatku šťastný?
+              Odpovědět si musí každý sám, i když převážná odpověď bude asi ano.
+              Proto Vás chci k něčemu pozvat. Zkusme ráno hned po probuzení nebo
+              večer před usnutím vzpomenout, že Bůh je, vezměme si to jako
+              takový malý kříž.
             </p>
-            <span class="progress-text-source">(Mk 14,43–46)</span>
+            <!-- <span class="progress-text-source">(Mk 14,43–46)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -158,21 +181,20 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                3. zastavení - Ježíš je odsouzen
+                3. zastavení - Ježíš padá pod křížem
               </h2>
             </div>
             <p class="progress-text-content">
-              Velekněží a celá rada hledali proti Ježíšovi svědectví, aby ho
-              mohli odsoudit k smrti, ale nenalézali. Tu velekněz vstal,
-              postavil se uprostřed a otázal se Ježíše: „Nic neodpovídáš na to,
-              co tihle proti tobě svědčí?“ On však mlčel a nic neodpověděl. Opět
-              se ho velekněz zeptal: „Jsi ty Mesiáš, Syn Požehnaného?“ Ježíš
-              řekl: „Já jsem. A uzříte Syna člověka sedět po pravici
-              Všemohoucího a přicházet s oblaky nebeskými.“ Slyšeli jste
-              rouhání. Co o tom soudíte?“ Oni pak všichni rozhodli, že je hoden
-              smrti.
+              První Ježíšův pád na křížové cestě je za naši pýchu. Všechno víme,
+              všemu rozumíme, dokážeme cokoli a zvítězíme kdekoli. Asi nikomu z
+              nás se tato formulace nelíbí. Uznáváme přece svoji omylnost jako
+              přirozenou a nezbytnou a rozhodně známe bolestivou zkušenost
+              selhání a porážky... Co je zde pak skryto? … Pořád se opakuje, že
+              je třeba umět prohrávat, ale umíme vyhrávat? Když jednou přijmu
+              své vítězství, ne jako zásluhu, ale jako posilu na cestě, budu
+              Ježíši o krok blíž.
             </p>
-            <span class="progress-text-source">(Mk 14,55,60–62,64)</span>
+            <!-- <span class="progress-text-source">(Mk 14,55,60–62,64)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -193,15 +215,19 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                4. zastavení - Ježíš je zapřen Petrem
+                4. zastavení - Ježíš se setkává se svojí matkou
               </h2>
             </div>
             <p class="progress-text-content">
-              Vtom kohout zakokrhal podruhé. Tu se Petr rozpomněl na slova,
-              která mu Ježíš řekl: „Dřív než kohout dvakrát zakokrhá, třikrát mě
-              zapřeš.“ A dal se do pláče.
+              Veliká radost i bolest. Je tu někdo, kdo nepokřikuje, neplive,
+              nenadává. Matka Boží, Bohočlověka neopouští, ani na cestě křížové.
+              Co mu říká? Co jí může říci Ježíš? Nic. Setkání probíhá beze slov.
+              Slova lidi často omezují do předem připravených kategorií, slova
+              jsou zde nepatřičná. Matka Boží je přítomná a Ježíši to stačí.
+              Neopustila ho a ani ho neopustí. Stejně tak neopustí nás, tebe ani
+              mě. A není třeba nic dodávat.
             </p>
-            <span class="progress-text-source">(Mk 14,72)</span>
+            <!-- <span class="progress-text-source">(Mk 14,72)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -222,15 +248,21 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                5. zastavení - Ježíš je souzen Pilátem
+                5. zastavení - Šimon z Kyrény pomáhá Ježíši nést kříž
               </h2>
             </div>
             <p class="progress-text-content">
-              Pilát jim řekl: „A čeho se vlastně dopustil?“ Oni však ještě víc
-              křičeli: „Ukřižuj ho!“ Tu Pilát, aby vyhověl zástupu, propustil
-              jim Barabáše; Ježíše dal zbičovat a vydal ho, aby byl ukřižován.
+              Vojáci viděli, že Ježíš svůj kříž na Golgotu nedotáhne, proto
+              zastavili nějakého muže, aby poprava proběhla bez zdržování. Šimon
+              kříž nést nechce, je vyčerpaný z práce, bojí se vojáků. Ale pár
+              šťouchanců kopím a kříž nesou dva. Co se Šimonovi honí hlavou? Je
+              naštvaný? Nechce aby ho viděl nějaký známý? Jak často musím udělat
+              něco co nechci. Kolik protestů, nadávání a hněvu při tom
+              nahromadím. Jak často se pak snažím od takové práce odbíhat.
+              Pojďme se radovat i z dokončení úkolu, který z celého srdce i
+              mysli nesnášíme.
             </p>
-            <span class="progress-text-source">(Mk 15,14–15)</span>
+            <!-- <span class="progress-text-source">(Mk 15,14–15)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -251,16 +283,20 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                6. zastavení - Ježíš je zbičován a&nbsp;korunován trny
+                6. zastavení - Veronika podává Ježíšovi roušku
               </h2>
             </div>
             <p class="progress-text-content">
-              Navlékli mu purpurový plášť, upletli trnovou korunu, vsadili mu ji
-              na hlavu a začali ho zdravit: „Buď zdráv, židovský králi!“ Bili ho
-              po hlavě holí, plivali na něj, klekali na kolena a padali před ním
-              na zem.
+              Ježíš už ani nevidí na cestu přes krev a pot v očích. Otřít si je
+              nemůže, nemá čím a nese kříž. Veronika není připravena jako
+              občerstvovací stanice. Je to obyčejná žena, a přesto je vyjímečná.
+              Když uvidí Ježíše, ví co je třeba, vezme co má po ruce a otře
+              Ježíšovi tvář. Řekl bych že je to drobnost v Ježíšově situaci, ale
+              Ježíš vidí skutek lásky a Veronice zůstává v rukou jeho tvář.
+              Chtěl bych poprosit, každého i každou z vás, buďme ochotni udělat
+              drobnost pro druhého, když to bude potřebovat
             </p>
-            <span class="progress-text-source">(Mk 15,17–19)</span>
+            <!-- <span class="progress-text-source">(Mk 15,17–19)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -281,11 +317,19 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                7. zastavení - Ježíš přijímá svůj kříž
+                7. zastavení - Ježíš padá pod křížem podruhé
               </h2>
             </div>
-            <p class="progress-text-content"></p>
-            <span class="progress-text-source">(Mk 15,20–21a)</span>
+            <p class="progress-text-content">
+              Druhý pád je za naše lakomství a závist. Obojí pramení ze vztahu k
+              věci, dovednosti, ale i k člověku. Příliš si zakládám na tom co
+              mám a umím a naopak si nevážím druhého a jeho dovedností. Mám
+              pocit, že druhý toho víc má, umí nebo víc znamená? Možná že není o
+              co stát. Být obdarován totiž znamená mít odpovědnost. Nic mi
+              nebylo dáno abych si to schoval před světem. Zkusme hledět na
+              druhého a být vděční za to co dělá pro mě a pro svět.
+            </p>
+            <!-- <span class="progress-text-source">(Mk 15,20–21a)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -306,19 +350,20 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                8. zastavení - Šimon Kyrenský pomáhá Ježíši nést jeho kříž
+                8. zastavení - Dcery Jeruzalémské oplakávají Ježíše
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Nevypadá jako zločinec, je mladý, je ho škoda. Řeči! Co bylo k
+              obědu? Jaké je dnes pěkné počasí? Neumím mluvit, jak bych potom
+              mohl umět mlčet? Nerozeznám vhodný čas ani slova. Ježíš tyto ženy
+              kárá, ne pro jejich pláč, ale pro jejich povrchnost a nepochopení.
+              Proč tu Ježíš jde cestou křížovou, co nám chce říci? To se dozvím
+              pouze tak, že zmlknu a zaposlouchám se. V mezilidském dialogu je
+              to stejné, nasloucháním zjistím co má druhý na srdci. Dejme mu
+              šanci promluvit.
             </p>
-            <span class="progress-text-source">(Mk 15,21)</span>
+            <!-- <span class="progress-text-source">(Mk 15,21)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -339,19 +384,21 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                9. zastavení - Ježíš se setkal s&nbsp;jeruzalémskými ženami
+                9. zastavení - Ježíš padá pod křížem potřetí
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Potřetí padá Ježíš pro nejhorší nemoc moderního světa. Lenost,
+              prokrastinace, akédie, neochota k dílu, znuděnost. Mám
+              nadpřirozenou schopnost urychlovat den i noc sledováním, co je
+              nového? Kdo ze seriálu umře tentokrát? Nebo prostě potřebou
+              klikat? Kolikrát za den vezmu do ruky mobil a kolikrát knížku. Jak
+              dlouho vydržím soustavně dělat jednu činnost, když mě zrovna
+              nežene deadline? Bez urážky, boj s leností je těžký a definitivně
+              zvítězit nelze. Můžu ale dělat užitečné věci a po kouskách lenost
+              porážet.
             </p>
-            <span class="progress-text-source">(Lk 23,27–28,31)</span>
+            <!-- <span class="progress-text-source">(Lk 23,27–28,31)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -372,19 +419,20 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                10. zastavení - Ježíš je ukřižován
+                10. zastavení - Ježíš vysvlečen ze šatů
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Pro moji přetvářku, lži a zbožné ksichty je Ježíš vysvlečen ze
+              šatů. Je to znamení, že jednou přijde chvíle, kdy všechny masky a
+              skrýše zmizí a nikdo se neschová za nic a za nikoho. Je přirozené,
+              bojím-li se toho okamžiku. Teď však ta chvíle ještě není. Nemá
+              smysl pokoušet se masku strhnout, zbavit se své ochrany před
+              druhými. Zkoušejme se však měnit, pomalu a postupně. Dorůstejme do
+              ideálu, který se snažíme ukazovat druhým. A jednou třeba zjistíme,
+              že již není co strhnout.
             </p>
-            <span class="progress-text-source">(Mk 15,24)</span>
+            <!-- <span class="progress-text-source">(Mk 15,24)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -405,20 +453,20 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                11. zastavení - Ježíš slibuje své království odsouzenému
-                zločinci
+                11. zastavení - Ježíš je přibit na kříž
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Vojáci přibili Ježíše na kříž. A kolem stojící dav se mu posmívá:
+              „Jsi-li židovský král, sestup z kříže.“ Připomíná to ďáblovo
+              pokušení: „Jsi-li Syn Boží vrhni se dolů,“ z vrchu chrámu. Ani
+              Ježíš nebyl ušetřen pokušení proslavit se. „Sestup z kříže a my
+              uvěříme.“ Ale Ježíšův úkol není proslavit sám sebe, on nám zjevuje
+              Otce; plní jeho vůli... A co já? Chci se proslavit před lidmi?
+              Nebo se chci líbit Bohu? Pojďme zkusit nepoužívat větu: „Tohle se
+              mi opravdu povedlo.“
             </p>
-            <span class="progress-text-source">(Lk 23,39–43)</span>
+            <!-- <span class="progress-text-source">(Lk 23,39–43)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -439,19 +487,21 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                12. zastavení - Ježíš na kříži, jeho matka a&nbsp;učedník
+                12. zastavení - Ježíš na kříži umírá
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Ježíš je opuštěn. Zůstali s ním jen ti, kdo ho opustit nemohou, ti
+              kterým jsou ta místa určena, lotr po levici a lotr po pravici.
+              „Eloi, Eloi, lema sabchthani?“ „Bože můj, Bože můj, proč jsi mě
+              opustil?“ Proč Bůh dopouští, aby Boží Syn umíral sám? Ne! Bůh toto
+              nedopouští, Bůh to tak chce. Ježíš ukazuje lásku svého Otce, aniž
+              by mu on stál za zadkem. Bůh tedy promlouvá svým věčným Slovem. To
+              je Ježíš! Asi se často ptám: Bože, proč tě neslyším? Co mám dělat?
+              Možná je to chvíle, kdy mi Bůh dává prostor. Vždyť jsem také Božím
+              dítětem.
             </p>
-            <span class="progress-text-source">(Jan, 19,26–27)</span>
+            <!-- <span class="progress-text-source">(Jan, 19,26–27)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -472,19 +522,21 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                13. zastavení - Ježíš umírá na kříži
+                13. zastavení - Ježíšovo tělo sňaté z kříže je položeno do klína
+                jeho matky
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Není to žádná iluze, není to zlý sen, Ježíš doopravdy zemřel...
+              Každý z nás má určitě zkušenost se smrtí blízkého. Čím bližší
+              člověk, tím větší bolest. Mariina bolest není v ničem umenšena
+              faktem, že je Matka Boží. „Bože, proč jsi to dopustil?“ Jaká je
+              zde asi naděje, jaká víra? Zbývá láska. „Vždyť silná jako smrt je
+              láska, nezkrotná jak podsvětí je její vášeň. Žár její je sám oheň,
+              plamen Hospodinův... Lásku neuhasí ani velké vody a proudy řek ji
+              neodplaví.“ Zůstaňme nyní chvíli v tichu.
             </p>
-            <span class="progress-text-source">(Mk 15,34,36–37)</span>
+            <!-- <span class="progress-text-source">(Mk 15,34,36–37)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -505,19 +557,17 @@
                 class="progress-text-close"
               />
               <h2 class="progress-text-title">
-                14. zastavení - Ježíš je pohřben
+                14. zastavení - Ježíšovo tělo položeno do hrobu
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Stojíme na konci Ježíšovi pozemské pouti. Kámen je přivalen. Je
+              dokonáno, kauza uzavřena, věc vyřízena. Hotovo, už se tím nebudeme
+              zabývat... Jak často se snažím, něco zahrabat, zapomenout a víc už
+              neřešit. „Never more,“ říká nám Havran … Ale neukazuje Ježíš něco
+              jiného? Ježíši nechceš po nás něco víc?
             </p>
-            <span class="progress-text-source">(Mk 15,46)</span>
+            <!-- <span class="progress-text-source">(Mk 15,46)</span> -->
           </div>
         </div>
         <div class="progress-icon-box">
@@ -542,15 +592,19 @@
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              „Anděl řekl ženám: Vy se nebojte. Vím, že hledáte Ježíše, který
+              byl ukřižován. Není zde; byl vzkříšen, jak řekl. Pojďte se podívat
+              na místo, kde ležel.“ (Mt 28,5-6)
             </p>
-            <span class="progress-text-source">(Mt 28,5-6)</span>
+            <p class="progress-text-content">
+              Dvě ženy, které stály u kříže, se vracejí tam, kde je jejich
+              poklad - kde je jejich srdce. Tolik milovaly Ježíše, věřily mu,
+              proto teď, po zkušenosti jeho smrti na kříži, jsou smutné.
+              Přicházejí uctít alespoň Ježíšovo mrtvé tělo. Přicházejí ke hrobu.
+              Nečekaly, že ho najdou prázdný. Lekly se. Ježíš je však nenechává
+              dlouho ve zmatku. Posílá nejprve svého anděla, aby ženám objasnil
+              situaci. Anděl jim oznamuje: „Není tady, byl vzkříšen!“
+            </p>
           </div>
         </div>
         <div class="progress-icon-box">
@@ -575,15 +629,20 @@
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              „Po něm přišel Šimon Petr a vešel do hrobu. Uviděl tam ležet lněná
+              plátna, ale šátek, jímž ovázali Ježíšovu hlavu, neležel mezi
+              plátny, nýbrž byl svinut na jiném místě. Potom vešel dovnitř i ten
+              druhý učedník, který přišel k hrobu dřív; spatřil vše a uvěřil.“
+              (Jan 20,6-8)
             </p>
-            <span class="progress-text-source">(Jan 20,6-8)</span>
+            <p class="progress-text-content">
+              K prázdnému hromu přicházejí také další „zbylí věrní“ Petr s
+              Janem. Jan, přestože byl mladší a dorazil k hrobu dříve,
+              nevstoupil do hrobky. Dal přednost Petrovi, aby vešel jako první.
+              Oba viděli složené pruhy plátna, do kterých byl Kristus zabalen a
+              roušku z jeho tváře složenou zvlášť. Na základě tohoto znamení
+              učedníci uvěřili.
+            </p>
           </div>
         </div>
         <div class="progress-icon-box">
@@ -608,15 +667,19 @@
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              Ježíš jí řekl: "Marie!" Obrátila se a zvolala hebrejsky:
+              "Rabbuni", to znamená 'Mistře'. Marie Magdalská šla k učedníkům a
+              oznámila jim: "Viděla jsem Pána a toto mi řekl." (Jan 20,16.18)
             </p>
-            <span class="progress-text-source">(Jan 20,16.18)</span>
+            <p class="progress-text-content">
+              Marie Magdalská přichází dokázat svou vděčnost a lásku k Ježíši.
+              Nešetří projevy lásky. Nakupuje olej a vynakládá úsilí, aby přišla
+              ke hrobu hned z rána. Odměňuješ ji tím, že ji oslovuješ jménem a
+              dáváš se jí poznat. Vzkříšený Ježíši, ty nás voláš jménem, protože
+              nás miluješ. Pomoz nám, abychom kráčeli po cestách světa, v
+              rodině, ve škole, v práci jako tví přátelé a dokázali hlásat to,
+              co jsi nám svěřil.
+            </p>
           </div>
         </div>
         <div class="progress-icon-box">
@@ -641,15 +704,20 @@
               </h2>
             </div>
             <p class="progress-text-content">
-              Přišli na místo zvané Getsemane. Ježíš řekl svým učedníkům:
-              „Počkejte tu, než se pomodlím.“ Pak vzal s sebou Petra, Jakuba a
-              Jana. Přepadla ho hrůza a úzkost. A řekl jim: „Má duše je smutná
-              až k smrti. Zůstaňte zde a bděte!“ Poodešel od nich, padl na zem a
-              modlil se, aby ho, je-li možné, minula tato hodina. Řekl: „Abba,
-              Otče, tobě je všecko možné; odejmi ode mne tento kalich, ale ne,
-              co já chci, nýbrž co ty chceš.“
+              „Téhož dne se dva z nich ubírali do vsi jménem Emauzy, která je od
+              Jeruzaléma vzdálena asi tři hodiny cesty. A jak to v řeči
+              probírali, připojil se k nim sám Ježíš a šel s nimi. A on jim
+              řekl: Jak jste nechápaví! To je vám tak těžké uvěřit všemu, co
+              mluvili proroci! Potom začal od Mojžíše a všech proroků a vykládal
+              jim to, co se na něho vztahovalo ve všech částech Písma.“ (Lk
+              24,13.15.25.27)
             </p>
-            <span class="progress-text-source">(Lk 24,13.15.25.27)</span>
+            <p class="progress-text-content">
+              Dva učedníci se ubírali do vesnice Emauzy. Připojil se k nim
+              Vzkříšený Ježíš. Ježíš nejprve naslouchá jejich zklamání a pak jim
+              odkrývá smysl své oběti na kříži. Řekl jim: „Jak jste nechápaví a
+              váhaví uvěřit tomu všemu, co mluvili proroci!
+            </p>
           </div>
         </div>
       </div>

@@ -4,41 +4,63 @@ const numbers = [
 ];
 
 const stations = [
-  "Ježíš v&nbsp;zahradě Getsemanské",
-  "Ježíš, zrazený Jidášem, je zatčen",
-  "Ježíš je odsouzen",
-  "Ježíš je zapřen Petrem",
-  "Ježíš je souzen Pilátem",
-  "Ježíš je zbičován a&nbsp;korunován trny",
-  "Ježíš přijímá svůj kříž",
-  "Šimon Kyrenský pomáhá Ježíši nést jeho kříž",
-  "Ježíš se setkal s&nbsp;jeruzalémskými ženami",
-  "Ježíš je ukřižován",
-  "Ježíš slibuje své království odsouzenému zločinci",
-  "Ježíš na kříži, jeho matka a&nbsp;učedník",
-  "Ježíš umírá na kříži",
-  "Ježíš je pohřben",
-  "Ježíš v&nbsp;zahradě Getsemanské",
+  "Pilát odsuzuje Ježíše k smrti",
+  "Ježíš bere na sebe kříž",
+  "Ježíš padá pod křížem",
+  "Ježíš se setkává se svojí matkou",
+  "Šimon z Kyrény pomáhá Ježíši nést kříž",
+  "Veronika podává Ježíšovi roušku",
+  "Ježíš padá pod křížem podruhé",
+  "Dcery Jeruzalémské oplakávají Ježíše",
+  "Ježíš padá pod křížem potřetí",
+  "Ježíš vysvlečen ze šatů",
+  "Ježíš je přibit na kříž",
+  "Ježíš na kříži umírá",
+  "Ježíšovo tělo sňaté z kříže je položeno do klína jeho matky",
+  "Ježíšovo tělo položeno do hrobu",
   "Ježíš byl vzkříšen",
-  "Petr a&nbsp;Jan u&nbsp;prázdného hrobu",
-  "Setkání s&nbsp;Máří Magdalenou",
+  "Petr a Jan u prázdného hrobu",
+  "Setkání s Máří Magdalenou",
   "Na cestě do Emauz",
 ];
 
 let lastMaxValue = 0;
 
 function informAboutNewStation(station) {
+  const messageEl = document.querySelector(".game-message");
+
+  // handle click
+  window.addEventListener("touchstart", () => {
+    if (messageEl.classList.contains("game-info")) {
+      el.innerHTML = "";
+      messageEl.classList.remove("game-info");
+    }
+  });
+
   const el = document.querySelector("#new-station");
   el.innerHTML = `<p class="new-station-title">Objeveno ${
     numbers.indexOf(station) + 1
-  }. zastavení - ${stations[numbers.indexOf(station)]}</p>`;
+  }. zastavení:<br/>${stations[numbers.indexOf(station)]}</p>`;
 
   el.classList.add("tile-merged");
 
+  messageEl.classList.add("game-info");
+
   setTimeout(() => {
-    el.innerHTML = "";
+    if (messageEl.classList.contains("game-info")) {
+      el.innerHTML = "";
+      messageEl.classList.remove("game-info");
+    }
   }, 5000);
 }
+
+document.addEventListener("click", function (event) {
+  // Získání elementu, na který bylo kliknuto
+  var clickedElement = event.target;
+
+  // Vypsání názvu tagu tohoto elementu
+  console.log(clickedElement.tagName);
+});
 
 function updateProgress(grid) {
   // console.log(grid);

@@ -1,9 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="44"
-   height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none"
-   stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-   <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-   <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-   <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="icon icon-tabler icon-tabler-cross"
+   width="44"
+   height="44"
+   viewBox="0 0 24 24"
+   stroke-width="2"
+   stroke="#fff"
+   fill="none"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg15985"
+   sodipodi:docname="12.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs15989" />
+  <sodipodi:namedview
+     id="namedview15987"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.7102273"
+     inkscape:cx="-23.884198"
+     inkscape:cy="14.861279"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15985" />
+  <g
+     id="g16110"
+     transform="matrix(0.52272727,0,0,0.52272727,5.7272728,5.7272728)">
+    <path
+       stroke="none"
+       d="M 0,0 H 24 V 24 H 0 Z"
+       fill="none"
+       id="path15981" />
+    <path
+       d="m 10,21 h 4 v -9 h 5 V 8 H 14 V 3 H 10 V 8 H 5 v 4 h 5 z"
+       id="path15983" />
+  </g>
+  <g
+     aria-label="XII"
+     id="text301"
+     style="font-size:4.50242px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ffffff;stroke:none;stroke-width:13.2446;stroke-miterlimit:16.7;paint-order:markers fill stroke">
+    <path
+       d="M 2.8887597,0 2.0181746,1.3938155 3.0272618,3.0008805 H 1.956618 L 1.4026093,2.0577466 0.84420374,3.0008805 H 0 L 0.96731679,1.4465783 0.03957205,0 H 1.1124143 L 1.5784851,0.80683013 2.0621435,0 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2203" />
+    <path
+       d="M 4.14847,0 V 3.0008805 H 3.2273206 V 0 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2205" />
+    <path
+       d="M 5.5928498,0 V 3.0008805 H 4.6717004 V 0 Z"
+       style="font-family:'Franklin Gothic Heavy';-inkscape-font-specification:'Franklin Gothic Heavy, '"
+       id="path2207" />
+  </g>
 </svg>

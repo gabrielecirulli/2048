@@ -49,6 +49,16 @@
    display: flex;
    flex-direction: row;
    // align-items: self-start;
+   img {
+      width: 2.6rem;
+      @include smaller($mobile-threshold) {
+         width: 2.4rem;
+      }
+   
+      @include smaller($super-small-phones) {
+         width: 1.5rem;
+      }
+   }
 }
 
 .progress-text-header {

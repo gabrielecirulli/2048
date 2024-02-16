@@ -1,6 +1,7 @@
 @mixin image-background {
    background-position: center;
    background-repeat: no-repeat;
+   background-size: 4rem;
 
    /* Hide the text. */
    text-indent: 100%;
@@ -8,11 +9,11 @@
    overflow: hidden;
 
    @include smaller($mobile-threshold) {
-      background-size: 2rem;
+      background-size: 3.2rem;
    }
 
    @include smaller($super-small-phones) {
-      background-size: 1.6rem;
+      background-size: 2.4rem;
    }
 }
 

@@ -393,6 +393,174 @@ hr {
     @media screen and (max-width: 520px) {
       .tile.tile-super .tile-inner {
         font-size: 10px; } }
+  .tile.tile-4096 .tile-inner {
+    color: #f9f6f2;
+    background: #b586b4;
+    font-size: 35px; }
+  .tile.tile-8192 .tile-inner {
+    color: #f9f6f2;
+    background: #a861ab;
+    font-size: 35px; }
+  .tile.tile-16384 .tile-inner {
+    color: #f9f6f2;
+    background: #a048a2;
+    font-size: 30px; }
+  .tile.tile-32768 .tile-inner {
+    color: #f9f6f2;
+    background: #800080;
+    font-size: 30px; }
+  .tile.tile-65536 .tile-inner {
+    color: #f9f6f2;
+    background: #600046;
+    font-size: 30px; }
+  .tile.tile-131072 .tile-inner {
+    color: #f9f6f2;
+    background: #8b85e3;
+    font-size: 25px; }
+  .tile.tile-262144 .tile-inner {
+    color: #f9f6f2;
+    background: #7766e9;
+    font-size: 25px; }
+  .tile.tile-524288 .tile-inner {
+    color: #f9f6f2;
+    background: #6751eb;
+    font-size: 25px; }
+  .tile.tile-1048576 .tile-inner {
+    color: #f9f6f2;
+    background: #4f3cf1;
+    font-size: 22px; }
+  .tile.tile-2097152 .tile-inner {
+    color: #f9f6f2;
+    background: #261df9;
+    font-size: 22px; }
+  .tile.tile-4194304 .tile-inner {
+    color: #f9f6f2;
+    background: #989898;
+    font-size: 22px; }
+  .tile.tile-8388608 .tile-inner {
+    color: #f9f6f2;
+    background: #737373;
+    font-size: 22px; }
+  .tile.tile-16777216 .tile-inner {
+    color: #f9f6f2;
+    background: #555555;
+    font-size: 19px; }
+  .tile.tile-33554432 .tile-inner {
+    color: #f9f6f2;
+    background: #4a4a4a;
+    font-size: 19px; }
+  .tile.tile-67108864 .tile-inner {
+    color: #f9f6f2;
+    background: #3e3e3e;
+    font-size: 19px; }
+  .tile.tile-134217728 .tile-inner {
+    color: #f9f6f2;
+    background: #323232;
+    font-size: 17px; }
+  .tile.tile-268435456 .tile-inner {
+    color: #f9f6f2;
+    background: #262626;
+    font-size: 17px; }
+  .tile.tile-536870912 .tile-inner {
+    color: #f9f6f2;
+    background: #1a1a1a;
+    font-size: 17px; }
+  .tile.tile-1073741824 .tile-inner {
+    color: #f9f6f2;
+    background: #0d0d0d;
+    font-size: 15px; }
+  .tile.tile-2147483648 .tile-inner {
+    color: #f9f6f2;
+    background: #ff0000;
+    font-size: 15px; }
+  .tile.tile-4294967296 .tile-inner {
+    color: #f9f6f2;
+    background: #00ff00;
+    font-size: 15px; }
+  .tile.tile-8589934592 .tile-inner {
+    color: #f9f6f2;
+    background: #0000ff;
+    font-size: 15px; }
+  .tile.tile-17179869184 .tile-inner {
+    color: #f9f6f2;
+    background: #00f0f0;
+    font-size: 14px; }
+  .tile.tile-34359738368 .tile-inner {
+    color: #f9f6f2;
+    background: #00dcdc;
+    font-size: 14px; }
+  .tile.tile-68719476736 .tile-inner {
+    color: #f9f6f2;
+    background: #00c8c8;
+    font-size: 14px; }
+  .tile.tile-137438953472 .tile-inner {
+    color: #f9f6f2;
+    background: #00b4b4;
+    font-size: 13px; }
+  .tile.tile-274877906944 .tile-inner {
+    color: #f9f6f2;
+    background: #00a0a0;
+    font-size: 13px; }
+  .tile.tile-549755813888 .tile-inner {
+    color: #f9f6f2;
+    background: #008c8c;
+    font-size: 13px; }
+  .tile.tile-1099511627776 .tile-inner {
+    color: #f9f6f2;
+    background: #007878;
+    font-size: 12px; }
+  .tile.tile-2199023255552 .tile-inner {
+    color: #f9f6f2;
+    background: #802080;
+    font-size: 12px; }
+  .tile.tile-4398046511104 .tile-inner {
+    color: #f9f6f2;
+    background: #941894;
+    font-size: 12px; }
+  .tile.tile-8796093022208 .tile-inner {
+    color: #f9f6f2;
+    background: #a810a8;
+    font-size: 12px; }
+  .tile.tile-17592186044416 .tile-inner {
+    color: #f9f6f2;
+    background: #bc08bc;
+    font-size: 11px; }
+  .tile.tile-35184372088832 .tile-inner {
+    color: #f9f6f2;
+    background: #d000d0;
+    font-size: 11px; }
+  .tile.tile-70368744177664 .tile-inner {
+    color: #f9f6f2;
+    background: #e400e4;
+    font-size: 11px; }
+  .tile.tile-140737488355328 .tile-inner {
+    color: #f9f6f2;
+    background: #f800f8;
+    font-size: 10.5px; }
+  .tile.tile-281474976710656 .tile-inner {
+    color: #f9f6f2;
+    background: #ff28ff;
+    font-size: 10.5px; }
+  .tile.tile-562949953421312 .tile-inner {
+    color: #f9f6f2;
+    background: #ff50ff;
+    font-size: 10.5px; }
+  .tile.tile-1125899906842624 .tile-inner {
+    color: #f9f6f2;
+    background: #ff78ff;
+    font-size: 10px; }
+  .tile.tile-2251799813685248 .tile-inner {
+    color: #f9f6f2;
+    background: #ffa8ff;
+    font-size: 10px; }
+  .tile.tile-4503599627370496 .tile-inner {
+    color: #f9f6f2;
+    background: #ffd8ff;
+    font-size: 10px; }
+  .tile.tile-9007199254740992 .tile-inner {
+    color: #f9f6f2;
+    background: #ffffff;
+    font-size: 10px; }
 
 @-webkit-keyframes appear {
   0% {

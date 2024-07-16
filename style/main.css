@@ -116,7 +116,7 @@ hr {
   margin-bottom: 30px; }
 
 .container {
-  width: 500px;
+  width: 501px;
   margin: 0 auto; }
 
 @-webkit-keyframes fade-in {
@@ -151,8 +151,8 @@ hr {
   touch-action: none;
   background: #bbada0;
   border-radius: 6px;
-  width: 500px;
-  height: 500px;
+  width: 501px;
+  height: 501px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -206,7 +206,7 @@ hr {
   z-index: 1; }
 
 .grid-row {
-  margin-bottom: 15px; }
+  margin-bottom: 14px; }
   .grid-row:last-child {
     margin-bottom: 0; }
   .grid-row:after {
@@ -215,9 +215,9 @@ hr {
     clear: both; }
 
 .grid-cell {
-  width: 106.25px;
-  height: 106.25px;
-  margin-right: 15px;
+  width: 107px;
+  height: 107px;
+  margin-right: 14px;
   float: left;
   border-radius: 3px;
   background: rgba(238, 228, 218, 0.35); }

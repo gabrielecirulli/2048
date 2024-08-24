@@ -9,7 +9,7 @@ The official app can also be found on the [Play Store](https://play.google.com/s
 
 [Anna Harren](https://github.com/iirelu/) and [sigod](https://github.com/sigod) are maintainers for this repository.
 
-Other notable contributors:
+Other notable contributors: Thank you everyone!
 
  - [TimPetricola](https://github.com/TimPetricola) added best score storage
  - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile

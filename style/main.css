@@ -5,6 +5,8 @@ html, body {
   background: #faf8ef;
   color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  padding: 2rem;
   font-size: 18px; }
 
 body {
@@ -530,9 +532,6 @@ hr {
   text-align: center;
   float: right; }
 
-.game-explanation {
-  margin-top: 50px; }
-
 @media screen and (max-width: 520px) {
   html, body {
     font-size: 15px; }
@@ -571,7 +570,7 @@ hr {
     margin-top: 2px; }
 
   .game-container {
-    margin-top: 17px;
+    margin-top: 8rem;
     position: relative;
     padding: 10px;
     cursor: default;

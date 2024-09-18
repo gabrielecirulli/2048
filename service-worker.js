@@ -14,8 +14,6 @@ const urlsToCache = [
   '/js/local_storage_manager.js',
   '/js/tile.js',
   '/meta/apple-touch-icon.png',
-  '/meta/apple-touch-startup-image-640x1096.png',
-  '/meta/apple-touch-startup-image-640x920.png'
 ];
 
 self.addEventListener('install', event => {

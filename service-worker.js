@@ -3,8 +3,8 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/style/main.css',
-  '/js/animframe_polyfill.js',
   '/js/application.js',
+  '/js/animframe_polyfill.js',
   '/js/bind_polyfill.js',
   '/js/classlist_polyfill.js',
   '/js/game_manager.js',
@@ -14,6 +14,8 @@ const urlsToCache = [
   '/js/local_storage_manager.js',
   '/js/tile.js',
   '/meta/apple-touch-icon.png',
+  '/meta/apple-touch-startup-image-640x1096.png',
+  '/meta/apple-touch-startup-image-640x920.png'
 ];
 
 self.addEventListener('install', event => {
@@ -23,36 +25,13 @@ self.addEventListener('install', event => {
         return cache.addAll(urlsToCache);
       })
   );
-  self.skipWaiting();
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        if (response) {
-          return response; // Eğer önbellekte varsa, önbellekten döndür
-        }
-        return fetch(event.request).then(
-          networkResponse => {
-            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-              return networkResponse;
-            }
-
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return networkResponse;
-          }
-        ).catch(() => {
-          // Eğer hem önbellekte hem de ağda kaynak bulunamazsa, bir fallback kullan (isteğe bağlı)
-          if (event.request.mode === 'navigate') {
-            return caches.match('/index.html');
-          }
-        });
+        return response || fetch(event.request);
       })
   );
 });
@@ -68,5 +47,4 @@ self.addEventListener('activate', event => {
       }));
     })
   );
-  self.clients.claim();
 });

@@ -1,0 +1,25 @@
+{
+  "name": "2048",
+  "short_name": "2048 Game",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/meta/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/meta/apple-touch-startup-image-640x1096.png",
+      "sizes": "640x1096",
+      "type": "image/png"
+    },
+    {
+      "src": "/meta/apple-touch-startup-image-640x920.png",
+      "sizes": "640x920",
+      "type": "image/png"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ function Grid(size, previousState) {
 }
 
 // Build a grid of the specified size
+// TODO change name to make it more clear
 Grid.prototype.empty = function () {
   var cells = [];
 
@@ -18,6 +19,7 @@ Grid.prototype.empty = function () {
   return cells;
 };
 
+// TODO change name to make it more clear
 Grid.prototype.fromState = function (state) {
   var cells = [];
 
@@ -34,6 +36,7 @@ Grid.prototype.fromState = function (state) {
 };
 
 // Find the first available random position
+// TODO what happens when cells.length is null/undefined?
 Grid.prototype.randomAvailableCell = function () {
   var cells = this.availableCells();
 
@@ -42,6 +45,7 @@ Grid.prototype.randomAvailableCell = function () {
   }
 };
 
+// TODO check if callback is the best way to do this.
 Grid.prototype.availableCells = function () {
   var cells = [];
 
@@ -64,6 +68,7 @@ Grid.prototype.eachCell = function (callback) {
 };
 
 // Check if there are any cells available
+// TODO: feels like using length here is a bit of a hack, as well as !!
 Grid.prototype.cellsAvailable = function () {
   return !!this.availableCells().length;
 };
@@ -73,6 +78,7 @@ Grid.prototype.cellAvailable = function (cell) {
   return !this.cellOccupied(cell);
 };
 
+// TODO: using cellContent for this seems like a hack
 Grid.prototype.cellOccupied = function (cell) {
   return !!this.cellContent(cell);
 };
@@ -99,6 +105,7 @@ Grid.prototype.withinBounds = function (position) {
          position.y >= 0 && position.y < this.size;
 };
 
+// TODO: Not sure what this is for...
 Grid.prototype.serialize = function () {
   var cellState = [];
 

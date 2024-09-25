@@ -53,7 +53,7 @@ KeyboardInputManager.prototype.listen = function () {
   document.addEventListener("keydown", function (event) {
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
-    var mapped    = map[event.which];
+    var mapped    = map[event.which]; //TODO: replace which, since it is depricated
 
     if (!modifiers) {
       if (mapped !== undefined) {
@@ -63,7 +63,7 @@ KeyboardInputManager.prototype.listen = function () {
     }
 
     // R key restarts the game
-    if (!modifiers && event.which === 82) {
+    if (!modifiers && event.which === 82) { //TODO: replace which, since it is depricated
       self.restart.call(self, event);
     }
   });

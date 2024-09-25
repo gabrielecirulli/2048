@@ -1,4 +1,5 @@
 function GameManager(size, InputManager, Actuator, StorageManager) {
+  // TODO change name to gridSize
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
@@ -13,6 +14,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.setup();
 }
 
+// TODO remove comment
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
@@ -26,15 +28,18 @@ GameManager.prototype.keepPlaying = function () {
   this.actuator.continueGame(); // Clear the game won/lost message
 };
 
+// TODO: remove comment
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
   return this.over || (this.won && !this.keepPlaying);
 };
 
+// TODO: remove comment (and change name to setupGame?)
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
 
+  //TODO: remove comments
   // Reload the game from a previous game if present
   if (previousState) {
     this.grid        = new Grid(previousState.grid.size,
@@ -50,14 +55,17 @@ GameManager.prototype.setup = function () {
     this.won         = false;
     this.keepPlaying = false;
 
+    // TODO: remove comment
     // Add the initial tiles
     this.addStartTiles();
   }
 
+  // TODO: remove comment
   // Update the actuator
   this.actuate();
 };
 
+// TODO: remove comment
 // Set up the initial tiles to start the game with
 GameManager.prototype.addStartTiles = function () {
   for (var i = 0; i < this.startTiles; i++) {
@@ -65,6 +73,7 @@ GameManager.prototype.addStartTiles = function () {
   }
 };
 
+// TODO reomve comment (and change name to addTileToRandomPosition?)
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
@@ -75,12 +84,14 @@ GameManager.prototype.addRandomTile = function () {
   }
 };
 
+// TODO: change to better name (not sure tho, because the library function is also called "actuate")
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
   if (this.storageManager.getBestScore() < this.score) {
     this.storageManager.setBestScore(this.score);
   }
 
+  // TODO: remove comment (and change this.over to this.lost/this.gameOver?)
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
     this.storageManager.clearGameState();
@@ -109,6 +120,7 @@ GameManager.prototype.serialize = function () {
   };
 };
 
+// TODO: name seems not to describe what the comment does
 // Save all tile positions and remove merger info
 GameManager.prototype.prepareTiles = function () {
   this.grid.eachCell(function (x, y, tile) {
@@ -119,6 +131,7 @@ GameManager.prototype.prepareTiles = function () {
   });
 };
 
+// TODO: remove comment
 // Move a tile and its representation
 GameManager.prototype.moveTile = function (tile, cell) {
   this.grid.cells[tile.x][tile.y] = null;
@@ -128,9 +141,11 @@ GameManager.prototype.moveTile = function (tile, cell) {
 
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {
+  // TODO: remove
   // 0: up, 1: right, 2: down, 3: left
   var self = this;
 
+  // TODO: move up in function ++ remove comment
   if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
   var cell, tile;
@@ -139,9 +154,11 @@ GameManager.prototype.move = function (direction) {
   var traversals = this.buildTraversals(vector);
   var moved      = false;
 
+  // TODO: remove comment
   // Save the current tile positions and remove merger information
   this.prepareTiles();
 
+  // TODO: extract to separate function + remove comments
   // Traverse the grid in the right direction and move tiles
   traversals.x.forEach(function (x) {
     traversals.y.forEach(function (y) {
@@ -152,6 +169,7 @@ GameManager.prototype.move = function (direction) {
         var positions = self.findFarthestPosition(cell, vector);
         var next      = self.grid.cellContent(positions.next);
 
+        // TODO: what does this comment mean?
         // Only one merger per row traversal?
         if (next && next.value === tile.value && !next.mergedFrom) {
           var merged = new Tile(positions.next, tile.value * 2);
@@ -190,6 +208,7 @@ GameManager.prototype.move = function (direction) {
   }
 };
 
+//TODO: remove first 2 comments
 // Get the vector representing the chosen direction
 GameManager.prototype.getVector = function (direction) {
   // Vectors representing tile movement
@@ -203,6 +222,7 @@ GameManager.prototype.getVector = function (direction) {
   return map[direction];
 };
 
+// TODO: remove comment
 // Build a list of positions to traverse in the right order
 GameManager.prototype.buildTraversals = function (vector) {
   var traversals = { x: [], y: [] };
@@ -219,6 +239,7 @@ GameManager.prototype.buildTraversals = function (vector) {
   return traversals;
 };
 
+// TODO: maybe change name so it is more clear what it does
 GameManager.prototype.findFarthestPosition = function (cell, vector) {
   var previous;
 
@@ -235,6 +256,7 @@ GameManager.prototype.findFarthestPosition = function (cell, vector) {
   };
 };
 
+//TODO: check if it uses lazy evaluation
 GameManager.prototype.movesAvailable = function () {
   return this.grid.cellsAvailable() || this.tileMatchesAvailable();
 };
@@ -257,6 +279,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
           var other  = self.grid.cellContent(cell);
 
           if (other && other.value === tile.value) {
+            //TODO: remove comment
             return true; // These two tiles can be merged
           }
         }

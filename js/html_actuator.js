@@ -26,15 +26,18 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     if (metadata.terminated) {
       if (metadata.over) {
-        self.message(false); // You lose
+        //TODO: remove comment
+        self.message(false); // You lose 
       } else if (metadata.won) {
-        self.message(true); // You win!
+        //TODO: remove comment
+        self.message(true); // You win! 
       }
     }
 
   });
 };
 
+// TODO: rename continueGame
 // Continues the game (both restart and keep playing)
 HTMLActuator.prototype.continueGame = function () {
   this.clearMessage();
@@ -70,6 +73,7 @@ HTMLActuator.prototype.addTile = function (tile) {
       classes[2] = self.positionClass({ x: tile.x, y: tile.y });
       self.applyClasses(wrapper, classes); // Update the position
     });
+    //TODO: some similar code, maybe merge?
   } else if (tile.mergedFrom) {
     classes.push("tile-merged");
     this.applyClasses(wrapper, classes);

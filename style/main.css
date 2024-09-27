@@ -47,6 +47,28 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
+
+
+    .range__field {
+      width: 100%; /* Ensures the fieldset takes full width */
+    }
+    
+    .range {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #bbada0;
+      height: 10px;
+    }
+    
+    .range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #333;
+      cursor: pointer;
+    }
 .scores-container {
   float: right;
   text-align: right; }

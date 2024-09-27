@@ -1,3 +1,6 @@
+const Grid = require('./grid');
+const Tile = require('./tile');
+
 function GameManager(size, InputManager, Actuator, StorageManager) {
   // TODO change name to gridSize
   this.size           = size; // Size of the grid
@@ -13,8 +16,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.setup();
 }
-
+module.exports = GameManager;
 // TODO remove comment
+
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();

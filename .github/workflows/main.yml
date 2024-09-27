@@ -1,0 +1,5 @@
+on:
+  push:
+    branches:
+      - main
+      - refactoring-using-sonarcloud

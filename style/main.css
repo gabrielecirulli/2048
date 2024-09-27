@@ -77,7 +77,6 @@ h1.title {
   .score-container .score-addition, .best-container .score-addition {
     position: absolute;
     right: 30px;
-    color: red;
     font-size: 25px;
     line-height: 25px;
     font-weight: bold;
@@ -519,7 +518,6 @@ hr {
   margin-bottom: 0; }
 
 .restart-button {
-  display: inline-block;
   background: #8f7a66;
   border-radius: 3px;
   padding: 0 20px;

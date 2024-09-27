@@ -2,16 +2,15 @@ function Grid(size, previousState) {
   this.size = size;
   this.cells = previousState ? this.fromState(previousState) : this.empty();
 }
-module.exports = Grid;
 // Build a grid of the specified size
 // TODO change name to make it more clear
 Grid.prototype.empty = function () {
-  var cells = [];
+  let cells = [];
 
-  for (var x = 0; x < this.size; x++) {
-    var row = cells[x] = [];
+  for (let x = 0; x < this.size; x++) {
+    let row = cells[x] = [];
 
-    for (var y = 0; y < this.size; y++) {
+    for (let y = 0; y < this.size; y++) {
       row.push(null);
     }
   }
@@ -21,13 +20,13 @@ Grid.prototype.empty = function () {
 
 // TODO change name to make it more clear
 Grid.prototype.fromState = function (state) {
-  var cells = [];
+  let cells = [];
 
-  for (var x = 0; x < this.size; x++) {
-    var row = cells[x] = [];
+  for (let x = 0; x < this.size; x++) {
+    let row = cells[x] = [];
 
-    for (var y = 0; y < this.size; y++) {
-      var tile = state[x][y];
+    for (let y = 0; y < this.size; y++) {
+      let tile = state[x][y];
       row.push(tile ? new Tile(tile.position, tile.value) : null);
     }
   }
@@ -38,7 +37,7 @@ Grid.prototype.fromState = function (state) {
 // Find the first available random position
 // TODO what happens when cells.length is null/undefined?
 Grid.prototype.randomAvailableCell = function () {
-  var cells = this.availableCells();
+  let cells = this.availableCells();
 
   if (cells.length) {
     return cells[Math.floor(Math.random() * cells.length)];
@@ -47,7 +46,7 @@ Grid.prototype.randomAvailableCell = function () {
 
 // TODO check if callback is the best way to do this.
 Grid.prototype.availableCells = function () {
-  var cells = [];
+  let cells = [];
 
   this.eachCell(function (x, y, tile) {
     if (!tile) {
@@ -60,8 +59,8 @@ Grid.prototype.availableCells = function () {
 
 // Call callback for every cell
 Grid.prototype.eachCell = function (callback) {
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+  for (let x = 0; x < this.size; x++) {
+    for (let y = 0; y < this.size; y++) {
       callback(x, y, this.cells[x][y]);
     }
   }
@@ -107,12 +106,12 @@ Grid.prototype.withinBounds = function (position) {
 
 // TODO: Not sure what this is for...
 Grid.prototype.serialize = function () {
-  var cellState = [];
+  let cellState = [];
 
-  for (var x = 0; x < this.size; x++) {
-    var row = cellState[x] = [];
+  for (let x = 0; x < this.size; x++) {
+    let row = cellState[x] = [];
 
-    for (var y = 0; y < this.size; y++) {
+    for (let y = 0; y < this.size; y++) {
       row.push(this.cells[x][y] ? this.cells[x][y].serialize() : null);
     }
   }

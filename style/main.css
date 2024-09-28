@@ -69,9 +69,15 @@ h1.title {
       appearance: none;
       width: 20px;
       height: 20px;
-      background: #333;
+      background: #8f7a66;
       cursor: pointer;
     }
+
+
+#settingsExpandable{
+  padding-top: 5%;
+  border-radius: 20px;
+}
 .scores-container {
   float: right;
   text-align: right; }
@@ -557,7 +563,7 @@ hr {
   float: right; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 20px; }
 
 @media screen and (max-width: 520px) {
   html, body {

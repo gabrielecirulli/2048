@@ -25,25 +25,6 @@
         <div class="best-container">0</div>
       </div>
     </div>
-    <p>Tile goal score: <span id="rangeValue"></span></p>
-    <fieldset class="range__field">
-      <input class="range" type="range" width="100%" min="0" max="10" id="rangeInput">
-      <svg role="presentation" width="100%" height="20">
-        <rect class="tick" value="128" x="0%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="256" x="10%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="512" x="20%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="1024" x="30%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="2048" x="40%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="4096" x="50%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="8192" x="60%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="16384" x="70%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="32768" x="80%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="65536" x="90%" y="3" width="1" height="10"></rect>
-        <rect class="tick" value="131072" x="100%" y="3" width="1" height="10"></rect>
-      </svg>
-
-   </fieldset>
-
     <div class="above-game">
       <p class="game-intro">Join the numbers and get to the <strong id= "intro">2048 tile!</strong></p>
       <a class="restart-button">New Game</a>
@@ -89,6 +70,26 @@
 
       </div>
     </div>
+
+    <details id="settingsExpandable">
+      <summary>Game Settings</summary>
+      <p>Tile goal score: <span id="rangeValue"></span></p>
+      <fieldset class="range__field">
+        <input class="range" type="range" width="100%" min="0" max="9" id="rangeInput">
+        <svg role="presentation" width="100%" height="20">
+          <rect class="tick" value="128" x="0%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="256" x="10%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="512" x="20%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="1024" x="30%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="2048" x="40%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="4096" x="50%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="8192" x="60%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="16384" x="70%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="32768" x="80%" y="3" width="1" height="10"></rect>
+          <rect class="tick" value="65536" x="90%" y="3" width="1" height="10"></rect>
+        </svg>
+      </fieldset>
+    </details>
 
     <p class="game-explanation">
       <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>

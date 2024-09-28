@@ -49,35 +49,37 @@ h1.title {
     opacity: 0; } }
 
 
-    .range__field {
-      border-width: 0;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-    
-    .range {
-      width: 100%;
-      -webkit-appearance: none;
-      appearance: none;
-      background: #bbada0;
-      height: 10px;
-    }
-    
-    .range::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      background: #8f7a66;
-      cursor: pointer;
-    }
-
-
 #settingsExpandable{
   padding-top: 5%;
   border-radius: 20px;
 }
+
+#scoreSliderContainer{
+  padding: 1rem;
+}
+
+.range__field {
+  border-width: 0;
+  width: 100%;
+}
+
+.range {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #bbada0;
+  height: 10px;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #8f7a66;
+  cursor: pointer;
+}
+
 .scores-container {
   float: right;
   text-align: right; }

@@ -19,19 +19,24 @@ function GameManager(size, InputManager, Actuator, StorageManager, scoreGoal) {
   this.setup();
 }
 
-// Default Values
 const rangeInput = document.getElementById("rangeInput");
 const rangeValueDisplay = document.getElementById("rangeValue");
 const introDisplay = document.getElementById("intro");
+
+// Default Values
 rangeInput.value = 4;
 rangeValueDisplay.textContent = 2048;
 
 // Update the tile target
 GameManager.prototype.updateGoal = function () {
   const sliderValue = parseInt(rangeInput.value);
+
+  // Target is always a multiple of 2
   const tickValue = 128 * Math.pow(2, sliderValue);
+
   rangeValueDisplay.textContent = tickValue;
   introDisplay.textContent =  tickValue.toString()+" tile!";
+  
   this.scoreGoal = tickValue;
   this.storageManager.clearGameState();
   this.setup();

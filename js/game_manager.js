@@ -4,7 +4,7 @@ function GameManager(size, InputManager, Actuator, StorageManager, scoreGoal) {
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
-  this.scoreGoal = scoreGoal;
+  this.scoreGoal = 2048;
 
   this.startTiles     = 2;
 
@@ -12,8 +12,34 @@ function GameManager(size, InputManager, Actuator, StorageManager, scoreGoal) {
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
+  rangeInput.addEventListener("input", () => {
+    this.updateGoal();
+  });
+
   this.setup();
 }
+
+const rangeInput = document.getElementById("rangeInput");
+const rangeValueDisplay = document.getElementById("rangeValue");
+const introDisplay = document.getElementById("intro");
+
+
+// Default Values
+rangeInput.value = 4;
+rangeValueDisplay.textContent = 2048;
+
+// Event listener for the range input
+
+GameManager.prototype.updateGoal = function () {
+  const sliderValue = parseInt(rangeInput.value);
+  const tickValue = 128 * Math.pow(2, sliderValue);
+  rangeValueDisplay.textContent = tickValue;
+  introDisplay.textContent =  tickValue.toString()+" tile!";
+  this.scoreGoal = tickValue;
+  this.storageManager.clearGameState();
+  this.setup();
+  
+};
 
 // TODO remove comment
 // Restart the game
@@ -28,6 +54,7 @@ GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
 };
+
 
 // TODO: remove comment
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -148,6 +175,8 @@ GameManager.prototype.move = function (direction) {
   var scoreGoal = this.scoreGoal;
   var self = this;
 
+  console.log(scoreGoal);
+
   // TODO: move up in function ++ remove comment
   if (this.isGameTerminated()) return; // Don't do anything if the game's over
 
@@ -167,6 +196,7 @@ GameManager.prototype.move = function (direction) {
     traversals.y.forEach(function (y) {
       cell = { x: x, y: y };
       tile = self.grid.cellContent(cell);
+
 
       if (tile) {
         var positions = self.findFarthestPosition(cell, vector);

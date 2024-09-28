@@ -50,7 +50,10 @@ h1.title {
 
 
     .range__field {
-      width: 100%; /* Ensures the fieldset takes full width */
+      border-width: 0;
+      padding: 0;
+      margin: 0;
+      width: 100%;
     }
     
     .range {

@@ -95,7 +95,6 @@ h1.title {
   .score-addition {
     position: absolute;
     right: 30px;
-    color: red;
     font-size: $height;
     line-height: $height;
     font-weight: bold;
@@ -212,8 +211,6 @@ hr {
         height: 60px;
         line-height: 60px;
         margin-top: 222px;
-        // height: $field-width;
-        // line-height: $field-width;
       }
 
       .lower {
@@ -224,7 +221,6 @@ hr {
       a {
         @include button;
         margin-left: 9px;
-        // margin-top: 59px;
 
 	&.keep-playing-button {
 	  display: none;

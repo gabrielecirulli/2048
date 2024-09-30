@@ -1,9 +1,10 @@
-function GameManager(size, InputManager, Actuator, StorageManager) {
+function GameManager(size, InputManager, Actuator, StorageManager, scoreGoal) {
   // TODO change name to gridSize
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
+  this.scoreGoal = 2048;
 
   this.startTiles     = 2;
 
@@ -11,8 +12,37 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
+  rangeInput.addEventListener("input", () => {
+    this.updateGoal();
+  });
+
   this.setup();
 }
+
+const rangeInput = document.getElementById("rangeInput");
+const rangeValueDisplay = document.getElementById("rangeValue");
+const introDisplay = document.getElementById("intro");
+
+// Default Values
+rangeInput.value = 4;
+rangeValueDisplay.textContent = 2048;
+
+// Update the tile target
+GameManager.prototype.updateGoal = function () {
+  const sliderValue = parseInt(rangeInput.value);
+
+  // Target is always a multiple of 2
+  const tickValue = 128 * Math.pow(2, sliderValue);
+
+  rangeValueDisplay.textContent = tickValue;
+  introDisplay.textContent =  tickValue.toString()+" tile!";
+  
+  this.scoreGoal = tickValue;
+  this.storageManager.clearGameState();
+  this.setup();
+  
+};
+
 // TODO remove comment
 
 // Restart the game
@@ -27,6 +57,7 @@ GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
 };
+
 
 // TODO: remove comment
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -143,7 +174,11 @@ GameManager.prototype.moveTile = function (tile, cell) {
 GameManager.prototype.move = function (direction) {
   // TODO: remove
   // 0: up, 1: right, 2: down, 3: left
-  let self = this;
+
+  var scoreGoal = this.scoreGoal;
+  var self = this;
+
+  console.log(scoreGoal);
 
   // TODO: move up in function ++ remove comment
   if (this.isGameTerminated()) return; // Don't do anything if the game's over
@@ -165,6 +200,7 @@ GameManager.prototype.move = function (direction) {
       cell = { x: x, y: y };
       tile = self.grid.cellContent(cell);
 
+
       if (tile) {
         let positions = self.findFarthestPosition(cell, vector);
         let next      = self.grid.cellContent(positions.next);
@@ -183,9 +219,8 @@ GameManager.prototype.move = function (direction) {
 
           // Update the score
           self.score += merged.value;
-
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === scoreGoal) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }

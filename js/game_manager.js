@@ -173,7 +173,7 @@ GameManager.prototype.move = function (direction) {
 
   traversals.x.forEach(function (x) {
     traversals.y.forEach(function (y) {
-      cell = { x: x, y: y };
+      const cell = { x: x, y: y };
       const tileHasMoved = self.mergeOrMoveTile(cell, self, vector);
       if (tileHasMoved){
         gridMoved = true;
@@ -194,7 +194,7 @@ GameManager.prototype.move = function (direction) {
 
 GameManager.prototype.mergeOrMoveTile = function (cell, self, vector){
 
-  tile = self.grid.cellContent(cell);
+  const tile = self.grid.cellContent(cell);
 
   if (!tile) return;
   
@@ -207,9 +207,7 @@ GameManager.prototype.mergeOrMoveTile = function (cell, self, vector){
     self.moveTile(tile, farthestCells.free);
   }
 
-  if (self.positionsEqual(cell, tile)) return false;
-  
-  return true;
+  return !self.positionsEqual(cell, tile)
 };
 
 GameManager.prototype.shouldBeMerged = function (tile, nextCell){

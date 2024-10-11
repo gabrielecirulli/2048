@@ -1,3 +1,12 @@
+/*
+Polyfill: classList
+Compatible for:
+Chrome below 22
+Edge below v16
+Firefox below v3.6
+*/
+
+
 (function () {
   if (typeof window.Element === "undefined" ||
       "classList" in document.documentElement) {

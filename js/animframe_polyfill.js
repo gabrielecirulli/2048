@@ -1,3 +1,20 @@
+/* 
+Polyfill: requestAnimationFrame
+Compatible for:
+Chrome below v24 (Full Compatability)
+  * Chrome below v10: Implemented with vendorkit: webkit
+Edge below v12
+Firefox below v23
+*/
+
+/* 
+Polyfill: cancelAnimationFrame
+Compatible for:
+Chrome below v24
+Edge below v12
+Firefox below v23
+*/
+
 (function () {
   let lastTime = 0;
   let vendors = ['webkit', 'moz'];

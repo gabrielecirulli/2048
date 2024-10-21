@@ -1,11 +1,11 @@
-function GameManager(gridSize, InputManager, Actuator, StorageManager, scoreGoal) {
+function GameManager(gridSize, InputManager, Actuator, StorageManager) {
 
   this.gridSize           = gridSize; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
   this.scoreGoal = 2048;
-
+  this.speed = 3;
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
@@ -16,12 +16,24 @@ function GameManager(gridSize, InputManager, Actuator, StorageManager, scoreGoal
     this.updateGoal();
   });
 
+  speedrangeInput.addEventListener("input", () => {
+    this.updateSpeed();
+  });
   this.setupGame();
 }
 
 const rangeInput = document.getElementById("rangeInput");
 const rangeValueDisplay = document.getElementById("rangeValue");
 const introDisplay = document.getElementById("intro");
+
+const speedrangeInput = document.getElementById("speedRangeInput"); // Corrected ID for speed input
+const speedrangeValueDisplay = document.getElementById("speedRangeValue");
+const speedintroDisplay = document.getElementById("speedIntro");
+
+
+// Default Values
+speedrangeInput.value = 3;
+speedrangeValueDisplay.textContent = "Default";
 
 // Default Values
 rangeInput.value = 4;
@@ -43,6 +55,23 @@ GameManager.prototype.updateGoal = function () {
   
 };
 
+GameManager.prototype.updateSpeed = function () {
+  const sliderValue = parseInt(speedrangeInput.value);
+  const speedMap = {
+    5: "Very Fast",
+    4: "Fast",
+    3: "Default",
+    2: "Slow",
+    1: "Very Slow"
+  };
+
+  const animationSpeed = (200*3) / sliderValue;
+
+  // Update CSS variable for animation speed
+  document.documentElement.style.setProperty('--animation-speed', `${animationSpeed}ms`);
+
+  speedrangeValueDisplay.textContent = speedMap[sliderValue] || "default";
+};
 
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
@@ -82,6 +111,8 @@ GameManager.prototype.setupGame = function () {
 
   this.actuate();
 };
+
+
 
 GameManager.prototype.addStartTiles = function () {
   for (let i = 0; i < this.startTiles; i++) {

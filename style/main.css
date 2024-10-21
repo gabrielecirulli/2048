@@ -7,6 +7,10 @@ html, body {
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
+:root {
+  --animation-speed: 200ms;
+}
+
 body {
   margin: 80px 0; }
 
@@ -53,8 +57,19 @@ h1.title {
   border-radius: 20px;
 }
 
-#scoreSliderContainer{
-  padding: 1rem;
+#settingsExpandable[open] summary {
+  padding-bottom: 20px;
+}
+
+
+.solid{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.settingsSection{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .range__field {
@@ -67,14 +82,16 @@ h1.title {
   -webkit-appearance: none;
   appearance: none;
   background: #bbada0;
+  border-radius: 20px;
   height: 10px;
 }
 
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  border-radius: 10px;
+  height: 23px;
   background: #8f7a66;
   cursor: pointer;
 }
@@ -347,9 +364,9 @@ hr {
 
 .tile {
   position: absolute;
-  -webkit-transition: 100ms ease-in-out;
-  -moz-transition: 100ms ease-in-out;
-  transition: 100ms ease-in-out;
+  -webkit-transition: var(--animation-speed) ease-in-out;
+  -moz-transition: var(--animation-speed) ease-in-out;
+  transition: var(--animation-speed) ease-in-out; /* Tile move speed*/
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform; }
@@ -469,9 +486,9 @@ hr {
     -ms-transform: scale(1);
     transform: scale(1); } }
 .tile-new .tile-inner {
-  -webkit-animation: appear 200ms ease 100ms;
-  -moz-animation: appear 200ms ease 100ms;
-  animation: appear 200ms ease 100ms;
+  -webkit-animation: appear var(--animation-speed) ease 100ms;
+  -moz-animation: appear var(--animation-speed) ease 100ms;
+  animation: appear var(--animation-speed) ease 100ms;
   -webkit-animation-fill-mode: backwards;
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
@@ -532,9 +549,9 @@ hr {
     transform: scale(1); } }
 .tile-merged .tile-inner {
   z-index: 20;
-  -webkit-animation: pop 200ms ease 100ms;
-  -moz-animation: pop 200ms ease 100ms;
-  animation: pop 200ms ease 100ms;
+  -webkit-animation: pop var(--animation-speed) ease 100ms;
+  -moz-animation: pop var(--animation-speed) ease 100ms;
+  animation: pop var(--animation-speed) ease 100ms;
   -webkit-animation-fill-mode: backwards;
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }

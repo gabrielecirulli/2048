@@ -52,7 +52,6 @@ GameManager.prototype.updateGoal = function () {
   this.scoreGoal = tickValue;
   this.storageManager.clearGameState();
   this.setupGame();
-  
 };
 
 GameManager.prototype.updateSpeed = function () {

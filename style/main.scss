@@ -4,12 +4,13 @@
 $field-width: 500px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
-$tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+$tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) /
+  $grid-row-cells;
 $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
-$text-color: #776E65;
+$text-color: #776e65;
 $bright-text-color: #f9f6f2;
 
 $tile-color: #eee4da;
@@ -21,7 +22,8 @@ $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 
@@ -64,7 +66,8 @@ h1.title {
   text-align: right;
 }
 
-.score-container, .best-container {
+.score-container,
+.best-container {
   $height: 25px;
 
   position: relative;
@@ -99,7 +102,7 @@ h1.title {
     font-size: $height;
     line-height: $height;
     font-weight: bold;
-    color: rgba($text-color, .9);
+    color: rgba($text-color, 0.9);
     z-index: 100;
     @include animation(move-up 600ms ease-in);
     @include animation-fill-mode(both);
@@ -201,7 +204,7 @@ hr {
       right: 0;
       bottom: 0;
       left: 0;
-      background: rgba($tile-color, .5);
+      background: rgba($tile-color, 0.5);
       z-index: 100;
 
       text-align: center;
@@ -226,24 +229,25 @@ hr {
         margin-left: 9px;
         // margin-top: 59px;
 
-	&.keep-playing-button {
-	  display: none;
-	}
+        &.keep-playing-button {
+          display: none;
+        }
       }
 
       @include animation(fade-in 800ms ease $transition-speed * 12);
       @include animation-fill-mode(both);
 
       &.game-won {
-        background: rgba($tile-gold-color, .5);
+        background: rgba($tile-gold-color, 0.5);
         color: $bright-text-color;
 
-	a.keep-playing-button {
-	  display: inline-block;
-	}
+        a.keep-playing-button {
+          display: inline-block;
+        }
       }
 
-      &.game-won, &.game-over {
+      &.game-won,
+      &.game-over {
         display: block;
       }
     }
@@ -276,7 +280,7 @@ hr {
 
     border-radius: $tile-border-radius;
 
-    background: rgba($tile-color, .35);
+    background: rgba($tile-color, 0.35);
 
     &:last-child {
       margin-right: 0;
@@ -289,7 +293,8 @@ hr {
   }
 
   .tile {
-    &, .tile-inner {
+    &,
+    .tile-inner {
       width: ceil($tile-size);
       height: ceil($tile-size);
       line-height: ceil($tile-size);
@@ -336,17 +341,27 @@ hr {
   $limit: 11;
 
   // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+  $special-colors: false false,
+    // 2
+    false false,
+    // 4
+    #f78e48 true,
+    // 8
+    #fc5e2e true,
+    // 16
+    #ff3333 true,
+    // 32
+    #ff0000 true,
+    // 64
+    false true,
+    // 128
+    false true,
+    // 256
+    false true,
+    // 512
+    false true,
+    // 1024
+    false true; // 2048
 
   // Build tile colors
   @while $exponent <= $limit {
@@ -377,8 +392,12 @@ hr {
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
 
       @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+        box-shadow: 0
+            0
+            30px
+            10px
+            rgba($tile-gold-glow-color, $glow-opacity / 1.8),
+          inset 0 0 0 1px rgba(white, $glow-opacity / 3);
       }
 
       // Adjust font size for bigger numbers
@@ -477,11 +496,13 @@ hr {
   $field-width: 280px;
   $grid-spacing: 10px;
   $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) /
+    $grid-row-cells;
   $tile-border-radius: 3px;
   $game-container-margin-top: 17px;
 
-  html, body {
+  html,
+  body {
     font-size: 15px;
   }
 
@@ -500,7 +521,8 @@ hr {
     margin: 0 auto;
   }
 
-  .score-container, .best-container {
+  .score-container,
+  .best-container {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;

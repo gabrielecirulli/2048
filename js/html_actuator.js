@@ -1,8 +1,9 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
-  this.scoreContainer   = document.querySelector(".score-container");
-  this.bestContainer    = document.querySelector(".best-container");
-  this.messageContainer = document.querySelector(".game-message");
+  this.tileContainer       = document.querySelector(".tile-container");
+  this.scoreContainer      = document.querySelector(".score-container");
+  this.bestContainer       = document.querySelector(".best-container");
+  this.messageContainer    = document.querySelector(".game-message");
+  this.purgeMessageContainer = document.querySelector(".purge-message");
 
   this.score = 0;
 }
@@ -136,4 +137,15 @@ HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
+};
+
+HTMLActuator.prototype.showPurgeMessage = function (text) {
+  var self = this;
+  this.purgeMessageContainer.textContent = text;
+  this.purgeMessageContainer.style.display = "block";
+  // Hide after 2 seconds
+  setTimeout(function () {
+    self.purgeMessageContainer.textContent = "";
+    self.purgeMessageContainer.style.display = "none";
+  }, 2000);
 };

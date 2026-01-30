@@ -9,6 +9,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("purge", this.purge.bind(this));
 
   this.setup();
 }
@@ -24,6 +25,33 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
+};
+
+// Purge all 2 and 4 tiles from the grid only if all cells are filled (no empty spaces)
+GameManager.prototype.purge = function () {
+  // Check if button is disabled
+  var button = document.querySelector(".purge-button");
+  if (button.classList.contains("disabled")) {
+    this.actuator.showPurgeMessage("Space is still available. Continue the game!");
+    return;
+  }
+
+  var self = this;
+  var removed = false;
+
+  this.grid.eachCell(function (x, y, tile) {
+    if (tile && (tile.value === 2 || tile.value === 4)) {
+      self.grid.removeTile(tile);
+      removed = true;
+    }
+  });
+
+  if (removed) {
+    this.afterPurge = true;
+    // The game is no longer over since we created space
+    this.over = false;
+    this.actuate();
+  }
 };
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
@@ -43,12 +71,14 @@ GameManager.prototype.setup = function () {
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
+    this.afterPurge  = previousState.afterPurge || false;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
+    this.afterPurge  = false;
 
     // Add the initial tiles
     this.addStartTiles();
@@ -96,6 +126,18 @@ GameManager.prototype.actuate = function () {
     terminated: this.isGameTerminated()
   });
 
+  // Toggle purge button based on grid fullness
+  var allFilled = true;
+  this.grid.eachCell(function (x, y, tile) {
+    if (!tile) allFilled = false;
+  });
+  var button = document.querySelector(".purge-button");
+  if (allFilled) {
+    button.classList.remove("disabled");
+  } else {
+    button.classList.add("disabled");
+  }
+
 };
 
 // Represent the current game as an object
@@ -105,7 +147,8 @@ GameManager.prototype.serialize = function () {
     score:       this.score,
     over:        this.over,
     won:         this.won,
-    keepPlaying: this.keepPlaying
+    keepPlaying: this.keepPlaying,
+    afterPurge:  this.afterPurge
   };
 };
 
@@ -180,7 +223,10 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
-    this.addRandomTile();
+    if (!this.afterPurge) {
+      this.addRandomTile();
+    }
+    this.afterPurge = false;
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!

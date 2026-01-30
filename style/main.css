@@ -517,7 +517,23 @@ hr {
   line-height: 42px;
   margin-bottom: 0; }
 
-.restart-button {
+.purge-message {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border: 2px solid red;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000; }
+
+.restart-button, .purge-button {
   display: inline-block;
   background: #8f7a66;
   border-radius: 3px;
@@ -529,6 +545,10 @@ hr {
   display: block;
   text-align: center;
   float: right; }
+
+.purge-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed; }
 
 .game-explanation {
   margin-top: 50px; }
@@ -563,12 +583,16 @@ hr {
     box-sizing: border-box;
     line-height: 1.65; }
 
-  .restart-button {
+  .restart-button, .purge-button {
     width: 42%;
     padding: 0;
     display: block;
     box-sizing: border-box;
     margin-top: 2px; }
+
+  .purge-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed; }
 
   .game-container {
     margin-top: 17px;

@@ -756,3 +756,52 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+
+/* Extended tile colors for values above 2048 */
+.tile.tile-4096 .tile-inner {
+  color: #f9f6f2;
+  background: #b784a7;
+  box-shadow: 0 0 30px 10px rgba(183, 132, 167, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 30px; }
+  @media screen and (max-width: 520px) {
+    .tile.tile-4096 .tile-inner { font-size: 10px; } }
+
+.tile.tile-8192 .tile-inner {
+  color: #f9f6f2;
+  background: #7b5ea7;
+  box-shadow: 0 0 30px 10px rgba(123, 94, 167, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 30px; }
+  @media screen and (max-width: 520px) {
+    .tile.tile-8192 .tile-inner { font-size: 10px; } }
+
+.tile.tile-16384 .tile-inner {
+  color: #f9f6f2;
+  background: #4a90d9;
+  box-shadow: 0 0 30px 10px rgba(74, 144, 217, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 25px; }
+  @media screen and (max-width: 520px) {
+    .tile.tile-16384 .tile-inner { font-size: 8px; } }
+
+.tile.tile-32768 .tile-inner {
+  color: #f9f6f2;
+  background: #2ecc71;
+  box-shadow: 0 0 30px 10px rgba(46, 204, 113, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 25px; }
+  @media screen and (max-width: 520px) {
+    .tile.tile-32768 .tile-inner { font-size: 8px; } }
+
+.tile.tile-65536 .tile-inner {
+  color: #f9f6f2;
+  background: #e74c3c;
+  box-shadow: 0 0 30px 10px rgba(231, 76, 60, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 20px; }
+  @media screen and (max-width: 520px) {
+    .tile.tile-65536 .tile-inner { font-size: 7px; } }
+
+.tile.tile-131072 .tile-inner {
+  color: #f9f6f2;
+  background: linear-gradient(135deg, #f39c12, #e74c3c, #9b59b6);
+  box-shadow: 0 0 40px 15px rgba(243, 156, 18, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  font-size: 18px; }
+  @media screen and (max-width: 520px) {
+    .tile.tile-131072 .tile-inner { font-size: 6px; } }

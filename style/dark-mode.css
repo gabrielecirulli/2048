@@ -1,0 +1,80 @@
+/* ---------------------------------------------------------
+   dark-mode.css
+   Loaded AFTER main.css, so these rules win.
+
+   The "dark" class goes on <html>, not <body>, because
+   main.css sets a background on BOTH (html, body { ... })
+   and body has an 80px margin - so the html background
+   shows through at the top and bottom of the page.
+   --------------------------------------------------------- */
+
+/* The toggle button.
+   position:fixed pins it to the corner of the window and takes it
+   out of the normal flow, so it can't disturb the game's layout. */
+.dark-mode-button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  background: #8f7a66;
+  color: #f9f6f2;
+  border-radius: 3px;
+  padding: 0 16px;
+  height: 36px;
+  line-height: 38px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---------- everything below only applies in dark mode ---------- */
+
+html.dark,
+html.dark body {
+  background: #191714;
+  color: #d7d0c6;
+}
+
+html.dark h1.title {
+  color: #f2ede4;
+}
+
+html.dark a {
+  color: #bcae9e;
+}
+
+/* The board and the two score boxes */
+html.dark .game-container,
+html.dark .score-container,
+html.dark .best-container {
+  background: #4a423c;
+}
+
+/* The empty squares behind the tiles */
+html.dark .grid-cell {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Buttons */
+html.dark .restart-button,
+html.dark .dark-mode-button {
+  background: #6b5d52;
+  color: #f9f6f2;
+}
+
+/* The "You win!" / "Game over!" overlay */
+html.dark .game-message {
+  background: rgba(25, 23, 20, 0.75);
+}
+
+html.dark .game-message p {
+  color: #f2ede4;
+}
+
+/* Keep the horizontal rules from glowing white */
+html.dark hr {
+  border-color: #3a3430;
+}

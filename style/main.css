@@ -90,10 +90,10 @@ h1.title {
     animation-fill-mode: both; }
 
 .score-container:after {
-  content: "Score"; }
+  content: attr(data-label); }
 
 .best-container:after {
-  content: "Best"; }
+  content: attr(data-label); }
 
 p {
   margin-top: 0;
@@ -118,6 +118,11 @@ hr {
 .container {
   width: 500px;
   margin: 0 auto; }
+
+.language-selector {
+  margin-bottom: 0;
+  text-align: right;
+  font-size: 15px; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -531,7 +536,8 @@ hr {
   float: right; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 50px;
+  color: #00796b; }
 
 @media screen and (max-width: 520px) {
   html, body {

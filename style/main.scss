@@ -11,6 +11,7 @@ $mobile-threshold: $field-width + 20px;
 
 $text-color: #776E65;
 $bright-text-color: #f9f6f2;
+$instructions-color: #00796b;
 
 $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
@@ -470,6 +471,7 @@ hr {
 
 .game-explanation {
   margin-top: 50px;
+  color: $instructions-color;
 }
 
 @include smaller($mobile-threshold) {

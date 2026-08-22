@@ -531,7 +531,8 @@ hr {
   float: right; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 50px;
+  color: #00796b; }
 
 @media screen and (max-width: 520px) {
   html, body {

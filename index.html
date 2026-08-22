@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>2048</title>
@@ -18,11 +18,13 @@
 </head>
 <body>
   <div class="container">
+    <p class="language-selector"><a href="index.zh-TW.html" lang="zh-Hant">繁體中文</a></p>
+
     <div class="heading">
       <h1 class="title">2048</h1>
       <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
+        <div class="score-container" data-label="Score">0</div>
+        <div class="best-container" data-label="Best">0</div>
       </div>
     </div>
 
@@ -32,7 +34,7 @@
     </div>
 
     <div class="game-container">
-      <div class="game-message">
+      <div class="game-message" data-message-win="You win!" data-message-over="Game over!">
         <p></p>
         <div class="lower">
 	        <a class="keep-playing-button">Keep going</a>

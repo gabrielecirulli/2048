@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <title>2048</title>
+
+  <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div class="container">
+    <p class="language-selector"><a href="index.html" lang="en">English</a></p>
+
+    <div class="heading">
+      <h1 class="title">2048</h1>
+      <div class="scores-container">
+        <div class="score-container" data-label="分數">0</div>
+        <div class="best-container" data-label="最高分">0</div>
+      </div>
+    </div>
+
+    <div class="above-game">
+      <p class="game-intro">合併數字，取得 <strong>2048 方塊！</strong></p>
+      <a class="restart-button">新遊戲</a>
+    </div>
+
+    <div class="game-container">
+      <div class="game-message" data-message-win="你贏了！" data-message-over="遊戲結束！">
+        <p></p>
+        <div class="lower">
+	        <a class="keep-playing-button">繼續遊戲</a>
+          <a class="retry-button">再試一次</a>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
+
+      <div class="tile-container">
+
+      </div>
+    </div>
+
+    <p class="game-explanation">
+      <strong class="important">遊戲方式：</strong>使用<strong>方向鍵</strong>移動方塊。當兩個相同數字的方塊碰在一起時，它們會<strong>合併成一個！</strong>
+    </p>
+    <hr>
+    <p>
+      <strong class="important">注意：</strong>此網站是 2048 的官方版本。您可以透過 <a href="http://git.io/2048">http://git.io/2048</a> 在手機上遊玩。其他應用程式或網站皆為衍生版本或仿冒品，使用時請務必小心。
+    </p>
+    <hr>
+    <p>
+      由 <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli</a> 製作。以 Veewo Studio 的 <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024</a> 為基礎，概念上與 Asher Vollmer 的 <a href="http://asherv.com/threes/" target="_blank">Threes</a> 相似。
+    </p>
+  </div>
+
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* 知识阶梯 2048 —— 教育版样式补丁
+   原版 main.css 一行不动，教育版的全部样式改动都集中在本文件 */
+
+.tile .tile-inner {
+  font-size: 30px !important;
+  letter-spacing: 2px;
+}
+
+/* ---- 知识点卡片 ---- */
+.knowledge-card {
+  box-sizing: border-box;
+  width: 500px;
+  min-height: 138px;
+  margin-top: 24px;
+  padding: 18px 22px 20px;
+  border-radius: 6px;
+  border: 1px solid #dce8cf;
+  border-left: 4px solid #7fa87a;
+  background: #fbfdf8;
+  text-align: left;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.knowledge-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.kc-placeholder {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #8a8a7e;
+}
+
+.kc-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: #e6f0dd;
+  color: #4c6b45;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.kc-title {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #3f5c39;
+}
+
+.kc-en {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #8a9a82;
+}
+
+.kc-tip {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #5c5c52;
+}
+
+.kc-next {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e6eedd;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8a8a7e;
+}
+
+.kc-next span {
+  font-weight: bold;
+  color: #5d7d55;
+}
+
+/* ---- 11 级台阶图例 ---- */
+.edu-legend {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #6b6b60;
+}
+
+.edu-legend span {
+  display: block;
+  margin: 2px 0 6px;
+  padding-left: 10px;
+  border-left: 3px solid #cfe0c2;
+  color: #5c5c52;
+}
+
+/* ---- 标题适配：原版 80px 字号是为 "2048" 四个字符设计的，
+       放不下中文名，缩小并禁止换行 ---- */
+.heading h1.title {
+  font-size: 56px;
+  white-space: nowrap;
+}
+
+/* ---- 手机屏幕适配 ----
+   原版 main.css 在窄屏会把方块缩到 58px（电脑上是 107px），
+   所以字号必须跟着变小，否则两个字装不下会折行 */
+@media screen and (max-width: 520px) {
+  .tile .tile-inner {
+    font-size: 24px !important;
+    letter-spacing: 0;
+  }
+
+  /* 标题同理：手机上不放ohydra那么大的标题 */
+  .heading h1.title {
+    font-size: 26px;
+  }
+}
+
+/* ---- 在棋盘上滑动时不带动页面滚动 ----
+   原版没有处理触摸滚动，手机上滑方块会连页面一起滚 */
+.game-container {
+  touch-action: none;
+}
+
+/* ---- 手机上把知识点卡片改成贴屏幕底部的抽屉 ---- */
+@media screen and (max-width: 520px) {
+  .knowledge-card {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    width: auto;
+    margin: 0;
+    max-height: 38vh;
+    overflow-y: auto;
+    border-radius: 14px 14px 0 0;
+    border-left: none;
+    border-top: 3px solid #7fa87a;
+    box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 没合并过时整张收起，不挡视线 */
+  .knowledge-card:not(.is-visible) {
+    display: none;
+  }
+
+  /* 底部留白，避免页面最后的内容被抽屉压住 */
+  body {
+    padding-bottom: 40vh;
+  }
+}
+

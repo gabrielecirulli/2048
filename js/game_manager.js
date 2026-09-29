@@ -76,7 +76,8 @@ GameManager.prototype.addRandomTile = function () {
 };
 
 // Sends the updated grid to the actuator
-GameManager.prototype.actuate = function () {
+GameManager.prototype.actuate = function (mergedValue) {
+
   if (this.storageManager.getBestScore() < this.score) {
     this.storageManager.setBestScore(this.score);
   }
@@ -93,7 +94,10 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+        terminated:  this.isGameTerminated(),
+    mergedValue: mergedValue || 0
+
   });
 
 };
@@ -138,6 +142,8 @@ GameManager.prototype.move = function (direction) {
   var vector     = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
   var moved      = false;
+    var highestMerged = 0;
+
 
   // Save the current tile positions and remove merger information
   this.prepareTiles();
@@ -156,6 +162,10 @@ GameManager.prototype.move = function (direction) {
         if (next && next.value === tile.value && !next.mergedFrom) {
           var merged = new Tile(positions.next, tile.value * 2);
           merged.mergedFrom = [tile, next];
+
+          if (merged.value > highestMerged) {
+            highestMerged = merged.value;
+          }
 
           self.grid.insertTile(merged);
           self.grid.removeTile(tile);
@@ -186,7 +196,8 @@ GameManager.prototype.move = function (direction) {
       this.over = true; // Game over!
     }
 
-    this.actuate();
+        this.actuate(highestMerged);
+
   }
 };
 

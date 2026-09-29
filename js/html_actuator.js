@@ -3,6 +3,13 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.messageContainer = document.querySelector(".game-message");
+
+  // 教育版新增：知识点卡片容器
+  this.cardContainer    = document.querySelector(".knowledge-card");
+  this.lastCardValue    = 0;
+
+  this.score = 0;
 
   this.score = 0;
 }
@@ -23,6 +30,11 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
+
+    if (metadata.mergedValue) {
+      self.showKnowledgeCard(metadata.mergedValue);
+    }
+
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -61,8 +73,16 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   this.applyClasses(wrapper, classes);
 
-  inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+    inner.classList.add("tile-inner");
+
+    var step = getKnowledgeStep(tile.value);
+  if (step) {
+    inner.textContent = step.name;
+  } else {
+    inner.textContent = tile.value;
+  }
+
+
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -123,10 +143,42 @@ HTMLActuator.prototype.updateScore = function (score) {
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
 };
+/* 教育版新增：把某一级台阶的知识点显示到卡片上 */
+HTMLActuator.prototype.showKnowledgeCard = function (value) {
+  if (!this.cardContainer) return;
+
+  var step = getKnowledgeStep(value);
+  if (!step) return;
+
+  // 同一个等级反复合并时不重复刷新，避免画面抖动
+  if (this.lastCardValue === value) return;
+  this.lastCardValue = value;
+
+  var card = this.cardContainer;
+  card.classList.remove("is-visible");
+  void card.offsetWidth; // 强制重排，让入场动画能重新播放
+
+  var html = "";
+  html += "<div class='kc-badge'>" + step.stage + "</div>";
+  html += "<div class='kc-title'>" + step.name +
+          "<span class='kc-en'>" + step.en + "</span></div>";
+  html += "<p class='kc-tip'>" + step.tip + "</p>";
+
+  var nextStep = getKnowledgeStep(value * 2);
+  if (nextStep) {
+    html += "<div class='kc-next'>再往上合一级，你会走到 <span>" +
+            nextStep.name + "</span> · " + nextStep.stage + "</div>";
+  }
+
+  card.innerHTML = html;
+  card.classList.add("is-visible");
+};
+
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : "Game over!";
+  
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;

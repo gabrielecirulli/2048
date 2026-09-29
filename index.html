@@ -2,9 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>2048</title>
+    <title>知识阶梯 2048 · 教育版</title>
+
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
+    <link href="style/edu.css" rel="stylesheet" type="text/css">
+
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
   <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
@@ -19,7 +22,8 @@
 <body>
   <div class="container">
     <div class="heading">
-      <h1 class="title">2048</h1>
+            <h1 class="title">知识阶梯 2048</h1>
+
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
@@ -27,8 +31,9 @@
     </div>
 
     <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
+            <p class="game-intro">把相同的台阶推到一起，<strong>一路合并到「评估」，走完整个教学系统设计闭环。</strong></p>
+      <a class="restart-button">重新开始</a>
+
     </div>
 
     <div class="game-container">
@@ -71,14 +76,24 @@
 
       </div>
     </div>
+    <div class="knowledge-card">
+      <p class="kc-placeholder">合并任意两个相同的台阶，这里会弹出对应的知识点</p>
+    </div>
 
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+        <p class="game-explanation">
+      <strong class="important">玩法：</strong>用<strong>方向键</strong>推动台阶。两个相同的台阶碰到一起，就会<strong>合成更高的一级</strong>，同时右下方的卡片会告诉你这一级的知识点。
     </p>
+    <p class="edu-legend">
+      <strong class="important">11 级台阶：</strong>
+      <span>识记 → 理解 → 应用 → 分析 → 评价 → 创造</span>（布卢姆认知目标分类学）
+      <span>需求 → 设计 → 开发 → 实施 → 评估</span>（ADDIE 教学系统设计）
+    </p>
+
     <hr>
-    <p>
-    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
+        <p>
+    <strong class="important">关于本版本：</strong>这是 2048 的<strong>教育版改造</strong>，原名《知识阶梯 2048》。游戏规则、棋盘算法与胜负判定<b>完全沿用原版，未作删改</b>；新增的是每一级台阶对应的教师专业能力知识点。
     </p>
+
     <hr>
     <p>
     Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
@@ -89,6 +104,8 @@
   <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
+    <script src="js/knowledge.js"></script>
+
   <script src="js/html_actuator.js"></script>
   <script src="js/grid.js"></script>
   <script src="js/tile.js"></script>

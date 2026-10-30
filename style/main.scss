@@ -1,50 +1,141 @@
 @import "helpers";
-@import "fonts/clear-sans.css";
 
 $field-width: 500px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
 $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-$tile-border-radius: 3px;
+$tile-border-radius: 4px;
 
 $mobile-threshold: $field-width + 20px;
 
-$text-color: #776E65;
-$bright-text-color: #f9f6f2;
+// The Grid: a black void lit by cyan programs and Clu's orange army
+$void-color: #02060a;
+$cyan: #5ee6ff;
+$orange: #ff8a1f;
+$text-color: #8fc9d9;
+$bright-text-color: #eafcff;
+$tile-base-color: rgba(3, 14, 20, .94);
 
-$tile-color: #eee4da;
-$tile-gold-color: #edc22e;
-$tile-gold-glow-color: lighten($tile-gold-color, 15%);
+$display-font: "Orbitron", "Rajdhani", "Helvetica Neue", Arial, sans-serif;
+$body-font: "Rajdhani", "Helvetica Neue", Arial, sans-serif;
 
 $game-container-margin-top: 40px;
-$game-container-background: #bbada0;
+$game-container-background: rgba(2, 12, 18, .8);
 
 $transition-speed: 100ms;
+
+// Tile palette: value, edge color, fill opacity, glow radius. Each value gets
+// its own hue, working around the color wheel as the glow grows stronger
+$tile-palette: (
+  2:    (#00e5ff, .06, 6px),
+  4:    (#3d8bff, .08, 8px),
+  8:    (#9a6cff, .1, 10px),
+  16:   (#e055ff, .12, 12px),
+  32:   (#ff4fa3, .14, 14px),
+  64:   (#ff3b3b, .16, 16px),
+  128:  (#ff8a1f, .18, 18px),
+  256:  (#ffd23f, .2, 20px),
+  512:  (#a6ff3d, .22, 22px),
+  1024: (#2eff9a, .25, 24px),
+  2048: (#ffffff, .3, 28px)
+);
+
+@mixin neon-text($color, $strength: 1) {
+  text-shadow: 0 0 2px rgba(white, .8),
+               0 0 (8px * $strength) rgba($color, .9),
+               0 0 (22px * $strength) rgba($color, .5);
+}
+
+// Bright corner brackets, like the targeting frames on the Grid's HUD
+@mixin hud-corners($color, $length: 10px, $thickness: 2px) {
+  $bar: linear-gradient($color, $color);
+
+  background-image: $bar, $bar, $bar, $bar, $bar, $bar, $bar, $bar;
+  background-repeat: no-repeat;
+  background-size: $length $thickness, $thickness $length,
+                   $length $thickness, $thickness $length,
+                   $length $thickness, $thickness $length,
+                   $length $thickness, $thickness $length;
+  background-position: left top, left top, right top, right top,
+                       left bottom, left bottom, right bottom, right bottom;
+}
+
+html {
+  min-height: 100%;
+  background: radial-gradient(ellipse at 50% 100%, #072531 0%, $void-color 65%) fixed,
+              $void-color;
+}
 
 html, body {
   margin: 0;
   padding: 0;
 
-  background: #faf8ef;
   color: $text-color;
-  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: $body-font;
   font-size: 18px;
+  font-weight: 500;
 }
 
 body {
   margin: 80px 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba($cyan, .35);
+  color: white;
+}
+
+.grid-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+
+  @include animation(fade-in 2s ease-out);
+  @include animation-fill-mode(both);
+}
+
+// Boot sequence: the interface flickers on piece by piece
+@include keyframes(power-on) {
+  0% { opacity: 0; }
+  8% { opacity: .9; }
+  10% { opacity: .1; }
+  14% { opacity: .8; }
+  18% { opacity: .2; }
+  26% { opacity: 1; }
+  30% { opacity: .5; }
+  34%, 100% { opacity: 1; }
+}
+
+@include keyframes(hum) {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: .55; }
+  97% { opacity: 1; }
+  98% { opacity: .8; }
 }
 
 .heading {
   @include clearfix;
+  @include animation(power-on 1.4s linear 200ms);
+  @include animation-fill-mode(both);
 }
 
 h1.title {
-  font-size: 80px;
-  font-weight: bold;
+  font-family: $display-font;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: .04em;
   margin: 0;
   display: block;
   float: left;
+
+  color: #f2feff;
+  @include neon-text($cyan, 1.4);
+  @include animation(hum 9s linear 3s infinite);
 }
 
 @include keyframes(move-up) {
@@ -69,16 +160,24 @@ h1.title {
 
   position: relative;
   display: inline-block;
-  background: $game-container-background;
-  padding: 15px 25px;
-  font-size: $height;
+  min-width: 60px;
+  padding: 15px 22px;
+  font-family: $display-font;
+  font-size: 22px;
   height: $height;
   line-height: $height + 22px;
-  font-weight: bold;
-  border-radius: 3px;
-  color: white;
+  font-weight: 700;
+  color: $bright-text-color;
   margin-top: 8px;
+  margin-left: 4px;
   text-align: center;
+
+  background-color: rgba($cyan, .06);
+  box-shadow: inset 0 0 0 1px rgba($cyan, .35),
+              inset 0 0 18px rgba($cyan, .12),
+              0 0 18px rgba($cyan, .15);
+  @include hud-corners($cyan, 9px, 2px);
+  @include neon-text($cyan, .8);
 
   &:after {
     position: absolute;
@@ -86,20 +185,24 @@ h1.title {
     top: 10px;
     left: 0;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .3em;
+    text-indent: .3em;
     line-height: 13px;
     text-align: center;
-    color: $tile-color;
+    color: rgba($cyan, .75);
+    text-shadow: none;
   }
 
   .score-addition {
     position: absolute;
     right: 30px;
-    color: red;
     font-size: $height;
     line-height: $height;
     font-weight: bold;
-    color: rgba($text-color, .9);
+    color: white;
+    @include neon-text($cyan);
     z-index: 100;
     @include animation(move-up 600ms ease-in);
     @include animation-fill-mode(both);
@@ -110,8 +213,19 @@ h1.title {
   content: "Score";
 }
 
-.best-container:after {
-  content: "Best";
+// Personal best glows in Clu's orange
+.best-container {
+  background-color: rgba($orange, .06);
+  box-shadow: inset 0 0 0 1px rgba($orange, .35),
+              inset 0 0 18px rgba($orange, .12),
+              0 0 18px rgba($orange, .15);
+  @include hud-corners($orange, 9px, 2px);
+  @include neon-text($orange, .8);
+
+  &:after {
+    content: "Best";
+    color: rgba($orange, .8);
+  }
 }
 
 p {
@@ -121,28 +235,54 @@ p {
 }
 
 a {
-  color: $text-color;
-  font-weight: bold;
-  text-decoration: underline;
+  color: $cyan;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba($cyan, .4);
   cursor: pointer;
+  @include transition(color 150ms ease, border-color 150ms ease,
+                      text-shadow 150ms ease);
+
+  &:hover {
+    color: white;
+    border-color: $cyan;
+    text-shadow: 0 0 8px rgba($cyan, .8);
+  }
 }
 
 strong {
+  color: $bright-text-color;
+  font-weight: 700;
+
   &.important {
     text-transform: uppercase;
+    font-family: $display-font;
+    font-size: .8em;
+    letter-spacing: .12em;
+    color: $cyan;
   }
 }
 
 hr {
   border: none;
-  border-bottom: 1px solid lighten($text-color, 40%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba($cyan, .6), transparent);
+  box-shadow: 0 0 8px rgba($cyan, .4);
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   width: $field-width;
   margin: 0 auto;
+
+  > p {
+    color: rgba($text-color, .85);
+    @include animation(fade-in 1s ease 1.6s);
+    @include animation-fill-mode(both);
+  }
 }
 
 @include keyframes(fade-in) {
@@ -155,21 +295,81 @@ hr {
   }
 }
 
+@include keyframes(sweep) {
+  0% {
+    @include transform(translateX(0) skewX(-20deg));
+  }
+
+  100% {
+    @include transform(translateX(400%) skewX(-20deg));
+  }
+}
+
 // Styles for buttons
 @mixin button {
   display: inline-block;
-  background: darken($game-container-background, 20%);
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: $bright-text-color;
+  position: relative;
+  overflow: hidden;
   height: 40px;
-  line-height: 42px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 2px;
+  line-height: 40px;
+  text-decoration: none;
+
+  font-family: $display-font;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: $bright-text-color;
+  @include neon-text($cyan, .7);
+
+  background: rgba($cyan, .08);
+  box-shadow: inset 0 0 0 1px rgba($cyan, .85),
+              inset 0 0 14px rgba($cyan, .25),
+              0 0 14px rgba($cyan, .3);
+  @include transition(background 200ms ease, box-shadow 200ms ease,
+                      color 200ms ease);
+
+  // Light glint that sweeps across on hover
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -75%;
+    width: 50%;
+    background: linear-gradient(90deg, rgba(white, 0), rgba(white, .35),
+                                rgba(white, 0));
+    pointer-events: none;
+    @include transform(skewX(-20deg));
+  }
+
+  &:hover {
+    color: white;
+    border: 0;
+    background: rgba($cyan, .2);
+    box-shadow: inset 0 0 0 1px $cyan,
+                inset 0 0 20px rgba($cyan, .5),
+                0 0 26px rgba($cyan, .6);
+
+    &:before {
+      @include animation(sweep 650ms ease-out);
+    }
+  }
+
+  &:active {
+    background: rgba($cyan, .32);
+  }
 }
 
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
+    --tile-size: #{$tile-size};
+    --grid-step: #{$tile-size + $grid-spacing};
+
     margin-top: $game-container-margin-top;
     position: relative;
     padding: $grid-spacing;
@@ -185,73 +385,14 @@ hr {
     -ms-touch-action: none;
     touch-action: none;
 
-    background: $game-container-background;
+    background: radial-gradient(ellipse at 50% -10%, rgba($cyan, .1), transparent 60%),
+                $game-container-background;
     border-radius: $tile-border-radius * 2;
     width: $field-width;
     height: $field-width;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
-    .game-message {
-      display: none;
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($tile-color, .5);
-      z-index: 100;
-
-      text-align: center;
-
-      p {
-        font-size: 60px;
-        font-weight: bold;
-        height: 60px;
-        line-height: 60px;
-        margin-top: 222px;
-        // height: $field-width;
-        // line-height: $field-width;
-      }
-
-      .lower {
-        display: block;
-        margin-top: 59px;
-      }
-
-      a {
-        @include button;
-        margin-left: 9px;
-        // margin-top: 59px;
-
-	&.keep-playing-button {
-	  display: none;
-	}
-      }
-
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
-
-      &.game-won {
-        background: rgba($tile-gold-color, .5);
-        color: $bright-text-color;
-
-	a.keep-playing-button {
-	  display: inline-block;
-	}
-      }
-
-      &.game-won, &.game-over {
-        display: block;
-      }
-    }
-  }
-
-  .grid-container {
-    position: absolute;
-    z-index: 1;
   }
 
   .grid-row {
@@ -274,18 +415,9 @@ hr {
     margin-right: $grid-spacing;
     float: left;
 
-    border-radius: $tile-border-radius;
-
-    background: rgba($tile-color, .35);
-
     &:last-child {
       margin-right: 0;
     }
-  }
-
-  .tile-container {
-    position: absolute;
-    z-index: 2;
   }
 
   .tile {
@@ -294,8 +426,15 @@ hr {
       height: ceil($tile-size);
       line-height: ceil($tile-size);
     }
+  }
 
-    // Build position classes
+  .tile-fx {
+    width: ceil($tile-size);
+    height: ceil($tile-size);
+  }
+
+  // Build position classes (shared by tiles and their light effects)
+  .tile, .tile-fx {
     @for $x from 1 through $grid-row-cells {
       @for $y from 1 through $grid-row-cells {
         &.tile-position-#{$x}-#{$y} {
@@ -311,18 +450,182 @@ hr {
 // End of game-field mixin
 @include game-field;
 
+// The board rezzes in from a single line of light
+@include keyframes(board-boot) {
+  0% {
+    opacity: 0;
+    @include transform(scale(.2, .004));
+  }
+
+  30% {
+    opacity: 1;
+    @include transform(scale(1, .004));
+  }
+
+  70% {
+    @include transform(scale(1, 1.015));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
+}
+
+@include keyframes(scan) {
+  0% {
+    @include transform(translateY(-100%));
+  }
+
+  100% {
+    @include transform(translateY(100%));
+  }
+}
+
+.game-container {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 0 1px rgba($cyan, .55),
+              0 0 24px rgba($cyan, .22),
+              0 0 70px rgba($cyan, .1),
+              inset 0 0 40px rgba($cyan, .06),
+              0 40px 80px rgba(black, .7);
+  @include animation(board-boot 900ms cubic-bezier(.2, .8, .2, 1) 500ms);
+  @include animation-fill-mode(both);
+
+  // Corner brackets hovering just outside the board
+  &:before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    pointer-events: none;
+    @include hud-corners($cyan, 22px, 2px);
+    -webkit-filter: drop-shadow(0 0 4px rgba($cyan, .9));
+    filter: drop-shadow(0 0 4px rgba($cyan, .9));
+  }
+}
+
+.grid-container {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+
+  // Slow scanning beam that sweeps down the board
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba($cyan, 0) 75%,
+                                rgba($cyan, .06) 97%, rgba($cyan, .3));
+    @include animation(scan 7s linear 2s infinite);
+    @include animation-fill-mode(both);
+  }
+}
+
+.grid-cell {
+  border-radius: $tile-border-radius;
+
+  // Faint node at the center of each empty cell
+  background: radial-gradient(circle, rgba($cyan, .35) 0, rgba($cyan, .35) 1px,
+                              rgba($cyan, 0) 2px),
+              rgba($cyan, .025);
+  box-shadow: inset 0 0 0 1px rgba($cyan, .13),
+              inset 0 0 20px rgba($cyan, .05);
+}
+
+.trail-container, .tile-container, .effect-container {
+  position: absolute;
+}
+
+.trail-container {
+  z-index: 2;
+}
+
+.tile-container {
+  z-index: 3;
+}
+
+.effect-container {
+  z-index: 4;
+  pointer-events: none;
+}
+
+// A tile renders as a panel of light: glass face, bright edge, soft halo
+@mixin tile-skin($color, $fill, $glow) {
+  color: mix(white, $color, 45%);
+  background: linear-gradient(160deg, rgba($color, $fill + .12) 0%,
+                              rgba($color, $fill) 40%,
+                              rgba($color, $fill * .4) 100%),
+              $tile-base-color;
+  box-shadow: inset 0 0 0 2px rgba($color, .95),
+              inset 0 0 ($glow * 1.6) rgba($color, .35),
+              0 0 $glow rgba($color, .6),
+              0 0 ($glow * 3) rgba($color, .22);
+  text-shadow: 0 0 3px rgba($color, .9),
+               0 0 ($glow * 1.6) rgba($color, .75);
+
+  &:after {
+    box-shadow: 0 0 ($glow * 2) rgba($color, .7),
+                0 0 ($glow * 4) rgba($color, .3);
+  }
+}
+
+@include keyframes(breathe) {
+  0%, 100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .85;
+  }
+}
+
 .tile {
   position: absolute; // Makes transforms relative to the top-left corner
 
   .tile-inner {
+    position: relative;
     border-radius: $tile-border-radius;
-
-    background: $tile-color;
     text-align: center;
-    font-weight: bold;
+    font-family: $display-font;
+    font-weight: 700;
     z-index: 10;
 
-    font-size: 55px;
+    font-size: 48px;
+
+    // Inner light strip tracing the panel's edge
+    &:before {
+      content: "";
+      position: absolute;
+      top: 6%;
+      right: 6%;
+      bottom: 6%;
+      left: 6%;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      opacity: .28;
+      pointer-events: none;
+    }
+
+    // Halo that pulses on high-value tiles
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: inherit;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   // Movement transition
@@ -331,82 +634,51 @@ hr {
   -moz-transition-property: -moz-transform;
   transition-property: transform;
 
-  $base: 2;
-  $exponent: 1;
-  $limit: 11;
-
-  // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
-
   // Build tile colors
-  @while $exponent <= $limit {
-    $power: pow($base, $exponent);
-
-    &.tile-#{$power} .tile-inner {
-      // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
-
-      $nth-color: nth($special-colors, $exponent);
-
-      $special-background: nth($nth-color, 1);
-      $bright-color: nth($nth-color, 2);
-
-      @if $special-background {
-        $mixed-background: mix($special-background, $mixed-background, 55%);
-      }
-
-      @if $bright-color {
-        color: $bright-text-color;
-      }
-
-      // Set background
-      background: $mixed-background;
-
-      // Add glow
-      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-
-      @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
+  @each $value, $skin in $tile-palette {
+    &.tile-#{$value} .tile-inner {
+      @include tile-skin(nth($skin, 1), nth($skin, 2), nth($skin, 3));
 
       // Adjust font size for bigger numbers
-      @if $power >= 100 and $power < 1000 {
-        font-size: 45px;
+      @if $value >= 100 and $value < 1000 {
+        font-size: 38px;
 
         // Media queries placed here to avoid carrying over the rest of the logic
         @include smaller($mobile-threshold) {
-          font-size: 25px;
+          font-size: 20px;
         }
-      } @else if $power >= 1000 {
-        font-size: 35px;
+      } @else if $value >= 1000 {
+        font-size: 29px;
 
         @include smaller($mobile-threshold) {
           font-size: 15px;
         }
       }
     }
-
-    $exponent: $exponent + 1;
   }
 
-  // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-    color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
+  // The 2048 tile is the portal: a fully lit panel, blazing white
+  &.tile-2048 .tile-inner {
+    color: #04222c;
+    background: radial-gradient(ellipse at 50% 35%, white 0%, #e6fdff 45%,
+                                #9ff0ff 100%);
+    box-shadow: inset 0 0 0 2px white,
+                inset 0 0 18px rgba($cyan, .8),
+                0 0 16px rgba($cyan, .95),
+                0 0 45px rgba($orange, .5),
+                0 0 90px rgba($cyan, .35);
+    text-shadow: 0 0 6px rgba(white, .9);
+  }
 
-    font-size: 30px;
+  // Super tiles (above 2048) shimmer with every color on the Grid
+  &.tile-super .tile-inner {
+    @include tile-skin(white, .1, 22px);
+    color: white;
+    background: linear-gradient(135deg, rgba(#00e5ff, .45),
+                                rgba(#e055ff, .45) 50%, rgba(#ffd23f, .45)),
+                $tile-base-color;
+
+    font-size: 22px;
 
     @include smaller($mobile-threshold) {
       font-size: 10px;
@@ -414,45 +686,405 @@ hr {
   }
 }
 
-@include keyframes(appear) {
+// Light-effect colors, as RGB channels so effects can pick their own opacity
+@each $value, $skin in $tile-palette {
+  $color: nth($skin, 1);
+
+  .tile-#{$value} {
+    --tile-rgb: #{red($color)}, #{green($color)}, #{blue($color)};
+  }
+}
+
+.tile-super {
+  --tile-rgb: 255, 255, 255;
+}
+
+.tile-128, .tile-256, .tile-512, .tile-1024, .tile-2048, .tile-super {
+  .tile-inner:after {
+    @include animation(breathe 2.6s ease-in-out infinite);
+  }
+}
+
+// New tiles materialize from a scanline, flicker, then hold steady
+@include keyframes(rez-in) {
   0% {
     opacity: 0;
-    @include transform(scale(0));
+    @include transform(scale(.15, .02));
+    filter: brightness(3);
+  }
+
+  25% {
+    opacity: 1;
+    @include transform(scale(1.04, .03));
+    filter: brightness(3);
+  }
+
+  55% {
+    opacity: 1;
+    @include transform(scale(1, 1.03));
+    filter: brightness(1.8);
+  }
+
+  62% {
+    opacity: .35;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  76% {
+    opacity: .6;
+  }
+
+  84%, 100% {
+    opacity: 1;
+    @include transform(scale(1));
+    filter: brightness(1);
+  }
+}
+
+.tile-new .tile-inner {
+  @include animation(rez-in 380ms linear $transition-speed);
+  @include animation-fill-mode(backwards);
+}
+
+// Merged tiles surge with energy before settling
+@include keyframes(merge-surge) {
+  0% {
+    opacity: 0;
+    @include transform(scale(.5));
+    filter: brightness(2.6);
+  }
+
+  45% {
+    opacity: 1;
+    @include transform(scale(1.16));
+    filter: brightness(1.9);
+  }
+
+  70% {
+    @include transform(scale(.97));
+    filter: brightness(1.2);
   }
 
   100% {
     opacity: 1;
     @include transform(scale(1));
-  }
-}
-
-.tile-new .tile-inner {
-  @include animation(appear 200ms ease $transition-speed);
-  @include animation-fill-mode(backwards);
-}
-
-@include keyframes(pop) {
-  0% {
-    @include transform(scale(0));
-  }
-
-  50% {
-    @include transform(scale(1.2));
-  }
-
-  100% {
-    @include transform(scale(1));
+    filter: brightness(1);
   }
 }
 
 .tile-merged .tile-inner {
   z-index: 20;
-  @include animation(pop 200ms ease $transition-speed);
+  @include animation(merge-surge 280ms ease-out $transition-speed);
   @include animation-fill-mode(backwards);
+}
+
+// Light effects spawned by the actuator: trails behind moving tiles, and
+// derez fragments where tiles merge
+.tile-fx {
+  position: absolute;
+}
+
+@include keyframes(trail-draw) {
+  0% {
+    @include transform(scaleX(0));
+  }
+
+  100% {
+    @include transform(scaleX(1));
+  }
+}
+
+@include keyframes(trail-fade) {
+  0% {
+    opacity: 1;
+    @include transform(scale(1, 1));
+  }
+
+  100% {
+    opacity: 0;
+    @include transform(scale(1, .1));
+  }
+}
+
+.trail-axis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.trail-down .trail-axis {
+  @include transform(rotate(90deg));
+}
+
+.trail-left .trail-axis {
+  @include transform(rotate(180deg));
+}
+
+.trail-up .trail-axis {
+  @include transform(rotate(-90deg));
+}
+
+// The beam runs from the cell the tile left to the cell it lands in
+.trail-beam {
+  position: absolute;
+  top: 6%;
+  bottom: 6%;
+  left: 50%;
+  width: calc(var(--cells) * var(--grid-step));
+  border-radius: 3px;
+  background: rgba(var(--tile-rgb), .2);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 85%);
+  mask-image: linear-gradient(90deg, transparent, black 85%);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  @include animation(trail-draw $transition-speed ease-in-out,
+                     trail-fade 500ms ease-out $transition-speed forwards);
+
+  // Bright ribbon of light down the middle
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    margin-top: -1px;
+    background: rgba(white, .95);
+    box-shadow: 0 0 6px 1px rgba(var(--tile-rgb), .9),
+                0 0 16px 3px rgba(var(--tile-rgb), .5);
+  }
+
+  // The tile's edges streaking behind it
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid rgba(var(--tile-rgb), .7);
+    border-bottom: 1px solid rgba(var(--tile-rgb), .7);
+  }
+}
+
+@include keyframes(ring-out) {
+  0% {
+    opacity: .95;
+    @include transform(scale(.92));
+  }
+
+  100% {
+    opacity: 0;
+    @include transform(scale(1.6));
+  }
+}
+
+@include keyframes(shard-fly) {
+  0% {
+    opacity: 1;
+    @include transform(translate(-50%, -50%)
+                       translate(calc(var(--sx) * var(--tile-size)),
+                                 calc(var(--sy) * var(--tile-size)))
+                       rotate(0deg) scale(1));
+  }
+
+  70% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: 0;
+    @include transform(translate(-50%, -50%)
+                       translate(calc(var(--dx) * var(--tile-size)),
+                                 calc(var(--dy) * var(--tile-size)))
+                       rotate(var(--spin)) scale(.2));
+  }
+}
+
+.burst-ring {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: $tile-border-radius * 2;
+  box-shadow: inset 0 0 0 2px rgba(var(--tile-rgb), .9),
+              inset 0 0 16px rgba(var(--tile-rgb), .5),
+              0 0 16px rgba(var(--tile-rgb), .8);
+  opacity: 0;
+  @include animation(ring-out 500ms cubic-bezier(.1, .6, .3, 1) $transition-speed);
+}
+
+.burst-shard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--size) * var(--tile-size));
+  height: calc(var(--size) * var(--tile-size));
+  background: rgb(var(--tile-rgb));
+  box-shadow: 0 0 4px 1px rgba(var(--tile-rgb), 1),
+              0 0 12px 2px rgba(var(--tile-rgb), .6);
+  opacity: 0;
+  @include animation(shard-fly 600ms cubic-bezier(.12, .75, .3, 1) $transition-speed);
+}
+
+// When the game is lost, every program on the board powers down
+@include keyframes(derez) {
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+
+  15% {
+    opacity: .3;
+  }
+
+  20% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+
+  35% {
+    opacity: .5;
+  }
+
+  45% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: .22;
+    filter: grayscale(1) brightness(.7);
+  }
+}
+
+.game-container:has(.game-over) .tile-inner {
+  @include animation(derez 1.1s ease-in 200ms);
+  @include animation-fill-mode(forwards);
+}
+
+@include keyframes(glitch) {
+  0%, 91%, 96%, 100% {
+    @include transform(none);
+    @include neon-text($orange, 1.3);
+  }
+
+  92% {
+    @include transform(translateX(-4px) skewX(-10deg));
+    text-shadow: -3px 0 rgba($cyan, .9), 3px 0 rgba(#ff3c28, .9);
+  }
+
+  94% {
+    @include transform(translateX(3px));
+    text-shadow: 3px 0 rgba($cyan, .9), -3px 0 rgba(#ff3c28, .9);
+  }
+}
+
+.game-message {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  text-align: center;
+  border-radius: $tile-border-radius * 2;
+  background: rgba(1, 6, 10, .8);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+
+  p {
+    margin: 0;
+    padding-left: .14em; // Balance the trailing letter-spacing
+    font-family: $display-font;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: white;
+
+    &:after {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .5em;
+      text-indent: .5em;
+      text-shadow: none;
+    }
+  }
+
+  .lower {
+    display: block;
+    margin-top: 36px;
+  }
+
+  a {
+    @include button;
+    margin: 0 5px;
+
+    &.keep-playing-button {
+      display: none;
+    }
+  }
+
+  @include animation(fade-in 800ms ease $transition-speed * 12);
+  @include animation-fill-mode(both);
+
+  &.game-over p {
+    color: #ffe2c7;
+    @include neon-text($orange, 1.3);
+    @include animation(glitch 3.2s steps(1, end) 2s infinite);
+
+    &:after {
+      content: "End of line";
+      color: rgba($orange, .8);
+    }
+  }
+
+  &.game-won {
+    background: rgba(0, 16, 24, .72);
+
+    p {
+      font-size: 30px;
+      @include neon-text($cyan, 1.4);
+
+      &:after {
+        content: "The Grid is yours";
+        color: rgba($cyan, .8);
+      }
+    }
+
+    a.keep-playing-button {
+      display: inline-block;
+    }
+  }
+
+  &.game-won, &.game-over {
+    display: -webkit-flex;
+    display: flex;
+  }
 }
 
 .above-game {
   @include clearfix;
+  @include animation(power-on 1.2s linear 400ms);
+  @include animation-fill-mode(both);
 }
 
 .game-intro {
@@ -473,13 +1105,14 @@ hr {
 }
 
 @include smaller($mobile-threshold) {
-  // Redefine variables for smaller screens
-  $field-width: 280px;
-  $grid-spacing: 10px;
-  $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-  $tile-border-radius: 3px;
-  $game-container-margin-top: 17px;
+  // Redefine variables for smaller screens (globally, so the game-field
+  // mixin picks them up)
+  $field-width: 280px !global;
+  $grid-spacing: 10px !global;
+  $grid-row-cells: 4 !global;
+  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells !global;
+  $tile-border-radius: 3px !global;
+  $game-container-margin-top: 17px !global;
 
   html, body {
     font-size: 15px;
@@ -504,6 +1137,7 @@ hr {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;
+    font-size: 18px;
   }
 
   .heading {
@@ -524,6 +1158,8 @@ hr {
     display: block;
     box-sizing: border-box;
     margin-top: 2px;
+    font-size: 11px;
+    letter-spacing: .1em;
   }
 
   // Render the game field at the right width
@@ -531,19 +1167,45 @@ hr {
 
   // Rest of the font-size adjustments in the tile class
   .tile .tile-inner {
-    font-size: 35px;
+    font-size: 26px;
   }
 
   .game-message {
     p {
-      font-size: 30px !important;
-      height: 30px !important;
-      line-height: 30px !important;
-      margin-top: 90px !important;
+      font-size: 24px;
+
+      &:after {
+        font-size: 10px;
+        margin-top: 8px;
+      }
+    }
+
+    &.game-won p {
+      font-size: 17px;
     }
 
     .lower {
-      margin-top: 30px !important;
+      margin-top: 20px;
     }
+
+    a {
+      padding: 0 12px;
+      font-size: 11px;
+      letter-spacing: .1em;
+    }
+  }
+}
+
+// Keep the game playable but drop the decorative motion
+@media (prefers-reduced-motion: reduce) {
+  .heading, .above-game, .game-container, .grid-backdrop, h1.title,
+  .container > p, .game-message p {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+
+  .grid-container:after, .tile .tile-inner:after,
+  .trail-container, .effect-container {
+    display: none;
   }
 }

@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <title>2048</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
@@ -11,12 +14,15 @@
   <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#02060a">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
+  <canvas class="grid-backdrop" aria-hidden="true"></canvas>
+
   <div class="container">
     <div class="heading">
       <h1 class="title">2048</h1>
@@ -27,7 +33,7 @@
     </div>
 
     <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+      <p class="game-intro">Merge programs. Reach the <strong>2048 tile.</strong></p>
       <a class="restart-button">New Game</a>
     </div>
 
@@ -67,9 +73,13 @@
         </div>
       </div>
 
+      <div class="trail-container"></div>
+
       <div class="tile-container">
 
       </div>
+
+      <div class="effect-container"></div>
     </div>
 
     <p class="game-explanation">
@@ -94,6 +104,7 @@
   <script src="js/tile.js"></script>
   <script src="js/local_storage_manager.js"></script>
   <script src="js/game_manager.js"></script>
+  <script src="js/grid_backdrop.js"></script>
   <script src="js/application.js"></script>
 </body>
 </html>

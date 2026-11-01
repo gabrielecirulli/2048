@@ -472,6 +472,24 @@ hr {
   margin-top: 50px;
 }
 
+[data-numeral-system="chinese"] {
+  h1.title {
+    font-size: 40px;
+  }
+
+  .tile .tile-inner {
+    font-size: 24px;
+  }
+
+  .tile.tile-super .tile-inner {
+    font-size: 14px;
+  }
+
+  .score-container, .best-container {
+    font-size: 18px;
+  }
+}
+
 @include smaller($mobile-threshold) {
   // Redefine variables for smaller screens
   $field-width: 280px;
@@ -544,6 +562,25 @@ hr {
 
     .lower {
       margin-top: 30px !important;
+    }
+  }
+
+  [data-numeral-system="chinese"] {
+    h1.title {
+      font-size: 24px;
+    }
+
+    .tile .tile-inner {
+      font-size: 12px;
+    }
+
+    .tile.tile-super .tile-inner {
+      font-size: 8px;
+    }
+
+    .score-container, .best-container {
+      font-size: 12px;
+      padding: 15px 5px;
     }
   }
 }

@@ -5,7 +5,48 @@ function HTMLActuator() {
   this.messageContainer = document.querySelector(".game-message");
 
   this.score = 0;
+
+  var self = this;
+  var storage = new LocalStorageManager().storage;
+  var numeralSelect = document.querySelector("#numeral-system");
+
+  this.numeralSystem = storage.getItem("numeralSystem") ||
+    (storage.getItem("easternArabicNumerals") === "true" ? "eastern-arabic" : "regular");
+  if (["regular", "eastern-arabic", "chinese"].indexOf(this.numeralSystem) === -1) {
+    this.numeralSystem = "regular";
+  }
+  numeralSelect.value = this.numeralSystem;
+  this.updateNumbers();
+
+  numeralSelect.addEventListener("change", function () {
+    self.numeralSystem = numeralSelect.value;
+    storage.setItem("numeralSystem", self.numeralSystem);
+    self.updateNumbers();
+  });
 }
+
+HTMLActuator.prototype.setNumber = function (element, value) {
+  var digitSets = {
+    "eastern-arabic": "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669",
+    "chinese": "\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d"
+  };
+  var digits = digitSets[this.numeralSystem];
+  var text = String(value);
+
+  element.setAttribute("data-number", text);
+  element.textContent = digits ? text.replace(/[0-9]/g, function (digit) {
+    return digits.charAt(Number(digit));
+  }) : text;
+};
+
+HTMLActuator.prototype.updateNumbers = function () {
+  document.documentElement.setAttribute("data-numeral-system", this.numeralSystem);
+  var elements = document.querySelectorAll("[data-number]");
+
+  for (var index = 0; index < elements.length; index++) {
+    this.setNumber(elements[index], elements[index].getAttribute("data-number"));
+  }
+};
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
@@ -62,7 +103,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  this.setNumber(inner, tile.value);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -109,19 +150,21 @@ HTMLActuator.prototype.updateScore = function (score) {
   var difference = score - this.score;
   this.score = score;
 
-  this.scoreContainer.textContent = this.score;
+  var scoreValue = document.createElement("span");
+  this.setNumber(scoreValue, this.score);
+  this.scoreContainer.appendChild(scoreValue);
 
   if (difference > 0) {
     var addition = document.createElement("div");
     addition.classList.add("score-addition");
-    addition.textContent = "+" + difference;
+    this.setNumber(addition, "+" + difference);
 
     this.scoreContainer.appendChild(addition);
   }
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
-  this.bestContainer.textContent = bestScore;
+  this.setNumber(this.bestContainer, bestScore);
 };
 
 HTMLActuator.prototype.message = function (won) {

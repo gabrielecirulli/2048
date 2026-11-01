@@ -19,7 +19,7 @@
 <body>
   <div class="container">
     <div class="heading">
-      <h1 class="title">2048</h1>
+      <h1 class="title" data-number="2048">2048</h1>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
@@ -27,9 +27,18 @@
     </div>
 
     <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+      <p class="game-intro">Join the numbers and get to the <strong><span data-number="2048">2048</span> tile!</strong></p>
       <a class="restart-button">New Game</a>
     </div>
+
+    <p class="numeral-setting">
+      <label for="numeral-system">Numerals:</label>
+      <select id="numeral-system">
+        <option value="regular">Regular numerals</option>
+        <option value="eastern-arabic">Eastern Arabic numerals</option>
+        <option value="chinese">Chinese character numerals</option>
+      </select>
+    </p>
 
     <div class="game-container">
       <div class="game-message">

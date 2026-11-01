@@ -30,6 +30,7 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
+
 @-moz-keyframes move-up {
   0% {
     top: 25px;
@@ -38,6 +39,7 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
+
 @keyframes move-up {
   0% {
     top: 25px;
@@ -46,6 +48,7 @@ h1.title {
   100% {
     top: -50px;
     opacity: 0; } }
+
 .scores-container {
   float: right;
   text-align: right; }
@@ -125,18 +128,21 @@ hr {
 
   100% {
     opacity: 1; } }
+
 @-moz-keyframes fade-in {
   0% {
     opacity: 0; }
 
   100% {
     opacity: 1; } }
+
 @keyframes fade-in {
   0% {
     opacity: 0; }
 
   100% {
     opacity: 1; } }
+
 .game-container {
   margin-top: 40px;
   position: relative;
@@ -408,6 +414,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
+
 @-moz-keyframes appear {
   0% {
     opacity: 0;
@@ -422,6 +429,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
+
 @keyframes appear {
   0% {
     opacity: 0;
@@ -436,6 +444,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
+
 .tile-new .tile-inner {
   -webkit-animation: appear 200ms ease 100ms;
   -moz-animation: appear 200ms ease 100ms;
@@ -462,6 +471,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
+
 @-moz-keyframes pop {
   0% {
     -webkit-transform: scale(0);
@@ -480,6 +490,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
+
 @keyframes pop {
   0% {
     -webkit-transform: scale(0);
@@ -498,6 +509,7 @@ hr {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); } }
+
 .tile-merged .tile-inner {
   z-index: 20;
   -webkit-animation: pop 200ms ease 100ms;
@@ -532,6 +544,15 @@ hr {
 
 .game-explanation {
   margin-top: 50px; }
+
+[data-numeral-system="chinese"] h1.title {
+  font-size: 40px; }
+[data-numeral-system="chinese"] .tile .tile-inner {
+  font-size: 24px; }
+[data-numeral-system="chinese"] .tile.tile-super .tile-inner {
+  font-size: 14px; }
+[data-numeral-system="chinese"] .score-container, [data-numeral-system="chinese"] .best-container {
+  font-size: 18px; }
 
 @media screen and (max-width: 520px) {
   html, body {
@@ -755,4 +776,14 @@ hr {
     line-height: 30px !important;
     margin-top: 90px !important; }
   .game-message .lower {
-    margin-top: 30px !important; } }
+    margin-top: 30px !important; }
+
+  [data-numeral-system="chinese"] h1.title {
+    font-size: 24px; }
+  [data-numeral-system="chinese"] .tile .tile-inner {
+    font-size: 12px; }
+  [data-numeral-system="chinese"] .tile.tile-super .tile-inner {
+    font-size: 8px; }
+  [data-numeral-system="chinese"] .score-container, [data-numeral-system="chinese"] .best-container {
+    font-size: 12px;
+    padding: 15px 5px; } }

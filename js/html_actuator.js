@@ -1,3 +1,54 @@
+var BEATLES_ALBUMS = {
+  2: {
+    title: "Please Please Me",
+    image: "https://upload.wikimedia.org/wikipedia/en/2/2e/Please_Please_Me.png"
+  },
+  4: {
+    title: "With the Beatles",
+    image: "https://upload.wikimedia.org/wikipedia/en/5/52/With_the_Beatles.png"
+  },
+  8: {
+    title: "A Hard Day's Night",
+    image: "https://upload.wikimedia.org/wikipedia/en/e/e6/HardDayUK.jpg"
+  },
+  16: {
+    title: "Beatles for Sale",
+    image: "https://upload.wikimedia.org/wikipedia/en/4/40/Beatlesforsale.jpg"
+  },
+  32: {
+    title: "Help!",
+    image: "https://upload.wikimedia.org/wikipedia/en/d/d7/The_Beatles_-_Help%21.png"
+  },
+  64: {
+    title: "Rubber Soul",
+    image: "https://upload.wikimedia.org/wikipedia/en/5/5b/Rubber_Soul.png"
+  },
+  128: {
+    title: "Revolver",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/M%26Prevolver.jpg/330px-M%26Prevolver.jpg"
+  },
+  256: {
+    title: "Sgt. Pepper's Lonely Hearts Club Band",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Sgt._Pepper%27s_Lonely_Hearts_Club_Band_album_art.jpg/330px-Sgt._Pepper%27s_Lonely_Hearts_Club_Band_album_art.jpg"
+  },
+  512: {
+    title: "The Beatles (White Album)",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/TheBeatles68LP.jpg/330px-TheBeatles68LP.jpg"
+  },
+  1024: {
+    title: "Yellow Submarine",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/TheBeatles-YellowSubmarinealbumcover.jpg/330px-TheBeatles-YellowSubmarinealbumcover.jpg"
+  },
+  2048: {
+    title: "Abbey Road",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Beatles_Abbey_Road_album_cover.jpg/330px-The_Beatles_Abbey_Road_album_cover.jpg"
+  },
+  4096: {
+    title: "Let It Be",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Beatles_-_Let_It_Be.png/330px-The_Beatles_-_Let_It_Be.png"
+  }
+};
+
 function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
@@ -51,8 +102,10 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   var wrapper   = document.createElement("div");
   var inner     = document.createElement("div");
+  var label     = document.createElement("span");
   var position  = tile.previousPosition || { x: tile.x, y: tile.y };
   var positionClass = this.positionClass(position);
+  var album = BEATLES_ALBUMS[tile.value] || BEATLES_ALBUMS[4096];
 
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
@@ -62,7 +115,13 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  inner.style.backgroundImage = "url(" + album.image + ")";
+  label.classList.add("tile-label");
+  label.textContent = tile.value;
+  wrapper.setAttribute("role", "img");
+  wrapper.setAttribute("aria-label", tile.value + " - " + album.title + " album cover");
+  wrapper.title = album.title;
+  inner.appendChild(label);
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first

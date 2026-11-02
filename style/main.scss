@@ -318,11 +318,19 @@ hr {
     border-radius: $tile-border-radius;
 
     background: $tile-color;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     text-align: center;
     font-weight: bold;
     z-index: 10;
 
     font-size: 55px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 5px;
+    box-sizing: border-box;
   }
 
   // Movement transition
@@ -412,6 +420,15 @@ hr {
       font-size: 10px;
     }
   }
+}
+
+.tile-label {
+  border-radius: 2px;
+  background: rgba(0, 0, 0, .75);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  padding: 5px 6px;
 }
 
 @include keyframes(appear) {

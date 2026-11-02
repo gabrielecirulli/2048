@@ -1,9 +1,4 @@
 @import url(fonts/clear-sans.css);
-@font-face {
-  font-family: "BOOTLE";
-  src: url("fonts/Bootle.ttf?v=1") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
 html, body {
   margin: 0;
   padding: 0;
@@ -26,7 +21,7 @@ body {
   clear: both; }
 
 h1.title {
-  font-family: "BOOTLE", "Clear Sans", sans-serif;
+  font-family: "Bowlby One SC", "Clear Sans", sans-serif;
   font-size: 52px;
   font-weight: normal;
   margin: 0;

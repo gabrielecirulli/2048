@@ -1,0 +1,119 @@
+/* Pink 2048: presentation only; original board geometry and animations retained. */
+html, body {
+  background: #fff4f6;
+  color: #79515f;
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+}
+body {
+  margin: 48px 0;
+  background-image: radial-gradient(ellipse at top, #ffe5ec 0, transparent 65%);
+}
+.container { position: relative; }
+.heading { text-align: center; }
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ab6d83;
+}
+h1.title {
+  float: none;
+  font-family: "Baskerville", "Palatino Linotype", Georgia, serif;
+  font-size: 59px;
+  font-weight: 500;
+  letter-spacing: -2px;
+  color: #a8476c;
+  margin: 0 0 20px;
+}
+.scores-container { float: none; text-align: center; margin-bottom: 24px; }
+.score-container, .best-container {
+  background: #f8dce5;
+  color: #8f3f5d;
+  border: 1px solid #edc1d0;
+  border-radius: 14px;
+  min-width: 62px;
+  margin: 0 4px;
+}
+.score-container:after, .best-container:after { color: #9c5f75; letter-spacing: 1.5px; font-size: 10px; }
+.score-container .score-addition { color: #b84f77; }
+.above-game { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.game-intro { float: none; font-size: 14px; line-height: 1.6; max-width: 290px; }
+button.restart-button, .game-message button {
+  appearance: none;
+  border: 1px solid #c96a8e;
+  background: #ce7697;
+  color: #fff;
+  border-radius: 24px;
+  padding: 0 22px;
+  height: 44px;
+  line-height: 42px;
+  font: 600 14px/42px "Avenir Next", "Trebuchet MS", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px #bd55751a;
+  transition: background 150ms, box-shadow 150ms;
+}
+button.restart-button { float: none; flex-shrink: 0; }
+button.restart-button span { margin-left: 7px; }
+button:hover { background: #b95c7f; box-shadow: 0 4px 14px #bd557533; }
+button:focus-visible, a:focus-visible { outline: 3px solid #993f65; outline-offset: 4px; }
+.game-container {
+  margin-top: 24px;
+  background: #e9bbc9;
+  border-radius: 22px;
+  box-shadow: 0 14px 40px #b3687e1a, inset 0 1px 0 #ffffff99;
+}
+.grid-cell { background: #f6dce4; border-radius: 13px; }
+.tile .tile-inner {
+  border-radius: 13px;
+  font-family: "Baskerville", "Palatino Linotype", Georgia, serif;
+  box-shadow: inset 0 1px 0 #ffffff88, 0 3px 4px #9e557511;
+}
+.tile.tile-2 .tile-inner { background: #fff5f7; color: #986278; }
+.tile.tile-4 .tile-inner { background: #fce5ee; color: #98536f; }
+.tile.tile-8 .tile-inner { background: #f9cddb; color: #8e4160; }
+.tile.tile-16 .tile-inner { background: #f3b1c9; color: #823652; }
+.tile.tile-32 .tile-inner { background: #ea95b5; color: #713049; }
+.tile.tile-64 .tile-inner { background: #d67a9c; color: #fff; }
+.tile.tile-128 .tile-inner { background: #c6658c; color: #fff; }
+.tile.tile-256 .tile-inner { background: #b8567d; color: #fff; }
+.tile.tile-512 .tile-inner { background: #a74770; color: #fff; }
+.tile.tile-1024 .tile-inner { background: #963b64; color: #fff; }
+.tile.tile-2048 .tile-inner { background: #842e57; color: #fff5df; box-shadow: 0 0 24px #ce769766; }
+.tile.tile-super .tile-inner { background: #6e2649; color: #fff5df; }
+.game-container .game-message { background: #fff0f5e6; border-radius: 22px; color: #963b64; }
+.game-container .game-message.game-won { background: #f8dce5ed; color: #963b64; }
+.game-message p { font-family: Georgia, serif; }
+.game-message button { margin: 0 4px; }
+.game-message .keep-playing-button { display: none; }
+.game-message.game-won .keep-playing-button { display: inline-block; }
+.game-explanation {
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: #ffffff77;
+  border: 1px solid #f0d6df;
+  border-radius: 16px;
+  font-size: 14px;
+}
+strong.important { text-transform: none; color: #a8476c; }
+a { color: #a8476c; }
+hr { border-color: #edced9; margin: 24px 0 18px; }
+.credits { font-size: 11px; color: #a27b89; text-align: center; }
+@media screen and (max-width: 520px) {
+  body { margin: 28px 0; padding: 0 12px; }
+  h1.title { font-size: 37px; letter-spacing: -1.5px; margin: 0 0 18px; }
+  .eyebrow { font-size: 8px; letter-spacing: 1.3px; }
+  .scores-container { margin-bottom: 18px; }
+  .score-container, .best-container { min-width: 54px; }
+  .game-intro { width: auto; flex: 1; font-size: 12px; }
+  button.restart-button { width: auto; padding: 0 14px; font-size: 12px; margin: 0; }
+  .above-game { gap: 10px; }
+  .game-container { margin-top: 18px; border-radius: 17px; }
+  .grid-cell, .tile .tile-inner { border-radius: 9px; }
+  .game-explanation { padding: 14px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile, .tile-inner, .score-addition, .game-message { animation: none !important; transition: none !important; }
+}

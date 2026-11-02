@@ -1,0 +1,366 @@
+/* Visual theme only — tile sizes and transforms stay in main.css. */
+
+@font-face {
+  font-family: "Champion Gothic Heavyweight";
+  src: local("Champion Gothic Heavyweight"),
+       local("ChampionGothic-Heavyweight"),
+       local("Champion Gothic Heviweight"),
+       local("ChampionGothic-Heviweight");
+  font-weight: 900;
+  font-style: normal;
+}
+
+html, body {
+  background: #e8dfd2;
+  color: #4d463d;
+  font-family: "Champion Gothic Heavyweight", Anybody, "Arial Narrow", Impact, sans-serif;
+  font-stretch: condensed;
+}
+
+body {
+  min-height: 100vh;
+  margin: 48px 0 72px;
+}
+
+.poster-stage {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 28px 24px 32px;
+  background: #f3ece3;
+  border: 1px solid #d7cbbb;
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(70, 58, 46, 0.08);
+  position: relative;
+}
+
+.poster-stage:before,
+.poster-stage:after {
+  content: none;
+}
+
+.container {
+  width: 500px;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+h1.title {
+  float: none;
+  width: auto;
+  flex: 1 1 auto;
+  font-family: "Champion Gothic Heavyweight", Anybody, "Arial Narrow", Impact, sans-serif;
+  font-stretch: condensed;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #3f3a33;
+  text-shadow: none;
+  text-align: left;
+}
+
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.heading:after {
+  display: none;
+}
+
+.scores-container {
+  float: none;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.score-container,
+.best-container {
+  background: #cfc3b2;
+  color: #3f3a33;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: none;
+  min-width: 70px;
+  font-family: "Champion Gothic Heavyweight", Anybody, sans-serif;
+  font-stretch: condensed;
+  font-weight: 800;
+}
+
+.score-container:after,
+.best-container:after {
+  color: #6e665b;
+  font-family: "Champion Gothic Heavyweight", Anybody, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.best-container {
+  background: #b7c4b3;
+}
+
+.game-intro {
+  color: #6e665b;
+  font-family: Anybody, "Helvetica Neue", sans-serif;
+  font-stretch: condensed;
+  font-weight: 500;
+}
+
+.restart-button,
+.game-container .game-message a {
+  background: #8f7e6c;
+  color: #f3ece3;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: none;
+  font-family: "Champion Gothic Heavyweight", Anybody, sans-serif;
+  font-stretch: condensed;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  height: 42px;
+  line-height: 42px;
+}
+
+.restart-button:hover,
+.game-container .game-message a:hover {
+  background: #6f6254;
+  box-shadow: none;
+}
+
+.game-container {
+  background: #c8bfb2;
+  border-radius: 8px;
+  border: 0;
+  box-shadow: none;
+}
+
+.grid-cell {
+  background: rgba(243, 236, 227, 0.38);
+  border-radius: 6px;
+}
+
+.tile .tile-inner {
+  border-radius: 6px;
+  color: transparent;
+  text-indent: -999px;
+  overflow: hidden;
+  background-color: #d7cbbb;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 0 rgba(63, 58, 51, 0.12);
+}
+
+.tile.tile-2 .tile-inner { background-image: url("covers/2.jpg"); }
+.tile.tile-4 .tile-inner { background-image: url("covers/4.jpg"); }
+.tile.tile-8 .tile-inner { background-image: url("covers/8.jpg"); }
+.tile.tile-16 .tile-inner { background-image: url("covers/16.jpg"); }
+.tile.tile-32 .tile-inner { background-image: url("covers/32.jpg"); }
+.tile.tile-64 .tile-inner { background-image: url("covers/64.jpg"); }
+.tile.tile-128 .tile-inner { background-image: url("covers/128.jpg"); }
+.tile.tile-256 .tile-inner { background-image: url("covers/256.jpg"); }
+.tile.tile-512 .tile-inner { background-image: url("covers/512.jpg"); }
+.tile.tile-1024 .tile-inner { background-image: url("covers/1024.jpg"); }
+.tile.tile-2048 .tile-inner { background-image: url("covers/2048.jpg"); }
+
+.tile.tile-super .tile-inner {
+  background-image: url("covers/2048.jpg");
+  filter: saturate(0.7) contrast(1.05);
+}
+
+.game-container .game-message {
+  background: rgba(243, 236, 227, 0.88);
+  border-radius: 8px;
+  color: #3f3a33;
+  font-family: "Champion Gothic Heavyweight", Anybody, sans-serif;
+  font-stretch: condensed;
+}
+
+.game-container .game-message p {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.game-container .game-message.game-won {
+  background: rgba(183, 196, 179, 0.88);
+  color: #3f3a33;
+}
+
+a {
+  color: #6f6254;
+}
+
+hr {
+  border-bottom: 1px solid #d7cbbb;
+}
+
+.game-explanation,
+.container > p {
+  font-family: Anybody, "Helvetica Neue", sans-serif;
+  font-stretch: condensed;
+  font-weight: 500;
+  color: #6e665b;
+}
+
+.board-stage {
+  position: relative;
+  margin-top: 36px;
+}
+
+.board-stage .game-container {
+  margin-top: 0;
+}
+
+.deco {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  opacity: 0.72;
+}
+
+.deco-cherry {
+  top: -22px;
+  left: -28px;
+  font-size: 28px;
+  transform: rotate(-12deg);
+}
+
+.deco-strawberry {
+  top: -20px;
+  right: -24px;
+  font-size: 26px;
+  transform: rotate(12deg);
+}
+
+.deco-heart {
+  color: #b08989;
+  font-family: Georgia, serif;
+}
+
+.deco-heart-a {
+  bottom: 40px;
+  left: -22px;
+  font-size: 20px;
+}
+
+.deco-heart-b {
+  top: 80px;
+  right: -16px;
+  font-size: 16px;
+}
+
+.deco-disco {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  bottom: -10px;
+  left: 18px;
+  background: repeating-conic-gradient(
+    #cfc3b2 0 18deg,
+    #b7c4b3 0 36deg,
+    #d7cbbb 0 54deg,
+    #aeb9bf 0 72deg
+  );
+  box-shadow: 0 3px 8px rgba(63, 58, 51, 0.16);
+  opacity: 0.8;
+}
+
+.deco-disco:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  width: 1px;
+  height: 9px;
+  background: #6e665b;
+  transform: translateX(-50%);
+}
+
+.deco-disco-b {
+  width: 18px;
+  height: 18px;
+  top: 36px;
+  left: -20px;
+  bottom: auto;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    margin: 16px 0 32px;
+    padding: 0 12px;
+  }
+
+  .poster-stage {
+    padding: 18px 14px 22px;
+  }
+
+  .heading {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  h1.title {
+    font-size: 28px;
+    margin-top: 0;
+  }
+
+  .scores-container {
+    text-align: left;
+  }
+
+  .board-stage {
+    margin-top: 24px;
+  }
+
+  .deco-cherry {
+    left: -4px;
+    top: -18px;
+    font-size: 22px;
+  }
+
+  .deco-strawberry {
+    right: -2px;
+    top: -16px;
+    font-size: 22px;
+  }
+
+  .deco-heart-a,
+  .deco-disco-b {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  html, body {
+    font-size: 15px;
+  }
+
+  .container {
+    width: 280px;
+  }
+
+  .game-intro {
+    width: 55%;
+  }
+
+  .restart-button {
+    width: 42%;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    font-size: 13px;
+  }
+
+  .tile .tile-inner,
+  .grid-cell {
+    border-radius: 4px;
+  }
+}

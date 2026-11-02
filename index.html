@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>2048</title>
@@ -14,29 +14,36 @@
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="container">
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="2048 home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Games</a>
+    <span class="header-note">A little play, every day.</span>
+    <a class="help-link" href="#how-to-play">How to play <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="container">
+    <p class="eyebrow">The number puzzle</p>
     <div class="heading">
-      <h1 class="title">2048</h1>
+      <h1 class="title">2048<span class="title-dot">.</span></h1>
       <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
+        <div class="score-container" aria-label="Score" aria-live="polite">0</div>
+        <div class="best-container" aria-label="Best score">0</div>
       </div>
     </div>
 
+    <p class="game-intro">Small moves. Big possibilities.</p>
     <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
+      <p class="game-goal">Make your way to <strong>2048.</strong></p>
+      <button type="button" class="restart-button"><span aria-hidden="true">↻</span> New game</button>
     </div>
 
     <div class="game-container">
       <div class="game-message">
         <p></p>
         <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
+	        <button type="button" class="keep-playing-button">Keep going</button>
+          <button type="button" class="retry-button">Try again</button>
         </div>
       </div>
 
@@ -72,18 +79,17 @@
       </div>
     </div>
 
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-    </p>
-    <hr>
-    <p>
-    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
-    </p>
-    <hr>
-    <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
-    </p>
-  </div>
+    <p class="board-caption"><span class="keyboard-hint" aria-hidden="true">← ↑ ↓ →</span> Use arrow keys or swipe to move</p>
+    <section class="game-explanation" id="how-to-play" aria-labelledby="instructions-title">
+      <h2 id="instructions-title">A game of good combinations.</h2>
+      <p>Move the tiles in any direction. When two matching numbers meet, they merge into one. Keep combining to reach <strong>2048.</strong></p>
+      <div class="merge-example" aria-label="For example: two plus two makes four"><span>2</span><b aria-hidden="true">+</b><span>2</span><b aria-hidden="true">=</b><span class="example-result">4</span></div>
+    </section>
+    <footer class="site-footer">
+      <p>Original game by <a href="https://gabrielecirulli.com" target="_blank" rel="noopener noreferrer">Gabriele Cirulli</a>.</p>
+      <p>Inspired by <a href="https://itunes.apple.com/us/app/1024!/id823499224">1024</a> and <a href="https://asherv.com/threes/">Threes</a>.</p>
+    </footer>
+  </main>
 
   <script src="js/bind_polyfill.js"></script>
   <script src="js/classlist_polyfill.js"></script>

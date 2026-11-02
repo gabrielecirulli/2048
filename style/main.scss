@@ -33,6 +33,11 @@ html, body {
 
 body {
   margin: 80px 0;
+  background-image: linear-gradient(rgba(250, 248, 239, .82), rgba(250, 248, 239, .82)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Beatles_Abbey_Road_album_cover.jpg/330px-The_Beatles_Abbey_Road_album_cover.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .heading {
@@ -40,11 +45,13 @@ body {
 }
 
 h1.title {
-  font-size: 80px;
+  font-family: "Bowlby One SC", "Clear Sans", sans-serif;
+  font-size: 52px;
   font-weight: bold;
   margin: 0;
   display: block;
   float: left;
+  text-transform: uppercase;
 }
 
 @include keyframes(move-up) {

@@ -3,12 +3,17 @@ html, body {
   margin: 0;
   padding: 0;
   background: #faf8ef;
-  color: #776e65;
+  color: #f9f9f9;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
 body {
-  margin: 80px 0; }
+  margin: 80px 0;
+  background-image: linear-gradient(rgba(250, 248, 239, 0.282), rgba(250, 248, 239, 0.101)), url("https://i.imgur.com/4v8Xrvo.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
 
 .heading:after {
   content: "";
@@ -16,11 +21,13 @@ body {
   clear: both; }
 
 h1.title {
-  font-size: 80px;
+  font-family: "Bowlby One SC", "Clear Sans", sans-serif;
+  font-size: 52px;
   font-weight: bold;
   margin: 0;
   display: block;
-  float: left; }
+  float: left;
+  text-transform: uppercase; }
 
 @-webkit-keyframes move-up {
   0% {

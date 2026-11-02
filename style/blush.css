@@ -1,4 +1,6 @@
-/* Blush 2048 - Pink Coquette Theme */
+/* ==========================================
+   BLUSH 2048 - PINK COQUETTE THEME
+   ========================================== */
 
 :root {
   --rose: #a64e70;
@@ -8,7 +10,9 @@
   --blush: #f8dce5;
 }
 
-/* Background */
+/* ==========================================
+   BACKGROUND
+   ========================================== */
 
 html,
 body {
@@ -40,7 +44,9 @@ body {
   margin-bottom: 18px;
 }
 
-/* Title */
+/* ==========================================
+   TITLE
+   ========================================== */
 
 h1.title {
   font-family: Georgia, 'Times New Roman', serif;
@@ -63,7 +69,9 @@ h1.title span:not(.title-bow) {
   letter-spacing: 0;
 }
 
-/* Score Counters */
+/* ==========================================
+   SCORE COUNTERS
+   ========================================== */
 
 .score-container,
 .best-container {
@@ -71,7 +79,7 @@ h1.title span:not(.title-bow) {
   color: var(--rose-dark);
   border: 2px solid #fff;
   border-radius: 14px;
-  box-shadow: 0 5px 16px #b96a8a20;
+  box-shadow: 0 5px 16px rgba(185, 106, 138, 0.13);
 }
 
 .score-container:after,
@@ -79,7 +87,9 @@ h1.title span:not(.title-bow) {
   color: #96516c;
 }
 
-/* Instructions */
+/* ==========================================
+   INSTRUCTIONS
+   ========================================== */
 
 .game-intro {
   color: #85536b;
@@ -89,7 +99,9 @@ a {
   color: var(--rose);
 }
 
-/* Buttons */
+/* ==========================================
+   BUTTONS
+   ========================================== */
 
 .restart-button,
 .retry-button,
@@ -110,103 +122,162 @@ a {
   transform: translateY(-2px);
 }
 
-/* Game Board */
+/* ==========================================
+   GAME BOARD - FIXED ALIGNMENT
+   ========================================== */
+
+/*
+   The original 2048 game uses exact pixel
+   positions for its tiles.
+
+   Do not add borders or padding that change
+   the board's original dimensions.
+*/
 
 .game-container {
-  background: #e8b7c9;
-  border: 8px solid #f4d6e1;
-  box-sizing: border-box;
-  border-radius: 18px;
-  box-shadow: 0 15px 35px #b965852b;
+  box-sizing: border-box !important;
+  border: none !important;
+  padding: 15px !important;
+  border-radius: 18px !important;
+  background: #e8b7c9 !important;
+  box-shadow: 0 15px 35px rgba(185, 101, 133, 0.2);
 }
+
+/* ==========================================
+   GRID CELLS
+   ========================================== */
 
 .grid-cell {
-  background: #f9e4eb;
+  box-sizing: border-box;
+  background: #f9e4eb !important;
   border-radius: 10px;
 }
 
-/* Tiles */
+/* ==========================================
+   TILE CONTAINER
+   ========================================== */
+
+.tile-container {
+  position: absolute;
+  z-index: 2;
+}
+
+/* ==========================================
+   ALL TILES
+   ========================================== */
 
 .tile .tile-inner {
-  border-radius: 10px;
+  border-radius: 10px !important;
   color: #79475e;
   font-weight: 700;
   text-shadow: none !important;
-  box-shadow: inset 0 -3px 0 #a85a7a12;
+  box-shadow: inset 0 -3px 0 rgba(168, 90, 122, 0.07);
 }
+
+/* Tile 2 */
 
 .tile.tile-2 .tile-inner {
   background: #fff7f5;
+  color: #79475e;
 }
+
+/* Tile 4 */
 
 .tile.tile-4 .tile-inner {
   background: #ffe6ee;
+  color: #79475e;
 }
+
+/* Tile 8 */
 
 .tile.tile-8 .tile-inner {
   background: #fbc9d9;
+  color: #ffffff;
 }
+
+/* Tile 16 */
 
 .tile.tile-16 .tile-inner {
   background: #f5a9c4;
+  color: #ffffff;
 }
+
+/* Tile 32 */
 
 .tile.tile-32 .tile-inner {
   background: #ec8fb3;
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Tile 64 */
 
 .tile.tile-64 .tile-inner {
   background: #de6d9c;
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Tile 128 */
 
 .tile.tile-128 .tile-inner {
   background: #d45c8e;
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Tile 256 */
 
 .tile.tile-256 .tile-inner {
   background: #c34880;
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Tile 512 */
 
 .tile.tile-512 .tile-inner {
   background: #ac3972;
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Tile 1024 */
 
 .tile.tile-1024 .tile-inner {
   background: #922e65;
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Tile 2048 */
 
 .tile.tile-2048 .tile-inner {
   background: #792457;
-  color: #fff;
-  box-shadow: 0 0 22px #d465a8;
+  color: #ffffff;
+  box-shadow: 0 0 22px rgba(212, 101, 168, 0.5);
 }
+
+/* Tiles beyond 2048 */
 
 .tile.tile-super .tile-inner {
   background: #62204d;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* Game Messages */
+/* ==========================================
+   GAME OVER / WIN MESSAGES
+   ========================================== */
 
 .game-message.game-won {
-  background: #fbd5e7db;
+  background: rgba(251, 213, 231, 0.86);
 }
 
 .game-message.game-over {
-  background: #fff1f1df;
+  background: rgba(255, 241, 241, 0.87);
 }
 
 .game-message p {
   color: var(--rose-dark);
 }
 
-/* How to Play */
+/* ==========================================
+   HOW TO PLAY
+   ========================================== */
 
 .game-explanation {
   background: #fff9fb;
@@ -220,7 +291,9 @@ a {
   color: var(--rose-dark);
 }
 
-/* Footer */
+/* ==========================================
+   FOOTER
+   ========================================== */
 
 .credits {
   font-size: 13px;
@@ -232,9 +305,12 @@ hr {
   border-color: #f0d6e1;
 }
 
-/* Mobile */
+/* ==========================================
+   MOBILE RESPONSIVENESS
+   ========================================== */
 
 @media screen and (max-width: 520px) {
+
   body {
     margin: 22px 0;
   }
@@ -254,13 +330,14 @@ hr {
   }
 
   .game-container {
-    border-width: 4px;
+    padding: 10px !important;
+    border: none !important;
     border-radius: 10px;
   }
 
   .grid-cell,
   .tile .tile-inner {
-    border-radius: 5px;
+    border-radius: 5px !important;
   }
 
   .game-explanation {

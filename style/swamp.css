@@ -1,0 +1,80 @@
+/* Bayou 2048: swamp food-chain theme (layered over main.css) */
+html, body {
+  background: radial-gradient(ellipse at top, #2f4a3a 0%, #16261d 70%) fixed;
+  color: #d8e6c8;
+}
+.title { color: #b7d98b; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+.game-intro, .game-explanation, p, a { color: #c4d6b0; }
+a { color: #e3c86b; }
+.score-container, .best-container, .restart-button, .retry-button, .keep-playing-button {
+  background: #3d5a40 !important;
+  color: #eef5e0 !important;
+}
+
+/* The board is murky water */
+.game-container {
+  background: linear-gradient(160deg, #24524f 0%, #173a3a 55%, #10302c 100%);
+  box-shadow: inset 0 0 40px rgba(0,0,0,.55), 0 0 0 6px #4a3b28, 0 0 0 10px #2e2418;
+  animation: water-shimmer 8s ease-in-out infinite alternate;
+}
+@keyframes water-shimmer {
+  from { filter: brightness(1); }
+  to   { filter: brightness(1.12) saturate(1.1); }
+}
+.grid-cell {
+  background: radial-gradient(circle, rgba(140,200,180,.18) 0%, rgba(140,200,180,.05) 60%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Tiles are lily pads */
+.tile .tile-inner {
+  border-radius: 46% 54% 50% 50% / 50% 46% 54% 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1 !important;
+  font-size: 12px !important;
+  box-shadow: inset 0 -6px 0 rgba(0,0,0,.18), 0 4px 10px rgba(0,0,0,.35);
+  position: relative;
+}
+.critter { font-size: 44px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.35)); }
+.critter-name { font-size: 12px; font-weight: bold; margin-top: 4px; letter-spacing: .5px; }
+.critter-value { position: absolute; top: 6px; right: 9px; font-size: 10px; opacity: .7; }
+
+/* Producers (green) -> consumers (warm) -> apex (gold) */
+.tile.tile-2 .tile-inner    { background: #9fcf7a; color: #1f3a14; }
+.tile.tile-4 .tile-inner    { background: #6fb553; color: #13300c; }
+.tile.tile-8 .tile-inner    { background: #8a9a3c; color: #fff; }
+.tile.tile-16 .tile-inner   { background: #3f9a8c; color: #fff; }
+.tile.tile-32 .tile-inner   { background: #b5582e; color: #fff; }
+.tile.tile-64 .tile-inner   { background: #5f7d34; color: #fff; }
+.tile.tile-128 .tile-inner  { background: #4d6a8c; color: #fff; }
+.tile.tile-256 .tile-inner  { background: #9a6b2f; color: #fff; }
+.tile.tile-512 .tile-inner  { background: #5a4028; color: #fff; }
+.tile.tile-1024 .tile-inner { background: #6f7f8f; color: #fff; }
+.tile.tile-2048 .tile-inner, .tile-super .tile-inner {
+  background: radial-gradient(circle, #f3d36b 0%, #c9971f 80%);
+  color: #2b1d00;
+  box-shadow: 0 0 25px 8px rgba(243,211,107,.6), inset 0 -6px 0 rgba(0,0,0,.18);
+}
+
+/* Merge = gulp + splash */
+.tile-merged .tile-inner::after {
+  content: "";
+  position: absolute; inset: -6px;
+  border: 3px solid rgba(200,240,230,.7);
+  border-radius: 50%;
+  animation: splash 400ms ease-out forwards;
+  pointer-events: none;
+}
+@keyframes splash {
+  from { transform: scale(.8); opacity: 1; }
+  to   { transform: scale(1.4); opacity: 0; }
+}
+
+@media screen and (max-width: 520px) {
+  .critter { font-size: 26px; }
+  .critter-name { font-size: 8px; margin-top: 2px; }
+  .critter-value { font-size: 8px; top: 3px; right: 5px; }
+}

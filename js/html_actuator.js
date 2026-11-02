@@ -62,7 +62,10 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+  var critter = HTMLActuator.creatures[tile.value] || ["🐊", "Legend"];
+  inner.innerHTML = '<span class="critter">' + critter[0] + '</span>' +
+                    '<span class="critter-name">' + critter[1] + '</span>' +
+                    '<span class="critter-value">' + tile.value + '</span>';
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
@@ -88,6 +91,21 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   // Put the tile on the board
   this.tileContainer.appendChild(wrapper);
+};
+
+// Swamp food chain: each merge climbs one trophic level
+HTMLActuator.creatures = {
+  2:    ["🦠", "Algae"],
+  4:    ["🌿", "Duckweed"],
+  8:    ["🐛", "Larva"],
+  16:   ["🪰", "Dragonfly"],
+  32:   ["🦞", "Crayfish"],
+  64:   ["🐸", "Bullfrog"],
+  128:  ["🐟", "Gar"],
+  256:  ["🐍", "Moccasin"],
+  512:  ["🐢", "Snapper"],
+  1024: ["🦩", "Heron"],
+  2048: ["🐊", "Alligator"]
 };
 
 HTMLActuator.prototype.applyClasses = function (element, classes) {

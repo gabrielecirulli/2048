@@ -25,7 +25,7 @@ var BEATLES_ALBUMS = {
   },
   128: {
     title: "Revolver",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/M%26Prevolver.jpg/330px-M%26Prevolver.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/en/e/ec/Revolver_%28album_cover%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
   },
   256: {
     title: "Sgt. Pepper's Lonely Hearts Club Band",

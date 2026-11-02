@@ -1,0 +1,269 @@
+/* Blush 2048 - Pink Coquette Theme */
+
+:root {
+  --rose: #a64e70;
+  --rose-dark: #813c5b;
+  --ink: #6b3c51;
+  --cream: #fff8f6;
+  --blush: #f8dce5;
+}
+
+/* Background */
+
+html,
+body {
+  background: #fff4f6;
+  color: var(--ink);
+}
+
+body {
+  margin: 50px 0;
+  background-image:
+    radial-gradient(circle at 15% 10%, #ffe1eb 0, transparent 35%),
+    radial-gradient(circle at 90% 80%, #ffe8ef 0, transparent 32%);
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+}
+
+.container:before {
+  content: '♡  a little game for you  ♡';
+  display: block;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b7738d;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* Title */
+
+h1.title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 57px;
+  font-weight: normal;
+  letter-spacing: -2px;
+  color: var(--rose-dark);
+  line-height: 1.25;
+}
+
+h1.title span:not(.title-bow) {
+  font-weight: bold;
+  color: #d76d99;
+}
+
+.title-bow {
+  font-size: 28px;
+  vertical-align: top;
+  margin-left: 4px;
+  letter-spacing: 0;
+}
+
+/* Score Counters */
+
+.score-container,
+.best-container {
+  background: #f3cad8;
+  color: var(--rose-dark);
+  border: 2px solid #fff;
+  border-radius: 14px;
+  box-shadow: 0 5px 16px #b96a8a20;
+}
+
+.score-container:after,
+.best-container:after {
+  color: #96516c;
+}
+
+/* Instructions */
+
+.game-intro {
+  color: #85536b;
+}
+
+a {
+  color: var(--rose);
+}
+
+/* Buttons */
+
+.restart-button,
+.retry-button,
+.keep-playing-button {
+  background: #c66b91 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 0 #9f4b6c;
+  color: #fff !important;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.restart-button:hover,
+.retry-button:hover,
+.keep-playing-button:hover {
+  background: #b4557d !important;
+  transform: translateY(-2px);
+}
+
+/* Game Board */
+
+.game-container {
+  background: #e8b7c9;
+  border: 8px solid #f4d6e1;
+  box-sizing: border-box;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px #b965852b;
+}
+
+.grid-cell {
+  background: #f9e4eb;
+  border-radius: 10px;
+}
+
+/* Tiles */
+
+.tile .tile-inner {
+  border-radius: 10px;
+  color: #79475e;
+  font-weight: 700;
+  text-shadow: none !important;
+  box-shadow: inset 0 -3px 0 #a85a7a12;
+}
+
+.tile.tile-2 .tile-inner {
+  background: #fff7f5;
+}
+
+.tile.tile-4 .tile-inner {
+  background: #ffe6ee;
+}
+
+.tile.tile-8 .tile-inner {
+  background: #fbc9d9;
+}
+
+.tile.tile-16 .tile-inner {
+  background: #f5a9c4;
+}
+
+.tile.tile-32 .tile-inner {
+  background: #ec8fb3;
+  color: #fff;
+}
+
+.tile.tile-64 .tile-inner {
+  background: #de6d9c;
+  color: #fff;
+}
+
+.tile.tile-128 .tile-inner {
+  background: #d45c8e;
+  color: #fff;
+}
+
+.tile.tile-256 .tile-inner {
+  background: #c34880;
+  color: #fff;
+}
+
+.tile.tile-512 .tile-inner {
+  background: #ac3972;
+  color: #fff;
+}
+
+.tile.tile-1024 .tile-inner {
+  background: #922e65;
+  color: #fff;
+}
+
+.tile.tile-2048 .tile-inner {
+  background: #792457;
+  color: #fff;
+  box-shadow: 0 0 22px #d465a8;
+}
+
+.tile.tile-super .tile-inner {
+  background: #62204d;
+  color: #fff;
+}
+
+/* Game Messages */
+
+.game-message.game-won {
+  background: #fbd5e7db;
+}
+
+.game-message.game-over {
+  background: #fff1f1df;
+}
+
+.game-message p {
+  color: var(--rose-dark);
+}
+
+/* How to Play */
+
+.game-explanation {
+  background: #fff9fb;
+  border: 1px solid #f2d8e2;
+  border-radius: 14px;
+  padding: 17px 19px;
+  line-height: 1.65;
+}
+
+.important {
+  color: var(--rose-dark);
+}
+
+/* Footer */
+
+.credits {
+  font-size: 13px;
+  color: #a27c8d;
+  line-height: 1.6;
+}
+
+hr {
+  border-color: #f0d6e1;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 520px) {
+  body {
+    margin: 22px 0;
+  }
+
+  .container:before {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+
+  h1.title {
+    font-size: 35px;
+    letter-spacing: -1px;
+  }
+
+  .title-bow {
+    font-size: 18px;
+  }
+
+  .game-container {
+    border-width: 4px;
+    border-radius: 10px;
+  }
+
+  .grid-cell,
+  .tile .tile-inner {
+    border-radius: 5px;
+  }
+
+  .game-explanation {
+    padding: 12px;
+  }
+}

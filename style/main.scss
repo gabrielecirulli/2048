@@ -379,7 +379,7 @@ hr {
       }
 
       // Set background
-      background: $mixed-background;
+      background-color: $mixed-background;
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
@@ -412,7 +412,7 @@ hr {
   // Super tiles (above 2048)
   &.tile-super .tile-inner {
     color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
+    background-color: mix(#333, $tile-gold-color, 95%);
 
     font-size: 30px;
 

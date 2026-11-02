@@ -1,6 +1,13 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
+@font-face {
+  font-family: "BOOTLE";
+  src: url("fonts/Bootle.ttf?v=1") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 $field-width: 500px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
@@ -32,8 +39,9 @@ html, body {
 }
 
 body {
-  margin: 80px 0;
-  background-image: linear-gradient(rgba(250, 248, 239, .82), rgba(250, 248, 239, .82)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Beatles_Abbey_Road_album_cover.jpg/330px-The_Beatles_Abbey_Road_album_cover.jpg");
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(rgba(250, 248, 239, .19), rgba(250, 248, 239, .19)), url("https://i.imgur.com/4v8Xrvo.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -45,9 +53,9 @@ body {
 }
 
 h1.title {
-  font-family: "Bowlby One SC", "Clear Sans", sans-serif;
+  font-family: "BOOTLE", "Clear Sans", sans-serif;
   font-size: 52px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0;
   display: block;
   float: left;
@@ -510,7 +518,7 @@ hr {
   }
 
   body {
-    margin: 20px 0;
+    margin: 0;
     padding: 0 20px;
   }
 

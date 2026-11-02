@@ -1,15 +1,20 @@
 @import url(fonts/clear-sans.css);
+@font-face {
+  font-family: "BOOTLE";
+  src: url("fonts/Bootle.ttf?v=1") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 html, body {
   margin: 0;
   padding: 0;
-  background: #faf8ef;
+  background: 0;
   color: #f9f9f9;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
 body {
-  margin: 80px 0;
-  background-image: linear-gradient(rgba(250, 248, 239, 0.282), rgba(250, 248, 239, 0.101)), url("https://i.imgur.com/4v8Xrvo.jpeg");
+  margin: 60px 0;
+  background-image: linear-gradient(rgba(250, 248, 239, 0.19), rgba(250, 248, 239, 0.19)), url("https://i.imgur.com/4v8Xrvo.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,9 +26,9 @@ body {
   clear: both; }
 
 h1.title {
-  font-family: "Bowlby One SC", "Clear Sans", sans-serif;
+  font-family: "BOOTLE", "Clear Sans", sans-serif;
   font-size: 52px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0;
   display: block;
   float: left;
@@ -561,7 +566,7 @@ hr {
     font-size: 15px; }
 
   body {
-    margin: 20px 0;
+    margin: 0;
     padding: 0 20px; }
 
   h1.title {
